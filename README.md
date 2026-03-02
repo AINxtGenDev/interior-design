@@ -1,10 +1,30 @@
-# 🏠 Interior Design Floor Plan Converter
+# 🏠 Mag. Claudia PLESSL — Interior Design
 
-> 🎨 Automated conversion of customer floor plans into production-ready **DXF files** for [pCon.planner](https://pcon-planner.com/) 8.13
+> 🌿 Individuelle Raumgestaltung mit Stil und Persönlichkeit
 
 ---
 
-## ✨ What This Does
+## 🌐 Website
+
+The business website is live on GitHub Pages:
+
+🔗 **[ainxtgendev.github.io/interior-design](https://ainxtgendev.github.io/interior-design/)**
+
+Built with **Next.js**, **Tailwind CSS**, and the Salbeigruen & Anthrazitgrau brand palette. Self-hosted Google Fonts for DSGVO compliance. Deployed automatically via GitHub Actions on every push to `main`.
+
+| Detail | Value |
+|---|---|
+| 🛠️ Stack | Next.js 16 · Tailwind CSS 4 · TypeScript |
+| 🎨 Colors | Sage green (`#7a9468`) · Anthracite gray (`#333338`) |
+| ✍️ Fonts | Playfair Display · Inter · Montserrat |
+| 📂 Source | [`website/`](website/) |
+| 🚀 Deploy | GitHub Actions → GitHub Pages (static export) |
+
+---
+
+## 🏠 Floor Plan Converter
+
+> 🎨 Automated conversion of customer floor plans into production-ready **DXF files** for [pCon.planner](https://pcon-planner.com/) 8.13
 
 Interior designers receive rough floor plans from customers — often just a 📸 **photo** of a sketch or a 📄 **PDF** from an architect. This toolset transforms them into CAD-quality floor plans:
 
@@ -20,6 +40,10 @@ The result? A floor plan ready for 🪑 furniture placement, 🏗️ room planni
 
 ```
 📦 interior-design/
+├── 🌐 website/                  → Next.js website (deployed to GitHub Pages)
+│   ├── src/app/page.tsx         → Landing page
+│   ├── src/app/layout.tsx       → Root layout with fonts + metadata
+│   └── src/app/globals.css      → Tailwind theme + base styles
 ├── 📘 SKILL.md                  → AI skill definition (workflow + templates + best practices)
 ├── 🐍 generate_pietzinger.py    → Python script for the Pietzinger floor plan
 ├── 📐 plan-pietzinger.dxf       → ✅ Generated DXF (ready for pCon.planner!)
