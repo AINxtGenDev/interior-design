@@ -97,6 +97,7 @@ body {
 .delay-2 { animation-delay: 0.3s; }
 .delay-3 { animation-delay: 0.45s; }
 .delay-4 { animation-delay: 0.6s; }
+.delay-5 { animation-delay: 0.75s; }
 
 /* ─── Decorative Corner Frame ─── */
 .corner-frame {
