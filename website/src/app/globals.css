@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* ─── Sage Green ─── */
+  --color-sage-50: #f6f7f4;
+  --color-sage-100: #e8ebe3;
+  --color-sage-200: #d1d8c7;
+  --color-sage-300: #b3bfa3;
+  --color-sage-400: #8fa37a;
+  --color-sage-500: #7a9468;
+  --color-sage-600: #637a53;
+  --color-sage-700: #4d6040;
+  --color-sage-800: #3a4a30;
+  --color-sage-900: #283521;
+
+  /* ─── Anthracite Gray ─── */
+  --color-anthracite-50: #f5f5f6;
+  --color-anthracite-100: #e5e5e7;
+  --color-anthracite-200: #ccccce;
+  --color-anthracite-300: #a3a3a7;
+  --color-anthracite-400: #7a7a80;
+  --color-anthracite-500: #57575e;
+  --color-anthracite-600: #434349;
+  --color-anthracite-700: #333338;
+  --color-anthracite-800: #242428;
+  --color-anthracite-900: #18181b;
+
+  /* ─── Accent & Functional ─── */
+  --color-warm-white: #faf9f7;
+  --color-warm-cream: #f5f0ea;
+  --color-gold-accent: #c9a96e;
+
+  /* ─── Fonts ─── */
+  --font-heading: var(--font-playfair), Georgia, "Times New Roman", serif;
+  --font-body: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-nav: var(--font-montserrat), "Helvetica Neue", Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background-color: var(--color-warm-white);
+  color: var(--color-anthracite-700);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
