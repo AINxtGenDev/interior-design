@@ -60,42 +60,38 @@ export default function Home() {
             Wir gestalten Räume, die Geschichten erzählen.
           </p>
 
-          {/* Photo Gallery — asymmetric editorial grid */}
-          <div className="animate-fade-in delay-3 mt-16 md:mt-20">
-            <div className="grid grid-cols-2 gap-3 md:grid-cols-12 md:gap-4">
-              {/* Large — elegant living room */}
-              <div className="col-span-2 overflow-hidden md:col-span-7 md:row-span-2">
+          {/* Photo Gallery — compact editorial grid */}
+          <div className="animate-fade-in delay-3 mt-14 max-w-2xl md:mt-16">
+            <div className="grid grid-cols-3 gap-2 md:gap-3">
+              <div className="overflow-hidden rounded-sm">
                 <img
-                  src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1200&q=80"
+                  src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=600&q=80"
                   alt="Elegantes Wohnzimmer mit neutralen Farbtönen"
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
                   loading="eager"
-                  style={{ aspectRatio: "4 / 3" }}
+                  style={{ aspectRatio: "3 / 4" }}
                 />
               </div>
-              {/* Top right — modern bedroom */}
-              <div className="overflow-hidden md:col-span-5">
+              <div className="overflow-hidden rounded-sm">
                 <img
-                  src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=800&q=80"
+                  src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=600&q=80"
                   alt="Modernes Schlafzimmer in hellen Tönen"
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
                   loading="lazy"
-                  style={{ aspectRatio: "3 / 2" }}
+                  style={{ aspectRatio: "3 / 4" }}
                 />
               </div>
-              {/* Bottom right — warm bedroom */}
-              <div className="overflow-hidden md:col-span-5">
+              <div className="overflow-hidden rounded-sm">
                 <img
-                  src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80"
+                  src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=600&q=80"
                   alt="Wohnraum mit warmer Beleuchtung"
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
                   loading="lazy"
-                  style={{ aspectRatio: "3 / 2" }}
+                  style={{ aspectRatio: "3 / 4" }}
                 />
               </div>
             </div>
-            {/* Attribution */}
-            <p className="mt-3 text-[0.6rem] text-anthracite-300">
+            <p className="mt-2 text-[0.6rem] text-anthracite-300">
               Fotos via{" "}
               <a
                 href="https://unsplash.com"
