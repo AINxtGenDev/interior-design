@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <>
@@ -130,21 +132,21 @@ export default function Home() {
             &copy; 2026 Mag. Claudia Plessl
           </p>
           <nav className="mt-2 flex items-center justify-center gap-4 text-xs text-anthracite-400">
-            <a
+            <Link
               href="/impressum"
               className="transition-colors hover:text-sage-600"
             >
               Impressum
-            </a>
+            </Link>
             <span aria-hidden="true" className="text-anthracite-200">
               |
             </span>
-            <a
+            <Link
               href="/datenschutz"
               className="transition-colors hover:text-sage-600"
             >
               Datenschutz
-            </a>
+            </Link>
           </nav>
         </footer>
       </div>
