@@ -2,41 +2,68 @@
 
 ## Date: 2026-03-02
 
-## Task Completed
-Created comprehensive `SKILL.md` for pCon.planner floor plan conversion.
+## Latest Task Completed
+Generated `plan-pietzinger.dxf` from `plan-pietzinger.jpg` using the SKILL.md workflow.
 
-## What Was Done
+## Session History
+
+### Task 1: SKILL.md Creation (completed)
 1. Researched pCon.planner 8.13 documentation (help center, FAQ, features PDF, supported formats)
 2. Researched ezdxf Python library for DXF file generation (units, layers, hatches, dimensions, polylines)
-3. Analyzed customer plans: `plan-koeck.pdf` (1 page, image-based PDF) and `plan-pietzinger.jpg` (floor plan with dimensions in cm)
+3. Analyzed customer plans: `plan-koeck.pdf` (1 page, image-based PDF) and `plan-pietzinger.jpg` (floor plan photo with dimensions in cm)
 4. Identified pCon.planner version: 8.13 Update 1 (from `a.png` screenshot)
-5. Created `SKILL.md` containing:
-   - Complete workflow for analyzing customer floor plans and extracting dimensions
-   - Full Python script template using ezdxf (DXF R2010, millimeters)
-   - pCon.planner-optimized layer structure (AIA-based naming convention)
-   - Helper functions: walls, doors, windows, kitchen fixtures, bathroom fixtures, room labels, dimensions, scale reference bar
-   - pCon.planner import settings and verification checklist
-   - Measurement extraction rules for German/Austrian architectural plans
-   - Symbol recognition guide
-   - Best practices and common pitfalls
-   - Reference links to all documentation sources
+5. Created comprehensive `SKILL.md` with full workflow, Python template, layer structure, helpers, and best practices
+6. Committed and pushed to GitHub: https://github.com/AINxtGenDev/interior-design
+
+### Task 2: Pietzinger Floor Plan DXF Generation (completed)
+1. Analyzed `plan-pietzinger.jpg` — extracted all dimensions (in cm, converted to mm)
+2. Created `generate_pietzinger.py` — full Python script using ezdxf
+3. Generated `plan-pietzinger.dxf` — verified valid DXF R2010, 82.1 KB
+
+**Extracted dimensions from plan-pietzinger.jpg:**
+- Main room (Wohnkuche): 710 x 454 cm interior (32.2 m²)
+- South wall segments: 384 + 64 + 262 = 710 cm (verified)
+- West wall: 196 + 120 (window) + 188 = 504 cm exterior
+- North wall: 100 + 120 (window) + 100 + 60 + 300 (3-pane window) + 30 = 710 cm
+- Bathroom/WC: 86 x 227 cm interior (2.0 m²), door 90 cm
+- Cooktop: 64 cm wide, positioned 384 cm from left wall
+- Corridor below: 389 cm wide, 44 cm offset
+- Exterior wall thickness: 25 cm, interior walls: 15 cm
+
+**DXF file contents (verified):**
+- 88 entities across 15 layers
+- INSUNITS=4 (mm), MEASUREMENT=1 (metric)
+- 19 dimension entities with ARCHTICK style displaying cm
+- 14 wall hatches (solid fill)
+- Proper layer separation: A-WALL, A-DOOR, A-WIND, A-FIXT-KITCH, A-FIXT-BATH, A-ROOM, A-DIMS, etc.
+- Scale reference bar (1000mm = 1m) for verification
 
 ## Files in Project
 - `SKILL.md` — Main skill file (pCon.planner floor plan conversion)
+- `generate_pietzinger.py` — Python script that generated the DXF
+- `plan-pietzinger.dxf` — **OUTPUT: ready for pCon.planner import**
 - `plan-koeck.pdf` — Customer plan (Koeck), 1-page image-based PDF (591x829 points)
-- `plan-pietzinger.jpg` — Customer plan (Pietzinger), floor plan photo with dimensions
+- `plan-pietzinger.jpg` — Customer plan (Pietzinger), source floor plan photo
 - `a.png` — pCon.planner version screenshot (8.13 Update 1)
 - `SKILL.md_web` — Previous web design skill (unrelated)
 - `SESSION_CHECKPOINT.md` — This file
 
 ## Key Technical Decisions
-- **DXF R2010** format (not DWG) — ezdxf cannot write proprietary DWG, but pCon.planner imports DXF natively
-- **Millimeters** as base unit ($INSUNITS=4) — matches pCon.planner's preferred metric setup
-- **LWPOLYLINE** for all walls — lightweight, compatible, supports closed shapes
-- **ARCHTICK** dimension style — architectural standard ticks instead of arrows
-- **Dimension display in cm** (dimlfac=0.1) — converts mm values to cm display text
+- **DXF R2010** format (AC1024) — best compatibility with pCon.planner 8.x
+- **Millimeters** as base unit ($INSUNITS=4) — matches pCon.planner's metric setup
+- **LWPOLYLINE** for all walls — lightweight, closed shapes, supports pCon.planner room detection
+- **ARCHTICK** dimension style — architectural standard ticks, dimlfac=0.1 (mm→cm display)
+- **Axis-aligned wall rectangles** — used draw_wall_rect() for cleaner geometry vs angled walls
+- **Separate interior wall layers** — A-WALL-INTR for bathroom partitions vs A-WALL for exterior
+
+## pCon.planner Import Instructions
+1. File > Import > Geometry
+2. Select: plan-pietzinger.dxf
+3. Insert Unit: **Millimeter**
+4. Default Scaling Unit: **Millimeter**
+5. Verify with Measure tool: scale bar = 1000mm, room width = 710cm
 
 ## Next Steps
-- Use the SKILL.md to process `plan-pietzinger.jpg` and `plan-koeck.pdf` into actual DXF files
-- Install ezdxf: `pip install ezdxf`
-- Generate floor plans and verify in pCon.planner
+- Process `plan-koeck.pdf` into DXF (requires dimension extraction from the PDF image)
+- Commit and push the new files to GitHub
+- User should test the DXF import in pCon.planner and provide feedback on accuracy
