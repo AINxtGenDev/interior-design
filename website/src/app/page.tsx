@@ -2,136 +2,120 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <>
-      {/* ─── Under Construction Watermark ─── */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none fixed inset-0 z-0 flex items-center justify-center overflow-hidden"
-      >
-        <span
-          className="select-none whitespace-nowrap font-heading font-bold uppercase text-sage-800"
-          style={{
-            fontSize: "clamp(4rem, 10vw, 10rem)",
-            opacity: 0.04,
-            transform: "rotate(-12deg)",
-            letterSpacing: "0.05em",
-          }}
-        >
-          UNDER CONSTRUCTION!
-        </span>
-      </div>
+    <div className="relative flex min-h-screen flex-col">
+      {/* Gold accent top line */}
+      <div className="h-px bg-gold-accent" aria-hidden="true" />
 
-      {/* ─── Page Content ─── */}
-      <div className="relative z-10 flex min-h-screen flex-col">
-        {/* Gold accent top line */}
-        <div className="h-1 bg-gold-accent" aria-hidden="true" />
+      {/* Navigation */}
+      <header className="animate-fade-in border-b border-sage-200/60 px-6 py-5 md:px-12">
+        <div className="mx-auto flex max-w-5xl items-center justify-between">
+          <p className="font-heading text-xl font-bold text-sage-800">CP</p>
+          <p className="font-nav text-[0.65rem] font-semibold uppercase tracking-[0.25em] text-sage-600">
+            Interior Design
+          </p>
+        </div>
+      </header>
 
-        {/* Top Bar */}
-        <header className="border-b border-sage-200 px-6 py-5 md:px-12">
-          <div className="mx-auto flex max-w-4xl items-center justify-between">
-            <p className="font-nav text-xs font-semibold uppercase tracking-[0.2em] text-sage-700">
-              Claudia Plessl
-            </p>
-            <p className="font-nav text-xs font-semibold uppercase tracking-[0.2em] text-sage-700">
-              Interior Design
-            </p>
-          </div>
-        </header>
+      {/* Hero */}
+      <main className="flex flex-1 flex-col justify-center px-6 py-16 md:px-12 md:py-24">
+        <div className="mx-auto w-full max-w-5xl">
+          {/* Decorative line */}
+          <div
+            className="animate-reveal-line mb-10 h-px w-12 bg-sage-300"
+            aria-hidden="true"
+          />
 
-        {/* Hero */}
-        <main className="flex flex-1 items-center justify-center px-4 py-12 md:px-12">
-          <section className="animate-fade-in-up mx-auto w-full max-w-lg rounded border border-sage-300 bg-sage-100 px-8 py-14 text-center md:px-14 md:py-20">
-            {/* Decorative line above name */}
-            <div
-              className="mx-auto mb-8 h-px w-10 bg-sage-300"
-              aria-hidden="true"
-            />
-
+          {/* Name — oversized editorial heading */}
+          <div className="animate-fade-in-up">
             <h1
               className="font-heading font-bold tracking-tight text-anthracite-800"
               style={{
-                fontSize: "clamp(1.875rem, 1.4rem + 2.3vw, 2.75rem)",
-                lineHeight: "1.2",
+                fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
+                lineHeight: "1.1",
               }}
             >
-              Mag. Claudia PLESSL
+              Mag. Claudia
+              <br />
+              <span className="text-sage-700">PLESSL</span>
             </h1>
+          </div>
 
-            {/* Gold accent divider */}
-            <div
-              className="mx-auto mt-5 h-px w-15 bg-gold-accent"
-              aria-hidden="true"
-            />
+          {/* Gold accent */}
+          <div
+            className="animate-reveal-line delay-1 mt-6 h-0.5 w-16 bg-gold-accent"
+            aria-hidden="true"
+          />
 
-            <p
-              className="mt-5 font-nav font-medium uppercase tracking-[0.2em] text-sage-600"
-              style={{
-                fontSize: "clamp(0.8rem, 0.75rem + 0.25vw, 0.875rem)",
-              }}
-            >
-              Interior Design
-            </p>
+          {/* Subtitle */}
+          <p
+            className="animate-fade-in-up delay-1 mt-6 font-nav text-xs font-semibold uppercase tracking-[0.25em] text-sage-600"
+          >
+            Interior Design
+          </p>
 
-            {/* Contact Details */}
-            <div className="mx-auto mt-12 max-w-xs text-sm text-anthracite-600">
-              <dl className="space-y-3">
-                <div className="flex justify-between gap-4">
-                  <dt className="font-nav text-xs uppercase tracking-wider text-sage-600">
-                    Adresse
-                  </dt>
-                  <dd className="text-right">
-                    <address className="not-italic leading-relaxed">
-                      Ährengasse 6<br />
-                      3424 Wolfpassing
-                    </address>
-                  </dd>
-                </div>
+          {/* Tagline */}
+          <p
+            className="animate-fade-in-up delay-2 mt-4 max-w-md font-heading text-lg italic text-sage-500 md:text-xl"
+          >
+            Wir gestalten Räume, die Geschichten erzählen.
+          </p>
 
-                <div className="flex justify-between gap-4">
-                  <dt className="font-nav text-xs uppercase tracking-wider text-sage-600">
-                    E-Mail
-                  </dt>
-                  <dd className="text-right">
+          {/* Contact Section */}
+          <div className="animate-fade-in-up delay-3 mt-16 md:mt-20">
+            <div className="corner-frame inline-block px-6 py-6 md:px-10 md:py-8">
+              <div className="flex flex-col gap-6 text-sm text-anthracite-600 md:flex-row md:gap-0">
+                {/* Address */}
+                <address className="not-italic leading-relaxed md:pr-8">
+                  <p>Ährengasse 6</p>
+                  <p>3424 Wolfpassing</p>
+                  <p>Österreich</p>
+                </address>
+
+                {/* Vertical divider (desktop) */}
+                <div
+                  className="hidden h-auto w-px bg-sage-200 md:block"
+                  aria-hidden="true"
+                />
+
+                {/* Digital contact */}
+                <div className="leading-relaxed md:pl-8">
+                  <p>
                     <a
                       href="mailto:claudia.plessl@gmail.com"
                       className="underline decoration-sage-300 underline-offset-4 transition-colors hover:text-anthracite-800 hover:decoration-sage-500"
                     >
                       claudia.plessl@gmail.com
                     </a>
-                  </dd>
-                </div>
-
-                <div className="flex justify-between gap-4">
-                  <dt className="font-nav text-xs uppercase tracking-wider text-sage-600">
-                    Telefon
-                  </dt>
-                  <dd className="text-right">
+                  </p>
+                  <p className="mt-1">
                     <a
                       href="tel:+436641517650"
                       className="underline decoration-sage-300 underline-offset-4 transition-colors hover:text-anthracite-800 hover:decoration-sage-500"
                     >
                       +43 664 15 17 650
                     </a>
-                  </dd>
+                  </p>
                 </div>
-              </dl>
+              </div>
             </div>
+          </div>
 
-            {/* Coming Soon Badge */}
-            <div className="mt-12">
-              <span className="inline-block rounded-full bg-sage-500 px-5 py-1.5 font-nav text-xs font-semibold uppercase tracking-widest text-white">
-                Coming Soon
-              </span>
-            </div>
-          </section>
-        </main>
+          {/* Coming Soon Badge */}
+          <div className="animate-fade-in-up delay-4 mt-12">
+            <span className="inline-block rounded-full border border-sage-400 px-5 py-1.5 font-nav text-[0.65rem] font-semibold uppercase tracking-widest text-sage-500">
+              Coming Soon
+            </span>
+          </div>
+        </div>
+      </main>
 
-        {/* Footer */}
-        <footer className="border-t border-sage-200 px-6 py-5 md:px-12">
-          <p className="text-center text-xs text-anthracite-400">
+      {/* Footer */}
+      <footer className="border-t border-sage-200/60 px-6 py-5 md:px-12">
+        <div className="mx-auto flex max-w-5xl flex-col items-center gap-2 md:flex-row md:justify-between">
+          <p className="text-xs text-anthracite-400">
             &copy; 2026 Mag. Claudia Plessl
           </p>
-          <nav className="mt-2 flex items-center justify-center gap-4 text-xs text-anthracite-400">
+          <nav className="flex items-center gap-4 text-xs text-anthracite-400">
             <Link
               href="/impressum"
               className="transition-colors hover:text-sage-600"
@@ -148,8 +132,8 @@ export default function Home() {
               Datenschutz
             </Link>
           </nav>
-        </footer>
-      </div>
-    </>
+        </div>
+      </footer>
+    </div>
   );
 }

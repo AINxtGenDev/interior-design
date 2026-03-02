@@ -40,26 +40,16 @@ html {
   scroll-behavior: smooth;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  .animate-fade-in-up {
-    animation: none !important;
-    opacity: 1 !important;
-  }
-}
-
 body {
-  background-color: var(--color-sage-50);
+  background: radial-gradient(ellipse at 50% 40%, var(--color-warm-cream) 0%, var(--color-sage-50) 70%);
   color: var(--color-anthracite-700);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
 }
 
-/* ─── Entrance Animation ─── */
+/* ─── Entrance Animations ─── */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -71,6 +61,83 @@ body {
   }
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes revealLine {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
 .animate-fade-in-up {
   animation: fadeInUp 0.8s ease-out both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out both;
+}
+
+.animate-reveal-line {
+  animation: revealLine 0.8s ease-out both;
+  transform-origin: left;
+}
+
+/* ─── Staggered Delays ─── */
+.delay-1 { animation-delay: 0.15s; }
+.delay-2 { animation-delay: 0.3s; }
+.delay-3 { animation-delay: 0.45s; }
+.delay-4 { animation-delay: 0.6s; }
+
+/* ─── Decorative Corner Frame ─── */
+.corner-frame {
+  position: relative;
+}
+
+.corner-frame::before,
+.corner-frame::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: var(--color-sage-300);
+  pointer-events: none;
+}
+
+.corner-frame::before {
+  top: -8px;
+  left: -8px;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+
+.corner-frame::after {
+  bottom: -8px;
+  right: -8px;
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+}
+
+/* ─── Reduced Motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-fade-in-up,
+  .animate-fade-in,
+  .animate-reveal-line {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
