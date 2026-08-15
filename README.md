@@ -1,0 +1,148 @@
+# Mag. Claudia Plessl — Interior Design & Ordnungscoaching
+
+Business website for **Mag. Claudia Plessl**, Interior Designerin and certified
+Ordnungscoach in Vienna and Lower Austria.
+
+🔗 **Live:** [ainxtgendev.github.io/interior-design](https://ainxtgendev.github.io/interior-design/)
+
+German is the primary language and lives at the site root; English is served
+from `/en/`.
+
+---
+
+## Stack
+
+| Detail | Value |
+|---|---|
+| Framework | Next.js 16 (App Router, `output: "export"`) |
+| Styling | Tailwind CSS 4 |
+| Language | TypeScript |
+| Fonts | Cormorant Garamond · Inter · Jost — self-hosted at build time via `next/font` |
+| Colours | Sage `#7a9468` · Anthracite `#333338` · Warm cream `#f3efe8` · Gold `#c9a96e` |
+| Hosting | GitHub Pages, deployed by GitHub Actions on every push to `main` |
+
+The palette and type are derived from the brand cover image; the hero and
+detail photography are crops of that same asset, so the site ships no
+third-party imagery.
+
+---
+
+## Structure
+
+```
+.
+├── .github/workflows/deploy.yml   → build + deploy to GitHub Pages
+├── handout/
+│   └── claudia-plessl-uebersicht.html   → offline one-pager for phone/tablet
+└── website/
+    ├── src/
+    │   ├── app/
+    │   │   ├── (de)/              → German root layout, lang="de-AT"
+    │   │   │   ├── page.tsx       → /
+    │   │   │   ├── impressum/     → /impressum/
+    │   │   │   ├── datenschutz/   → /datenschutz/
+    │   │   │   └── agb/           → /agb/
+    │   │   ├── (en)/              → English root layout, lang="en"
+    │   │   │   └── en/
+    │   │   │       ├── page.tsx   → /en/
+    │   │   │       └── legal/     → /en/legal/
+    │   │   └── globals.css        → design tokens + base styles
+    │   ├── assets/                → images imported by the build
+    │   ├── components/            → HomePage, SiteHeader, SiteFooter, LegalShell
+    │   └── content/site.ts        → all page copy, both languages
+    └── public/og-image.jpg        → social preview
+```
+
+### Editing the copy
+
+Nearly all text lives in **`website/src/content/site.ts`** as one typed object
+covering both languages. A missing translation is a build error rather than a
+silent gap, so add German and English together. The legal pages are the
+exception — their text sits in the page components, because it is
+document-shaped rather than reusable.
+
+---
+
+## Development
+
+```bash
+cd website
+npm install
+npm run dev     # http://localhost:3000/interior-design
+npm run build   # static export into website/out
+npx eslint src  # lint
+```
+
+To preview the production build exactly as Pages serves it:
+
+```bash
+cd website && npm run build
+mkdir -p /tmp/preview && cp -r out /tmp/preview/interior-design
+cd /tmp/preview && python3 -m http.server 8787
+# → http://localhost:8787/interior-design/
+```
+
+---
+
+## Two decisions worth knowing before you edit
+
+**1. `@theme`, not `@theme inline`.** Tailwind's `inline` mode does not emit the
+design tokens as real `:root` custom properties — it substitutes them into
+generated utilities and tree-shakes the rest. Hand-written CSS in `globals.css`
+uses `var(--font-heading)` and friends directly, so `inline` silently broke
+every heading, body and label font back to the browser default sans. Keep
+`@theme`.
+
+**2. Font variables live on `<html>`, not `<body>`.** `--font-cormorant` and the
+other `next/font` variables must exist at `:root` for the `@theme` tokens that
+reference them to resolve.
+
+**3. Images are statically imported, never referenced by string.** A plain
+`src="/hero.webp"` resolves to the domain root and 404s under the
+`/interior-design` base path. Import from `src/assets/` so Next rewrites the URL.
+
+---
+
+## Custom domain
+
+`next.config.ts` reads `BASE_PATH` (default `/interior-design`). When a custom
+domain is pointed at Pages:
+
+1. Set `BASE_PATH: ""` in `.github/workflows/deploy.yml`.
+2. Add the domain in the repository's Pages settings (creates a `CNAME`).
+3. Update `SITE_URL` in both `src/app/(de)/layout.tsx` and `src/app/(en)/layout.tsx`.
+
+---
+
+## Before this goes in front of customers
+
+The legal pages are drafted against Austrian law but contain placeholders,
+shown on the page as highlighted `[…]` markers. **They must be filled in and the
+AGB reviewed by the WKO or a lawyer before the site is promoted.**
+
+| Item | Where |
+|---|---|
+| GISA number, exact Gewerbewortlaut, UID / Kleinunternehmer status | `/impressum/` |
+| Competent trade authority (BH Tulln assumed, unconfirmed) | `/impressum/` |
+| WKO Fachgruppe | `/impressum/` |
+| Third-country transfer basis for GitHub hosting | `/datenschutz/` |
+| Cancellation windows and fees, deposit threshold, workshop minimum | `/agb/` |
+| VAT status statement | `/agb/` |
+
+Notes:
+
+- The **EU ODR platform was shut down on 20 July 2025** (Regulation (EU)
+  2024/3228). The AGB deliberately does *not* carry the link that most
+  boilerplate templates still include, and points at Austrian ADR bodies instead.
+- The Austrian **Kleinunternehmergrenze is EUR 55,000 gross** as of 2025. The
+  business plan projects EUR 52,000, which leaves little headroom — worth
+  watching, since crossing it changes the invoicing and the AGB wording.
+- Claudia's academic degree is not on the site; only the certification and
+  ongoing training are listed. Add it in `site.ts` under `about.credentials`.
+
+---
+
+## Copyright
+
+© 2026 Mag. Claudia Plessl. All rights reserved. The site content, imagery and
+brand are not licensed for reuse.

@@ -1,0 +1,370 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f6f4f0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14170f" media="(prefers-color-scheme: dark)">
+<title>Claudia Plessl — Leistungen & Preise</title>
+
+<style>
+  :root {
+    --bg: #faf9f7;
+    --surface: #f3efe8;
+    --surface-2: #eef1e9;
+    --ink: #2b2b30;
+    --ink-soft: #52525a;
+    --ink-faint: #77777f;
+    --sage: #4d6040;
+    --sage-mid: #637a53;
+    --sage-soft: #b3bfa3;
+    --gold: #b7924f;
+    --line: #d9ddd1;
+    --shadow: 0 1px 2px rgba(40, 53, 33, 0.05), 0 6px 20px rgba(40, 53, 33, 0.05);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #14170f;
+      --surface: #1d2117;
+      --surface-2: #222719;
+      --ink: #e8ece1;
+      --ink-soft: #b9c0ad;
+      --ink-faint: #8d9483;
+      --sage: #b3bfa3;
+      --sage-mid: #9aab88;
+      --sage-soft: #4d6040;
+      --gold: #d4b675;
+      --line: #2f3626;
+      --shadow: none;
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 1rem;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100dvh;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      "Helvetica Neue", Arial, sans-serif;
+    font-size: clamp(1.0625rem, 1rem + 0.4vw, 1.1875rem);
+    line-height: 1.65;
+    overflow-wrap: break-word;
+    padding:
+      max(1.25rem, env(safe-area-inset-top))
+      max(1.25rem, env(safe-area-inset-right))
+      max(2.5rem, env(safe-area-inset-bottom))
+      max(1.25rem, env(safe-area-inset-left));
+  }
+
+  .wrap { max-width: 40rem; margin-inline: auto; }
+
+  h1, h2, h3 {
+    font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+    font-weight: 400;
+    line-height: 1.2;
+    text-wrap: balance;
+    margin: 0;
+  }
+
+  h1 { font-size: clamp(2rem, 1.5rem + 2.4vw, 2.9rem); letter-spacing: -0.015em; }
+  h2 { font-size: 1.5rem; margin-top: 2.75rem; }
+  h3 { font-size: 1.125rem; }
+  p { margin: 0.75rem 0 0; text-wrap: pretty; }
+
+  .eyebrow {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--sage-mid);
+    margin: 0;
+  }
+
+  .rule {
+    height: 1px;
+    border: 0;
+    background: linear-gradient(to right, var(--gold), transparent);
+    margin: 1.25rem 0 0;
+  }
+
+  header { padding: 1rem 0 0; }
+  .lede { color: var(--ink-soft); margin-top: 1.25rem; }
+
+  /* ─── Contact buttons ─── */
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.625rem;
+    margin-top: 1.75rem;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 1.5rem;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: filter 0.15s ease;
+  }
+
+  .btn-primary { background: var(--sage); color: var(--bg); }
+  .btn-outline { border: 1px solid var(--sage-soft); color: var(--sage); }
+  .btn:active { filter: brightness(0.92); }
+
+  /* ─── Cards ─── */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 1.125rem 1.25rem;
+    margin-top: 0.75rem;
+    box-shadow: var(--shadow);
+  }
+
+  .card h3 { color: var(--ink); }
+  .card p { font-size: 0.95rem; color: var(--ink-soft); }
+
+  ul { margin: 0.75rem 0 0; padding-left: 1.1rem; }
+  li { margin-top: 0.35rem; font-size: 0.95rem; color: var(--ink-soft); }
+
+  /* ─── Price list ─── */
+  .price {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem 1rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .price:last-child { border-bottom: 0; }
+  .price-name { font-weight: 500; }
+  .price-scope { flex: 1 1 100%; font-size: 0.875rem; color: var(--ink-faint); }
+  .price-value { font-variant-numeric: tabular-nums; color: var(--sage); font-weight: 600; white-space: nowrap; }
+
+  /* ─── Contact block ─── */
+  .contact {
+    background: var(--surface-2);
+    border-radius: 10px;
+    padding: 1.25rem;
+    margin-top: 1rem;
+  }
+
+  .contact a { color: var(--sage); }
+  .contact div + div { margin-top: 0.85rem; }
+  .contact dt { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-faint); }
+  .contact dd { margin: 0.2rem 0 0; }
+
+  a { color: var(--sage); }
+  .note { font-size: 0.8rem; color: var(--ink-faint); margin-top: 1.25rem; }
+
+  footer {
+    margin-top: 3rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.8rem;
+    color: var(--ink-faint);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition-duration: 0.01ms !important; }
+  }
+</style>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Interior Design · Ordnungscoaching · Workshops</p>
+    <hr class="rule">
+    <h1 style="margin-top:1.5rem">Schöne Räume.<br>Klarer Alltag.</h1>
+    <p class="lede">
+      Erst schaffen wir Klarheit, dann gestalten wir den Raum, der dabei frei
+      wird. Persönlich, diskret und systematisch — in Wien und
+      Niederösterreich.
+    </p>
+
+    <div class="actions">
+      <a class="btn btn-primary" href="mailto:claudia.plessl@gmail.com?subject=Anfrage%20Raumcheck">Raumcheck anfragen</a>
+      <a class="btn btn-outline" href="tel:+436641517650">+43 664 15 17 650</a>
+    </div>
+  </header>
+
+  <h2>Drei Leistungen</h2>
+  <hr class="rule">
+
+  <div class="card">
+    <h3>Ordnungscoaching</h3>
+    <p>
+      Reduzieren, sortieren, strukturieren — bis ein Ordnungssystem entsteht,
+      das zu Ihrem Alltag passt und ohne mich weiterläuft.
+    </p>
+    <ul>
+      <li>Decluttering und Neuordnung einzelner Bereiche</li>
+      <li>Papier- und Dokumentenorganisation</li>
+      <li>Homeoffice- und Kleinbüro-Organisation</li>
+      <li>Umzug, Downsizing und Haushaltsverkleinerung</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Innenraumgestaltung</h3>
+    <p>
+      Beratung und Einrichtungsvorschläge nach optischen und geschmacklichen
+      Gesichtspunkten — damit aus einem aufgeräumten Raum ein Raum wird, in
+      dem Sie gerne sind.
+    </p>
+    <ul>
+      <li>Raumanalyse vor Ort, per Foto oder Grundriss</li>
+      <li>Farb- und Materialberatung</li>
+      <li>Arbeitsplatz- und Homeoffice-Gestaltung</li>
+      <li>Styling für Verkauf oder Vermietung</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Workshops &amp; Training</h3>
+    <p>
+      Praxisnahe Wissensvermittlung für Gruppen und Teams — damit Sie Räume
+      künftig selbst gestalten und Ordnung eigenständig halten können.
+    </p>
+    <ul>
+      <li>Halbtages- und Tagesworkshops</li>
+      <li>Firmenworkshops zu Büro- und Arbeitsplatzorganisation</li>
+      <li>Online-Kurse und Vorträge</li>
+    </ul>
+  </div>
+
+  <h2>Pakete &amp; Preise</h2>
+  <hr class="rule">
+  <p class="lede" style="font-size:0.95rem">
+    Einstiegspreise. Der Endpreis wird nach dem Raumcheck fix vereinbart.
+  </p>
+
+  <div class="card">
+    <div class="price">
+      <span class="price-name">Raumcheck</span>
+      <span class="price-value">ab EUR 110</span>
+      <span class="price-scope">60–90 Minuten Analyse von Ordnung und Gestaltung</span>
+    </div>
+    <div class="price">
+      <span class="price-name">Ordnungs-Startpaket</span>
+      <span class="price-value">ab EUR 220</span>
+      <span class="price-scope">Ein klar abgegrenzter Bereich, z. B. Küche oder Homeoffice</span>
+    </div>
+    <div class="price">
+      <span class="price-name">Gestaltungsberatung</span>
+      <span class="price-value">ab EUR 280</span>
+      <span class="price-scope">Farb-, Material- und Einrichtungsberatung für einen Raum</span>
+    </div>
+    <div class="price">
+      <span class="price-name">Ordnung &amp; Stil</span>
+      <span class="price-value">ab EUR 480</span>
+      <span class="price-scope">Decluttering und anschließende Gestaltung eines Raums</span>
+    </div>
+    <div class="price">
+      <span class="price-name">Intensivbegleitung</span>
+      <span class="price-value">ab EUR 690</span>
+      <span class="price-scope">Mehrere Termine inklusive Nachbetreuung</span>
+    </div>
+    <div class="price">
+      <span class="price-name">Workshop</span>
+      <span class="price-value">ab EUR 350</span>
+      <span class="price-scope">Gruppenworkshop, halber Tag</span>
+    </div>
+    <div class="price">
+      <span class="price-name">B2B-Kompakt</span>
+      <span class="price-value">ab EUR 690</span>
+      <span class="price-scope">Analyse, Bürogestaltung und Teamworkshop im Paket</span>
+    </div>
+  </div>
+
+  <p class="note">
+    Alle Preise netto. Als Kleinunternehmerin wird derzeit keine Umsatzsteuer
+    ausgewiesen. Fahrtkosten außerhalb des Kerngebiets nach Vereinbarung.
+  </p>
+
+  <h2>So arbeiten wir zusammen</h2>
+  <hr class="rule">
+
+  <div class="card">
+    <h3>01 · Raumcheck</h3>
+    <p>60 bis 90 Minuten vor Ort oder online. Ehrliche Einschätzung, welche Schritte wirklich nötig sind.</p>
+  </div>
+  <div class="card">
+    <h3>02 · Konzept &amp; Angebot</h3>
+    <p>Konkreter Vorschlag mit Umfang, Reihenfolge und Fixpreis. Kein Paket, das Sie nicht brauchen.</p>
+  </div>
+  <div class="card">
+    <h3>03 · Umsetzung</h3>
+    <p>Bereich für Bereich. Entschieden wird gemeinsam — Ihr Tempo, Ihre Kriterien.</p>
+  </div>
+  <div class="card">
+    <h3>04 · Nachbetreuung</h3>
+    <p>Ein Check-in nach einigen Wochen. Ordnung, die nach drei Monaten noch steht, ist die einzige, die zählt.</p>
+  </div>
+
+  <h2>Qualifikation</h2>
+  <hr class="rule">
+  <div class="card">
+    <h3>Zertifizierter Ordnungscoach</h3>
+    <p>
+      Akademie der Ordnung — zertifizierte Ausbildung in professioneller
+      Ordnungsbegleitung: Methodik, Kundenprozess und praktische Umsetzung.
+    </p>
+  </div>
+  <div class="card">
+    <h3>Laufende Fortbildung</h3>
+    <p>
+      Mindestens eine einschlägige Weiterbildung pro Jahr — Farb- und
+      Materiallehre, Didaktik und Ordnungsmethodik.
+    </p>
+  </div>
+
+  <h2>Kontakt</h2>
+  <hr class="rule">
+
+  <dl class="contact">
+    <div>
+      <dt>E-Mail</dt>
+      <dd><a href="mailto:claudia.plessl@gmail.com">claudia.plessl@gmail.com</a></dd>
+    </div>
+    <div>
+      <dt>Telefon</dt>
+      <dd><a href="tel:+436641517650">+43 664 15 17 650</a></dd>
+    </div>
+    <div>
+      <dt>Anschrift</dt>
+      <dd>Ährengasse 6, 3424 Wolfpassing, Österreich</dd>
+    </div>
+    <div>
+      <dt>Einsatzgebiet</dt>
+      <dd>Wien und Niederösterreich, bis rund 60 Minuten Fahrzeit</dd>
+    </div>
+    <div>
+      <dt>Website</dt>
+      <dd><a href="https://ainxtgendev.github.io/interior-design/">ainxtgendev.github.io/interior-design</a></dd>
+    </div>
+  </dl>
+
+  <footer>
+    <p style="margin:0">
+      Mag. Claudia Plessl — Interior Design &amp; Ordnungscoaching ·
+      Einzelunternehmen · Stand August 2026
+    </p>
+    <p style="margin:0.5rem 0 0">
+      Impressum, Datenschutzerklärung und AGB finden Sie auf der Website.
+    </p>
+  </footer>
+</div>

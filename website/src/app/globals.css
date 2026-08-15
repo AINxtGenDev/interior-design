@@ -1,0 +1,224 @@
+@import "tailwindcss";
+
+/*
+ * Palette and type scale derived from the brand cover image
+ * (linkedin-cover2.png): warm cream surfaces, muted sage green, oak accents,
+ * a soft gold hairline, and a high-contrast serif for display type.
+ *
+ * The brand is deliberately light-only — the identity is built on airy,
+ * daylit interiors, and a forced dark inversion misrepresents it. `color-scheme`
+ * is pinned to light so browsers do not auto-darken the page.
+ */
+
+/*
+ * `@theme` (not `@theme inline`) so every token is emitted as a real custom
+ * property on :root. The hand-written rules below use var() directly, and
+ * `inline` would tree-shake those variables away — leaving the fonts silently
+ * falling back to the browser default sans.
+ */
+@theme {
+  /* ─── Sage Green — primary brand hue ─── */
+  --color-sage-50: #f6f7f4;
+  --color-sage-100: #e8ebe3;
+  --color-sage-200: #d1d8c7;
+  --color-sage-300: #b3bfa3;
+  --color-sage-400: #8fa37a;
+  --color-sage-500: #7a9468;
+  --color-sage-600: #637a53;
+  --color-sage-700: #4d6040;
+  --color-sage-800: #3a4a30;
+  --color-sage-900: #283521;
+
+  /* ─── Anthracite — body text and UI ─── */
+  --color-anthracite-50: #f5f5f6;
+  --color-anthracite-100: #e5e5e7;
+  --color-anthracite-200: #ccccce;
+  --color-anthracite-300: #a3a3a7;
+  --color-anthracite-400: #7a7a80;
+  --color-anthracite-500: #57575e;
+  --color-anthracite-600: #434349;
+  --color-anthracite-700: #333338;
+  --color-anthracite-800: #242428;
+  --color-anthracite-900: #18181b;
+
+  /* ─── Surfaces & accents ─── */
+  --color-warm-white: #faf9f7;
+  --color-warm-cream: #f3efe8;
+  --color-warm-oak: #d9c3a5;
+  --color-gold-accent: #c9a96e;
+
+  /* ─── Fonts ─── */
+  --font-heading: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  --font-body: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-nav: var(--font-jost), "Helvetica Neue", Arial, sans-serif;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Sticky header is 4rem; keep anchor targets clear of it. */
+  scroll-padding-top: 5rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-warm-white);
+  color: var(--color-anthracite-700);
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Long words and URLs must never force the page sideways. */
+  overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* ─── Display type ─── */
+.display-xl {
+  font-size: clamp(2.75rem, 1.9rem + 4.2vw, 5.5rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+}
+
+.display-lg {
+  font-size: clamp(2rem, 1.5rem + 2.2vw, 3.25rem);
+  font-weight: 300;
+  letter-spacing: -0.015em;
+}
+
+/* Wide-tracked uppercase micro-type, as used on the brand cover. */
+.eyebrow {
+  font-family: var(--font-nav);
+  font-size: clamp(0.65rem, 0.6rem + 0.15vw, 0.75rem);
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+/* ─── Hairline rule ─── */
+.rule-gold {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    var(--color-gold-accent),
+    color-mix(in oklab, var(--color-gold-accent) 25%, transparent)
+  );
+}
+
+/* ─── Decorative corner frame ─── */
+.corner-frame {
+  position: relative;
+}
+
+.corner-frame::before,
+.corner-frame::after {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-color: var(--color-sage-300);
+  pointer-events: none;
+}
+
+.corner-frame::before {
+  top: -10px;
+  left: -10px;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+
+.corner-frame::after {
+  bottom: -10px;
+  right: -10px;
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+}
+
+/* ─── Entrance animations ─── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes revealLine {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out both;
+}
+
+.animate-reveal-line {
+  animation: revealLine 0.9s ease-out both;
+  transform-origin: left;
+}
+
+.delay-1 { animation-delay: 0.12s; }
+.delay-2 { animation-delay: 0.24s; }
+.delay-3 { animation-delay: 0.36s; }
+.delay-4 { animation-delay: 0.48s; }
+
+/* ─── Focus visibility ─── */
+:focus-visible {
+  outline: 2px solid var(--color-sage-600);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ─── Reduced motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-fade-in-up,
+  .animate-reveal-line {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ─── Print ─── */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+}
