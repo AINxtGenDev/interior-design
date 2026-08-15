@@ -1,4 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
+import logoMark from "@/assets/logo-mark.webp";
 import type { Content, Locale } from "@/content/site";
 
 const SECTION_IDS = {
@@ -40,11 +42,24 @@ export default function SiteHeader({
     <header className="no-print sticky top-0 z-50 border-b border-sage-200/70 bg-warm-white/90 backdrop-blur-md">
       <div className="rule-gold" aria-hidden="true" />
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 md:px-8">
+        {/* Brand lockup: the scanned monogram plus the wordmark as live text,
+            which stays crisp at any size and matches the printed card's
+            letter-spaced geometric sans. */}
         <Link
           href={home}
-          className="inline-flex min-h-11 items-center font-heading text-lg leading-none tracking-tight text-anthracite-800 transition-colors hover:text-sage-700"
+          aria-label="Claudia Plessl — Interior Design & Ordnungscoaching"
+          className="group inline-flex min-h-11 items-center gap-3"
         >
-          Claudia&nbsp;Plessl
+          <Image
+            src={logoMark}
+            alt=""
+            priority
+            className="h-9 w-auto md:h-10"
+            sizes="48px"
+          />
+          <span className="font-nav text-[0.8rem] leading-none font-medium tracking-[0.2em] text-anthracite-700 uppercase transition-colors group-hover:text-sage-700 sm:text-sm">
+            Claudia&nbsp;Plessl
+          </span>
         </Link>
 
         {showNav && (

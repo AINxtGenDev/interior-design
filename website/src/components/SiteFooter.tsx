@@ -1,4 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
+import logoMark from "@/assets/logo-mark.webp";
 import { CONTACT, type Content, type Locale } from "@/content/site";
 
 export default function SiteFooter({
@@ -19,10 +21,28 @@ export default function SiteFooter({
     <footer className="border-t border-sage-200/70 bg-warm-cream/50 px-5 py-10 md:px-8">
       <div className="mx-auto flex max-w-6xl flex-col gap-6 md:flex-row md:items-center md:justify-between">
         <div className="text-sm text-anthracite-500">
-          <p className="font-heading text-base text-anthracite-700">
-            {CONTACT.name}
-          </p>
-          <p className="mt-1">
+          {/* Full brand lockup, recreating the printed card: monogram,
+              wordmark, and the rule-flanked descriptor beneath it. */}
+          <div className="flex items-center gap-4">
+            <Image
+              src={logoMark}
+              alt=""
+              className="h-14 w-auto"
+              sizes="64px"
+            />
+            <div>
+              <p className="font-nav text-sm font-medium tracking-[0.2em] text-anthracite-700 uppercase">
+                Claudia Plessl
+              </p>
+              <p className="mt-1.5 flex items-center gap-2 font-nav text-[0.6rem] font-medium tracking-[0.28em] text-anthracite-400 uppercase">
+                <span aria-hidden="true" className="h-px w-4 bg-sage-300" />
+                {locale === "de" ? "Interior Design" : "Interior Design"}
+                <span aria-hidden="true" className="h-px w-4 bg-sage-300" />
+              </p>
+            </div>
+          </div>
+
+          <p className="mt-5">
             {CONTACT.street} · {CONTACT.postalCode} {CONTACT.city} ·{" "}
             {locale === "de" ? CONTACT.country : CONTACT.countryEn}
           </p>
