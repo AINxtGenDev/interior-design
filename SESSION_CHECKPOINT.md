@@ -6,9 +6,8 @@
 - Repository: `AINxtGenDev/interior-design` (public)
 - Arbeitskopie: `/home/nuc8/05_development/78_plessl-website`
 - Live: https://ainxtgendev.github.io/interior-design/
-- Status: Website vollständig neu gebaut, deployed, live getestet — alle drei
-  Deployments grün. Rechtliche Platzhalter offen.
-- Letzter Commit: `Add skip-to-content link for keyboard and screen-reader users`
+- Status: Website live und getestet; Vorstellungsvideo produziert und
+  eingebettet. Rechtliche Platzhalter und Musikrechte offen.
 
 ## Aktuelles Ziel
 
@@ -88,6 +87,38 @@ Tracking, keine Drittanbieter-Requests") nachweislich zutreffend.
 Fassung noch kurz ausgeliefert werden — mit `cache: "reload"` bzw. Hard-Reload
 gegenprüfen, bevor man einen Fehler vermutet.
 
+### Vorstellungsvideo (neu)
+
+- 58,3 s · 1080×1920 (hochkant, mobil) · deutscher Voiceover · HyperFrames,
+  Workflow `product-launch-video`, Design-Preset `cartesian` auf die Markentokens
+  remixt.
+- Arbeitsprojekt: `~/05_development/79_plessl-video/videos/claudia-plessl-promo`.
+  Plan- und Kompositionsquellen liegen in diesem Repo unter `video-source/`.
+- Eingebettet zwischen Hero und Leistungen, **selbst gehostet** —
+  `website/public/video/vorstellung.mp4` (4,2 MB, faststart, −14,5 LUFS) mit
+  Posterbild und deutscher WebVTT-Untertitelspur. Bewusst **kein** YouTube-Embed:
+  die Seite hat nachweislich null Drittanbieter-Requests, ein iframe würde das
+  zerstören und eine Änderung der Datenschutzerklärung erzwingen.
+  `preload="metadata"` — wer nicht abspielt, lädt nur ein paar KB.
+
+**Voiceover-Route (nicht frei gewählt, sondern die einzig mögliche):**
+
+| Anbieter | Deutsch? | Ergebnis |
+|---|---|---|
+| Kokoro (lokal) | nein | Sprachen: en/es/fr/hi/it/ja/pt-br/zh |
+| HeyGen starfish | nein | Katalog dieses Accounts: 20 Stimmen, 18 EN / 1 ES / 1 PL |
+| **Gemini TTS** | **ja** | `gemini-2.5-flash-preview-tts`, Stimme `Sulafat` ✓ |
+
+Erster Durchgang war zu langsam (~64 wpm, 63 s gesamt), weil der Stilprompt
+„echte Pausen" verlangte. Korrigierter Prompt: 96–158 wpm, 46,2 s Sprechzeit.
+
+**Musik:** aus `I Want It All.mp3` (Queen), auf −30 LUFS normalisiert und per
+`sidechaincompress` gegen die Stimme geduckt — gemessen 10–11 dB Absenkung
+unter Sprache. **Rechte ungeklärt.** Eine musikfreie Fassung ist bereits
+gerendert: `renders/claudia-plessl-promo-web-VO-only.mp4` im Arbeitsprojekt,
+Austausch ist ein Dateikopieren. Der Musik-Bed wird bewusst **nicht** ins
+öffentliche Repo committet.
+
 ### Geprüfte Fakten (nicht aus dem Gedächtnis)
 
 - **EU-ODR-Plattform ist seit 20.07.2025 eingestellt** (Verordnung (EU)
@@ -111,6 +142,8 @@ gegenprüfen, bevor man einen Fehler vermutet.
 | `website/src/app/globals.css` | Design-Tokens |
 | `handout/claudia-plessl-uebersicht.html` | Offline-Onepager fürs Handy |
 | `brand/logo-original-scan.pdf` | Quell-Scan des Logos |
+| `video-source/` | Storyboard, Skript, Kompositionen des Vorstellungsvideos |
+| `website/public/video/` | Fertiges Video, Poster, deutsche Untertitel |
 
 ## Offene Punkte
 
@@ -130,6 +163,8 @@ Alle diese Stellen sind auf der Seite als hervorgehobene `[…]`-Marker sichtbar
 - Original-Vektorlogo (SVG/AI/EPS) beim Designer anfragen — aktuell nur Scan.
 - Akademischer Titel/Studium fehlt bei den Qualifikationen (`site.ts`).
 - Eigene Domain und domainbasierte E-Mail-Adresse statt `@gmail.com`.
+- **Musik im Video vor breiterer Verbreitung ersetzen** (Queen-Titel, siehe oben);
+  musikfreie Fassung liegt bereit.
 - Echte Vorher-Nachher-Referenzen für einen Projekte-Abschnitt sammeln.
 
 ## Reproduzierbare Ausgabe

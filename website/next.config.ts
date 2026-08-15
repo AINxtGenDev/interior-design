@@ -12,6 +12,12 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  env: {
+    // next/image and next/link get basePath automatically; plain attribute
+    // strings (a <video src>, a <track src>) do not. Expose it so those can
+    // prefix it themselves and still follow a custom-domain switch.
+    NEXT_PUBLIC_BASE_PATH: basePath,
+  },
 };
 
 export default nextConfig;

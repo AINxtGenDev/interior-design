@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Frame 2 — Die Entlastung</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family:"Cormorant Garamond"; src:url("assets/fonts/CormorantGaramond-300.woff2") format("woff2"); font-weight:100 900; font-style:normal; font-display:block; }
+        @font-face { font-family:"Inter"; src:url("assets/fonts/Inter-400.woff2") format("woff2"); font-weight:100 900; font-style:normal; font-display:block; }
+        @font-face { font-family:"Jost"; src:url("assets/fonts/Jost-400.woff2") format("woff2"); font-weight:100 900; font-style:normal; font-display:block; }
+
+        #root { position:absolute; inset:0; overflow:hidden; }
+        #f2-bg { position:absolute; inset:0; background:#f3eee8; }
+
+        /* Ghosts of Frame 1's block — they dissolve rather than fly away. */
+        #f2-ghost { position:absolute; left:140px; top:660px; width:800px; }
+        .f2-ghost-line {
+          display:block; margin:0 0 26px;
+          font-family:"Cormorant Garamond", Georgia, serif;
+          font-weight:400; font-size:66px; line-height:1.18; color:#333338;
+        }
+        #f2-ghost-line3 { margin-bottom:0; }
+
+        /* Sits clear of the hairline at y=1180: three wrapped lines at 84px/1.1
+           end at ~1037, leaving the rule a clean 140px below the text. */
+        #f2-statement {
+          position:absolute; left:140px; top:760px; width:820px;
+          font-family:"Cormorant Garamond", Georgia, serif;
+          font-weight:400; font-size:84px; line-height:1.1; color:#333338;
+          opacity:0;
+        }
+        .f2-say { display:block; }
+        #f2-system { color:#333338; }
+
+        /* Inherited from Frame 1 at exactly the same coordinates — the constant across the cut. */
+        #f2-rule {
+          position:absolute; left:140px; top:1180px;
+          width:800px; height:1px; background:#8fa37a;
+        }
+      </style>
+
+      <div
+        id="root"
+        data-composition-id="02-die-entlastung"
+        data-width="1080"
+        data-height="1920"
+        data-duration="5"
+      >
+        <div id="f2-bg"></div>
+
+        <div id="f2-ghost">
+          <span class="f2-ghost-line">Der Schrank ist voll.</span>
+          <span class="f2-ghost-line">Der Tisch auch.</span>
+          <span class="f2-ghost-line" id="f2-ghost-line3">Und am Wochenende reicht die Zeit nur fürs Nachräumen.</span>
+        </div>
+
+        <div id="f2-statement">
+          <span class="f2-say">Es liegt nicht an Ihnen.</span>
+          <span class="f2-say">Es fehlt ein <span id="f2-system">System</span>.</span>
+        </div>
+
+        <div id="f2-rule"></div>
+      </div>
+
+      <script>
+        (function () {
+          window.__timelines = window.__timelines || {};
+          const tl = gsap.timeline({ paused: true });
+
+          // Frame 1's lines dissolve; the hairline deliberately does not move.
+          tl.to("#f2-ghost", { opacity: 0, duration: 0.8, ease: "power2.out" }, 0.0);
+
+          tl.fromTo("#f2-statement", { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" }, 0.85);
+
+          // The turn of the film: one word changes colour. No zoom, no pulse.
+          tl.to("#f2-system", { color: "#4d6040", duration: 0.4, ease: "power2.out" }, 2.40);
+
+          // 2.7s → 5.0s held.
+          window.__timelines["02-die-entlastung"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

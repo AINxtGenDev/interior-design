@@ -12,6 +12,12 @@ export type Locale = "de" | "en";
 
 export const LOCALES: Locale[] = ["de", "en"];
 
+/**
+ * Prefix for assets referenced as plain attribute strings (video, captions).
+ * next/image and next/link handle basePath themselves; raw `src` strings don't.
+ */
+export const ASSET_PREFIX = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 /** Business contact details — used by the site, the Impressum and the AGB. */
 export const CONTACT = {
   name: "Mag. Claudia Plessl",
@@ -43,6 +49,13 @@ export type Content = {
     ctaPrimary: string;
     ctaSecondary: string;
     imageAlt: string;
+  };
+  video: {
+    heading: string;
+    lead: string;
+    caption: string;
+    unsupported: string;
+    captionsLabel: string;
   };
   services: { heading: string; lead: string; items: Service[] };
   audience: { heading: string; lead: string; items: Audience[] };
@@ -103,6 +116,13 @@ const de: Content = {
     ctaSecondary: "Leistungen ansehen",
     imageAlt:
       "Heller Wohnraum in Salbeigrün und warmem Creme mit offenem Ordnungssystem und Sitzbereich",
+  },
+  video: {
+    heading: "In einer Minute erklärt",
+    lead: "Wie aus Ordnung und Gestaltung ein Raum wird, der zu Ihrem Alltag passt.",
+    caption: "Vorstellungsvideo · 58 Sekunden · mit Ton",
+    unsupported: "Ihr Browser kann dieses Video nicht abspielen.",
+    captionsLabel: "Deutsch",
   },
   services: {
     heading: "Drei Leistungen, die ineinandergreifen",
@@ -277,6 +297,13 @@ const en: Content = {
     ctaSecondary: "See services",
     imageAlt:
       "Bright living space in sage green and warm cream with an open storage system and seating area",
+  },
+  video: {
+    heading: "Explained in a minute",
+    lead: "How order and design combine into a room that fits the way you actually live.",
+    caption: "Introduction · 58 seconds · German audio, German subtitles",
+    unsupported: "Your browser cannot play this video.",
+    captionsLabel: "German",
   },
   services: {
     heading: "Three services that build on each other",

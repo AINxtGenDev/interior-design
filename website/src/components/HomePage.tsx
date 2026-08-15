@@ -10,6 +10,7 @@ import detailOrder from "@/assets/detail-order.webp";
 import { CONTACT, getContent, type Locale } from "@/content/site";
 import SiteHeader, { SECTION_IDS } from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
+import IntroVideo from "./IntroVideo";
 
 /**
  * The one-pager, rendered for both locales. German is served at `/`,
@@ -75,6 +76,9 @@ export default function HomePage({ locale }: { locale: Locale }) {
             className="h-[38vh] w-full object-cover md:h-[52vh]"
           />
         </section>
+
+        {/* ─────────── Intro film ─────────── */}
+        <IntroVideo content={c} locale={locale} />
 
         {/* ─────────── Services ─────────── */}
         <Section

@@ -1,0 +1,54 @@
+{
+  "bgm": {
+    "path": "assets/bgm/bed.mp3",
+    "volume": 1.0,
+    "query": "user-supplied: I Want It All.mp3 (132s-190s), ducked",
+    "duration_s": 58.344
+  },
+  "bgm_pending": false,
+  "voices": [
+    {
+      "frame": 1,
+      "path": "assets/voice/line-01.wav",
+      "duration_s": 6.091,
+      "words": []
+    },
+    {
+      "frame": 2,
+      "path": "assets/voice/line-02.wav",
+      "duration_s": 3.571,
+      "words": []
+    },
+    {
+      "frame": 3,
+      "path": "assets/voice/line-03.wav",
+      "duration_s": 5.011,
+      "words": []
+    },
+    {
+      "frame": 4,
+      "path": "assets/voice/line-04.wav",
+      "duration_s": 8.331,
+      "words": []
+    },
+    {
+      "frame": 5,
+      "path": "assets/voice/line-05.wav",
+      "duration_s": 8.971,
+      "words": []
+    },
+    {
+      "frame": 6,
+      "path": "assets/voice/line-06.wav",
+      "duration_s": 7.771,
+      "words": []
+    },
+    {
+      "frame": 7,
+      "path": "assets/voice/line-07.wav",
+      "duration_s": 6.451,
+      "words": []
+    }
+  ],
+  "sfx": []
+}

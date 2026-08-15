@@ -1,0 +1,35 @@
+/* Reference copy of the shared frame CSS. The runtime discards <head> and only
+   clones <template> contents, so every frame file inlines this block itself.
+   Kept here so a change can be applied consistently across all seven frames. */
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("assets/fonts/CormorantGaramond-300.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: block;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("assets/fonts/Inter-400.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: block;
+}
+@font-face {
+  font-family: "Jost";
+  src: url("assets/fonts/Jost-400.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: block;
+}
+
+/* Palette — from frame.md, never invented */
+:root {
+  --canvas: #f3eee8;
+  --ink: #333338;
+  --ink-soft: #57575e;
+  --sage: #8fa37a;
+  --sage-deep: #4d6040;
+  --line: rgba(51, 51, 56, 0.2);
+}

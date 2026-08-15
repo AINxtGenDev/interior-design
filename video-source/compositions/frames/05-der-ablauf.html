@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Frame 5 — Der Ablauf</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family:"Cormorant Garamond"; src:url("assets/fonts/CormorantGaramond-300.woff2") format("woff2"); font-weight:100 900; font-style:normal; font-display:block; }
+        @font-face { font-family:"Inter"; src:url("assets/fonts/Inter-400.woff2") format("woff2"); font-weight:100 900; font-style:normal; font-display:block; }
+        @font-face { font-family:"Jost"; src:url("assets/fonts/Jost-400.woff2") format("woff2"); font-weight:100 900; font-style:normal; font-display:block; }
+
+        #root { position:absolute; inset:0; overflow:hidden; }
+        #f5-bg { position:absolute; inset:0; background:#f3eee8; }
+
+        /* The camera rig: three stations laid out on one long path, panned laterally. */
+        #f5-rig { position:absolute; left:0; top:0; width:3240px; height:1920px; }
+
+        #f5-path {
+          position:absolute; left:0; top:1120px;
+          width:3240px; height:1px; background:#8fa37a;
+          transform-origin:left center;
+        }
+
+        .f5-station { position:absolute; top:700px; width:800px; }
+        #f5-st1 { left:140px; }
+        #f5-st2 { left:1220px; }
+        #f5-st3 { left:2300px; }
+
+        .f5-num {
+          display:block;
+          font-family:"Cormorant Garamond", Georgia, serif;
+          font-weight:400; font-size:84px; line-height:1; color:#8fa37a;
+          margin:0 0 22px;
+        }
+        .f5-title {
+          display:block;
+          font-family:"Cormorant Garamond", Georgia, serif;
+          font-weight:400; font-size:72px; line-height:1.1; color:#333338;
+          margin:0 0 24px;
+        }
+        .f5-desc {
+          display:block;
+          font-family:"Inter", system-ui, sans-serif;
+          font-weight:400; font-size:34px; line-height:1.5; color:#57575e;
+          max-width:720px;
+        }
+        .f5-inner { opacity:0; }
+
+        /* Tick marks where each station meets the path. */
+        .f5-tick {
+          position:absolute; top:1108px;
+          width:1px; height:25px; background:#8fa37a;
+        }
+        #f5-tick1 { left:140px; }
+        #f5-tick2 { left:1220px; }
+        #f5-tick3 { left:2300px; }
+      </style>
+
+      <div
+        id="root"
+        data-composition-id="05-der-ablauf"
+        data-width="1080"
+        data-height="1920"
+        data-duration="10.4"
+      >
+        <div id="f5-bg"></div>
+
+        <div id="f5-rig" data-layout-allow-overflow>
+          <div id="f5-path"></div>
+          <div class="f5-tick" id="f5-tick1"></div>
+          <div class="f5-tick" id="f5-tick2"></div>
+          <div class="f5-tick" id="f5-tick3"></div>
+
+          <div class="f5-station" id="f5-st1">
+            <div class="f5-inner" id="f5-in1">
+              <span class="f5-num">01</span>
+              <span class="f5-title">Raumcheck</span>
+              <span class="f5-desc">60 bis 90 Minuten, vor Ort oder online.</span>
+            </div>
+          </div>
+
+          <div class="f5-station" id="f5-st2">
+            <div class="f5-inner" id="f5-in2">
+              <span class="f5-num">02</span>
+              <span class="f5-title">Konzept &amp; Angebot</span>
+              <span class="f5-desc">Umfang, Reihenfolge, Fixpreis.</span>
+            </div>
+          </div>
+
+          <div class="f5-station" id="f5-st3">
+            <div class="f5-inner" id="f5-in3">
+              <span class="f5-num">03</span>
+              <span class="f5-title">Umsetzung</span>
+              <span class="f5-desc">Ihr Tempo, Ihre Kriterien.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        (function () {
+          window.__timelines = window.__timelines || {};
+          const tl = gsap.timeline({ paused: true });
+
+          // The inherited hairline lays back down as the path the stations sit on.
+          tl.fromTo("#f5-path", { scaleX: 0 }, { scaleX: 1, duration: 0.9, ease: "power2.out" }, 0.0);
+
+          tl.fromTo("#f5-in1", { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "power2.out" }, 0.80);
+
+          // Lateral pan to station 02 on "Konzept mit Fixpreis".
+          tl.fromTo("#f5-rig", { x: 0 }, { x: -1080, duration: 1.1, ease: "power2.out" }, 3.20);
+          tl.fromTo("#f5-in2", { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "power2.out" }, 3.90);
+
+          // Pan to station 03 on "Bereich für Bereich".
+          tl.to("#f5-rig", { x: -2160, duration: 1.1, ease: "power2.out" }, 6.00);
+          tl.fromTo("#f5-in3", { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "power2.out" }, 6.70);
+
+          // 7.4s → 10.4s held on station 03; the path runs on out of frame.
+          window.__timelines["05-der-ablauf"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

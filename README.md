@@ -53,6 +53,7 @@ stays crisp at any size, and is selectable and translatable.
 ├── .github/workflows/deploy.yml   → build + deploy to GitHub Pages
 ├── brand/
 │   └── logo-original-scan.pdf     → source scan of the business card
+├── video-source/                  → storyboard, script and compositions for the intro film
 ├── handout/
 │   └── claudia-plessl-uebersicht.html   → offline one-pager for phone/tablet
 └── website/
@@ -72,7 +73,9 @@ stays crisp at any size, and is selectable and translatable.
     │   ├── assets/                → images imported by the build
     │   ├── components/            → HomePage, SiteHeader, SiteFooter, LegalShell
     │   └── content/site.ts        → all page copy, both languages
-    └── public/og-image.jpg        → social preview
+    └── public/
+        ├── og-image.jpg           → social preview
+        └── video/                 → intro film, poster, German subtitles
 ```
 
 ### Editing the copy
@@ -131,6 +134,24 @@ redirects, so language switching is explicit links by necessity, and section
 anchors are shared across both languages so the switcher keeps the reader's place.
 
 ---
+
+## Intro film
+
+A 58-second German-narrated introduction sits between the hero and the services
+section, self-hosted at `website/public/video/vorstellung.mp4` (1080×1920,
+4.2 MB, faststart, −14.5 LUFS) with a poster frame and a German WebVTT subtitle
+track.
+
+**Self-hosted on purpose.** A YouTube or Vimeo embed would put third-party
+requests and cookies on a site that currently has neither — and would oblige a
+rewrite of the Datenschutzerklärung. `preload="metadata"` means a visitor who
+never presses play downloads a few KB, not 4.2 MB.
+
+Plan, script and compositions are in [`video-source/`](video-source/); that
+README also covers the voiceover route (Gemini TTS — Kokoro has no German and
+this HeyGen account exposes no German voice) and, importantly, **the music
+licence risk**: the bed is built from a Queen recording supplied by the owner,
+and a music-free variant is already rendered and ready to swap in.
 
 ## Verified on the live site
 

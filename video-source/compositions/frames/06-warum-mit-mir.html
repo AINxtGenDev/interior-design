@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Frame 6 — Warum mit mir</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family:"Cormorant Garamond"; src:url("assets/fonts/CormorantGaramond-300.woff2") format("woff2"); font-weight:100 900; font-style:normal; font-display:block; }
+        @font-face { font-family:"Inter"; src:url("assets/fonts/Inter-400.woff2") format("woff2"); font-weight:100 900; font-style:normal; font-display:block; }
+        @font-face { font-family:"Jost"; src:url("assets/fonts/Jost-400.woff2") format("woff2"); font-weight:100 900; font-style:normal; font-display:block; }
+
+        #root { position:absolute; inset:0; overflow:hidden; }
+        #f6-bg { position:absolute; inset:0; background:#f3eee8; }
+
+        .f6-entry { position:absolute; left:200px; width:740px; opacity:0; }
+        #f6-e1 { top:560px; }
+        #f6-e2 { top:900px; }
+        #f6-e3 { top:1200px; }
+
+        .f6-title {
+          display:block;
+          font-family:"Cormorant Garamond", Georgia, serif;
+          font-weight:400; font-size:66px; line-height:1.12; color:#333338;
+          margin:0 0 16px;
+        }
+        .f6-issuer {
+          display:block;
+          font-family:"Jost", Arial, sans-serif;
+          font-weight:500; font-size:30px; letter-spacing:6px;
+          color:#637a53; text-transform:uppercase;
+          margin:0 0 14px;
+        }
+        .f6-note {
+          display:block;
+          font-family:"Inter", system-ui, sans-serif;
+          font-weight:400; font-size:34px; line-height:1.5; color:#57575e;
+        }
+
+        /* Three separate markers that end up flush as one continuous rule. */
+        .f6-marker {
+          position:absolute; left:140px;
+          width:1px; background:#8fa37a;
+          transform-origin:top center;
+        }
+        #f6-m1 { top:560px; height:200px; }
+        #f6-m2 { top:900px; height:200px; }
+        #f6-m3 { top:1200px; height:200px; }
+        #f6-spine {
+          position:absolute; left:140px; top:560px;
+          width:1px; height:840px; background:#8fa37a;
+          opacity:0;
+        }
+
+      </style>
+
+      <div
+        id="root"
+        data-composition-id="06-warum-mit-mir"
+        data-width="1080"
+        data-height="1920"
+        data-duration="9.2"
+      >
+        <div id="f6-bg"></div>
+
+        <div class="f6-marker" id="f6-m1"></div>
+        <div class="f6-marker" id="f6-m2"></div>
+        <div class="f6-marker" id="f6-m3"></div>
+        <div id="f6-spine"></div>
+
+        <div class="f6-entry" id="f6-e1">
+          <span class="f6-title">Zertifizierter Ordnungscoach</span>
+          <span class="f6-issuer">Akademie der Ordnung</span>
+        </div>
+
+        <div class="f6-entry" id="f6-e2">
+          <span class="f6-title">Diskret, ohne Urteil</span>
+          <span class="f6-note">Was ich in Ihrer Wohnung sehe, bleibt dort.</span>
+        </div>
+
+        <div class="f6-entry" id="f6-e3">
+          <span class="f6-title">Ein System, das bleibt</span>
+          <span class="f6-note">Ein Check-in nach einigen Wochen.</span>
+        </div>
+      </div>
+
+      <script>
+        (function () {
+          window.__timelines = window.__timelines || {};
+          const tl = gsap.timeline({ paused: true });
+
+          // Each entry lands on its own spoken cue — line first, then the content it measures.
+          tl.fromTo("#f6-m1", { scaleY: 0 }, { scaleY: 1, duration: 0.5, ease: "power2.out" }, 0.10);
+          tl.fromTo("#f6-e1", { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "power2.out" }, 0.35);
+
+          tl.fromTo("#f6-m2", { scaleY: 0 }, { scaleY: 1, duration: 0.5, ease: "power2.out" }, 2.30);
+          tl.fromTo("#f6-e2", { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "power2.out" }, 2.55);
+
+          tl.fromTo("#f6-m3", { scaleY: 0 }, { scaleY: 1, duration: 0.5, ease: "power2.out" }, 4.60);
+          tl.fromTo("#f6-e3", { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "power2.out" }, 4.85);
+
+          // The three markers resolve into one continuous spine: the grid locks in.
+          tl.to("#f6-spine", { opacity: 1, duration: 0.5, ease: "power2.out" }, 6.30);
+
+          window.__timelines["06-warum-mit-mir"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

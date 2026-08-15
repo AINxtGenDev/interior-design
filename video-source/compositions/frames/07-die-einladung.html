@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Frame 7 — Die Einladung</title>
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family:"Cormorant Garamond"; src:url("assets/fonts/CormorantGaramond-300.woff2") format("woff2"); font-weight:100 900; font-style:normal; font-display:block; }
+        @font-face { font-family:"Inter"; src:url("assets/fonts/Inter-400.woff2") format("woff2"); font-weight:100 900; font-style:normal; font-display:block; }
+        @font-face { font-family:"Jost"; src:url("assets/fonts/Jost-400.woff2") format("woff2"); font-weight:100 900; font-style:normal; font-display:block; }
+
+        #root { position:absolute; inset:0; overflow:hidden; }
+        #f7-bg { position:absolute; inset:0; background:#f3eee8; }
+
+        #f7-mark {
+          position:absolute; left:50%; top:400px;
+          width:250px; height:auto; margin-left:-125px;
+          opacity:0;
+        }
+
+        /* The spine inherited from Frame 6 becomes the left edge of the end-card frame. */
+        #f7-edge-l {
+          position:absolute; left:140px; top:700px;
+          width:1px; height:700px; background:#8fa37a;
+          transform-origin:top center;
+        }
+        #f7-edge-r {
+          position:absolute; left:940px; top:700px;
+          width:1px; height:700px; background:#8fa37a;
+          transform-origin:top center;
+        }
+        #f7-edge-t {
+          position:absolute; left:140px; top:700px;
+          width:800px; height:1px; background:#8fa37a;
+          transform-origin:left center;
+        }
+        #f7-edge-b {
+          position:absolute; left:140px; top:1400px;
+          width:800px; height:1px; background:#8fa37a;
+          transform-origin:left center;
+        }
+
+        #f7-price-label {
+          position:absolute; left:0; top:790px; width:1080px;
+          text-align:center;
+          font-family:"Inter", system-ui, sans-serif;
+          font-weight:400; font-size:36px; color:#57575e;
+          opacity:0;
+        }
+        #f7-price {
+          position:absolute; left:0; top:850px; width:1080px;
+          text-align:center;
+          font-family:"Cormorant Garamond", Georgia, serif;
+          font-weight:400; font-size:130px; line-height:1.1; color:#4d6040;
+          opacity:0;
+        }
+        #f7-price-note {
+          position:absolute; left:0; top:1010px; width:1080px;
+          text-align:center;
+          font-family:"Inter", system-ui, sans-serif;
+          font-weight:400; font-size:30px; color:#57575e;
+          opacity:0;
+        }
+        #f7-region {
+          position:absolute; left:0; top:1120px; width:1080px;
+          text-align:center;
+          font-family:"Jost", Arial, sans-serif;
+          font-weight:500; font-size:32px; letter-spacing:8px;
+          color:#637a53; text-transform:uppercase;
+          opacity:0;
+        }
+        #f7-mail {
+          position:absolute; left:0; top:1240px; width:1080px;
+          text-align:center;
+          font-family:"Inter", system-ui, sans-serif;
+          font-weight:400; font-size:38px; color:#333338;
+          opacity:0;
+        }
+        #f7-url {
+          position:absolute; left:0; top:1310px; width:1080px;
+          text-align:center;
+          font-family:"Jost", Arial, sans-serif;
+          font-weight:500; font-size:30px; letter-spacing:3px;
+          color:#637a53;
+          opacity:0;
+        }
+      </style>
+
+      <div
+        id="root"
+        data-composition-id="07-die-einladung"
+        data-width="1080"
+        data-height="1920"
+        data-duration="10"
+      >
+        <div id="f7-bg"></div>
+
+        <img id="f7-mark" src="assets/logo-mark-2008c2fa.webp" alt="" />
+
+        <div id="f7-edge-l"></div>
+        <div id="f7-edge-r"></div>
+        <div id="f7-edge-t"></div>
+        <div id="f7-edge-b"></div>
+
+        <div id="f7-price-label">Raumcheck</div>
+        <div id="f7-price">ab EUR 110</div>
+        <div id="f7-price-note">Endpreis nach dem Raumcheck</div>
+        <div id="f7-region">Wien · Niederösterreich</div>
+        <div id="f7-mail">claudia.plessl@gmail.com</div>
+        <div id="f7-url">ainxtgendev.github.io/interior-design</div>
+      </div>
+
+      <script>
+        (function () {
+          window.__timelines = window.__timelines || {};
+          const tl = gsap.timeline({ paused: true });
+
+          // The spine finishes its journey: it closes into the frame of the end card.
+          tl.fromTo("#f7-edge-l", { scaleY: 0 }, { scaleY: 1, duration: 0.6, ease: "power2.out" }, 0.0);
+          tl.fromTo("#f7-edge-t", { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "power2.out" }, 0.35);
+          tl.fromTo("#f7-edge-r", { scaleY: 0 }, { scaleY: 1, duration: 0.6, ease: "power2.out" }, 0.70);
+          tl.fromTo("#f7-edge-b", { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "power2.out" }, 1.05);
+
+          tl.fromTo("#f7-price-label", { y: 10, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" }, 1.50);
+          tl.fromTo("#f7-price", { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" }, 1.70);
+          tl.fromTo("#f7-price-note", { y: 10, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" }, 2.40);
+
+          tl.fromTo("#f7-region", { y: 10, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" }, 3.40);
+
+          tl.fromTo("#f7-mark", { y: 10, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "power2.out" }, 5.20);
+          tl.fromTo("#f7-mail", { y: 10, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" }, 5.60);
+          tl.fromTo("#f7-url", { y: 10, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" }, 5.90);
+
+          // 6.5s → 10.0s completely still, so the contact line stays readable.
+          window.__timelines["07-die-einladung"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>
