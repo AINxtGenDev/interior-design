@@ -39,7 +39,15 @@ export default function SiteHeader({
   ] as const;
 
   return (
-    <header className="no-print sticky top-0 z-50 border-b border-sage-200/70 bg-warm-white/90 backdrop-blur-md">
+    <>
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:inline-flex focus:min-h-11 focus:items-center focus:rounded-full focus:bg-sage-800 focus:px-5 focus:text-sm focus:text-warm-white"
+      >
+        {locale === "de" ? "Zum Inhalt springen" : "Skip to content"}
+      </a>
+
+      <header className="no-print sticky top-0 z-50 border-b border-sage-200/70 bg-warm-white/90 backdrop-blur-md">
       <div className="rule-gold" aria-hidden="true" />
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 md:px-8">
         {/* Brand lockup: the scanned monogram plus the wordmark as live text,
@@ -90,6 +98,7 @@ export default function SiteHeader({
           {content.langSwitch.hrefLabel}
         </Link>
       </div>
-    </header>
+      </header>
+    </>
   );
 }
