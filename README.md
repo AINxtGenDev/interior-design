@@ -123,7 +123,50 @@ reference them to resolve.
 `src="/hero.webp"` resolves to the domain root and 404s under the
 `/interior-design` base path. Import from `src/assets/` so Next rewrites the URL.
 
+**4. Two root layouts, one per language.** `app/(de)/layout.tsx` and
+`app/(en)/layout.tsx` each render their own `<html>`, which is how each language
+gets a correct `lang` attribute. There is deliberately no `app/layout.tsx` —
+adding one would break the route-group setup. Static export has no middleware or
+redirects, so language switching is explicit links by necessity, and section
+anchors are shared across both languages so the switcher keeps the reader's place.
+
 ---
+
+## Verified on the live site
+
+Measured against the deployed URL, not assumed:
+
+| Check | Result |
+|---|---|
+| All 6 routes | 200 |
+| Images and favicon | 200 |
+| **Total requests** | **42 — none to a third party** |
+| Cookies / localStorage | none / none |
+| Fonts | Cormorant Garamond, Inter, Jost — loaded self-hosted |
+| Internal links | all 200, no `basePath` 404s |
+| Console | no errors, no warnings |
+| Weight | 579 KB, 29 requests, `load` 58 ms |
+| Heading outline | h1 → h2 → h3, no skipped levels |
+| Horizontal scroll at 320 px | none (measured in a real 320 px iframe) |
+
+That first-party-only result is what makes the Datenschutzerklärung's "no
+cookies, no tracking, no third-party requests" claim actually true. **Keep it
+that way** — adding an embedded map, a web font, a YouTube embed, a contact-form
+service or an analytics snippet all break it, and each one obliges you to update
+the privacy page.
+
+> GitHub Pages caches aggressively. After a deploy the previous version may be
+> served for a short while — hard-reload before concluding something is broken.
+
+### Accessibility
+
+Skip-to-content link (localised, visible on focus), visible focus rings, tap
+targets ≥44 px on standalone controls, `prefers-reduced-motion` honoured,
+decorative images with empty `alt`, and a correct heading outline.
+
+There is **no mobile nav menu** — the in-page section links are hidden below
+`lg`. That is deliberate for a one-pager, since scrolling reaches everything,
+but it becomes a gap the moment the site grows past a single page.
 
 ## Custom domain
 

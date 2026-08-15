@@ -6,7 +6,9 @@
 - Repository: `AINxtGenDev/interior-design` (public)
 - Arbeitskopie: `/home/nuc8/05_development/78_plessl-website`
 - Live: https://ainxtgendev.github.io/interior-design/
-- Status: Website vollständig neu gebaut, deployed und grün. Rechtliche Platzhalter offen.
+- Status: Website vollständig neu gebaut, deployed, live getestet — alle drei
+  Deployments grün. Rechtliche Platzhalter offen.
+- Letzter Commit: `Add skip-to-content link for keyboard and screen-reader users`
 
 ## Aktuelles Ziel
 
@@ -57,6 +59,34 @@ Impressum, Datenschutzerklärung und AGB, gehostet auf GitHub Pages.
 3. ESLint-Config über `FlatCompat` brach mit „Converting circular structure to
    JSON". Fix: `eslint-config-next` exportiert Flat Configs direkt.
 4. Tap-Targets unter 24 px bei Footer-Links und Zurück-Link korrigiert.
+5. Kein Skip-Link vorhanden — Tastaturnutzer mussten auf jeder Seite durch
+   Header und Navigation tabben. Nachgerüstet, zweisprachig, sichtbar erst bei
+   Fokus.
+
+### Live-Verifikation (nach Deployment geprüft, nicht angenommen)
+
+Gemessen auf https://ainxtgendev.github.io/interior-design/ :
+
+| Prüfung | Ergebnis |
+|---|---|
+| Alle 6 Routen | 200 |
+| Bilder + Favicon | 200 |
+| **Requests gesamt** | **42 — davon 0 an Dritte** |
+| Cookies / localStorage | keine / keine |
+| Schriften | Cormorant Garamond, Inter, Jost — selbst gehostet geladen |
+| Interne Links | alle 200, keine 404 durch `basePath` |
+| Konsole | keine Fehler, keine Warnungen |
+| Übertragung | 579 KB, 29 Requests, `load` 58 ms |
+| Überschriftenstruktur | h1 → h2 → h3, keine Sprünge |
+| `alt`-Attribute | vollständig, dekorative Bilder mit leerem `alt` |
+| Horizontales Scrollen bei 320 px | keines (im iframe echt gemessen) |
+
+Damit sind die Aussagen der Datenschutzerklärung („keine Cookies, kein
+Tracking, keine Drittanbieter-Requests") nachweislich zutreffend.
+
+**Hinweis:** GitHub Pages cached aggressiv. Nach einem Deployment kann die alte
+Fassung noch kurz ausgeliefert werden — mit `cache: "reload"` bzw. Hard-Reload
+gegenprüfen, bevor man einen Fehler vermutet.
 
 ### Geprüfte Fakten (nicht aus dem Gedächtnis)
 
