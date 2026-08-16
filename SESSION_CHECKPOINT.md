@@ -232,12 +232,27 @@ gegenprüfen, bevor man einen Fehler vermutet.
 Erster Durchgang war zu langsam (~64 wpm, 63 s gesamt), weil der Stilprompt
 „echte Pausen" verlangte. Korrigierter Prompt: 96–158 wpm, 46,2 s Sprechzeit.
 
-**Musik:** aus `I Want It All.mp3` (Queen), auf −30 LUFS normalisiert und per
-`sidechaincompress` gegen die Stimme geduckt — gemessen 10–11 dB Absenkung
-unter Sprache. **Rechte ungeklärt.** Eine musikfreie Fassung ist bereits
-gerendert: `renders/claudia-plessl-promo-web-VO-only.mp4` im Arbeitsprojekt,
-Austausch ist ein Dateikopieren. Der Musik-Bed wird bewusst **nicht** ins
-öffentliche Repo committet.
+**Musik — am 2026-08-16 ersetzt.** Bis dahin lief ein Bed aus `I Want It All.mp3`
+(Queen) mit ungeklärten Rechten. Jetzt: `casa_in_ordine.mp3`, ein mit **Suno**
+erzeugtes Instrumental (Abschnitt 106,3–164,6 s), auf −30 LUFS normalisiert und
+per `sidechaincompress` gegen die Stimme geduckt — **gemessen 15,6 dB** Absenkung
+unter Sprache. Fertiger Mix −14,5 LUFS, Videospur byteidentisch (`5b518475…`).
+
+Zwei frühere Angaben hier waren falsch und sind korrigiert:
+
+- Der Queen-Bed duckte **16,5 dB**, nicht 10–11 dB (sauber über die vollen
+  58,3 s auf gemeinsamem Zeitraster nachgemessen).
+- Ein Musikwechsel ist **kein** Re-Render — alle Renders teilen dieselbe
+  Videospur, die Musikvarianten entstanden immer als reiner Audio-Remux.
+
+Die Kette liegt jetzt als Skript vor (`scripts/build_bgm_bed.sh`,
+`scripts/render_web_mix.sh` im Video-Projekt); vorher war sie nirgends
+festgehalten. Musikfreie Fassung weiterhin verfügbar:
+`renders/claudia-plessl-promo-web-VO-only.mp4`. Der Musik-Bed wird bewusst
+**nicht** ins öffentliche Repo committet.
+
+**Offen:** ob der Suno-Tarif, unter dem der Titel erzeugt wurde, kommerzielle
+Nutzung erlaubt.
 
 ### Geprüfte Fakten (nicht aus dem Gedächtnis)
 

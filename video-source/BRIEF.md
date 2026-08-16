@@ -50,11 +50,11 @@ Goldlinie, hoher heller Kontrast, viel Luft.
 
 ## Notes
 
-- **Musikrechte ungeklärt:** „I Want It All" ist ein Queen-Titel. Für ein
-  gewerbliches Promo-Video ohne Lizenz problematisch; auf Instagram/YouTube
-  droht Stummschaltung oder Claim. Der User wurde darauf hingewiesen und hat
-  die Verwendung bestätigt. Vor Veröffentlichung durch lizenzfreie Musik
-  ersetzen.
+- **Musik am 2026-08-16 ersetzt.** Ursprünglich lief „I Want It All" (Queen) —
+  ohne Lizenz für ein gewerbliches Promo-Video problematisch, auf
+  Instagram/YouTube drohte Stummschaltung oder Claim. Jetzt liegt
+  `casa_in_ordine.mp3` darunter, ein mit Suno erzeugtes Instrumental des Users.
+  Offen bleibt nur, ob dessen Suno-Tarif kommerzielle Nutzung erlaubt.
 - **Keine Kundenprojekte zeigen.** Es gibt noch keine Referenzen, und die
   vorhandenen Bilder sind Marken-Bildwelt, keine echten Aufträge. Nichts darf
   als Vorher-Nachher eines echten Kunden lesbar sein.
