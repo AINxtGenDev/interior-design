@@ -301,7 +301,7 @@ const en: Content = {
   video: {
     heading: "Explained in a minute",
     lead: "How order and design combine into a room that fits the way you actually live.",
-    caption: "Introduction · 58 seconds · German audio, German subtitles",
+    caption: "Introduction · 58 seconds · German audio",
     unsupported: "Your browser cannot play this video.",
     captionsLabel: "German",
   },

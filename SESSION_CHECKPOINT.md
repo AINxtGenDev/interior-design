@@ -96,7 +96,9 @@ gegenprüfen, bevor man einen Fehler vermutet.
   Plan- und Kompositionsquellen liegen in diesem Repo unter `video-source/`.
 - Eingebettet zwischen Hero und Leistungen, **selbst gehostet** —
   `website/public/video/vorstellung.mp4` (4,2 MB, faststart, −14,5 LUFS) mit
-  Posterbild und deutscher WebVTT-Untertitelspur. Bewusst **kein** YouTube-Embed:
+  Posterbild und deutscher WebVTT-Untertitelspur. **Untertitel werden nicht
+  eingeblendet** (kein `default` am `<track>`) — sie bleiben aber im Player
+  zuschaltbar, damit der Film ohne Ton nutzbar bleibt. Bewusst **kein** YouTube-Embed:
   die Seite hat nachweislich null Drittanbieter-Requests, ein iframe würde das
   zerstören und eine Änderung der Datenschutzerklärung erzwingen.
   `preload="metadata"` — wer nicht abspielt, lädt nur ein paar KB.

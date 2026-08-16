@@ -43,12 +43,14 @@ export default function IntroVideo({
               aria-label={content.video.heading}
             >
               <source src={src} type="video/mp4" />
+              {/* No `default`: subtitles stay off unless the viewer turns them
+                  on from the player's own controls. The track is still shipped
+                  so the film remains usable without sound. */}
               <track
                 kind="captions"
                 src={captions}
                 srcLang="de"
                 label={content.video.captionsLabel}
-                default
               />
               {content.video.unsupported}
             </video>
@@ -61,7 +63,8 @@ export default function IntroVideo({
 
         {locale === "en" && (
           <p className="mt-6 text-center text-sm text-anthracite-500">
-            The film is narrated in German. German subtitles are included.
+            The film is narrated in German. German subtitles can be switched on
+            in the player.
           </p>
         )}
       </section>

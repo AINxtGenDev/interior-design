@@ -140,7 +140,9 @@ anchors are shared across both languages so the switcher keeps the reader's plac
 A 58-second German-narrated introduction sits between the hero and the services
 section, self-hosted at `website/public/video/vorstellung.mp4` (1080×1920,
 4.2 MB, faststart, −14.5 LUFS) with a poster frame and a German WebVTT subtitle
-track.
+track. **Subtitles are off by default** — the `<track>` carries no `default`
+attribute, so nothing is overlaid on the film; a viewer can still switch them on
+from the player's own controls.
 
 **Self-hosted on purpose.** A YouTube or Vimeo embed would put third-party
 requests and cookies on a site that currently has neither — and would oblige a
