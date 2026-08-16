@@ -37,6 +37,24 @@ Die beiden vorher parallel liegenden Ordner wurden dorthin verschoben:
   gültig, da `55_laulau` selbst nicht verschoben wurde.
 - GitHub Actions ist von der Verschiebung nicht betroffen (baut aus dem Repo).
 
+**Nach dem Push nachgeprüft (nicht angenommen):**
+
+| Prüfung | Ergebnis |
+|---|---|
+| Commit | `cbfec36` — nur Doku-Pfade, kein Seitencode |
+| Push | `c2530db..cbfec36 main -> main`, danach `HEAD == origin/main` |
+| Deploy-Run `31931317375` | **success**, 52 s |
+| `/`, `/impressum/`, `/datenschutz/`, `/agb/`, `/en/`, `/en/legal/` | alle 200 |
+| `/video/vorstellung.mp4` | 200 |
+
+**Rollback:** `mv ~/05_development/55_laulau/78_plessl-website ~/05_development/`,
+dann `git revert cbfec36`.
+
+**Achtung:** Nur dieses Repo ist über GitHub gesichert. Der übergeordnete Ordner
+`55_laulau` (Businessplan, E-A-Prognose, SWOT, Pressemappe) und das
+Video-Arbeitsprojekt `79_plessl-video` liegen ohne Versionierung und ohne
+Backup auf einer einzigen Platte.
+
 ## Erledigt in dieser Session
 
 ### Repository bereinigt
