@@ -50,10 +50,11 @@ Die beiden vorher parallel liegenden Ordner wurden dorthin verschoben:
 **Rollback:** `mv ~/05_development/55_laulau/78_plessl-website ~/05_development/`,
 dann `git revert cbfec36`.
 
-**Achtung:** Nur dieses Repo ist über GitHub gesichert. Der übergeordnete Ordner
-`55_laulau` (Businessplan, E-A-Prognose, SWOT, Pressemappe) und das
-Video-Arbeitsprojekt `79_plessl-video` liegen ohne Versionierung und ohne
-Backup auf einer einzigen Platte.
+**Achtung:** Nur dieses Repo ist über GitHub gesichert. Das Video-Projekt
+`79_plessl-video` hat seit 2026-08-16 eine eigene lokale Historie (Tag `v1.0`),
+aber bewusst kein Remote — es enthält den Queen-Musikbed. Der übergeordnete
+Ordner `55_laulau` (Businessplan, E-A-Prognose, SWOT, Pressemappe, `logo/`)
+ist weiterhin gar nicht versioniert. Alles liegt auf einer einzigen Platte.
 
 ## Neues Logo und rotierende Wortmarke (2026-08-16)
 
