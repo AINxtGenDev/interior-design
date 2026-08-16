@@ -2,9 +2,10 @@
 
 ## Meta
 
-- Datum: 2026-08-15
+- Datum: 2026-08-16 (Website-Stand 2026-08-15, danach nur Ordnerkonsolidierung)
 - Repository: `AINxtGenDev/interior-design` (public)
-- Arbeitskopie: `/home/nuc8/05_development/78_plessl-website`
+- Arbeitskopie: `/home/nuc8/05_development/55_laulau/78_plessl-website`
+  (**verschoben am 2026-08-16** — vorher `/home/nuc8/05_development/78_plessl-website`)
 - Live: https://ainxtgendev.github.io/interior-design/
 - Status: Website live und getestet; Vorstellungsvideo produziert und
   eingebettet. Rechtliche Platzhalter und Musikrechte offen.
@@ -14,6 +15,27 @@
 Professionelle Business-Website für `Mag. Claudia Plessl — Interior Design &
 Ordnungscoaching`, zweisprachig (Deutsch primär, Englisch sekundär), mit
 Impressum, Datenschutzerklärung und AGB, gehostet auf GitHub Pages.
+
+## Ordnerkonsolidierung (2026-08-16)
+
+Alles zum Projekt Plessl liegt jetzt unter `~/05_development/55_laulau/`.
+Die beiden vorher parallel liegenden Ordner wurden dorthin verschoben:
+
+| vorher | jetzt |
+|---|---|
+| `~/05_development/78_plessl-website` | `~/05_development/55_laulau/78_plessl-website` |
+| `~/05_development/79_plessl-video` | `~/05_development/55_laulau/79_plessl-video` |
+
+- Reine `mv`-Verschiebung im selben Dateisystem, Ordnernamen unverändert.
+- Git-Repo unbeschädigt: `HEAD == origin/main`, Arbeitsbaum sauber.
+- `website/.next` (Build-Cache, gitignored) enthielt noch die alten absoluten
+  Pfade → gelöscht und neu gebaut. `npm run build` läuft am neuen Ort fehlerfrei
+  (9 statische Routen).
+- Pfadangaben in `SESSION_CHECKPOINT.md`, `video-source/README.md` und
+  `video-source/BRIEF.md` nachgezogen.
+- `scripts/gemini_tts.py` liest weiterhin `55_laulau/.env` — Pfad unverändert
+  gültig, da `55_laulau` selbst nicht verschoben wurde.
+- GitHub Actions ist von der Verschiebung nicht betroffen (baut aus dem Repo).
 
 ## Erledigt in dieser Session
 
@@ -92,7 +114,7 @@ gegenprüfen, bevor man einen Fehler vermutet.
 - 58,3 s · 1080×1920 (hochkant, mobil) · deutscher Voiceover · HyperFrames,
   Workflow `product-launch-video`, Design-Preset `cartesian` auf die Markentokens
   remixt.
-- Arbeitsprojekt: `~/05_development/79_plessl-video/videos/claudia-plessl-promo`.
+- Arbeitsprojekt: `~/05_development/55_laulau/79_plessl-video/videos/claudia-plessl-promo`.
   Plan- und Kompositionsquellen liegen in diesem Repo unter `video-source/`.
 - Eingebettet zwischen Hero und Leistungen, **selbst gehostet** —
   `website/public/video/vorstellung.mp4` (4,2 MB, faststart, −14,5 LUFS) mit

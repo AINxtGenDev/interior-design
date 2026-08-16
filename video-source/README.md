@@ -4,7 +4,7 @@ Plan and composition sources for `website/public/video/vorstellung.mp4`
 (58.3 s · 1080×1920 · German voiceover). Built with
 [HyperFrames](https://hyperframes.heygen.com) via the `product-launch-video`
 workflow; the full working project lives outside this repo at
-`~/05_development/79_plessl-video/videos/claudia-plessl-promo`.
+`~/05_development/55_laulau/79_plessl-video/videos/claudia-plessl-promo`.
 
 | File | What it is |
 |---|---|
@@ -57,7 +57,7 @@ it is a file copy over `website/public/video/vorstellung.mp4`.
 ## Rebuilding
 
 ```bash
-cd ~/05_development/79_plessl-video/videos/claudia-plessl-promo
+cd ~/05_development/55_laulau/79_plessl-video/videos/claudia-plessl-promo
 npx hyperframes check      # lint + runtime + layout + contrast
 npx hyperframes snapshot --at 5.5,11,18,27,37.2,46.6,56.3
 npx hyperframes render

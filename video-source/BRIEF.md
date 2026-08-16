@@ -30,10 +30,10 @@ Goldlinie, hoher heller Kontrast, viel Luft.
 ## Assets
 
 - /home/nuc8/05_development/55_laulau/I Want It All.mp3 — Hintergrundmusik, vom User vorgegeben, deutlich unter der Stimme gemischt.
-- /home/nuc8/05_development/78_plessl-website/website/src/assets/logo-mark.webp — CP-Monogramm, freigestellt, für Auftakt und Schlussbild.
-- /home/nuc8/05_development/78_plessl-website/website/src/assets/hero.webp — Brand-Cover, Innenraum quer.
-- /home/nuc8/05_development/78_plessl-website/website/src/assets/detail-living.webp — Wohnbereich hochkant.
-- /home/nuc8/05_development/78_plessl-website/website/src/assets/detail-order.webp — Regalsystem hochkant, „Ordnung"-Seite.
+- /home/nuc8/05_development/55_laulau/78_plessl-website/website/src/assets/logo-mark.webp — CP-Monogramm, freigestellt, für Auftakt und Schlussbild.
+- /home/nuc8/05_development/55_laulau/78_plessl-website/website/src/assets/hero.webp — Brand-Cover, Innenraum quer.
+- /home/nuc8/05_development/55_laulau/78_plessl-website/website/src/assets/detail-living.webp — Wohnbereich hochkant.
+- /home/nuc8/05_development/55_laulau/78_plessl-website/website/src/assets/detail-order.webp — Regalsystem hochkant, „Ordnung"-Seite.
 - https://ainxtgendev.github.io/interior-design/ — Quelle für Inhalte und Marke.
 
 ## Customizations
