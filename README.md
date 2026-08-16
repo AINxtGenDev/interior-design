@@ -8,6 +8,13 @@ Ordnungscoach in Vienna and Lower Austria.
 German is the primary language and lives at the site root; English is served
 from `/en/`.
 
+> **This repository is public and holds only the website.** Everything else —
+> the businessplan and financial projections, the logo sources, and the video
+> working project with its unlicensed music bed — lives in the private repo
+> `AINxtGenDev/plessl-projekt`. They are split because GitHub Pages will not
+> serve from a private repository on a free plan. Do not move material across
+> that line without checking what it contains.
+
 ---
 
 ## Stack
@@ -206,9 +213,9 @@ licence risk**: the bed is built from a Queen recording supplied by the owner,
 and a music-free variant is already rendered and ready to swap in.
 
 The full HyperFrames working project (renders, voiceover, assets) lives outside
-this repository at `55_laulau/79_plessl-video`, which since 2026-08-16 is its own
-git repository tagged `v1.0`. It deliberately has **no remote** — it contains the
-Queen-derived music bed, so it must not be pushed anywhere public as it stands.
+this repository, in the **private** repo `AINxtGenDev/plessl-projekt` under
+`79_plessl-video/`. That is where the Queen-derived music bed sits, along with
+the business documents — none of it belongs in this public repository.
 
 ## Verified on the live site
 

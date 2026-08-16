@@ -50,11 +50,20 @@ Die beiden vorher parallel liegenden Ordner wurden dorthin verschoben:
 **Rollback:** `mv ~/05_development/55_laulau/78_plessl-website ~/05_development/`,
 dann `git revert cbfec36`.
 
-**Achtung:** Nur dieses Repo ist über GitHub gesichert. Das Video-Projekt
-`79_plessl-video` hat seit 2026-08-16 eine eigene lokale Historie (Tag `v1.0`),
-aber bewusst kein Remote — es enthält den Queen-Musikbed. Der übergeordnete
-Ordner `55_laulau` (Businessplan, E-A-Prognose, SWOT, Pressemappe, `logo/`)
-ist weiterhin gar nicht versioniert. Alles liegt auf einer einzigen Platte.
+**Zwei Repos, bewusst getrennt (Stand 2026-08-16):**
+
+| Repo | Sichtbarkeit | Inhalt |
+|---|---|---|
+| `AINxtGenDev/interior-design` (dieses) | **öffentlich** | nur die Website |
+| `AINxtGenDev/plessl-projekt` | **privat** | `55_laulau` — Businessplan, E-A-Prognose, SWOT, Pressemappe, `logo/`, Video-Projekt |
+
+Grund für die Trennung: GitHub Pages liefert von einem privaten Repo nur mit
+bezahltem Plan aus. Ein gemeinsames privates Repo hätte die Website offline
+genommen, ein gemeinsames öffentliches hätte Finanzdaten, Wohnadresse,
+API-Keys und den Queen-Musikbed veröffentlicht.
+
+**Dieses Repo ist öffentlich — hier darf nichts davon hinein.** Das private
+Repo ist der Ort für Unterlagen, Rohmaterial und Musik.
 
 ## Neues Logo und rotierende Wortmarke (2026-08-16)
 
