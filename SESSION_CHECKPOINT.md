@@ -55,6 +55,71 @@ dann `git revert cbfec36`.
 Video-Arbeitsprojekt `79_plessl-video` liegen ohne Versionierung und ohne
 Backup auf einer einzigen Platte.
 
+## Neues Logo und rotierende Wortmarke (2026-08-16)
+
+Quelle: `55_laulau/logo/` — originalgetreu neu gezeichnete, entpixelte Fassung
+mit echtem Alphakanal, ersetzt den bisherigen 300-DPI-Scan. Der komplette Satz
+liegt jetzt versioniert unter `brand/logo-optimized/` (inkl.
+`logo-dokumentation.md`), damit er nicht nur im nicht gesicherten `55_laulau`
+existiert.
+
+| Verwendung | Datei aus dem Logo-Satz | Ziel im Repo |
+|---|---|---|
+| Header/Footer-Marke | `wpl-logo-256.webp` | `website/src/assets/logo-mark.webp` |
+| Favicon (16–256 px) | `favicon.ico` | `website/src/app/favicon.ico` |
+| Icon 512 px | `wpl-logo-512.png` | `website/src/app/icon.png` |
+| iOS Touch-Icon | `apple-touch-icon.png` | `website/src/app/apple-icon.png` |
+| Android/Manifest | `android-chrome-{192,512}.png` | `website/public/icons/` |
+
+- `src/app/{favicon.ico,icon.png,apple-icon.png}` sind Next.js-Dateikonventionen
+  und erzeugen die `<link>`-Tags automatisch — kein Handverdrahten im Layout.
+- Neu: `src/app/manifest.ts` → `manifest.webmanifest`. Nur dadurch sind die
+  Android-Icons überhaupt erreichbar. **Achtung:** Next setzt `basePath` in
+  Manifest-Strings *nicht* automatisch, `start_url`, `scope` und jedes Icon
+  präfixen ihn deshalb selbst über `NEXT_PUBLIC_BASE_PATH`.
+- Die Marke ist **22,8 KB statt 87,6 KB** (256er WebP statt Scan). 256 px reicht:
+  größte Darstellung ist 64 px im Footer, also 192 px bei 3× Pixeldichte.
+- Das neue Logo sitzt auf quadratischer Fläche mit eigenem Schutzraum (Inhalt
+  füllt 77 % der Höhe, der Scan füllte 98 %). Header und Footer laufen deshalb
+  eine Stufe größer — `h-10 md:h-11` statt `h-9 md:h-10`, Footer `h-16` statt
+  `h-14` — sonst wirkte das Logo rund 20 % kleiner als vorher.
+
+### Rotation um die Y-Achse
+
+Neue Komponente `website/src/components/LogoMark.tsx`, benutzt von Header und
+Footer (vorher hatten beide den `<Image>`-Block dupliziert).
+
+- 24 s pro Umdrehung, `linear`, endlos — bewusst sehr langsam.
+- **Zweiseitige Karte statt einfacher Drehung.** Ein flaches Bild zeigt jenseits
+  von 90° sein Spiegelbild, das Monogramm stünde also die halbe Zeit
+  seitenverkehrt. Deshalb zwei Flächen, die hintere um 180° vorgedreht, Übergabe
+  über `backface-visibility: hidden`. Bei 180° gemessen: Logo liest korrekt.
+- `perspective: 300px` — flacher wirkt es wie ein seitliches Stauchen,
+  enger wird aus einer Identitätsmarke ein Jahrmarkteffekt.
+- **Die Animation existiert ausschließlich innerhalb von
+  `@media (prefers-reduced-motion: no-preference)`.** Wer reduzierte Bewegung
+  eingestellt hat, bekommt ein stehendes Logo — im CSSOM des Builds geprüft, es
+  gibt keine ungegatete Regel. Dauerbewegung in einem Sticky-Header ist genau
+  das, wogegen diese Einstellung existiert.
+
+**Geprüft (Build lokal ausgeliefert, nicht angenommen):**
+
+| Prüfung | Ergebnis |
+|---|---|
+| `npm run build` | 12 Routen inkl. `apple-icon.png`, `manifest.webmanifest` |
+| `npx eslint src` | sauber |
+| `<link>`-Tags | icon, apple-touch-icon, manifest — alle mit `/interior-design` |
+| Manifest-Inhalt | `start_url`, `scope`, beide Icon-Pfade korrekt präfixt |
+| Drehung live | `playState: running`, `matrix3d`, 24 s, Werte ändern sich |
+| Bei 0°/45°/135°/180° | Logo nie gespiegelt, Perspektive sauber |
+| Konsole | keine Fehler, keine Warnungen |
+| 320 px mobil | kein horizontales Scrollen (`scrollWidth == 320`) |
+
+**Fallstrick für die nächste lokale Prüfung:** `python3 -m http.server` spricht
+per Default HTTP/1.0 und schließt jede Verbindung. Das erzeugt sechs falsche
+„preloaded but not used"-Warnungen für die Schriften. Mit
+`--protocol HTTP/1.1` verschwinden sie bei identischem Build.
+
 ## Erledigt in dieser Session
 
 ### Repository bereinigt
@@ -86,6 +151,8 @@ Backup auf einer einzigen Platte.
 - Logo aus `logo.pdf` (300-DPI-Scan) extrahiert: CP-Monogramm als Alpha-Matte
   freigestellt → `logo-mark.webp` + `icon.png` (Favicon). Wortmarke bewusst als
   Live-Text in Jost gesetzt, nicht als Scan.
+  **Überholt am 2026-08-16** — der Scan wurde durch die neu gezeichnete Fassung
+  ersetzt, siehe „Neues Logo und rotierende Wortmarke".
 
 ### Behobene Fehler (waren echte Defekte)
 
@@ -182,8 +249,11 @@ Austausch ist ein Dateikopieren. Der Musik-Bed wird bewusst **nicht** ins
 | `website/src/app/(de)/impressum/page.tsx` | Impressum (§ 5 ECG, § 25 MedienG) |
 | `website/src/app/(de)/datenschutz/page.tsx` | Datenschutzerklärung (DSGVO) |
 | `website/src/app/globals.css` | Design-Tokens |
+| `website/src/components/LogoMark.tsx` | Rotierende Markenmarke (zweiseitig) |
+| `website/src/app/manifest.ts` | Web-App-Manifest, Android-Icons |
 | `handout/claudia-plessl-uebersicht.html` | Offline-Onepager fürs Handy |
-| `brand/logo-original-scan.pdf` | Quell-Scan des Logos |
+| `brand/logo-original-scan.pdf` | Quell-Scan des Logos (historisch) |
+| `brand/logo-optimized/` | Neu gezeichneter Logo-Satz inkl. Doku (aktuell) |
 | `video-source/` | Storyboard, Skript, Kompositionen des Vorstellungsvideos |
 | `website/public/video/` | Fertiges Video, Poster, deutsche Untertitel |
 
@@ -202,7 +272,11 @@ Alle diese Stellen sind auf der Seite als hervorgehobene `[…]`-Marker sichtbar
 
 **Sonstiges:**
 
-- Original-Vektorlogo (SVG/AI/EPS) beim Designer anfragen — aktuell nur Scan.
+- Original-Vektorlogo (SVG/AI/EPS) beim Designer anfragen. Die neu gezeichnete
+  Fassung ist sauber, aber weiterhin Raster — für Druck und sehr große
+  Darstellungen bleibt eine echte Vektorquelle die richtige Lösung.
+- Für einen dunklen Header oder Dark Mode fehlt eine helle Negativversion des
+  Logos (die Seite ist aktuell bewusst light-only, also noch kein Problem).
 - Akademischer Titel/Studium fehlt bei den Qualifikationen (`site.ts`).
 - Eigene Domain und domainbasierte E-Mail-Adresse statt `@gmail.com`.
 - **Musik im Video vor breiterer Verbreitung ersetzen** (Queen-Titel, siehe oben);

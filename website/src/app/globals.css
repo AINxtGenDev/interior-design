@@ -184,6 +184,57 @@ p {
 .delay-3 { animation-delay: 0.36s; }
 .delay-4 { animation-delay: 0.48s; }
 
+/* ─── Rotating brand mark ─── */
+/*
+ * Two-sided card (see LogoMark.tsx): the back face is pre-flipped so the
+ * monogram never reads mirrored. `perspective` is deliberately moderate —
+ * flatter looks like the logo is merely being squashed sideways, tighter
+ * turns an identity mark into a carnival effect.
+ */
+.logo-spin {
+  display: inline-block;
+  flex: none;
+  perspective: 300px;
+}
+
+.logo-spin__inner {
+  display: block;
+  position: relative;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  transform-style: preserve-3d;
+}
+
+.logo-spin__face {
+  display: block;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.logo-spin__face--back {
+  position: absolute;
+  inset: 0;
+  transform: rotateY(180deg);
+}
+
+@keyframes logoSpinY {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .logo-spin__inner {
+    animation: logoSpinY 24s linear infinite;
+    will-change: transform;
+  }
+}
+
 /* ─── Focus visibility ─── */
 :focus-visible {
   outline: 2px solid var(--color-sage-600);

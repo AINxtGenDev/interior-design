@@ -1,6 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
-import logoMark from "@/assets/logo-mark.webp";
+import LogoMark from "@/components/LogoMark";
 import { CONTACT, type Content, type Locale } from "@/content/site";
 
 export default function SiteFooter({
@@ -24,12 +23,7 @@ export default function SiteFooter({
           {/* Full brand lockup, recreating the printed card: monogram,
               wordmark, and the rule-flanked descriptor beneath it. */}
           <div className="flex items-center gap-4">
-            <Image
-              src={logoMark}
-              alt=""
-              className="h-14 w-auto"
-              sizes="64px"
-            />
+            <LogoMark className="h-16" />
             <div>
               <p className="font-nav text-sm font-medium tracking-[0.2em] text-anthracite-700 uppercase">
                 Claudia Plessl
