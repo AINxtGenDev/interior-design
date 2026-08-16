@@ -10,7 +10,7 @@ from `/en/`.
 
 > **This repository is public and holds only the website.** Everything else —
 > the businessplan and financial projections, the logo sources, and the video
-> working project with its unlicensed music bed — lives in the private repo
+> working project with its music bed and renders — lives in the private repo
 > `AINxtGenDev/plessl-projekt`. They are split because GitHub Pages will not
 > serve from a private repository on a free plan. Do not move material across
 > that line without checking what it contains.
@@ -208,14 +208,18 @@ never presses play downloads a few KB, not 4.2 MB.
 
 Plan, script and compositions are in [`video-source/`](video-source/); that
 README also covers the voiceover route (Gemini TTS — Kokoro has no German and
-this HeyGen account exposes no German voice) and, importantly, **the music
-licence risk**: the bed is built from a Queen recording supplied by the owner,
-and a music-free variant is already rendered and ready to swap in.
+this HeyGen account exposes no German voice) and the music bed.
+
+**Music was replaced on 2026-08-16.** The bed had been built from a Queen
+recording; it is now `casa_in_ordine.mp3`, a Suno-generated instrumental. The
+swap was audio-only — the video stream is byte-identical to the original render
+(`5b518475…`), so the picture never went through a second encode. Worth
+confirming that the Suno plan it came from grants commercial use.
 
 The full HyperFrames working project (renders, voiceover, assets) lives outside
 this repository, in the **private** repo `AINxtGenDev/plessl-projekt` under
-`79_plessl-video/`. That is where the Queen-derived music bed sits, along with
-the business documents — none of it belongs in this public repository.
+`79_plessl-video/`, together with the business documents — none of that belongs
+in this public repository.
 
 ## Verified on the live site
 

@@ -8,7 +8,8 @@
   (**verschoben am 2026-08-16** — vorher `/home/nuc8/05_development/78_plessl-website`)
 - Live: https://ainxtgendev.github.io/interior-design/
 - Status: Website live und getestet; Vorstellungsvideo produziert und
-  eingebettet. Rechtliche Platzhalter und Musikrechte offen.
+  eingebettet. Musik am 2026-08-16 ersetzt (Queen -> Suno-Instrumental);
+  rechtliche Platzhalter im Impressum/AGB weiterhin offen.
 
 ## Aktuelles Ziel
 
@@ -60,7 +61,7 @@ dann `git revert cbfec36`.
 Grund für die Trennung: GitHub Pages liefert von einem privaten Repo nur mit
 bezahltem Plan aus. Ein gemeinsames privates Repo hätte die Website offline
 genommen, ein gemeinsames öffentliches hätte Finanzdaten, Wohnadresse,
-API-Keys und den Queen-Musikbed veröffentlicht.
+API-Keys und das Rohmaterial des Videos veröffentlicht.
 
 **Dieses Repo ist öffentlich — hier darf nichts davon hinein.** Das private
 Repo ist der Ort für Unterlagen, Rohmaterial und Musik.
