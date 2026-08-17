@@ -1,15 +1,20 @@
-# Claudia Plessl Logo – optimierte Website-Dateien
+# Mag. Claudia Plessl Logo – optimierte Website-Dateien
 
 Das Logo wurde für die Verwendung auf Websites sowie auf iPhones, iPads, Android-Smartphones und Android-Tablets optimiert.
 
-Die überarbeitete Version wurde originalgetreu neu gezeichnet, entpixelt, kontrastreicher ausgearbeitet und mit einem echten transparenten Hintergrund exportiert. Die charakteristischen Bestandteile des ursprünglichen Logos bleiben erhalten:
+Seit 17. August 2026 liegt dem Satz die **dreidimensionale Fassung** `logo-3d-transparent.png` zugrunde (1254 × 1254 px, freigestellt). Sie löst die zuvor flache Neuzeichnung ab. Die charakteristischen Bestandteile des ursprünglichen Logos bleiben erhalten:
 
-- quadratischer Grundrissrahmen
-- olivfarbener, geschwungener Bogen
+- quadratischer Grundrissrahmen, jetzt als plastisch abgesetztes Profil
+- olivfarbener, geschwungener Bogen mit metallischer Lichtkante
 - dunkelgraues Monogramm
 - ursprüngliche Anordnung und Wiedererkennbarkeit
 
 ## Dateien
+
+Alle folgenden Dateien entstehen aus der Quelle heraus mit
+[build_logo_set.py](build_logo_set.py) (`python3 logo/build_logo_set.py`) und
+werden dabei überschrieben. Der Skriptlauf ist der einzige vorgesehene Weg, den
+Satz zu erneuern — Handarbeit an einzelnen Größen fällt beim nächsten Lauf weg.
 
 ### Masterdateien
 
@@ -36,7 +41,7 @@ Die überarbeitete Version wurde originalgetreu neu gezeichnet, entpixelt, kontr
 
 ![Logo-Größenprüfung](wpl-logo-size-preview.png)
 
-Das Logo bleibt bei 192, 128 und 64 px sehr gut erkennbar. Bei 32 px ist das Monogramm weiterhin lesbar; die feinen Grundrissdetails treten bei dieser sehr kleinen Darstellung erwartungsgemäß etwas zurück.
+Das Logo bleibt bei 192 und 128 px sehr gut erkennbar. Bei 64 px trägt das Monogramm noch klar, bei 32 px ist es als Marke erkennbar, die Grundrissdetails und die plastische Kante verlieren dort aber sichtbar an Zeichnung — die 3D-Fassung verträgt die kleinste Stufe etwas schlechter als die frühere flache. Für Browser-Tab und Favicon wurde diese Einbuße bewusst in Kauf genommen, damit überall dieselbe Marke steht.
 
 ## Empfohlene Einbindung auf der Website
 
@@ -62,7 +67,7 @@ Die Dateipfade `/assets/` müssen gegebenenfalls an die tatsächliche Ordnerstru
     sizes="(max-width: 600px) 96px, 140px"
     width="140"
     height="140"
-    alt="Claudia Plessl Logo"
+    alt="Mag. Claudia Plessl Logo"
   >
 </picture>
 ```
@@ -101,22 +106,30 @@ Wenn die Website ein `manifest.webmanifest` verwendet, können die Android-Datei
 
 - Der transparente Hintergrund ermöglicht die flexible Platzierung auf hellen und mittelhellen Flächen.
 - Die vorhandene Farbvariante ist für helle bis mittelhelle Website-Hintergründe optimiert.
-- Für einen sehr dunklen Header oder einen Dark Mode empfiehlt sich eine separate helle Negativversion.
+- Auf Schwarz nachgeprüft: Die 3D-Fassung bleibt dort lesbar, weil die Lichtkanten den Rahmen abheben — anders als bei der flachen Fassung ist eine eigene Negativversion für dunkle Flächen daher nicht zwingend.
 - Das Logo sollte nicht verzerrt werden. Breite und Höhe immer proportional skalieren.
 - Für reguläre Website-Header ist eine sichtbare Breite von ungefähr 90 bis 150 px sinnvoll; die konkrete Größe hängt vom Header, den Abständen und der restlichen Navigation ab.
 - Rund um das Logo sollte ausreichend Freiraum bleiben, damit Grundrissrahmen und Monogramm optisch wirken können.
 
 ## Technische Umsetzung
 
-Die Neuzeichnung wurde im integrierten Bildbearbeitungsmodus erstellt. Der finale Bildauftrag war eine originalgetreue, flache und vektorähnliche Rekonstruktion mit:
+Die Quelldatei ist eine dreidimensionale Ausarbeitung derselben Marke: Rahmen
+und Monogramm sind als Relief mit Materialwirkung und gerichteter Beleuchtung
+angelegt, der Hintergrund ist sauber freigestellt (rund zwei Drittel der Fläche
+voll transparent, nur die Kantenglättung liegt dazwischen).
 
-- sauberem Alphakanal
-- geglätteten Kanten
-- leicht verstärkten Feinstrichen
-- hoher Erkennbarkeit bei 32 bis 64 px
-- unveränderter Grundidentität
-- keinen zusätzlichen Buchstaben oder Symbolen
-- keinen Verläufen, Schatten, 3D-Effekten oder Wasserzeichen
+`build_logo_set.py` stellt daraus den Auslieferungssatz her:
+
+- Motiv am Alphakanal freistellen (Schwelle 8, damit Antialiasing-Reste nicht als Motiv zählen)
+- auf eine quadratische Leinwand setzen, in der das Motiv **dieselbe Höhe** einnimmt wie im früheren flachen Satz (735 von 1024 px)
+- alle Größen einzeln per LANCZOS aus dem 1024-px-Master rechnen
+- WebP verlustfrei, damit die Marke pixelgenau bleibt
+- `favicon.ico` mit sechs eigens gerechneten Frames (16 bis 256 px)
+
+Die Höhenangleichung ist der Grund, warum das neue Logo im Header und im Footer
+exakt so groß wirkt wie das alte, obwohl die Quelle ihre Leinwand deutlich
+stärker ausfüllt. Header und Footer skalieren über die Höhe (`h-10`, `h-11`,
+`h-16`); am CSS musste dadurch nichts geändert werden.
 
 ## Quellen
 
