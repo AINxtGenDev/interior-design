@@ -3,7 +3,7 @@ import LegalShell, { LegalSection, Todo } from "@/components/LegalShell";
 import { CONTACT } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: "Datenschutzerklärung — Mag. Claudia Plessl",
+  title: "Datenschutzerklärung | Mag. Claudia Plessl — Raum & Ordnung",
   description:
     "Informationen zur Verarbeitung personenbezogener Daten gemäß DSGVO.",
   robots: { index: true, follow: false },

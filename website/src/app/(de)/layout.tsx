@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter, Jost } from "next/font/google";
 import "../globals.css";
-import { CONTENT } from "@/content/site";
+import { CONTACT, CONTENT } from "@/content/site";
 
 /*
  * next/font downloads and self-hosts these at build time, so the published
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "de_AT",
     url: SITE_URL,
-    siteName: "Mag. Claudia Plessl — Interior Design & Ordnungscoaching",
+    siteName: CONTACT.businessName,
     title: CONTENT.de.meta.title,
     description: CONTENT.de.meta.description,
     images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],

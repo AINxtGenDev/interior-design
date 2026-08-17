@@ -3,7 +3,7 @@ import LegalShell, { LegalSection, Todo } from "@/components/LegalShell";
 import { CONTACT } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: "Impressum — Mag. Claudia Plessl",
+  title: "Impressum | Mag. Claudia Plessl — Raum & Ordnung",
   description:
     "Impressum und Offenlegung gemäß § 5 E-Commerce-Gesetz und § 25 Mediengesetz.",
   robots: { index: true, follow: false },
@@ -21,7 +21,7 @@ export default function Impressum() {
         <p>
           <strong>{CONTACT.name}</strong>
           <br />
-          Interior Design &amp; Ordnungscoaching
+          Raum &amp; Ordnung
           <br />
           {CONTACT.street}
           <br />

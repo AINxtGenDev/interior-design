@@ -4,7 +4,7 @@ import LegalShell, { LegalSection, Todo } from "@/components/LegalShell";
 import { CONTACT } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: "Allgemeine Geschäftsbedingungen — Mag. Claudia Plessl",
+  title: "Allgemeine Geschäftsbedingungen | Mag. Claudia Plessl — Raum & Ordnung",
   description:
     "Allgemeine Geschäftsbedingungen für Ordnungscoaching, Innenraumgestaltung sowie Workshops und Trainings.",
   robots: { index: true, follow: false },

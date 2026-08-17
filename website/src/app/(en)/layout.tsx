@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter, Jost } from "next/font/google";
 import "../globals.css";
-import { CONTENT } from "@/content/site";
+import { CONTACT, CONTENT } from "@/content/site";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_GB",
     url: `${SITE_URL}en/`,
-    siteName: "Mag. Claudia Plessl — Interior Design & Professional Organizing",
+    siteName: CONTACT.businessName,
     title: CONTENT.en.meta.title,
     description: CONTENT.en.meta.description,
     images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],

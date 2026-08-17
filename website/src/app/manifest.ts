@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { CONTACT } from "@/content/site";
 
 /*
  * Exists so the two android-chrome icons from the optimized logo set are
@@ -18,10 +19,10 @@ export const dynamic = "force-static";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Mag. Claudia Plessl — Interior Design & Ordnungscoaching",
-    short_name: "Claudia Plessl",
+    name: CONTACT.businessName,
+    short_name: "Raum & Ordnung",
     description:
-      "Interior Design und Professional Organizing in Wien und Niederösterreich.",
+      "Ordnungscoaching, Innenraumgestaltung und Workshops in Wien und Niederösterreich.",
     lang: "de-AT",
     start_url: `${basePath}/`,
     scope: `${basePath}/`,

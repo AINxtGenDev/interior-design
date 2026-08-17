@@ -4,7 +4,7 @@ import LegalShell, { LegalSection } from "@/components/LegalShell";
 import { CONTACT } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: "Legal information — Mag. Claudia Plessl",
+  title: "Legal information | Mag. Claudia Plessl — Raum & Ordnung",
   description:
     "Imprint, privacy notice and terms and conditions in summary. The binding versions are the German originals.",
   robots: { index: true, follow: false },
@@ -34,7 +34,7 @@ export default function Legal() {
         <p>
           <strong>{CONTACT.name}</strong>
           <br />
-          Interior Design &amp; Professional Organizing
+          Raum &amp; Ordnung
           <br />
           {CONTACT.street}
           <br />

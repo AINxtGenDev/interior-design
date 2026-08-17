@@ -26,11 +26,12 @@ export default function SiteFooter({
             <LogoMark className="h-16" />
             <div>
               <p className="font-nav text-sm font-medium tracking-[0.2em] text-anthracite-700 uppercase">
-                Claudia Plessl
+                Mag. Claudia Plessl
               </p>
               <p className="mt-1.5 flex items-center gap-2 font-nav text-[0.6rem] font-medium tracking-[0.28em] text-anthracite-400 uppercase">
                 <span aria-hidden="true" className="h-px w-4 bg-sage-300" />
-                {locale === "de" ? "Interior Design" : "Interior Design"}
+                {/* Firmenwortlaut, in beiden Sprachen unübersetzt. */}
+                Raum &amp; Ordnung
                 <span aria-hidden="true" className="h-px w-4 bg-sage-300" />
               </p>
             </div>

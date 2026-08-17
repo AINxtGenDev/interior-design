@@ -1,6 +1,6 @@
 import Link from "next/link";
 import LogoMark from "@/components/LogoMark";
-import type { Content, Locale } from "@/content/site";
+import { CONTACT, type Content, type Locale } from "@/content/site";
 
 const SECTION_IDS = {
   services: "leistungen",
@@ -56,12 +56,12 @@ export default function SiteHeader({
             keep the same optical weight. */}
         <Link
           href={home}
-          aria-label="Claudia Plessl — Interior Design & Ordnungscoaching"
+          aria-label={CONTACT.businessName}
           className="group inline-flex min-h-11 items-center gap-3"
         >
           <LogoMark priority className="h-10 md:h-11" />
           <span className="font-nav text-[0.8rem] leading-none font-medium tracking-[0.2em] text-anthracite-700 uppercase transition-colors group-hover:text-sage-700 sm:text-sm">
-            Claudia&nbsp;Plessl
+            Mag.&nbsp;Claudia&nbsp;Plessl
           </span>
         </Link>
 

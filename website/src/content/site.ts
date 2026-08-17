@@ -20,7 +20,14 @@ export const ASSET_PREFIX = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 /** Business contact details — used by the site, the Impressum and the AGB. */
 export const CONTACT = {
+  /*
+   * `name` is the natural person and stays the legally identifying entry for
+   * the Einzelunternehmen — Impressum, AGB and the copyright line use it.
+   * `businessName` is the trading name that carries the brand; it is the same
+   * string in both locales, because a Firmenwortlaut is not translated.
+   */
   name: "Mag. Claudia Plessl",
+  businessName: "Mag. Claudia Plessl — Raum & Ordnung",
   street: "Ährengasse 6",
   postalCode: "3424",
   city: "Wolfpassing",
@@ -94,7 +101,7 @@ export type Content = {
 const de: Content = {
   htmlLang: "de",
   meta: {
-    title: "Mag. Claudia Plessl — Interior Design & Ordnungscoaching | Wien & Niederösterreich",
+    title: `${CONTACT.businessName} | Wien & Niederösterreich`,
     description:
       "Interior Design, Ordnungscoaching und Workshops aus einer Hand. Erst Klarheit schaffen, dann Räume gestalten — für Familien, Menschen in Umbruchsituationen und kleine Unternehmen in Wien und Niederösterreich.",
   },
@@ -275,7 +282,7 @@ const de: Content = {
 const en: Content = {
   htmlLang: "en",
   meta: {
-    title: "Mag. Claudia Plessl — Interior Design & Professional Organizing | Vienna & Lower Austria",
+    title: `${CONTACT.businessName} | Vienna & Lower Austria`,
     description:
       "Interior design, professional organizing and workshops from a single source. Create clarity first, then design the space it frees up — for families, people in transition and small businesses in Vienna and Lower Austria.",
   },
