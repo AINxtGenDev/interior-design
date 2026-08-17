@@ -158,6 +158,17 @@ export default function Legal() {
           .
         </p>
       </LegalSection>
+
+      <LegalSection id="images" heading="Image credits">
+        <p>
+          <strong>
+            The images on this website were created using artificial
+            intelligence.
+          </strong>{" "}
+          They are not photographs: they show neither real rooms nor specific
+          client projects, and serve only to illustrate the design style.
+        </p>
+      </LegalSection>
     </LegalShell>
   );
 }

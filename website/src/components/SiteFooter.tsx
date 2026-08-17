@@ -44,6 +44,10 @@ export default function SiteFooter({
           <p className="mt-1">
             &copy; {year} {CONTACT.name}. {content.footer.rights}
           </p>
+          {/* KI-Offenlegung sichtbar auf jeder Seite, nicht nur im Impressum. */}
+          <p className="mt-1 text-xs text-anthracite-400">
+            {content.footer.imageNotice}
+          </p>
         </div>
 
         <nav

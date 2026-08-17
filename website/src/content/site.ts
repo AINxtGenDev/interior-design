@@ -94,7 +94,14 @@ export type Content = {
     mailSubject: string;
     mailBody: string;
   };
-  footer: { rights: string; imprint: string; privacy: string; terms: string };
+  footer: {
+    rights: string;
+    imprint: string;
+    privacy: string;
+    terms: string;
+    /** Offenlegung, dass das Bildmaterial KI-generiert ist. */
+    imageNotice: string;
+  };
   legalLinks: { imprint: string; privacy: string; terms: string };
 };
 
@@ -275,6 +282,8 @@ const de: Content = {
     imprint: "Impressum",
     privacy: "Datenschutzerklärung",
     terms: "AGB",
+    imageNotice:
+      "Die Bilder auf dieser Website wurden mit künstlicher Intelligenz erstellt.",
   },
   legalLinks: { imprint: "/impressum/", privacy: "/datenschutz/", terms: "/agb/" },
 };
@@ -456,6 +465,8 @@ const en: Content = {
     imprint: "Imprint",
     privacy: "Privacy",
     terms: "Terms",
+    imageNotice:
+      "The images on this website were created using artificial intelligence.",
   },
   legalLinks: { imprint: "/en/legal/#imprint", privacy: "/en/legal/#privacy", terms: "/en/legal/#terms" },
 };

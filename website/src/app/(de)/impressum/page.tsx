@@ -140,9 +140,13 @@ export default function Impressum() {
 
       <LegalSection heading="Bildnachweis">
         <p>
-          Die auf dieser Website verwendeten Bilder stammen aus dem
-          Bildmaterial des Unternehmens und dienen der Darstellung des
-          gestalterischen Stils. Sie zeigen keine konkreten Kundenprojekte.
+          <strong>
+            Die auf dieser Website verwendeten Bilder wurden mit künstlicher
+            Intelligenz erstellt.
+          </strong>{" "}
+          Sie sind keine Fotografien: Sie zeigen weder reale Räume noch
+          konkrete Kundenprojekte, sondern veranschaulichen ausschließlich den
+          gestalterischen Stil.
         </p>
       </LegalSection>
     </LegalShell>
