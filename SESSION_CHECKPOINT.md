@@ -10,8 +10,9 @@
 - Status: Website live und getestet; Vorstellungsvideo produziert und
   eingebettet. Musik am 2026-08-16 ersetzt (Queen -> Suno-Instrumental);
   rechtliche Platzhalter im Impressum/AGB weiterhin offen.
-  **Die Umbenennung vom 2026-08-17 ist lokal gebaut und geprüft, aber noch
-  nicht gepusht — live steht noch der alte Name mit dem alten Logo.**
+  **Umbenennung vom 2026-08-17 ist live:** gepusht bis `d0f98d6`,
+  GitHub-Actions-Deploy `32004332796` erfolgreich, alle 6 Routen an der
+  Live-URL nachgeprüft (neuer Name, neues Logo byte-identisch, KI-Hinweis).
 
 ## Aktuelles Ziel
 
