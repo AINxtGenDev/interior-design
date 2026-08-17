@@ -2,7 +2,7 @@
 
 ## Meta
 
-- Datum: 2026-08-16 (Website-Stand 2026-08-15, danach nur Ordnerkonsolidierung)
+- Datum: 2026-08-17 (Umbenennung, 3D-Logo, KI-Bildhinweis — siehe unten)
 - Repository: `AINxtGenDev/interior-design` (public)
 - Arbeitskopie: `/home/nuc8/05_development/55_laulau/78_plessl-website`
   (**verschoben am 2026-08-16** — vorher `/home/nuc8/05_development/78_plessl-website`)
@@ -10,12 +10,14 @@
 - Status: Website live und getestet; Vorstellungsvideo produziert und
   eingebettet. Musik am 2026-08-16 ersetzt (Queen -> Suno-Instrumental);
   rechtliche Platzhalter im Impressum/AGB weiterhin offen.
+  **Die Umbenennung vom 2026-08-17 ist lokal gebaut und geprüft, aber noch
+  nicht gepusht — live steht noch der alte Name mit dem alten Logo.**
 
 ## Aktuelles Ziel
 
-Professionelle Business-Website für `Mag. Claudia Plessl — Interior Design &
-Ordnungscoaching`, zweisprachig (Deutsch primär, Englisch sekundär), mit
-Impressum, Datenschutzerklärung und AGB, gehostet auf GitHub Pages.
+Professionelle Business-Website für `Mag. Claudia Plessl — Raum & Ordnung`,
+zweisprachig (Deutsch primär, Englisch sekundär), mit Impressum,
+Datenschutzerklärung und AGB, gehostet auf GitHub Pages.
 
 ## Ordnerkonsolidierung (2026-08-16)
 
@@ -65,6 +67,69 @@ API-Keys und das Rohmaterial des Videos veröffentlicht.
 
 **Dieses Repo ist öffentlich — hier darf nichts davon hinein.** Das private
 Repo ist der Ort für Unterlagen, Rohmaterial und Musik.
+
+## Umbenennung, 3D-Logo, KI-Bildhinweis (2026-08-17)
+
+**Firmenwortlaut jetzt `Mag. Claudia Plessl — Raum & Ordnung`.** Er ersetzt die
+beiden bisherigen Fassungen („… — Interior Design & Ordnungscoaching" auf `/`,
+„… — Interior Design & Professional Organizing" auf `/en/`) und steht **in
+beiden Sprachen gleich** — ein Firmenwortlaut wird nicht übersetzt.
+
+Der Name liegt jetzt an einer Stelle: `CONTACT.businessName` in
+`src/content/site.ts`. Davon getrennt bleibt `CONTACT.name` die natürliche
+Person und trägt weiterhin Impressum, AGB und Copyright-Zeile.
+
+| Stelle | vorher | jetzt |
+|---|---|---|
+| `<title>` `/` | … Interior Design & Ordnungscoaching \| Wien & NÖ | `Mag. Claudia Plessl — Raum & Ordnung \| Wien & Niederösterreich` |
+| `<title>` `/en/` | … Interior Design & Professional Organizing \| Vienna … | `Mag. Claudia Plessl — Raum & Ordnung \| Vienna & Lower Austria` |
+| `<title>` Rechtsseiten | `Impressum — Mag. Claudia Plessl` | `Impressum \| Mag. Claudia Plessl — Raum & Ordnung` (analog übrige) |
+| `og:site_name` beide Sprachen | je eigene Fassung | `CONTACT.businessName` |
+| Manifest `name` / `short_name` | … Ordnungscoaching / `Claudia Plessl` | `CONTACT.businessName` / `Raum & Ordnung` |
+| Header `aria-label` | fix deutscher String | `CONTACT.businessName` |
+| Header-/Footer-Wortmarke | `CLAUDIA PLESSL` | **`MAG. CLAUDIA PLESSL`** |
+| Footer-Deskriptor | `Interior Design` | `RAUM & ORDNUNG` |
+| Impressum / EN-Imprint Zeile 2 | Interior Design & … | `Raum & Ordnung` |
+
+Der Trenner ist ein Geviertstrich; auf den Rechtsseiten trennt `|` statt eines
+zweiten Geviertstrichs, damit im Titel nicht zwei Striche stehen.
+
+**Logo:** `logo/logo-3d-transparent.png` (1254², freigestellt) ersetzt die
+flache Neuzeichnung in allen Größen. Der Satz entsteht jetzt reproduzierbar über
+`logo/build_logo_set.py` im privaten Repo; die Zuordnung Datei → Ziel steht
+unverändert in der Tabelle unten.
+
+> Die 3D-Quelle füllt ihre Leinwand stärker aus (85 % Höhenanteil statt 72 %).
+> Das Skript normalisiert den Höhenanteil auf den alten Wert (735/1024). Weil
+> Header und Footer über die Höhe skalieren, wirkt die Marke dadurch **exakt so
+> groß wie vorher — am CSS musste nichts geändert werden.** Die unten
+> beschriebene `h-14`-Korrektur von 2026-08-16 gilt unverändert weiter.
+
+**KI-Bildhinweis:** Die Bilder der Seite sind KI-generiert. Neu ausgewiesen
+- sichtbar im Footer **jeder** Seite (`content.footer.imageNotice`, zweisprachig),
+- ausführlich im „Bildnachweis" des Impressums (der alte Text sprach von
+  „Bildmaterial des Unternehmens" und war damit irreführend),
+- in einem **neuen** Abschnitt `Image credits` (Anker `#images`) auf
+  `/en/legal/` — dort fehlte ein Bildnachweis bisher ganz.
+
+**Im Browser nachgeprüft (chrome-devtools MCP):**
+
+| Prüfung | Ergebnis |
+|---|---|
+| Build | 12 statische Seiten, keine TS-Fehler |
+| Titel/`og:site_name`/Manifest über alle 6 Routen | neuer Name überall |
+| alte Namensvarianten im Build | **0 Treffer** |
+| Konsole | keine Fehler (nur bekannte `next/font`-Preload-Warnungen) |
+| Netzwerk | 41 Requests, alle 200, **keine Drittanbieter-Requests** |
+| Logo-Dateien ausgeliefert vs. Quelle | byte-identisch (FNV-1a je Datei) |
+| `favicon.ico` | 6 Frames 16–256 px |
+| 320 / 375 / 1440 px | kein horizontaler Überlauf; bei 320 px 16 px Luft zwischen Wortmarke und Sprachumschalter |
+| Sprachumschalter | `/` ⇄ `/en/` beidseitig |
+
+**Nicht geändert:** das Vorstellungsvideo (zeigt weiter flaches Logo und
+„Interior Design · Ordnungscoaching"; Änderung hieße Re-Render) und die
+Ich-Form-Texte in `site.ts` („Ich bin Claudia Plessl …") — dort wäre „Mag."
+gestelzt.
 
 ## Neues Logo und rotierende Wortmarke (2026-08-16)
 
