@@ -2,7 +2,7 @@
 
 ## Meta
 
-- Datum: 2026-08-17 (Umbenennung, 3D-Logo, KI-Bildhinweis — siehe unten)
+- Datum: 2026-08-18 (Siegel-Logo WOHNEN · ORDNUNG — siehe unten)
 - Repository: `AINxtGenDev/interior-design` (public)
 - Arbeitskopie: `/home/nuc8/05_development/55_laulau/78_plessl-website`
   (**verschoben am 2026-08-16** — vorher `/home/nuc8/05_development/78_plessl-website`)
@@ -13,6 +13,124 @@
   **Umbenennung vom 2026-08-17 ist live:** gepusht bis `d0f98d6`,
   GitHub-Actions-Deploy `32004332796` erfolgreich, alle 6 Routen an der
   Live-URL nachgeprüft (neuer Name, neues Logo byte-identisch, KI-Hinweis).
+
+## Siegel-Logo WOHNEN · ORDNUNG (2026-08-18)
+
+Das quadratische 3D-Monogramm vom 2026-08-17 ist ersetzt durch das **runde
+Siegel mit dem Ring-Schriftzug WOHNEN · ORDNUNG**. Branch
+`feature/logo-replacement` in beiden Repos.
+
+**Die Lieferdatei war kein transparenter Export.** `03_logo_new_schrift.png`
+(1254², RGB, **ohne Alphakanal**) ist eine Bildschirmaufnahme einer
+transparenten Datei: das Transparenz-Schachbrett steckt als sichtbares Muster in
+den RGB-Pixeln — 24-px-Felder, Graustufen 253,8 und 245,5, per Autokorrelation
+und Phasenfit gemessen. Ein Freistellen nach Helligkeit hätte die dünnen
+Ring-Buchstaben zerfressen.
+
+`logo/dechecker_matte.py` (privates Repo) modelliert das Schachbrett stattdessen
+als bekannten Hintergrund B und löst die Compositing-Gleichung
+`I = a·F + (1−a)·B` pro Pixel nach a auf; F kommt aus dem nächstgelegenen
+sicheren Motivpixel, a als Kleinste-Quadrate-Projektion über die drei Kanäle.
+
+> **Gegenprobe (nicht angenommen):** das Ergebnis wieder auf das modellierte
+> Schachbrett komponiert und mit der Quelle verglichen — mittlerer Fehler
+> **0,92/255**, 99. Perzentil 9, 12 Pixel von 1,57 Mio. über 12. Das liegt im
+> Eigenrauschen der Datei (SD 1,5). Auf Magenta, Weiß und Schwarz geprüft:
+> kein Halo, kein Schachbrettrest.
+
+**Der Ring-Schriftzug ist bei keiner Website-Größe lesbar.** Gemessen über
+Zusammenhangskomponenten: 61 Glyphen, Median-Versalhöhe **39,8 px bei 1090 px
+Motivdurchmesser = 3,65 %**. Daraus folgt:
+
+| Ort | Box | Versalhöhe des Rings |
+|---|---:|---:|
+| Header < 768 px (`h-10`) | 40 px | 1,05 CSS-px |
+| Header ≥ 768 px (`h-11`) | 44 px | 1,15 CSS-px |
+| Footer (`h-16`) | 64 px | 1,68 CSS-px |
+| Favicon 32 / 16 | 32 / 16 px | 0,84 / 0,42 CSS-px |
+
+Das ist nicht klein, sondern unsichtbar — und es verschmiert das Monogramm zu
+grauem Rauschen. Lesbar wäre der Ring erst ab rund 305 px Höhe im Header. Zwei
+Konsequenzen:
+
+1. **Header und Footer behalten das volle Siegel.** Der Ring wirkt dort als
+   Textur; den Namen trägt die Wortmarke `MAG. CLAUDIA PLESSL` daneben als
+   Live-Text. Das ist bei Siegel-Logos die übliche Lösung.
+2. **`favicon.ico` zeigt bis 64 px nur das Monogramm**, geschnitten bei
+   Radius 461 px — dort ist die Quelle nachweislich leer (Deckung 0,000).
+   128 px und 256 px tragen das volle Siegel. Schalter:
+   `ICO_MONOGRAM_UPTO` in `logo/build_logo_set.py`.
+
+**Optischer Ausgleich:** `CONTENT_HEIGHT_RATIO` steigt von 735/1024 = 0,718 auf
+**0,76**. Ein Kreis wirkt bei gleicher Höhe kleiner als ein Quadrat; die Marke
+trägt damit dasselbe optische Gewicht wie vorher. **Am CSS wurde nichts
+geändert** — die Boxen sind weiterhin 40/44/64 px.
+
+**Zwei Altlasten mitbehoben:**
+
+- `apple-icon.png` hatte einen Alphakanal. iOS legt selbst Maske und Ecken an
+  und will RGB; die Datei liegt jetzt deckend auf `#faf9f7`.
+- Neues **Maskable-Icon** für Android (`purpose: "maskable"` im Manifest, neben
+  den bestehenden `"any"`-Icons). Das Motiv sitzt bei **204,6 px** von erlaubten
+  204,8 px der 80-%-Sicherheitszone; der Bauschritt bricht mit `assert` ab,
+  falls das je überschritten wird.
+
+**Kontrast — gemessen, und der Ausnahme wegen unkritisch:**
+
+| Untergrund | Median | p25 |
+|---|---:|---:|
+| Header `#faf9f7` | 2,91:1 | 1,84:1 |
+| Footer `#f6f4f0` | 2,80:1 | 1,78:1 |
+| Tab dunkel `#202124` | 3,98:1 | 3,07:1 |
+
+Der Median liegt auf hellem Grund **unter** den 3:1 von WCAG 2.1 SC 1.4.11.
+Die Marke ist davon ausgenommen: das Kriterium erfasst „parts of graphics
+required to understand the content", das Logo ist dekorativ (`alt=""`,
+`aria-hidden`) und der Name steht daneben als Live-Text. Das W3C-Understanding-
+Dokument sagt zudem ausdrücklich, dass Logos ausgenommen sind, solange die
+Farben aus den Markenvorgaben stammen und nicht aus einer Gestaltungsentscheidung
+des Autors — hier stammen sie aus der gelieferten Datei. Nachgelesen an der
+Quelle, nicht aus dem Gedächtnis:
+https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html
+
+> Trotzdem festhalten: das Siegel ist auf Warmweiß **blass**. Eine kräftigere
+> Fassung wäre eine Design-Entscheidung, keine Barrierefreiheits-Korrektur.
+
+**Kein `srcset`.** `next.config.ts` setzt `images.unoptimized` (statischer
+Export hat keinen Optimizer), `next/image` liefert also eine Datei. 256 px deckt
+1×, 2× und 3× für beide Platzierungen ohne Hochskalieren ab (Footer 64 px × 3 =
+192 px). Eine Aufteilung spärte rund 23 KB und kostete die automatischen
+`width`/`height`, die CLS auf 0 halten.
+
+**Nachgeprüft im Browser (chrome-devtools MCP), nicht angenommen:**
+
+| Prüfung | Ergebnis |
+|---|---|
+| `npm run build` | erfolgreich, 12 statische Seiten, keine TS-Fehler |
+| Alle 6 Routen + Manifest + 4 Icon-Dateien | alle 200 |
+| Konsole | **keine** Fehler, keine Warnungen |
+| Ausgeliefertes `logo-mark.webp` | byte-identisch zu `logo/wpl-logo-256.webp` |
+| `favicon.ico` | 6 Frames (16–256), 16–64 Monogramm, 128/256 Siegel |
+| Header-Box | 44 px (1440 px Viewport), 40 px (≤ 768 px) |
+| Bild-Attribute | `width`/`height` gesetzt, Vorderseite **nicht** `lazy` |
+| `alt` / Link-Label | `alt=""`, Link `aria-label` = Firmenwortlaut |
+| 320 px × DPR 3 | kein horizontaler Überlauf, 16 px Luft zum Sprachumschalter, Logo 120 Gerätepixel aus 256er Quelle |
+| Maskable-Sicherheitszone | 204,6 / 204,8 px |
+| `apple-icon.png` | 180×180, **RGB ohne Alpha** |
+
+**Bewusst nicht geändert:**
+
+- **Das Vorstellungsvideo** — es zeigt weiterhin das flache Logo von 2026-08-15.
+- **Die Eyebrow-Zeile** „INTERIOR DESIGN · ORDNUNGSCOACHING · WORKSHOPS" und
+  der Text im `og-image.jpg` („INTERIOR DESIGN · PROFESSIONAL ORGANIZING")
+  tragen noch die alte Beschreibung. Das ist Inhalt, nicht Logo — hier nicht
+  angefasst, aber es fällt beim Teilen auf.
+- **Kein `prefers-color-scheme`-Wechsel.** Die Seite ist bewusst hell
+  (`color-scheme: light`, keine einzige Dark-Regel); es gibt keinen dunklen
+  Untergrund, gegen den eine zweite Fassung nötig wäre.
+
+**Rollback:** `git checkout main -- .` im Website-Repo bzw.
+`git revert <commit>`; der alte Satz steckt unverändert in `main`.
 
 ## Aktuelles Ziel
 

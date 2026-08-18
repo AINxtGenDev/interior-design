@@ -10,8 +10,12 @@ import { CONTACT } from "@/content/site";
  * inside a manifest, so start_url and every icon src prefix it themselves.
  * They then follow a custom-domain switch (BASE_PATH="") like everything else.
  *
- * The icons keep their own safe-area margin and are therefore declared "any",
- * not "maskable" — a maskable crop would cut into the floor-plan frame.
+ * Zwei Sorten Icons: die regulaeren behalten ihren eigenen Rand und sind "any".
+ * Daneben steht seit dem Siegel-Logo ein eigenes "maskable"-Icon — Android
+ * schneidet Maskable-Icons auf eine Form zu und beschneidet alles ausserhalb
+ * eines Kreises von 80 % Kantenlaenge. Das Siegel sitzt dort nachweislich
+ * innerhalb von 204,6 px der erlaubten 204,8 px und traegt einen deckenden
+ * Grund, weil Maskable-Icons randlos gefuellt sein muessen.
  */
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
@@ -41,6 +45,12 @@ export default function manifest(): MetadataRoute.Manifest {
         sizes: "512x512",
         type: "image/png",
         purpose: "any",
+      },
+      {
+        src: `${basePath}/icons/android-chrome-maskable-512x512.png`,
+        sizes: "512x512",
+        type: "image/png",
+        purpose: "maskable",
       },
     ],
   };

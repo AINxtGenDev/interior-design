@@ -34,12 +34,20 @@ third-party imagery.
 
 ### Logo
 
-`brand/logo-optimized/` holds the current artwork — the monogram redrawn from
-the business card, de-pixelated, with a real alpha channel, in every size the
-site and mobile devices need. `logo-dokumentation.md` in that folder is the
-supplier's own notes. It replaced the extraction from
-`brand/logo-original-scan.pdf` (a 300 DPI Simple Scan), which is kept only as
-the historical source.
+`brand/logo-optimized/` holds the current artwork — since 2026-08-18 the round
+**seal with the ring lettering WOHNEN · ORDNUNG**, in every size the site and
+mobile devices need. It replaced the 3D square monogram (2026-08-17), which had
+replaced the extraction from `brand/logo-original-scan.pdf` (a 300 DPI Simple
+Scan), kept only as the historical source.
+
+The supplied file `03_logo_new_schrift.png` was **not** a transparent export but
+a screen capture of one: the transparency checkerboard was baked into the RGB
+pixels (24 px squares, greys 253.8 / 245.5, no alpha channel at all). Cutting it
+out by brightness would have eaten the thin ring letters. `logo/dechecker_matte.py`
+in the private repo instead models that checkerboard as the known background and
+solves the compositing equation per pixel for alpha. Recompositing the result
+back onto the modelled checkerboard reproduces the original to a mean error of
+0.92/255 — within the file's own noise.
 
 | Use | File in the set | Path in this repo |
 |---|---|---|
@@ -48,6 +56,7 @@ the historical source.
 | Icon, 512 px | `wpl-logo-512.png` | `website/src/app/icon.png` |
 | iOS touch icon | `apple-touch-icon.png` | `website/src/app/apple-icon.png` |
 | Android / manifest | `android-chrome-{192,512}.png` | `website/public/icons/` |
+| Android maskable | `android-chrome-maskable-512x512.png` | `website/public/icons/` |
 
 The three files under `src/app/` are Next.js file conventions — they emit their
 own `<link>` tags, so nothing is hand-wired into the layouts. The Android icons
@@ -56,8 +65,28 @@ apply `basePath` inside manifest strings**, so `start_url`, `scope` and every
 icon path prefix it themselves from `NEXT_PUBLIC_BASE_PATH`.
 
 256 px is enough for the mark: the largest it is ever drawn is 64 px in the
-footer, i.e. 192 px at 3× pixel density. That makes it 22.8 KB instead of the
-scan's 87.6 KB.
+footer, i.e. 192 px at 3× pixel density. There is deliberately **no `srcset`** —
+`next.config.ts` sets `images.unoptimized`, because a static export has no image
+optimizer, so `next/image` emits a single source. One 256 px asset covers 1×, 2×
+and 3× for both placements without upscaling; splitting it into three files would
+save around 23 KB and cost the automatic `width`/`height` that keeps CLS at zero.
+
+**Small icon sizes drop the ring lettering.** In the 1254 px original the ring
+letters are 39.8 px tall against a 1090 px motif — 3.65 %. At a 16 px favicon
+that is 0.4 CSS px, and even at 64 px it is only 1.7 px: not small but invisible,
+and it smears the monogram into a grey halo. The `favicon.ico` frames up to 64 px
+therefore carry the monogram alone, cut at radius 461 px where the source is
+provably empty; 128 px and 256 px carry the full seal. `ICO_MONOGRAM_UPTO` in
+`logo/build_logo_set.py` is the single switch for that.
+
+**The seal is faint on warm white.** Measured against the header ground
+`#faf9f7`, the median of the mark's own body is 2.91:1 — below the 3:1 of WCAG
+2.1 SC 1.4.11. It is exempt: the criterion covers "parts of graphics required to
+understand the content", the mark is decorative (`alt=""`, `aria-hidden`) with
+the brand name beside it as live text, and W3C states outright that logos are
+exempt where the colours follow brand guidelines rather than an author's styling
+choice. The colours here come from the supplied artwork. If a stronger mark is
+ever wanted, that is a design decision, not an accessibility fix.
 
 **The wordmark is live text, not part of the image.** The scanned "CLAUDIA
 PLESSL" and the hairline rules around "INTERIOR DESIGN" were too faint to
