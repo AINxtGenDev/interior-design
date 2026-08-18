@@ -14,6 +14,21 @@
   GitHub-Actions-Deploy `32004332796` erfolgreich, alle 6 Routen an der
   Live-URL nachgeprüft (neuer Name, neues Logo byte-identisch, KI-Hinweis).
 
+## Aufgeraeumt (2026-08-18)
+
+`brand/logo-optimized/logo-dokumentation.md` entfernt: die Datei beschrieb den
+**quadratischen Grundrissrahmen** des 3D-Logos vom 2026-08-17 und war beim runden
+Siegel schlicht falsch. Die aktuelle Beschreibung des Logos steht im Paket des
+Nutzers (`logo/03_logo_website_alpha_package/README.md`, privates Repo) sowie im
+Abschnitt „Logo" der README hier. Im privaten Repo fielen dabei die Quellen der
+beiden abgeloesten Logo-Generationen weg — Einzelheiten dort.
+
+Zurueckholen: `git checkout 2142daf -- brand/logo-optimized/logo-dokumentation.md`.
+
+**Nicht geloescht:** `website/public/og-image.jpg`. Sie ist nach der Umstellung
+auf `og-image-de/-en.jpg` von keiner Seite mehr verlinkt und sieht darum verwaist
+aus, ist aber die **Eingangsdatei** von `build_og_images.py`.
+
 ## Alpha-Paket und zweisprachige OG-Karten (2026-08-18, zweiter Durchgang) — **live**
 
 Gepusht bis `f8628fb`, Deploy `32117394078` **success**. An der Live-URL geprüft:
