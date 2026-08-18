@@ -14,7 +14,13 @@
   GitHub-Actions-Deploy `32004332796` erfolgreich, alle 6 Routen an der
   Live-URL nachgeprüft (neuer Name, neues Logo byte-identisch, KI-Hinweis).
 
-## Alpha-Paket und zweisprachige OG-Karten (2026-08-18, zweiter Durchgang)
+## Alpha-Paket und zweisprachige OG-Karten (2026-08-18, zweiter Durchgang) — **live**
+
+Gepusht bis `f8628fb`, Deploy `32117394078` **success**. An der Live-URL geprüft:
+`og:image` liefert auf `/`, `/impressum/`, `/agb/` die deutsche Karte und auf
+`/en/`, `/en/legal/` die englische; Logo, Favicon, apple-icon, Maskable und beide
+OG-Karten byte-identisch zur lokalen Quelle; Konsole fehlerfrei; weiterhin null
+Drittanbieter-Requests; kein horizontaler Überlauf bei 320 px × DPR 3.
 
 **Logo-Quelle gewechselt.** Der Nutzer hat nach dem ersten Deploy das Paket
 `logo/03_logo_website_alpha_package/` geliefert — dasselbe Siegel, aber mit
