@@ -46,7 +46,10 @@ export const metadata: Metadata = {
     siteName: CONTACT.businessName,
     title: CONTENT.de.meta.title,
     description: CONTENT.de.meta.description,
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
+    // Eigene Karte je Sprache: der Beschreiber unten auf dem Bild ist Pixel,
+    // keine Uebersetzung zur Laufzeit. Vorher lag hier eine englische Zeile
+    // unter einer deutschen Headline.
+    images: [{ url: "/og-image-de.jpg", width: 1200, height: 630 }],
   },
   robots: { index: true, follow: true },
 };

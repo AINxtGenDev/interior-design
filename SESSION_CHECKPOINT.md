@@ -14,6 +14,55 @@
   GitHub-Actions-Deploy `32004332796` erfolgreich, alle 6 Routen an der
   Live-URL nachgeprüft (neuer Name, neues Logo byte-identisch, KI-Hinweis).
 
+## Alpha-Paket und zweisprachige OG-Karten (2026-08-18, zweiter Durchgang)
+
+**Logo-Quelle gewechselt.** Der Nutzer hat nach dem ersten Deploy das Paket
+`logo/03_logo_website_alpha_package/` geliefert — dasselbe Siegel, aber mit
+echtem Alphakanal. Es geht von derselben Bildschirmaufnahme aus wie das eigene
+`dechecker_matte.py` und loest dasselbe Problem. Beide wurden gegeneinander
+gemessen, bevor entschieden wurde:
+
+| | eigenes Matting | Paket |
+|---|---:|---:|
+| Rueckrechnung gegen die Quelle (mittlerer Fehler) | **0,92**/255 | 1,01/255 |
+| freistehende Splitter < 40 px | 1499 | **412** |
+
+Gleichauf bei der Treue, klar besser bei der Kante — deshalb baut
+`build_logo_set.py` den Satz jetzt aus `png/wpl-logo-alpha-master-1254.png`.
+Die kompakte Marke fuer kleine Icons kommt ebenfalls aus dem Paket
+(`wpl-mark-alpha-master.png`, fuellt 92 % ihrer Leinwand), `build_monogram_master()`
+maskiert nicht mehr selbst. Das Paket kommt unabhaengig zum selben Schluss wie
+die Messung hier: „use the compact mark below approximately 96 CSS pixels".
+
+**Zweisprachige Open-Graph-Karten.** `og-image.jpg` lag unter **beiden**
+Sprachen, obwohl der Beschreiber unten im Bild englisch ist — jeder geteilte
+deutsche Link zeigte eine deutsche Headline ueber „INTERIOR DESIGN ·
+PROFESSIONAL ORGANIZING". Neu: `og-image-de.jpg` und `og-image-en.jpg`, gebaut
+von `build_og_images.py`.
+
+Geaendert wird **nur die unterste Zeile**; Foto, Headline, Haarlinie und alle
+Abstaende bleiben. Der Streifen wird durch senkrechte Interpolation zwischen den
+sauberen Wandzeilen ersetzt (mit angepasster Koernung, sonst faellt er als
+glattes Band auf) und mit dem Jost der Website neu gesetzt. Typografie
+zurueckgemessen, nicht geschaetzt: Versalhoehe 9 px, Laufweite 2,05 px,
+Gestaltungsachse x = 574 (die Karte ist bewusst nicht bildmittig — die
+Headline-Zeilen sitzen auf 572,5 und 574,5).
+
+Die neuen Zeilen sind laenger. Die glatte Wand traegt um die Achse 406 px, also
+wird je Sprache auf 392 px eingepasst — **ueber die Laufweite** (DE 1,50,
+EN 0,80) bei konstanter Schriftgroesse. Die Groesse sieht das Auge, die
+Laufweite nicht.
+
+> Die Jost-Kopie im Videoprojekt ist auf ein einziges Glyph reduziert und
+> rendert nichts. Verwendet wird `brand/fonts/Jost-latin.ttf` aus dem
+> Build-Output der Website selbst.
+
+**Nachgeprüft:** nur 53 Pixel ausserhalb des Streifens weichen um mehr als 12
+ab (JPEG-Neukodierung), `og:image` je Route korrekt, Build sauber.
+
+**Die Eyebrow-Zeile wurde auf Wunsch NICHT geaendert** — sie beschreibt die
+Leistungen, nicht den Firmennamen. Die OG-Karten tragen jetzt denselben Text.
+
 ## Siegel-Logo WOHNEN · ORDNUNG (2026-08-18) — **live**
 
 Das quadratische 3D-Monogramm vom 2026-08-17 ist ersetzt durch das **runde

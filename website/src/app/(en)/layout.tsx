@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     siteName: CONTACT.businessName,
     title: CONTENT.en.meta.title,
     description: CONTENT.en.meta.description,
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
+    images: [{ url: "/og-image-en.jpg", width: 1200, height: 630 }],
   },
   robots: { index: true, follow: true },
 };

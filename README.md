@@ -32,6 +32,32 @@ The palette and type are derived from the brand cover image; the hero and
 detail photography are crops of that same asset, so the site ships no
 third-party imagery.
 
+### Open Graph cards
+
+`website/public/og-image-de.jpg` and `-en.jpg`, built by `build_og_images.py`
+from the original hand-made `og-image.jpg` (which stays as the build input).
+
+The card is flat pixels — photo, headline and descriptor, no layers and no
+generator — and one file used to serve both languages, so **every German share
+showed a German headline over an English descriptor**. Now each locale points at
+its own card and the descriptor matches the site's eyebrow line, workshops
+included.
+
+Only the bottom line is touched. It is erased by interpolating the wall between
+the clean rows above and below (plus matched grain, or the patch reads as an
+unnaturally smooth band) and re-set in the site's own Jost. The typography was
+measured back off the original rather than guessed: 9 px cap height, 2.05 px
+tracking, and a design axis at x = 574 — the card is deliberately not centred on
+the image, its headline sits on 572.5 and 574.5.
+
+The new lines are longer than the old one. The smooth wall carries 406 px around
+that axis, so each language is fitted to 392 px **by tracking**, at constant type
+size: the eye reads size, not tracking.
+
+> The font is `brand/fonts/Jost-latin.ttf`, lifted from the site's own build
+> output. The copy in the video project is subsetted down to a single glyph and
+> renders nothing.
+
 ### Logo
 
 `brand/logo-optimized/` holds the current artwork — since 2026-08-18 the round
@@ -40,14 +66,17 @@ mobile devices need. It replaced the 3D square monogram (2026-08-17), which had
 replaced the extraction from `brand/logo-original-scan.pdf` (a 300 DPI Simple
 Scan), kept only as the historical source.
 
-The supplied file `03_logo_new_schrift.png` was **not** a transparent export but
-a screen capture of one: the transparency checkerboard was baked into the RGB
-pixels (24 px squares, greys 253.8 / 245.5, no alpha channel at all). Cutting it
-out by brightness would have eaten the thin ring letters. `logo/dechecker_matte.py`
-in the private repo instead models that checkerboard as the known background and
-solves the compositing equation per pixel for alpha. Recompositing the result
-back onto the modelled checkerboard reproduces the original to a mean error of
-0.92/255 — within the file's own noise.
+The first file supplied, `03_logo_new_schrift.png`, was **not** a transparent
+export but a screen capture of one: the transparency checkerboard was baked into
+the RGB pixels (24 px squares, greys 253.8 / 245.5, no alpha channel at all).
+The set is now built from the alpha package the client supplied afterwards,
+`logo/03_logo_website_alpha_package/`, which solves that same problem at source.
+
+Both extractions were measured against each other before choosing. Recomposited
+onto the modelled checkerboard and compared with the original, the two are level
+on fidelity (mean error 1.01 vs 0.92 of 255), but the package has the visibly
+cleaner edge: **412 stray fragments under 40 px against 1499**. It also ships the
+compact circle-and-monogram mark ready made, which the small icon sizes need.
 
 | Use | File in the set | Path in this repo |
 |---|---|---|
