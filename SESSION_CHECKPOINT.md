@@ -14,11 +14,29 @@
   GitHub-Actions-Deploy `32004332796` erfolgreich, alle 6 Routen an der
   Live-URL nachgeprüft (neuer Name, neues Logo byte-identisch, KI-Hinweis).
 
-## Siegel-Logo WOHNEN · ORDNUNG (2026-08-18)
+## Siegel-Logo WOHNEN · ORDNUNG (2026-08-18) — **live**
 
 Das quadratische 3D-Monogramm vom 2026-08-17 ist ersetzt durch das **runde
-Siegel mit dem Ring-Schriftzug WOHNEN · ORDNUNG**. Branch
-`feature/logo-replacement` in beiden Repos.
+Siegel mit dem Ring-Schriftzug WOHNEN · ORDNUNG**.
+
+`feature/logo-replacement` ist am 2026-08-18 als Fast-Forward nach `main`
+gemerged und gepusht (`0a18a5b..dc9c5ec`). GitHub-Actions-Deploy
+**`32113099890` success** (2 min 17 s).
+
+**An der Live-URL nachgeprüft, nicht angenommen:**
+
+| Prüfung | Ergebnis |
+|---|---|
+| 6 Routen + Manifest + 4 Icons + Video | alle 200 |
+| `logo-mark.webp` live | **byte-identisch** zu `logo/wpl-logo-256.webp` |
+| `favicon.ico`, `icon.png`, `apple-icon.png` live | byte-identisch zur Quelle |
+| beide `android-chrome-*` + Maskable live | byte-identisch zur Quelle |
+| Live-Manifest | trägt die 3 Icons inkl. `purpose: "maskable"` |
+| Ausgeliefertes `apple-icon.png` | 180×180 **RGB, kein Alpha** |
+| Ausgeliefertes Maskable | Radius 202,6 von 204,8 px |
+| Konsole live | keine Fehler, keine Warnungen |
+| Drittanbieter-Requests | **0** — die Datenschutz-Aussage hält weiterhin |
+| 320 px × DPR 3 live | kein horizontaler Überlauf |
 
 **Die Lieferdatei war kein transparenter Export.** `03_logo_new_schrift.png`
 (1254², RGB, **ohne Alphakanal**) ist eine Bildschirmaufnahme einer
