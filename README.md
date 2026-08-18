@@ -207,6 +207,16 @@ npm run build   # static export into website/out
 npx eslint src  # lint
 ```
 
+The two Open Graph cards are generated, not hand-edited. Rebuild them after any
+change to the descriptor wording — they are checked in, so this is only needed
+when the text changes:
+
+```bash
+python3 build_og_images.py   # needs numpy + Pillow; reads website/public/og-image.jpg
+```
+
+`og-image.jpg` is the build input, not a leftover — do not delete it.
+
 To preview the production build exactly as Pages serves it:
 
 ```bash
