@@ -156,8 +156,10 @@ than they did with the scan. Shrink them and the logo starts reading small.
 .
 ├── .github/workflows/deploy.yml   → build + deploy to GitHub Pages
 ├── brand/
-│   ├── logo-optimized/            → current logo set + supplier documentation
+│   ├── logo-optimized/            → current logo set, as delivered to the site
+│   ├── fonts/Jost-latin.ttf       → real Latin Jost, used by build_og_images.py
 │   └── logo-original-scan.pdf     → historical source scan of the business card
+├── build_og_images.py             → rebuilds the two Open Graph cards
 ├── video-source/                  → storyboard, script and compositions for the intro film
 ├── handout/
 │   └── claudia-plessl-uebersicht.html   → offline one-pager for phone/tablet
@@ -183,7 +185,10 @@ than they did with the scan. Shrink them and the logo starts reading small.
     │   │                            IntroVideo, LegalShell
     │   └── content/site.ts        → all page copy, both languages
     └── public/
-        ├── og-image.jpg           → social preview
+        ├── og-image-de.jpg        → social preview, German pages
+        ├── og-image-en.jpg        → social preview, English pages
+        ├── og-image.jpg           → NOT linked from any page; the build input
+        │                            build_og_images.py edits. Do not delete.
         ├── icons/                 → Android icons referenced by the manifest
         └── video/                 → intro film, poster, German subtitles
 ```
