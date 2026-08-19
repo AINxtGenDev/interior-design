@@ -14,8 +14,10 @@ export default function Impressum() {
   return (
     <LegalShell
       locale="de"
+      path="impressum/"
       title="Impressum"
       updated="Stand: August 2026"
+      updatedIso="2026-08"
     >
       <LegalSection heading="Informationspflicht laut § 5 E-Commerce-Gesetz (ECG)">
         <p>

@@ -18,8 +18,10 @@ export default function AGB() {
   return (
     <LegalShell
       locale="de"
+      path="agb/"
       title="Allgemeine Geschäftsbedingungen"
       updated="Fassung: August 2026"
+      updatedIso="2026-08"
     >
       <LegalSection heading="1. Geltungsbereich">
         <p>

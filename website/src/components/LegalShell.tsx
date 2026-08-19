@@ -1,19 +1,30 @@
 import Link from "next/link";
 import { getContent, type Locale } from "@/content/site";
+import { buildLegalGraph } from "@/content/schema";
 import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
+import JsonLd from "./JsonLd";
 
 /** Chrome shared by every legal page: header without in-page nav, narrow
- *  reading measure, back-link, footer. */
+ *  reading measure, back-link, footer.
+ *
+ *  `path` and `updatedIso` are the machine-readable halves of what the page
+ *  already shows: the first anchors the page's own `@id` and its breadcrumb,
+ *  the second is the ISO form of the "Stand: …" line, used by both the
+ *  `<time>` element and the graph's `dateModified`. */
 export default function LegalShell({
   locale,
+  path,
   title,
   updated,
+  updatedIso,
   children,
 }: {
   locale: Locale;
+  path: string;
   title: string;
   updated: string;
+  updatedIso: string;
   children: React.ReactNode;
 }) {
   const c = getContent(locale);
@@ -21,6 +32,8 @@ export default function LegalShell({
 
   return (
     <>
+      <JsonLd graph={buildLegalGraph(locale, { path, title, updatedIso })} />
+
       <SiteHeader content={c} locale={locale} showNav={false} />
 
       <main id="main" className="px-5 py-16 md:px-8 md:py-24">
@@ -34,7 +47,9 @@ export default function LegalShell({
 
           <h1 className="display-lg mt-6 text-anthracite-800">{title}</h1>
           <div className="rule-gold mt-5 w-24" aria-hidden="true" />
-          <p className="mt-4 text-sm text-anthracite-400">{updated}</p>
+          <p className="mt-4 text-sm text-anthracite-400">
+            <time dateTime={updatedIso}>{updated}</time>
+          </p>
 
           <div className="legal-body mt-12">{children}</div>
         </div>

@@ -16,7 +16,13 @@ const linkClass =
 
 export default function Legal() {
   return (
-    <LegalShell locale="en" title="Legal information" updated="As of August 2026">
+    <LegalShell
+      locale="en"
+      path="en/legal/"
+      title="Legal information"
+      updated="As of August 2026"
+      updatedIso="2026-08"
+    >
       <div className="rounded-sm border border-gold-accent/50 bg-gold-accent/10 p-5">
         <p className="text-sm text-anthracite-700">
           This page is a courtesy summary in English. The business operates

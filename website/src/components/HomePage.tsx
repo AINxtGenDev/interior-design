@@ -8,9 +8,11 @@ import heroImage from "@/assets/hero.webp";
 import detailLiving from "@/assets/detail-living.webp";
 import detailOrder from "@/assets/detail-order.webp";
 import { CONTACT, getContent, type Locale } from "@/content/site";
+import { buildHomeGraph } from "@/content/schema";
 import SiteHeader, { SECTION_IDS } from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
 import IntroVideo from "./IntroVideo";
+import JsonLd from "./JsonLd";
 
 /**
  * The one-pager, rendered for both locales. German is served at `/`,
@@ -26,6 +28,8 @@ export default function HomePage({ locale }: { locale: Locale }) {
 
   return (
     <>
+      <JsonLd graph={buildHomeGraph(locale)} />
+
       <SiteHeader content={c} locale={locale} />
 
       <main id="main">

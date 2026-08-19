@@ -17,8 +17,10 @@ export default function Datenschutz() {
   return (
     <LegalShell
       locale="de"
+      path="datenschutz/"
       title="Datenschutzerklärung"
       updated="Stand: August 2026"
+      updatedIso="2026-08"
     >
       <LegalSection heading="Verantwortliche">
         <p>
