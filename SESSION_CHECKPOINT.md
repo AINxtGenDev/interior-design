@@ -14,7 +14,12 @@
   GitHub-Actions-Deploy `32004332796` erfolgreich, alle 6 Routen an der
   Live-URL nachgeprüft (neuer Name, neues Logo byte-identisch, KI-Hinweis).
 
-## Vorstellungsvideo auf das Siegel nachgezogen (2026-08-19)
+## Vorstellungsvideo auf das Siegel nachgezogen (2026-08-19) — **live**
+
+Deploy `32228876740` erfolgreich. Die Datei wurde von der Live-URL
+zurückgeholt und ist **byte-identisch** zum Projekt-Render; −14,5 LUFS,
+1749 Frames, und der Markenframe bei t = 18,0 s zeigt Siegel, Wortmarke und
+Firmenwortlaut.
 
 `website/public/video/vorstellung.mp4` und `-poster.jpg` sind neu. Frame 3 zeigt
 das Siegel mit `MAG. CLAUDIA PLESSL` / `RAUM & ORDNUNG`, Frame 7 das Siegel als
