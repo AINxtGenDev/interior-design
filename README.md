@@ -55,8 +55,9 @@ that axis, so each language is fitted to 392 px **by tracking**, at constant typ
 size: the eye reads size, not tracking.
 
 > The font is `brand/fonts/Jost-latin.ttf`, lifted from the site's own build
-> output. The copy in the video project is subsetted down to a single glyph and
-> renders nothing.
+> output. The video project's copy used to be the **Cyrillic** subset and
+> rendered no Latin at all; on 2026-08-19 it was replaced from this same build
+> (see *Intro film*).
 
 ### Logo
 
@@ -264,7 +265,7 @@ anchors are shared across both languages so the switcher keeps the reader's plac
 
 A 58-second German-narrated introduction sits between the hero and the services
 section, self-hosted at `website/public/video/vorstellung.mp4` (1080×1920,
-4.2 MB, faststart, −14.5 LUFS) with a poster frame and a German WebVTT subtitle
+4.75 MB, faststart, −14.5 LUFS) with a poster frame and a German WebVTT subtitle
 track. **Subtitles are off by default** — the `<track>` carries no `default`
 attribute, so nothing is overlaid on the film; a viewer can still switch them on
 from the player's own controls.
@@ -272,17 +273,33 @@ from the player's own controls.
 **Self-hosted on purpose.** A YouTube or Vimeo embed would put third-party
 requests and cookies on a site that currently has neither — and would oblige a
 rewrite of the Datenschutzerklärung. `preload="metadata"` means a visitor who
-never presses play downloads a few KB, not 4.2 MB.
+never presses play downloads a few KB, not 4.75 MB.
 
 Plan, script and compositions are in [`video-source/`](video-source/); that
 README also covers the voiceover route (Gemini TTS — Kokoro has no German and
 this HeyGen account exposes no German voice) and the music bed.
 
 **Music was replaced on 2026-08-16.** The bed had been built from a Queen
-recording; it is now `casa_in_ordine.mp3`, a Suno-generated instrumental. The
-swap was audio-only — the video stream is byte-identical to the original render
-(`5b518475…`), so the picture never went through a second encode. Worth
-confirming that the Suno plan it came from grants commercial use.
+recording; it is now `casa_in_ordine.mp3`, a Suno-generated instrumental. That
+swap was audio-only — no second encode of the picture. Worth confirming that the
+Suno plan it came from grants commercial use.
+
+**Re-rendered on 2026-08-19 onto the seal logo.** Frame 3 now carries the seal
+with `MAG. CLAUDIA PLESSL` / `RAUM & ORDNUNG`, frame 7 the seal as sign-off, and
+the poster comes from the new render — it had still been showing the old mark,
+which is the frame a visitor sees before pressing play. The picture hash moved
+`5b518475…` → `e2619707…`; the mix script guards it, so a silent change cannot
+slip through.
+
+The audio did not change and was not rebuilt: the voice track carried over by
+remux with an identical MD5, and the finished mix still measures −14.5 LUFS with
+an envelope correlation of 1.00000 against the previous release.
+
+That re-render also fixed a long-standing defect. Two of the three brand fonts
+bundled with the video were subsets containing **no Latin glyphs** — Jost was the
+Cyrillic cut, Inter likewise — so both fell back silently and the wordmark in
+every shipped copy of the film was Liberation Sans, not Jost. Both now come from
+this site's build output.
 
 The full HyperFrames working project (renders, voiceover, assets) lives outside
 this repository, in the **private** repo `AINxtGenDev/plessl-projekt` under
@@ -291,23 +308,25 @@ in this public repository.
 
 ## Verified on the live site
 
-Measured against the deployed URL, not assumed. Last re-measured 2026-08-16,
-after the logo change, with the cache disabled:
+Measured against the deployed URL, not assumed. Re-measured in full on
+**2026-08-19**, after the seal logo, the per-language OG cards and the
+re-rendered film:
 
 | Check | Result |
 |---|---|
 | All 6 page routes | 200 |
 | `manifest.webmanifest`, `favicon.ico`, `icon.png`, `apple-icon.png` | 200 |
 | Android icons under `/icons/` | 200 |
-| **Total requests** | **35 — none to a third party** |
+| **Total requests** | **34 — none to a third party** |
 | Cookies / localStorage | none / none |
-| Fonts | Cormorant Garamond, Inter, Jost — loaded self-hosted |
+| Fonts | 6 self-hosted files (Cormorant Garamond, Inter, Jost) |
 | Internal links | all 200, no `basePath` 404s |
 | Console | no errors, no warnings |
-| Weight | 637 KB, `load` 140 ms |
+| Weight | 622 KB transferred (`load` 736 ms on this run; network-dependent) |
 | Heading outline | one h1, no skipped levels |
-| Horizontal scroll at 320 px | none (measured under device emulation) |
-| Logo rotation | running, 24 s, `matrix3d`; monogram not mirrored at 0/45/135/180° |
+| Horizontal scroll at 320 px | none (device emulation, DPR 3) |
+| Logo rotation | running, 24 s; seal not mirrored at 0/45/135/180° |
+| Video | `vorstellung.mp4` + poster, `preload="metadata"`, subtitle track carries no `default` |
 
 That first-party-only result is what makes the Datenschutzerklärung's "no
 cookies, no tracking, no third-party requests" claim actually true. **Keep it
