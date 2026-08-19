@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter, Jost } from "next/font/google";
 import "../globals.css";
-import { CONTACT, CONTENT } from "@/content/site";
+import { CONTACT, CONTENT, SITE_URL } from "@/content/site";
 
 /*
  * next/font downloads and self-hosts these at build time, so the published
@@ -28,8 +28,6 @@ const jost = Jost({
   weight: ["400", "500"],
   display: "swap",
 });
-
-const SITE_URL = "https://ainxtgendev.github.io/interior-design/";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

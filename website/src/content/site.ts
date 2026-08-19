@@ -18,6 +18,26 @@ export const LOCALES: Locale[] = ["de", "en"];
  */
 export const ASSET_PREFIX = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
+/**
+ * Absolute site origin including basePath, with a trailing slash.
+ *
+ * Lives here rather than in the two layouts because the JSON-LD needs absolute
+ * URLs as well — schema.org @id values and contentUrls cannot be relative — and
+ * a third copy of this string would be a third place to forget on the
+ * custom-domain switch.
+ */
+export const SITE_URL = "https://ainxtgendev.github.io/interior-design/";
+
+/** `absoluteUrl("impressum/")` → `https://…/interior-design/impressum/`. */
+export function absoluteUrl(path = ""): string {
+  return `${SITE_URL}${path.replace(/^\//, "")}`;
+}
+
+/** Home URL of a locale — German at the root, English one level down. */
+export function localeHome(locale: Locale): string {
+  return locale === "de" ? absoluteUrl() : absoluteUrl("en/");
+}
+
 /** Business contact details — used by the site, the Impressum and the AGB. */
 export const CONTACT = {
   /*
