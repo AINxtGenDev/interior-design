@@ -2,7 +2,7 @@
 
 ## Meta
 
-- Datum: 2026-08-18 (Siegel-Logo WOHNEN · ORDNUNG — siehe unten)
+- Datum: 2026-08-19 (maschinenlesbare Ebene — siehe unten)
 - Repository: `AINxtGenDev/interior-design` (public)
 - Arbeitskopie: `/home/nuc8/05_development/55_laulau/78_plessl-website`
   (**verschoben am 2026-08-16** — vorher `/home/nuc8/05_development/78_plessl-website`)
@@ -13,6 +13,71 @@
   **Umbenennung vom 2026-08-17 ist live:** gepusht bis `d0f98d6`,
   GitHub-Actions-Deploy `32004332796` erfolgreich, alle 6 Routen an der
   Live-URL nachgeprüft (neuer Name, neues Logo byte-identisch, KI-Hinweis).
+
+## Maschinenlesbare Ebene ergänzt (2026-08-19) — **live**
+
+Deploy `32236749811` erfolgreich, gepusht bis `855d7df` (vier Commits).
+
+Die Seite war für Menschen geschrieben, aber für Crawler und Assistenten gab es
+bisher **keine strukturierten Daten, keine `robots.txt` und keine
+`sitemap.xml`**. Das ist jetzt nachgezogen.
+
+**Neu:**
+
+- `website/src/content/schema.ts` — JSON-LD, **abgeleitet aus `site.ts`**, nicht
+  von Hand geschrieben. Ein Preis, der im Inhaltsobjekt geändert wird, kann
+  damit nicht von dem abweichen, was eine Maschine liest.
+- `website/src/components/JsonLd.tsx` — rendert einen Graphen als
+  `<script type="application/ld+json">`.
+- `website/src/app/robots.ts` und `sitemap.ts`.
+- `SITE_URL` liegt jetzt in `site.ts` statt doppelt in den beiden Layouts —
+  das JSON-LD braucht absolute URLs, und eine dritte Kopie wäre eine dritte
+  Stelle, die man beim Domainwechsel vergisst.
+- `LegalShell` bekommt `path` und `updatedIso`; letzteres speist sowohl das neue
+  `<time datetime="2026-08">` als auch `dateModified` im Graphen.
+
+**Zwei bewusste Entscheidungen:**
+
+- Jeder Preis auf der Seite ist eine Untergrenze („ab EUR 110"), also
+  `priceSpecification` mit **`minPrice`** statt `price`. Ein blankes `price`
+  würde einen Fixpreis behaupten, den es nicht gibt.
+  `valueAddedTaxIncluded: false` steht als **eine Konstante** in `schema.ts`,
+  weil es beim Überschreiten der 55.000-EUR-Grenze kippt.
+- Nicht behauptet wird: `openingHours` (gibt es nicht), `SearchAction` (keine
+  Suche), `FAQPage` (keine FAQ — erfundene Q&A für ein Rich Result ist genau
+  das, was eine Manual Action einbringt), `vatID` (im Impressum noch Platzhalter).
+
+**Wichtige Einschränkung:** `robots.txt` wirkt erst mit der eigenen Domain.
+Crawler lesen sie ausschließlich vom Origin-Root; unter
+`…github.io/interior-design/` landet sie auf `/interior-design/robots.txt`, wo
+niemand nachsieht. Sitemap und JSON-LD sind davon nicht betroffen und wirken
+sofort. Der Punkt steht jetzt in der Domain-Checkliste im README.
+
+`llms.txt` wurde **bewusst nicht** angelegt: reine Community-Konvention ohne
+Standardisierungsgremium, Google hat im Juli 2025 öffentlich erklärt, die Datei
+nicht zu lesen, und Crawler-Logs zeigen, dass KI-Bots direkt das HTML holen.
+Vermerkt als optionaler Schritt beim Domainwechsel.
+
+**An der Live-URL nachgeprüft**, nicht nur im Build: alle sechs Seiten sowie
+`/robots.txt` und `/sitemap.xml` liefern 200, und das Prüfskript lief gegen die
+**von der Live-URL zurückgeholten** Seiten durch — je genau ein JSON-LD-Block
+pro Seite, valides JSON, alle 14 `@id`-Referenzen auflösbar und absolut,
+7 Angebote je Sprache mit den Preisen aus `site.ts` (110/220/280/480/690/350/
+690), kein blankes `price`, Videodauer `PT58S` gegen die per ffprobe gemessenen
+58,3 s, alle referenzierten Mediendateien per HTTP erreichbar, 6 Sitemap-URLs
+die je auf eine ausgelieferte Seite zeigen. `tsc --noEmit` und `eslint src`
+sauber.
+
+Die `robots.txt`-Einschränkung ist dabei **belegt statt behauptet**:
+`https://ainxtgendev.github.io/robots.txt` — die Adresse, die Crawler
+tatsächlich lesen — liefert **404**, während die Datei unter
+`/interior-design/robots.txt` sauber ausgeliefert wird. Genau diese Lücke
+schließt der Domainwechsel.
+
+**Offen:** JSON-LD gegen
+[Schema Markup Validator](https://validator.schema.org/) und
+[Rich Results Test](https://search.google.com/test/rich-results) prüfen. Beide
+sind Web-UIs ohne brauchbare API, das ist ein manueller Schritt im Browser.
 
 ## Vorstellungsvideo auf das Siegel nachgezogen (2026-08-19) — **live**
 
