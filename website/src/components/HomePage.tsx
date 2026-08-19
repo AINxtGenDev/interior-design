@@ -93,7 +93,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
           <div className="mt-14 grid gap-10 md:grid-cols-3 md:gap-8">
             {c.services.items.map((s, i) => (
               <article key={s.title} className="flex flex-col">
-                <p className="eyebrow text-sage-500">
+                <p className="eyebrow text-sage-600">
                   {String(i + 1).padStart(2, "0")}
                 </p>
                 <h3 className="mt-3 font-heading text-2xl font-normal text-anthracite-800 md:text-[1.75rem]">
@@ -152,7 +152,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
           <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
             {c.process.items.map((s, i) => (
               <article key={s.title}>
-                <p className="font-heading text-4xl font-light text-sage-300">
+                <p className="font-heading text-4xl font-light text-sage-500">
                   {String(i + 1).padStart(2, "0")}
                 </p>
                 <h3 className="mt-3 font-heading text-xl font-normal text-anthracite-800">
