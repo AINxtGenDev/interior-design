@@ -14,6 +14,44 @@
   GitHub-Actions-Deploy `32004332796` erfolgreich, alle 6 Routen an der
   Live-URL nachgeprüft (neuer Name, neues Logo byte-identisch, KI-Hinweis).
 
+## Kontrast auf WCAG AA gebracht (2026-08-19) — **live**
+
+Deploy zu `4331ec3` erfolgreich. Lighthouse (mobil, Live-URL) auf allen drei
+Seitentypen — Startseite, `/en/`, Impressum — jetzt **100 / 100 / 100 / 100**
+(Accessibility, Best Practices, SEO, Agentic Browsing), 54 Audits bestanden,
+**null Fehler**. Vorher: Accessibility 96 mit 20 Elementen unter dem
+Kontrastminimum.
+
+Der Mangel ist **älter als die JSON-LD-Arbeit**, das Audit hat ihn nur
+sichtbar gemacht: Eyebrow-Labels, Video-Bildunterschrift, Fußnoten und beide
+Sätze Schrittnummern.
+
+**Zwei Tokens** wurden um das **kleinstmögliche Maß** abgedunkelt, das 4,5:1
+gegen den ungünstigsten der drei Hintergründe (`#f6f3ee`, die
+`warm-cream/60`-Mischung) erreicht — Farbton und Sättigung gehalten, damit die
+Palette gleich liest:
+
+| Token | vorher | nachher | Kontrast auf `#f6f3ee` |
+|---|---|---|---|
+| `--color-anthracite-400` | `#7a7a80` | `#6e6e74` | 3,85 → 4,58 |
+| `--color-sage-600` | `#637a53` | `#5f7550` | 4,27 → 4,58 |
+
+`sage-600` bewegt sich kaum — es lag mit 4,50 / 4,27 genau auf der Grenze.
+
+Beide Tokens werden **ausschließlich für Text** verwendet, das Abdunkeln trifft
+also nichts anderes. `sage-300` und `sage-500` zeichnen dagegen auch Haarlinien,
+Unterstreichungen und die Fußzeilen-Striche — dort wäre es eine sichtbare
+Designänderung gewesen. Deshalb an den zwei betroffenen Stellen stattdessen eine
+andere Stufe:
+
+- Leistungsnummern 01–03: `sage-500` → `sage-600` (10,4 px, braucht 4,5:1)
+- Ablaufnummern 01–04: `sage-300` → `sage-500` (36 px, braucht nur 3:1 → 3,19)
+
+**Die drei Kontaktlabels bleiben auf `sage-300`.** Sie stehen auf der dunklen
+Salbeifläche, wo dieselbe Farbe **4,95:1** erreicht — axe hatte recht, sie nicht
+zu melden, und Abdunkeln hätte sie *schlechter* gemacht. Ein pauschales Ersetzen
+von `text-sage-300` wäre hier der Fehler gewesen.
+
 ## Maschinenlesbare Ebene ergänzt (2026-08-19) — **live**
 
 Deploy `32236749811` erfolgreich, gepusht bis `855d7df` (vier Commits).
