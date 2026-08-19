@@ -170,6 +170,8 @@ than they did with the scan. Shrink them and the logo starts reading small.
     │   │   ├── icon.png           → 512 px icon (Next file convention)
     │   │   ├── apple-icon.png     → iOS touch icon (Next file convention)
     │   │   ├── manifest.ts        → web app manifest, Android icons
+    │   │   ├── robots.ts          → robots.txt (see Machine-readable layer)
+    │   │   ├── sitemap.ts         → sitemap.xml, six URLs
     │   │   ├── (de)/              → German root layout, lang="de-AT"
     │   │   │   ├── page.tsx       → /
     │   │   │   ├── impressum/     → /impressum/
@@ -182,8 +184,10 @@ than they did with the scan. Shrink them and the logo starts reading small.
     │   │   └── globals.css        → design tokens + base styles
     │   ├── assets/                → images imported by the build
     │   ├── components/            → HomePage, SiteHeader, SiteFooter, LogoMark,
-    │   │                            IntroVideo, LegalShell
-    │   └── content/site.ts        → all page copy, both languages
+    │   │                            IntroVideo, LegalShell, JsonLd
+    │   └── content/
+    │       ├── site.ts            → all page copy, both languages
+    │       └── schema.ts          → JSON-LD, derived from site.ts
     └── public/
         ├── og-image-de.jpg        → social preview, German pages
         ├── og-image-en.jpg        → social preview, English pages
@@ -353,6 +357,64 @@ There is **no mobile nav menu** — the in-page section links are hidden below
 `lg`. That is deliberate for a one-pager, since scrolling reaches everything,
 but it becomes a gap the moment the site grows past a single page.
 
+## Machine-readable layer
+
+The pages are written for people, but they also have to survive being read by a
+crawler or an assistant that never renders them. Three things carry that:
+
+**The HTML itself.** `output: "export"` with no client components on the content
+path means every service, price and credential is in the served markup — no
+JavaScript needed to see any of it. This is the part that actually matters, and
+it comes for free from the way the site is already built. Don't trade it away
+for a client-side rendering convenience later.
+
+**JSON-LD**, built in `src/content/schema.ts` and injected by the `JsonLd`
+component — one `<script type="application/ld+json">` per page. It is *derived
+from `site.ts`*, never written out by hand: a price edited in the content object
+cannot drift away from the price a machine reads. Each locale gets its own node
+graph with its own `@id` fragments, because one shared `@id` would describe the
+same entity twice with conflicting German and English values.
+
+| Page | Nodes |
+|---|---|
+| `/` and `/en/` | `ProfessionalService`, `Person` (with `hasCredential`), 3 × `Service`, `OfferCatalog` of the 7 packages, `VideoObject`, `WebSite`, `WebPage` |
+| the four legal pages | `WebPage`, `BreadcrumbList` |
+
+Two details that are easy to get wrong and are deliberate here:
+
+- Every price on the site is a floor — "ab EUR 110". So each offer carries a
+  `priceSpecification` with **`minPrice`**, not `price`; a bare `price` would
+  assert a fixed fee the business does not offer. `valueAddedTaxIncluded` is
+  `false` under the Kleinunternehmerregelung and is **one flag in `schema.ts`**,
+  because it flips the day the EUR 55.000 threshold is crossed.
+- What is *not* claimed matters as much as what is. No `openingHours` (there
+  are none), no `SearchAction` (there is no search), no `FAQPage` (there is no
+  FAQ — inventing Q&A to farm a rich result is what earns a manual action), no
+  `vatID` while the Impressum's is still a placeholder.
+
+**`robots.txt` and `sitemap.xml`**, from `src/app/robots.ts` and `sitemap.ts`.
+Both are emitted as real files by the static export. `robots.txt` currently
+allows everything, AI crawlers included — being citable in an assistant's answer
+is worth more to a one-person business than keeping marketing copy out of a
+training set. The comment in `robots.ts` records the alternative split if that
+judgement ever changes.
+
+Only the two home pages declare hreflang alternates in the sitemap, matching
+what the layouts emit into the HTML. The three German legal pages have no
+one-to-one English counterpart — all three would have to name `/en/legal/`,
+which can only name one of them back, so the cluster would contradict itself.
+
+> ⚠️ **`robots.txt` does nothing until the custom domain lands.** Crawlers read
+> it only from the origin root. While the site sits under
+> `…github.io/interior-design/` the file is published at
+> `/interior-design/robots.txt`, where nothing looks for it. The sitemap and the
+> JSON-LD have no such problem and work today.
+
+After the next deploy, check the JSON-LD against the
+[Schema Markup Validator](https://validator.schema.org/) and Google's
+[Rich Results Test](https://search.google.com/test/rich-results) — both need the
+live URL, so this cannot be done from the build output alone.
+
 ## Custom domain
 
 `next.config.ts` reads `BASE_PATH` (default `/interior-design`). When a custom
@@ -360,7 +422,16 @@ domain is pointed at Pages:
 
 1. Set `BASE_PATH: ""` in `.github/workflows/deploy.yml`.
 2. Add the domain in the repository's Pages settings (creates a `CNAME`).
-3. Update `SITE_URL` in both `src/app/(de)/layout.tsx` and `src/app/(en)/layout.tsx`.
+3. Update `SITE_URL` in `src/content/site.ts` — one constant, which the two
+   layouts and the JSON-LD all read.
+4. Confirm `https://<domain>/robots.txt` resolves. Until this step it is dead
+   (see *Machine-readable layer*), so this is the moment it starts working.
+5. Consider `llms.txt` at that point. It is a community convention with no
+   standards body behind it, and the measured traffic does not support it —
+   Google said on the record in July 2025 that it does not read the file, and
+   crawler logs show AI bots fetching HTML directly rather than `/llms.txt`. It
+   is cheap insurance, not a channel, and it has the same origin-root
+   constraint as `robots.txt`.
 
 ---
 
