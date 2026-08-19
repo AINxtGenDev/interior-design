@@ -319,7 +319,8 @@ in this public repository.
 
 Measured against the deployed URL, not assumed. Re-measured in full on
 **2026-08-19**, after the seal logo, the per-language OG cards and the
-re-rendered film:
+re-rendered film, then again the same day in Chrome DevTools after the
+machine-readable layer and the contrast fix:
 
 | Check | Result |
 |---|---|
@@ -336,6 +337,19 @@ re-rendered film:
 | Horizontal scroll at 320 px | none (device emulation, DPR 3) |
 | Logo rotation | running, 24 s; seal not mirrored at 0/45/135/180° |
 | Video | `vorstellung.mp4` + poster, `preload="metadata"`, subtitle track carries no `default` |
+| `robots.txt`, `sitemap.xml` | 200; sitemap's 6 `<loc>` entries each resolve to a built page |
+| JSON-LD | exactly one block per page, parses, all 14 `@id` references resolve |
+| Lighthouse (mobile) | **100 / 100 / 100 / 100** on `/`, `/en/` and `/impressum/` |
+
+The four Lighthouse categories are accessibility, best practices, SEO and
+agentic browsing; 54 audits pass and none fail. Its `llms-txt` audit reports
+*notApplicable* — it grades the file's format only if one exists, so not having
+one costs nothing.
+
+> The request count is measured two ways and both are right. A plain fetch of
+> the page sees 34; a real browser sees 40, because it also runs the RSC
+> prefetches and the video player's inline `data:` SVG icons. **Neither includes
+> a third-party host**, which is the number that actually matters.
 
 That first-party-only result is what makes the Datenschutzerklärung's "no
 cookies, no tracking, no third-party requests" claim actually true. **Keep it
@@ -352,6 +366,19 @@ Skip-to-content link (localised, visible on focus), visible focus rings, tap
 targets ≥44 px on standalone controls, `prefers-reduced-motion` honoured —
 including the rotating logo, which simply stands still — decorative images with
 empty `alt` and `aria-hidden` on the mark, and a correct heading outline.
+**Lighthouse accessibility is 100** on all three page types.
+
+Colour contrast clears WCAG AA, but only since 2026-08-19 — the first audit
+found 20 elements below the minimum. Two tokens were darkened by the least
+amount that clears 4.5:1 against the worst background (`#f6f3ee`), holding hue
+and saturation: `anthracite-400` `#7a7a80` → `#6e6e74`, `sage-600` `#637a53` →
+`#5f7550`. Both are text-only tokens, so nothing else moved.
+
+> ⚠️ **`sage-300` and `sage-500` are not text-only** — they also draw the
+> hairline borders, the underline decorations and the footer rules, so they were
+> left alone and the two failing sites use a darker step instead. And do **not**
+> globally replace `text-sage-300`: three contact labels use it on the dark sage
+> panel, where it runs at 4.95:1. Darkening those would make them worse.
 
 There is **no mobile nav menu** — the in-page section links are hidden below
 `lg`. That is deliberate for a one-pager, since scrolling reaches everything,
