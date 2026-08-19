@@ -113,7 +113,9 @@ Wende des Films und sie darf still sein.
 - persuasion: Identity — ein Gesicht und ein Name statt einer Dienstleistung
 - beat: marke
 - blueprint: logo-assemble-lockup (adapt)
-- asset_candidates: logo-mark-2008c2fa.webp — das freigestellte CP-Monogramm im Grundriss-Rahmen
+- asset_candidates: logo-seal-512.webp — das freigestellte Siegel mit dem Ring-Schriftzug
+  WOHNEN · ORDNUNG (seit 2026-08-19; davor logo-mark-2008c2fa.webp, das CP-Monogramm
+  im Grundriss-Rahmen)
 - handoff_in: sage Haarlinie, x=140px, y=1180px, Breite 800px, opacity 1, ruht
 - handoff_out: sage Haarlinie, x=140px, y=1180px, Breite 800px, opacity 1, ruht
 
@@ -246,7 +248,8 @@ Scene 4 (7.8–9.2s): gehalten.
 - persuasion: Low-friction ask — konkreter Einstiegspreis und eine einzige Handlung
 - beat: einladung
 - blueprint: cta-morph-press (adapt)
-- asset_candidates: logo-mark-2008c2fa.webp — Monogramm als Absender der Endkarte
+- asset_candidates: logo-seal-512.webp — Siegel als Absender der Endkarte
+  (seit 2026-08-19; davor logo-mark-2008c2fa.webp)
 - handoff_in: sage Haarlinie horizontal, x=140px, y=1120px, Breite 800px, opacity 1, ruht
 
 **Adapt:** `cta-morph-press` endet auf einem gedrückten Button. Ein simulierter Klick wäre hier

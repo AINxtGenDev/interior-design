@@ -17,10 +17,17 @@
         /* The whole lockup sits in one block so the held push-in moves it as a unit. */
         #f3-lockup { position:absolute; left:0; top:0; width:1080px; height:1920px; }
 
+        /* Das Siegel ist quadratisch, die alte flache Marke war 512x441. Bei
+           gleicher Breite waere es 368 statt 317 px hoch und die Haarlinie, die
+           auf y=760 einrastet, liefe mitten hindurch. Stattdessen sitzt die
+           UNTERKANTE weiterhin auf 737 px: der Landepunkt der Linie bleibt
+           unveraendert. Die Hoehe traegt 6 % Zuschlag, weil ein Kreis bei
+           gleicher Hoehe kleiner wirkt als ein Quadrat — dieselbe Korrektur wie
+           im Logo-Satz der Website. */
         #f3-mark {
-          position:absolute; left:50%; top:420px;
-          width:368px; height:auto;
-          margin-left:-184px;
+          position:absolute; left:50%; top:401px;
+          width:336px; height:336px;
+          margin-left:-168px;
           opacity:0;
         }
 
@@ -58,10 +65,10 @@
         <div id="f3-bg"></div>
 
         <div id="f3-lockup">
-          <img id="f3-mark" src="assets/logo-mark-2008c2fa.webp" alt="" />
+          <img id="f3-mark" src="assets/logo-seal-512.webp" alt="" />
           <div id="f3-rule"></div>
-          <div id="f3-name">Claudia Plessl</div>
-          <div id="f3-sub">Interior Design · Ordnungscoaching</div>
+          <div id="f3-name">Mag. Claudia Plessl</div>
+          <div id="f3-sub">Raum &amp; Ordnung</div>
         </div>
       </div>
 

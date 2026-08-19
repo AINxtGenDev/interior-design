@@ -14,6 +14,31 @@
   GitHub-Actions-Deploy `32004332796` erfolgreich, alle 6 Routen an der
   Live-URL nachgeprüft (neuer Name, neues Logo byte-identisch, KI-Hinweis).
 
+## Vorstellungsvideo auf das Siegel nachgezogen (2026-08-19)
+
+`website/public/video/vorstellung.mp4` und `-poster.jpg` sind neu. Frame 3 zeigt
+das Siegel mit `MAG. CLAUDIA PLESSL` / `RAUM & ORDNUNG`, Frame 7 das Siegel als
+Absender. Das Poster stammt aus dem neuen Render bei t = 18,0 s — vorher zeigte
+es noch die alte Marke, und das ist das Bild vor dem Klick auf Play.
+
+**Der Ton ist unverändert.** Die Sprachspur wurde per Remux übernommen (MD5 vor
+und nach identisch), der Mix läuft weiterhin auf **−14,5 LUFS**; Hüllkurven-
+Korrelation zwischen alter und neuer Tonspur **1,00000** bei 0,00 dB mittlerer
+Abweichung. Geändert hat sich ausschließlich das Bild.
+
+**Dabei mitbehoben:** zwei der drei Marken-Schriften des Videoprojekts waren
+Subsets ohne lateinische Glyphen — Jost war der kyrillische Schnitt, Inter
+ebenfalls lateinlos. Beide fielen still auf Arial bzw. system-ui zurück, die
+Wortmarke im ausgelieferten Film war also **Liberation Sans**. Ersetzt durch die
+Latin-Subsets aus dem Build dieser Website. Einzelheiten im Checkpoint des
+privaten Repos.
+
+Dateigröße 4,75 MB gegen 4,40 MB (+8 %); ein erster Lauf mit `-q high` ergab
+6,31 MB und war am Siegel nicht unterscheidbar (0,567/255), deshalb `standard`
+wie zuvor.
+
+Die gespiegelten Kompositionsquellen unter `video-source/` sind mitgezogen.
+
 ## Aufgeraeumt (2026-08-18)
 
 `brand/logo-optimized/logo-dokumentation.md` entfernt: die Datei beschrieb den
