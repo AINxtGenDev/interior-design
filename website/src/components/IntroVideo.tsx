@@ -56,8 +56,13 @@ export default function IntroVideo({
             </video>
           </div>
 
-          <figcaption className="eyebrow mt-5 text-center text-anthracite-400">
-            {content.video.caption}
+          <figcaption className="mt-5 text-center">
+            <span className="eyebrow block text-anthracite-400">
+              {content.video.caption}
+            </span>
+            <span className="mx-auto mt-3 block max-w-[360px] text-sm text-anthracite-500">
+              {content.video.voiceNotice}
+            </span>
           </figcaption>
         </figure>
 

@@ -14,7 +14,35 @@
   GitHub-Actions-Deploy `32004332796` erfolgreich, alle 6 Routen an der
   Live-URL nachgeprüft (neuer Name, neues Logo byte-identisch, KI-Hinweis).
 
-## Stimmklon für den Vorstellungstext (2026-09-27) — erzeugt, nichts an der Website geändert
+## Video mit Claudias Stimme (2026-09-27) — lokal fertig, **nicht gepusht, wartet auf Abhören**
+
+Das Vorstellungsvideo spricht jetzt mit Claudias replizierter Stimme — **gleiches
+Skript (7 Zeilen), Bild byte-identisch** (Video-MD5 `e2619707…` vor und nach).
+
+- Die Frames cuen ihre Animation auf Phrasenanfänge der alten Stimme. Jede neue
+  Zeile wurde deshalb **nur über die Pausen** ans Bild gelegt: jeder Cue-Phrase
+  beginnt 0,45 s vor bis 0,10 s nach dem alten Einsatz, keine Sprache gedehnt.
+  Jede Zeile endet ≥ 1,15 s vor dem Frame-Schnitt. Größter Eingriff: Pause vor
+  „Beides aus einer Hand." 0,93 → 1,24 s.
+- Pegel wie vorher (VO −15,9 statt −15,8 LUFS, Limiter traf 0,14 % der Samples),
+  Ducking 13,9 statt 14,1 dB, Mix −14,5 LUFS. Whisper über den fertigen Film:
+  alle 95 Skriptwörter in Reihenfolge.
+- Timeline- und Bed-Bau vorher gegen die ausgelieferten Dateien geprüft:
+  Timeline-Rebuild bitgleich, Bed byte-identisch.
+- **Website:** `vorstellung.mp4` ersetzt; Untertitel-Endzeiten nachgezogen
+  (alle 3 Kopien); **KI-Hinweis unter dem Video** (DE/EN, EU AI Act Art. 50(4),
+  am Normtext geprüft: gilt ab 2026-08-02) und Footer-Hinweis erweitert;
+  JSON-LD `uploadDate` → 2026-09-27; Doku in `video-source/` nachgezogen.
+- Geprüft lokal (chrome-devtools): Video 58,3 s, 7 Cues, Hinweis sichtbar,
+  keine Konsolenfehler, kein Überlauf; Lighthouse mobil `/` und `/en/`
+  **100/100/100/100**, 54 bestanden, 0 Fehler.
+- **Rollback:** `git checkout HEAD~1 -- website/public/video video-source website/src`
+  bzw. im Videoprojekt `backup-sulafat-20260927/` (SHA256SUMS) oder Git.
+
+**Nächster Schritt:** Nutzer/Claudia hören `website/public/video/vorstellung.mp4`
+ab (Name in Frame 3, Pause in Frame 4), dann Push → Deploy → Live-Prüfung.
+
+## Stimmklon für den Vorstellungstext (2026-09-27) — erzeugt
 
 Audiodatei des neuen Vorstellungstexts in Claudias eigener Stimme, über Gemini
 Voice Replication: `55_laulau/voice/claudia-plessl-vorstellung.{wav,m4a}`,

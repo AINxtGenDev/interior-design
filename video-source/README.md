@@ -22,22 +22,41 @@ workflow; the full working project lives outside this repo at
 - **The music bed.** It lives with the working project in the private repo, not
   here. (Until 2026-08-16 this mattered a great deal — the bed was a Queen
   recording. It is now a Suno instrumental; see below.)
-- **The voiceover WAVs** — regenerable, ~2 MB. See below.
+- **The voiceover WAVs** — ~2 MB, in the private repo. Since 2026-09-27 they are
+  Claudia's replicated voice; her voice sample and consent recording never enter
+  this repo.
 - `capture/`, `node_modules/`, `renders/` — build artefacts.
 
 ## Voiceover
 
-Gemini TTS, model `gemini-2.5-flash-preview-tts`, voice **Sulafat** (warm,
-female), `GEMINI_API_KEY` from the local `.env`.
+**Since 2026-09-27: Claudia Plessl's own voice**, replicated with Gemini voice
+replication (`gemini-3.8-flash-tts`) from a 30 s sample and a recorded consent
+statement, as Google requires. The site labels the voice as AI-generated under
+the video and in the footer (EU AI Act Art. 50(4)). The pipeline — reference
+preparation, voice creation, takes, word-level checks — lives in the private
+repo under `55_laulau/voice/`.
 
-This was not a free choice: **Kokoro has no German** (its languages are
-en/es/fr/hi/it/ja/pt-br/zh), and the HeyGen starfish catalogue available to
-this account exposes 20 voices — 18 English, 1 Spanish, 1 Polish, no German.
-Gemini was the only route that speaks German natively.
+The seven lines keep the locked script and the **picture is unchanged** (video
+stream MD5 `e2619707…` before and after). The frames cue their animation to
+phrase onsets of the original voice, so each cloned line was fitted to the
+picture by editing its **pauses only**: every cued phrase starts between 0.45 s
+before and 0.10 s after the old onset, and no speech was time-stretched. Every
+line still ends at least 1.15 s before its frame cuts. The voice was then
+brought to the old level (−15.9 against −15.8 LUFS) so the music ducks the same
+(13.9 against 14.1 dB under speech).
 
-Pacing matters: the first pass asked for "echte Pausen" and came back at ~64 wpm
-on some lines (63 s total, too slow and too long). The committed prompt asks for
-"natürliches, flüssiges Sprechtempo" and lands at 96–158 wpm / 46.2 s.
+Audio-only rebuild, after replacing `assets/voice/line-0N.wav` and rebuilding
+`vo-timeline.wav` (each line at its frame start):
+`scripts/build_bgm_bed.sh casa_in_ordine.mp3 106.3`, then
+`scripts/render_vo_only.sh`, then `scripts/render_web_mix.sh`.
+
+**Before that (2026-08-15 – 2026-09-27):** Gemini TTS, model
+`gemini-2.5-flash-preview-tts`, voice **Sulafat** (warm, female). Not a free
+choice: **Kokoro has no German** (its languages are en/es/fr/hi/it/ja/pt-br/zh),
+and the HeyGen starfish catalogue available to this account exposes 20 voices —
+18 English, 1 Spanish, 1 Polish, no German. Pacing mattered: a prompt asking for
+"echte Pausen" came back at ~64 wpm; "natürliches, flüssiges Sprechtempo" landed
+at 96–158 wpm / 46.2 s.
 
 ```bash
 python3 scripts/gemini_tts.py "Text" out.wav Sulafat

@@ -81,6 +81,8 @@ export type Content = {
     heading: string;
     lead: string;
     caption: string;
+    /** EU AI Act Art. 50(4): the narration is a synthetic copy of a real person's voice. */
+    voiceNotice: string;
     unsupported: string;
     captionsLabel: string;
   };
@@ -119,7 +121,7 @@ export type Content = {
     imprint: string;
     privacy: string;
     terms: string;
-    /** Offenlegung, dass das Bildmaterial KI-generiert ist. */
+    /** Offenlegung, dass das Bildmaterial und die Stimme im Video KI-generiert sind. */
     imageNotice: string;
   };
   legalLinks: { imprint: string; privacy: string; terms: string };
@@ -155,6 +157,8 @@ const de: Content = {
     heading: "In einer Minute erklärt",
     lead: "Wie aus Ordnung und Gestaltung ein Raum wird, der zu Ihrem Alltag passt.",
     caption: "Vorstellungsvideo · 58 Sekunden · mit Ton",
+    voiceNotice:
+      "Die Stimme im Video ist KI-generiert – erzeugt aus Claudia Plessls eigener Stimme, mit ihrer Zustimmung.",
     unsupported: "Ihr Browser kann dieses Video nicht abspielen.",
     captionsLabel: "Deutsch",
   },
@@ -303,7 +307,7 @@ const de: Content = {
     privacy: "Datenschutzerklärung",
     terms: "AGB",
     imageNotice:
-      "Die Bilder auf dieser Website wurden mit künstlicher Intelligenz erstellt.",
+      "Die Bilder auf dieser Website und die Stimme im Vorstellungsvideo wurden mit künstlicher Intelligenz erstellt.",
   },
   legalLinks: { imprint: "/impressum/", privacy: "/datenschutz/", terms: "/agb/" },
 };
@@ -338,6 +342,8 @@ const en: Content = {
     heading: "Explained in a minute",
     lead: "How order and design combine into a room that fits the way you actually live.",
     caption: "Introduction · 58 seconds · German audio",
+    voiceNotice:
+      "The voice in this video is AI-generated – created from Claudia Plessl's own voice, with her consent.",
     unsupported: "Your browser cannot play this video.",
     captionsLabel: "German",
   },
@@ -486,7 +492,7 @@ const en: Content = {
     privacy: "Privacy",
     terms: "Terms",
     imageNotice:
-      "The images on this website were created using artificial intelligence.",
+      "The images on this website and the voice in the introduction video were created using artificial intelligence.",
   },
   legalLinks: { imprint: "/en/legal/#imprint", privacy: "/en/legal/#privacy", terms: "/en/legal/#terms" },
 };

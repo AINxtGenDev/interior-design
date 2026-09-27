@@ -9,7 +9,7 @@ language: de
 audience: "Berufstätige Familien, Menschen im Umbruch (Umzug, Trennung, Verkleinerung 50+) und EPU/Homeoffice in Wien und Niederösterreich"
 length: 60s
 angle: "Die Kombination aus einer Hand — Ordnungscoaches räumen, Einrichtungsberaterinnen gestalten, Claudia Plessl verbindet beides und gibt das Wissen weiter"
-voice: gemini-sulafat
+voice: gemini-replicated-claudia   # bis 2026-09-27: gemini-sulafat
 ---
 
 ## Intent
@@ -42,6 +42,8 @@ Goldlinie, hoher heller Kontrast, viel Luft.
   `Sulafat`, warm-weiblich). Nicht HeyGen, nicht Kokoro — Kokoro kann kein
   Deutsch, und im HeyGen-Starfish-Katalog dieses Accounts gibt es keine
   deutsche Stimme. Skript: `scripts/gemini_tts.py`.
+  **Seit 2026-09-27** spricht Claudia selbst — ihre Stimme, repliziert über
+  Gemini Voice Replication, mit ihrer aufgenommenen Einwilligung.
 - **Deutsche Burn-in-Captions**, weil Reels überwiegend stumm gesehen werden.
   Ruhig gesetzt, nicht als Effekt.
 - **Musik deutlich ducken** — Stimme muss jederzeit klar vorne stehen.

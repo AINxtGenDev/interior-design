@@ -1,7 +1,9 @@
 # SCRIPT — claudia-plessl-promo
 
-**Voice:** Sulafat (Gemini TTS, `gemini-2.5-flash-preview-tts`) — warm, weiblich, ruhig
-**Voice settings:** Stilprompt pro Zeile; Modell liefert 24 kHz PCM mono
+**Voice:** Claudia Plessl, repliziert (Gemini Voice Replication, `gemini-3.8-flash-tts`) — seit 2026-09-27.
+Bis dahin Sulafat (Gemini TTS, `gemini-2.5-flash-preview-tts`), warm, weiblich, ruhig.
+**Voice settings:** Stilprompt pro Zeile; Modell liefert 24 kHz PCM mono. Die Pausen jeder Zeile sind
+nachträglich auf die Animations-Cues der Frames gelegt (siehe README, „Voiceover").
 **Voice direction:** Warm und unaufgeregt, wie eine Beraterin, die schon in vielen Wohnungen
 gestanden hat. Sätze fallen am Ende ab, nie hochgezogen. Kein Werbeton, kein Lächeln in der
 Stimme bei den Problemsätzen — die Zielgruppe schämt sich oft, das darf man hören ernst nehmen.
