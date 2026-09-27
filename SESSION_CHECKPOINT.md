@@ -2,7 +2,7 @@
 
 ## Meta
 
-- Datum: 2026-08-19 (maschinenlesbare Ebene — siehe unten)
+- Datum: 2026-09-27 (Stimmklon begonnen — siehe unten)
 - Repository: `AINxtGenDev/interior-design` (public)
 - Arbeitskopie: `/home/nuc8/05_development/55_laulau/78_plessl-website`
   (**verschoben am 2026-08-16** — vorher `/home/nuc8/05_development/78_plessl-website`)
@@ -13,6 +13,14 @@
   **Umbenennung vom 2026-08-17 ist live:** gepusht bis `d0f98d6`,
   GitHub-Actions-Deploy `32004332796` erfolgreich, alle 6 Routen an der
   Live-URL nachgeprüft (neuer Name, neues Logo byte-identisch, KI-Hinweis).
+
+## Stimmklon für den Vorstellungstext (2026-09-27) — in Arbeit, nichts an der Website geändert
+
+Audiodatei des neuen Vorstellungstexts in Claudias eigener Stimme, über Gemini
+Voice Replication. Pipeline steht und ist getestet; **wartet auf Claudias
+Einwilligungsaufnahme**. Alles dazu — Stimmprobe, Skripte, Takes — liegt im
+**privaten** Repo unter `55_laulau/voice/`, Einzelheiten in dessen Checkpoint.
+Stimmdaten gehören nicht in dieses öffentliche Repo.
 
 ## Kontrast auf WCAG AA gebracht (2026-08-19) — **live**
 
@@ -710,8 +718,8 @@ Alle diese Stellen sind auf der Seite als hervorgehobene `[…]`-Marker sichtbar
   Logos (die Seite ist aktuell bewusst light-only, also noch kein Problem).
 - Akademischer Titel/Studium fehlt bei den Qualifikationen (`site.ts`).
 - Eigene Domain und domainbasierte E-Mail-Adresse statt `@gmail.com`.
-- **Musik im Video vor breiterer Verbreitung ersetzen** (Queen-Titel, siehe oben);
-  musikfreie Fassung liegt bereit.
+- ~~Musik im Video ersetzen (Queen-Titel)~~ — am 2026-08-16 erledigt (Suno-
+  Instrumental, siehe „Vorstellungsvideo"); offen ist nur noch die Suno-Lizenz.
 - Echte Vorher-Nachher-Referenzen für einen Projekte-Abschnitt sammeln.
 
 ## Reproduzierbare Ausgabe
