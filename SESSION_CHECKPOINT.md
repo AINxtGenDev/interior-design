@@ -14,7 +14,12 @@
   GitHub-Actions-Deploy `32004332796` erfolgreich, alle 6 Routen an der
   Live-URL nachgeprüft (neuer Name, neues Logo byte-identisch, KI-Hinweis).
 
-## Video mit Claudias Stimme (2026-09-27) — lokal fertig, **nicht gepusht, wartet auf Abhören**
+## Video mit Claudias Stimme (2026-09-27) — **live**
+
+Vom Nutzer freigegeben, gepusht bis `3f55a81`, Deploy `36337544189` **success**.
+An der Live-URL geprüft: alle 6 Routen + VTT 200, `vorstellung.mp4` und VTT
+**byte-identisch** zur lokalen Fassung, KI-Hinweis DE/EN ausgeliefert,
+`uploadDate` 2026-09-27.
 
 Das Vorstellungsvideo spricht jetzt mit Claudias replizierter Stimme — **gleiches
 Skript (7 Zeilen), Bild byte-identisch** (Video-MD5 `e2619707…` vor und nach).
@@ -39,8 +44,6 @@ Skript (7 Zeilen), Bild byte-identisch** (Video-MD5 `e2619707…` vor und nach).
 - **Rollback:** `git checkout HEAD~1 -- website/public/video video-source website/src`
   bzw. im Videoprojekt `backup-sulafat-20260927/` (SHA256SUMS) oder Git.
 
-**Nächster Schritt:** Nutzer/Claudia hören `website/public/video/vorstellung.mp4`
-ab (Name in Frame 3, Pause in Frame 4), dann Push → Deploy → Live-Prüfung.
 
 ## Stimmklon für den Vorstellungstext (2026-09-27) — erzeugt
 
