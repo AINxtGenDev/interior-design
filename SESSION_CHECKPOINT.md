@@ -14,13 +14,17 @@
   GitHub-Actions-Deploy `32004332796` erfolgreich, alle 6 Routen an der
   Live-URL nachgeprüft (neuer Name, neues Logo byte-identisch, KI-Hinweis).
 
-## Stimmklon für den Vorstellungstext (2026-09-27) — in Arbeit, nichts an der Website geändert
+## Stimmklon für den Vorstellungstext (2026-09-27) — erzeugt, nichts an der Website geändert
 
 Audiodatei des neuen Vorstellungstexts in Claudias eigener Stimme, über Gemini
-Voice Replication. Pipeline steht und ist getestet; **wartet auf Claudias
-Einwilligungsaufnahme**. Alles dazu — Stimmprobe, Skripte, Takes — liegt im
-**privaten** Repo unter `55_laulau/voice/`, Einzelheiten in dessen Checkpoint.
-Stimmdaten gehören nicht in dieses öffentliche Repo.
+Voice Replication: `55_laulau/voice/claudia-plessl-vorstellung.{wav,m4a}`,
+41,8 s, −16,1 LUFS. **Wartet auf Abhören durch Claudia.** Alles dazu —
+Stimmprobe, Einwilligung, Skripte, Takes — liegt im **privaten** Repo unter
+`55_laulau/voice/`, Einzelheiten in dessen Checkpoint.
+
+**Stimmdaten gehören nicht in dieses öffentliche Repo.** Die
+Einwilligungsaufnahme lag am 2026-09-27 kurz ungetrackt hier im Repo-Root und
+wurde vor jedem Commit nach `voice/` verschoben.
 
 ## Kontrast auf WCAG AA gebracht (2026-08-19) — **live**
 
