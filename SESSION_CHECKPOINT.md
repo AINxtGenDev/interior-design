@@ -42,7 +42,8 @@ Skript (7 Zeilen), Bild byte-identisch** (Video-MD5 `e2619707…` vor und nach).
   keine Konsolenfehler, kein Überlauf; Lighthouse mobil `/` und `/en/`
   **100/100/100/100**, 54 bestanden, 0 Fehler.
 - **Rollback:** `git checkout HEAD~1 -- website/public/video video-source website/src`
-  bzw. im Videoprojekt `backup-sulafat-20260927/` (SHA256SUMS) oder Git.
+  bzw. im Videoprojekt `git checkout c0d6cdb -- 79_plessl-video/videos/claudia-plessl-promo/`
+  (Sicherungsordner am 2026-09-28 gelöscht, Inhalt in Git bestätigt).
 
 
 ## Stimmklon für den Vorstellungstext (2026-09-27) — erzeugt
