@@ -61,7 +61,8 @@ size: the eye reads size, not tracking.
 
 ### Corporate identity (since 2026-10-02)
 
-The site follows `CI.pptx` (repo root, supplied by the client):
+The site follows `CI.pptx`, supplied by the client. The deck is **not in this
+public repo**; it lives in the private project repo at `55_laulau/ci/CI.pptx`.
 
 | Slide | What it defines | Where it lives |
 |---|---|---|
@@ -120,7 +121,7 @@ consistency, readability — and their findings were applied or are recorded in
 **Open points from the redesign:** the Re-Design copy needs the client's
 confirmation; the intro film itself still shows the retired seal (~18 s and the
 closing frame) and needs a re-render; the Open Graph cards still carry the old
-look; `CI.pptx` stays out of this public repo.
+look.
 
 ---
 

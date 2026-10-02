@@ -67,8 +67,9 @@ Entfernt: `LogoMark.tsx`, `logo-mark.webp`, `hero.webp` (Logo-Rotation entfällt
 - `Logo2.png` und `Titelbild Homepage.png` sind committet (Quellen des
   Build-Skripts, ohnehin öffentlich auf der Seite).
 - Vom Nutzer freigegeben und gepusht: `b9bfe3f` (Assets), `edf16b4` (Redesign),
-  danach Doku-Commit. `CI.pptx` **bewusst nicht** committet (öffentliches Repo) —
-  liegt weiter untracked im Root; gehört ins private Repo `plessl-projekt`.
+  danach Doku-Commit. `CI.pptx` **bewusst nicht** hier committet (öffentliches
+  Repo) — am 2026-10-02 ins private Repo verschoben: `55_laulau/ci/CI.pptx`
+  (`plessl-projekt` `b3c7643`, SHA-256 vor/nach identisch).
 
 **Rollback:** `git revert edf16b4 b9bfe3f` und pushen (Deploy läuft automatisch).
 
