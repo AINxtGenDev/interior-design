@@ -58,7 +58,7 @@ Build → 0. Origin im Workflow beim Domainwechsel anpassen.
 Workflow-Schritt live (`ee4945d`, Deploy success, „kept 0" — korrekt, CSS
 unverändert).
 
-**Open-Graph-Karten mit neuem Logo (2026-10-02, Nutzerauftrag):** Die alten
+**Open-Graph-Karten mit neuem Logo (2026-10-02, Nutzerauftrag) — live** (`bacb4c6`, Deploy `36982182100`; beide Karten live byte-identisch, `og:image` je Route korrekt, altes `og-image.jpg` 404; vom Nutzer freigegeben): Die alten
 Karten hatten **gar kein Logo** (altes Foto mit schwarzen Balken, alte
 Schriften). Neu erzeugt von `build_og()` in
 `brand/build_web_assets.py`: Layout wie Kopfband von CI-Folie 5 — Logo2 auf
