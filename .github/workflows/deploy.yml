@@ -37,6 +37,12 @@ jobs:
           BASE_PATH: /interior-design
         run: npm run build
 
+      # Pages caches HTML for 10 min; without this, anyone who loaded a page
+      # just before a deploy gets HTML pointing at deleted CSS (unstyled page).
+      # Update the origin when the custom domain goes live.
+      - name: Keep the live site's hashed assets
+        run: .github/keep-live-assets.sh website/out https://ainxtgendev.github.io /interior-design
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

@@ -419,6 +419,16 @@ After the next deploy, check the JSON-LD against the
 [Rich Results Test](https://search.google.com/test/rich-results) — both need the
 live URL, so this cannot be done from the build output alone.
 
+## Deploys and cached pages
+
+GitHub Pages serves HTML with `cache-control: max-age=600` and each deploy
+replaces the whole site. Without help, anyone who opened a page shortly
+before a deploy keeps HTML that points at CSS/JS the new build deleted, and
+sees an unstyled page for up to ten minutes. `.github/keep-live-assets.sh`
+runs in the deploy workflow and copies the live site's content-hashed
+`/_next/static/` files into the new build first. Hashed names cannot collide,
+so this only ever adds files.
+
 ## Custom domain
 
 `next.config.ts` reads `BASE_PATH` (default `/interior-design`). When a custom

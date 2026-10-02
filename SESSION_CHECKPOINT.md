@@ -46,6 +46,19 @@ KI-generierte Stimme" / „Introduction, 58 seconds, AI-generated voice"
 (EU AI Act Art. 50(4)/(5): Offenlegung beim ersten Kontakt). Feld
 `video.voiceNotice` entfernt; Footer-Hinweis unverändert.
 
+**Nachtrag 3 (Nutzer, Android: „english is absolutely bad"):** Screenshot
+zeigte `/en/` **ganz ohne CSS**. Live waren CSS und HTML zu dem Zeitpunkt
+korrekt (beide 200). Ursache (sehr wahrscheinlich, nicht direkt beobachtet):
+Pages liefert HTML mit `max-age=600`; drei Deploys in ~15 min, zwei davon mit
+neuem CSS-Hash → gecachtes HTML zeigte auf gelöschte CSS-Datei. Fix:
+`.github/keep-live-assets.sh` + Workflow-Schritt übernimmt vor dem Upload die
+von der Live-Seite referenzierten `/_next/static/`-Dateien (inkl. Fonts aus
+altem CSS). Lokal getestet: leeres Out → 34 Dateien übernommen, aktueller
+Build → 0. Origin im Workflow beim Domainwechsel anpassen.
+**Offen/optional:** EN-Hero-Headline als gemalte Serifenschrift wie DE
+(Kalibrierung mit Cormorant Garamond: zu schmal, Buchstaben stoßen an — nicht
+übernommen).
+
 **Umgesetzt:** `globals.css` (Tokens, Typo-Skala, Base in `@layer base`),
 `src/app/fonts.ts`, `site.ts` (Nav, 4 Angebote + Workshops mit Preis-Hinweis aus
 der Paketliste, Projekte, FAQ, Claim, `LANG_ALTERNATES`), neue Komponenten
