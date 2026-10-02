@@ -24,7 +24,7 @@ from `/en/`.
 | Framework | Next.js 16 (App Router, `output: "export"`) |
 | Styling | Tailwind CSS 4 |
 | Language | TypeScript |
-| Fonts | Cormorant Garamond · Inter · Jost — self-hosted at build time via `next/font` |
+| Fonts | Manrope · Montserrat (CI.pptx slide 6) — self-hosted at build time via `next/font` |
 | Colours | Sage `#7a9468` · Anthracite `#333338` · Warm cream `#f3efe8` · Gold `#c9a96e` |
 | Hosting | GitHub Pages, deployed by GitHub Actions on every push to `main` |
 
@@ -59,94 +59,68 @@ size: the eye reads size, not tracking.
 > rendered no Latin at all; on 2026-08-19 it was replaced from this same build
 > (see *Intro film*).
 
-### Logo
+### Corporate identity (since 2026-10-02)
 
-`brand/logo-optimized/` holds the current artwork — since 2026-08-18 the round
-**seal with the ring lettering WOHNEN · ORDNUNG**, in every size the site and
-mobile devices need. It replaced the 3D square monogram (2026-08-17), which had
-replaced the extraction from `brand/logo-original-scan.pdf` (a 300 DPI Simple
-Scan), kept only as the historical source.
+The site follows `CI.pptx` (repo root, supplied by the client):
 
-The first file supplied, `03_logo_new_schrift.png`, was **not** a transparent
-export but a screen capture of one: the transparency checkerboard was baked into
-the RGB pixels (24 px squares, greys 253.8 / 245.5, no alpha channel at all).
-The set is now built from the alpha package the client supplied afterwards,
-`logo/03_logo_website_alpha_package/`, which solves that same problem at source.
-
-Both extractions were measured against each other before choosing. Recomposited
-onto the modelled checkerboard and compared with the original, the two are level
-on fidelity (mean error 1.01 vs 0.92 of 255), but the package has the visibly
-cleaner edge: **412 stray fragments under 40 px against 1499**. It also ships the
-compact circle-and-monogram mark ready made, which the small icon sizes need.
-
-| Use | File in the set | Path in this repo |
+| Slide | What it defines | Where it lives |
 |---|---|---|
-| Header / footer mark | `wpl-logo-256.webp` | `website/src/assets/logo-mark.webp` |
-| Favicon, 16–256 px | `favicon.ico` | `website/src/app/favicon.ico` |
-| Icon, 512 px | `wpl-logo-512.png` | `website/src/app/icon.png` |
-| iOS touch icon | `apple-touch-icon.png` | `website/src/app/apple-icon.png` |
-| Android / manifest | `android-chrome-{192,512}.png` | `website/public/icons/` |
-| Android maskable | `android-chrome-maskable-512x512.png` | `website/public/icons/` |
+| 4 | Navigation: Home · Mein Angebot (Raumgestaltung, Ordnungscoaching, Raumgestaltung plus Ordnungscoaching, Re-Design) · Über mich · Projekte · FAQ · Kontakt | `SiteHeader.tsx` / `SiteNav.tsx`, section order in `HomePage.tsx` |
+| 5 | Palette (Salbeigrün, Blush, Anthrazit — four tones each), page ground `#FAFBFA`, tiles, short blush rules | `@theme` in `globals.css` |
+| 6 | Manrope Bold (headlines), Manrope Regular (body), Montserrat Regular (accents) | `src/app/fonts.ts`, type scale in `globals.css` |
+| 9 | Claim "ENJOY YOUR HOME" | `.claim` band above the contact section |
 
-The three files under `src/app/` are Next.js file conventions — they emit their
-own `<link>` tags, so nothing is hand-wired into the layouts. The Android icons
-are reachable only through `src/app/manifest.ts`; note that **Next does not
-apply `basePath` inside manifest strings**, so `start_url`, `scope` and every
-icon path prefix it themselves from `NEXT_PUBLIC_BASE_PATH`.
+Contrast decides which CI tone may carry text — measured, not assumed:
+anthrazit-dark 12.5:1, sage-dark 5.2:1, anthrazit-mid 4.9:1 on the page ground;
+**blush-dark is 3.3:1 and is therefore used only for rules, dots and large
+accents**, never for running text. The one tone that is not in the deck,
+`sage-ink` `#4E5C4C`, exists only for hover states.
 
-256 px is enough for the mark: the largest it is ever drawn is 64 px in the
-footer, i.e. 192 px at 3× pixel density. There is deliberately **no `srcset`** —
-`next.config.ts` sets `images.unoptimized`, because a static export has no image
-optimizer, so `next/image` emits a single source. One 256 px asset covers 1×, 2×
-and 3× for both placements without upscaling; splitting it into three files would
-save around 23 KB and cost the automatic `width`/`height` that keeps CLS at zero.
+### Logo and title image
 
-**Small icon sizes drop the ring lettering.** In the 1254 px original the ring
-letters are 39.8 px tall against a 1090 px motif — 3.65 %. At a 16 px favicon
-that is 0.4 CSS px, and even at 64 px it is only 1.7 px: not small but invisible,
-and it smears the monogram into a grey halo. The `favicon.ico` frames up to 64 px
-therefore carry the monogram alone, cut at radius 461 px where the source is
-provably empty; 128 px and 256 px carry the full seal. `ICO_MONOGRAM_UPTO` in
-`logo/build_logo_set.py` is the single switch for that.
+`Logo2.png` and `Titelbild Homepage.png` (repo root) are the sources. Every web
+derivative is built by **`brand/build_web_assets.py`**:
 
-**The seal is faint on warm white.** Measured against the header ground
-`#faf9f7`, the median of the mark's own body is 2.91:1 — below the 3:1 of WCAG
-2.1 SC 1.4.11. It is exempt: the criterion covers "parts of graphics required to
-understand the content", the mark is decorative (`alt=""`, `aria-hidden`) with
-the brand name beside it as live text, and W3C states outright that logos are
-exempt where the colours follow brand guidelines rather than an author's styling
-choice. The colours here come from the supplied artwork. If a stronger mark is
-ever wanted, that is a design decision, not an accessibility fix.
+```bash
+uv run --with pillow --with numpy --with opencv-python-headless \
+    python brand/build_web_assets.py
+```
 
-**The wordmark is live text, not part of the image.** The scanned "CLAUDIA
-PLESSL" and the hairline rules around "INTERIOR DESIGN" were too faint to
-extract cleanly — the rules peak at a colour distance of 41 against paper noise
-of 18 — so they are set in Jost with letter-spacing, which matches the card,
-stays crisp at any size, and is selectable and translatable.
+| Output | From | Notes |
+|---|---|---|
+| `src/assets/logo-{480,960}.webp` | Logo2.png | trimmed to the mark, lossless, with alpha |
+| `src/assets/hero-{narrow,medium,wide}-*.webp` | Titelbild | three crops around the painted slogan |
+| `src/assets/hero-en-*.webp` | Titelbild | same crops, German slogan removed |
+| `favicon.ico`, `icon.png`, `apple-icon.png`, `public/icons/*` | Logo2.png | CP monogram only (rows above 640) |
 
-> **Worth doing:** ask the designer for the original vector logo (SVG, AI, EPS).
-> The redrawn set is clean, but it is still raster — print and very large
-> renditions want true vector artwork. A light negative version is also missing,
-> which is what a dark header or a dark mode would need.
+- **The logo is a plain `<img srcset>`** (`BrandLogo.tsx`), not `next/image`:
+  `images.unoptimized` makes `next/image` emit one file and no `srcset`, so a
+  3× phone would get either a blurry or an oversized logo.
+- **The title image is art-directed** (`HeroImage.tsx`): 4:3 below 640 px,
+  1.93:1 up to 1199 px, the full 2.41:1 frame above. Its slogan is painted on
+  the wall; at full width on a phone it would be ~5 px tall.
+- **English page:** the German slogan is removed from the pixels (glyph-stroke
+  mask + inpaint, `remove_slogan()`) and re-set as live text in Montserrat,
+  positioned by the `.hero` custom properties in `globals.css`. Change a crop
+  in the script and those values have to move with it.
+- The previous round seal (`brand/logo-optimized/`) and its 24-second rotation
+  are retired. A rotating wordmark is unreadable for half of every turn.
 
-#### The mark turns
+> **Still worth asking the designer for:** a vector logo (SVG/AI/EPS) and a
+> light negative version.
 
-`website/src/components/LogoMark.tsx` rotates the monogram once every 24
-seconds around its vertical axis, in the header and the footer.
+**Verified locally on 2026-10-02** (build served under `/interior-design/`):
+no horizontal overflow on 15 viewports from 320 to 2560 px (DE, EN, a legal
+page); H1 and primary CTA above the fold at 375×812, 1280×720, 1366×768 and
+1920×1080; Lighthouse mobile on `/` and `/en/` 100 / 100 / 100 / 100, 56 audits
+passed, 0 failed. Reviewed by three separate passes — responsive, CI
+consistency, readability — and their findings were applied or are recorded in
+`SESSION_CHECKPOINT.md` with the reason they were not.
 
-It is built as a **two-sided card, not a plain rotation**. A flat image turned
-past 90° shows its own mirror image, which would leave the monogram reading
-backwards for half of every turn; instead both faces carry the logo, the back
-one pre-flipped, and `backface-visibility` hands over between them.
-
-The animation exists **only** inside `@media (prefers-reduced-motion:
-no-preference)` — there is no ungated rule — so the logo stands still for anyone
-who has asked for less motion. Keep it that way if you touch this: continuous
-movement in a sticky header is precisely what that preference is for.
-
-The artwork carries its own safe-area margin (content fills 77 % of the square,
-where the old scan filled 98 %), so the header and footer run one size larger
-than they did with the scan. Shrink them and the logo starts reading small.
+**Open points from the redesign:** the Re-Design copy needs the client's
+confirmation; the intro film itself still shows the retired seal (~18 s and the
+closing frame) and needs a re-render; the Open Graph cards still carry the old
+look; `CI.pptx` stays out of this public repo.
 
 ---
 
@@ -156,7 +130,8 @@ than they did with the scan. Shrink them and the logo starts reading small.
 .
 ├── .github/workflows/deploy.yml   → build + deploy to GitHub Pages
 ├── brand/
-│   ├── logo-optimized/            → current logo set, as delivered to the site
+│   ├── build_web_assets.py        → builds logo, hero crops and icons from Logo2.png / Titelbild
+│   ├── logo-optimized/            → retired seal logo set (2026-08), historical
 │   ├── fonts/Jost-latin.ttf       → real Latin Jost, used by build_og_images.py
 │   └── logo-original-scan.pdf     → historical source scan of the business card
 ├── build_og_images.py             → rebuilds the two Open Graph cards
@@ -183,7 +158,8 @@ than they did with the scan. Shrink them and the logo starts reading small.
     │   │   │       └── legal/     → /en/legal/
     │   │   └── globals.css        → design tokens + base styles
     │   ├── assets/                → images imported by the build
-    │   ├── components/            → HomePage, SiteHeader, SiteFooter, LogoMark,
+    │   ├── components/            → HomePage, SiteHeader, SiteNav, LangSwitch,
+    │   │                            BrandLogo, HeroImage, SiteFooter,
     │   │                            IntroVideo, LegalShell, JsonLd
     │   └── content/
     │       ├── site.ts            → all page copy, both languages
@@ -253,12 +229,12 @@ uses `var(--font-heading)` and friends directly, so `inline` silently broke
 every heading, body and label font back to the browser default sans. Keep
 `@theme`.
 
-**2. Font variables live on `<html>`, not `<body>`.** `--font-cormorant` and the
-other `next/font` variables must exist at `:root` for the `@theme` tokens that
+**2. Font variables live on `<html>`, not `<body>`.** `--font-manrope` and
+`--font-montserrat` must exist at `:root` for the `@theme` tokens that
 reference them to resolve.
 
 **3. Images are statically imported, never referenced by string.** A plain
-`src="/hero.webp"` resolves to the domain root and 404s under the
+`src="/logo.webp"` resolves to the domain root and 404s under the
 `/interior-design` base path. Import from `src/assets/` so Next rewrites the URL.
 
 **4. Two root layouts, one per language.** `app/(de)/layout.tsx` and

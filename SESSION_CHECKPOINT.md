@@ -2,7 +2,7 @@
 
 ## Meta
 
-- Datum: 2026-09-27 (Stimmklon begonnen — siehe unten)
+- Datum: 2026-10-02 (CI-Redesign committet und gepusht — siehe unten)
 - Repository: `AINxtGenDev/interior-design` (public)
 - Arbeitskopie: `/home/nuc8/05_development/55_laulau/78_plessl-website`
   (**verschoben am 2026-08-16** — vorher `/home/nuc8/05_development/78_plessl-website`)
@@ -13,6 +13,59 @@
   **Umbenennung vom 2026-08-17 ist live:** gepusht bis `d0f98d6`,
   GitHub-Actions-Deploy `32004332796` erfolgreich, alle 6 Routen an der
   Live-URL nachgeprüft (neuer Name, neues Logo byte-identisch, KI-Hinweis).
+
+## CI-Redesign nach `CI.pptx` (2026-10-02) — **committet und gepusht**
+
+Auftrag: Website auf neue CI — `Logo2.png`, `Titelbild Homepage.png`,
+`CI.pptx` Folien 4/5/6/9; DE **und** EN; sichtbarer DE|EN-Umschalter.
+
+**CI aus dem Deck (Folien-XML/Medien entpackt):**
+- Folie 4 Navigation: Home · Mein Angebot (Raumgestaltung, Ordnungscoaching,
+  Raumgestaltung plus Ordnungscoaching, Re-Design) · Über mich · Projekte · FAQ · Kontakt.
+- Folie 5 Palette (Sage/Blush/Anthrazit je 4 Töne, Grund `#FAFBFA`).
+  Kontrast gemessen: blush-dark 3,3:1 → nur Deko/≥ 24 px.
+- Folie 6: Manrope Bold/Regular, Montserrat Regular. Folie 9: „ENJOY YOUR HOME".
+
+**Umgesetzt:** `globals.css` (Tokens, Typo-Skala, Base in `@layer base`),
+`src/app/fonts.ts`, `site.ts` (Nav, 4 Angebote + Workshops mit Preis-Hinweis aus
+der Paketliste, Projekte, FAQ, Claim, `LANG_ALTERNATES`), neue Komponenten
+`BrandLogo`, `HeroImage`, `SiteNav`, `LangSwitch`; `HomePage`, `SiteHeader`,
+`SiteFooter`, `IntroVideo`, `LegalShell`, Rechtsseiten angepasst;
+`brand/build_web_assets.py` (Logo, 3 Hero-Crops DE + EN, Icons);
+Video-Poster auf Frame t = 24 s (ohne altes Siegel); README-Abschnitte Logo/CI.
+Entfernt: `LogoMark.tsx`, `logo-mark.webp`, `hero.webp` (Logo-Rotation entfällt).
+
+**Reviews (3 Subagenten) — wichtigste Befunde und was daraus wurde:**
+- Kontakt-H2 dunkel auf Dunkelgrün 2,4:1 (Basisregel ungelayert schlug
+  `text-white`) → `@layer base`, jetzt 5,38:1.
+- H1/CTA unter dem Fold auf Laptops → Hero-Höhe ab 1024 px gedeckelt; H1 + CTA
+  sichtbar bei 1280×720, 1366×768, 1920×1080.
+- Preise/Workshops nicht im Menü → unter „Mein Angebot" nach Trennlinie ergänzt.
+- Redundanzen (Hero-Eyebrow, doppelte Sätze, Claim-Unterzeile) entfernt/umformuliert.
+- Ablauf 4 → 2 Spalten (28 → ~55 Zeichen/Zeile), Notiz-Breite 40rem,
+  Eyebrows 15 px, Umschalter 44 px hoch, Hyphenation für H1/H2, Punkt-Trenner
+  nie am Zeilenanfang, Footer-Linie wie Folie 5, Blush-Kachel wie Folie 5.
+- Bewusst NICHT umgesetzt: Projekte aus Nav nehmen (Folie 4 verlangt es),
+  Leistungs-Bullets einklappen, Sticky-CTA, „€" statt „EUR" (Projektkonvention).
+
+**Verifiziert lokal:** Build 14 Routen, tsc/eslint sauber; kein horizontaler
+Überlauf auf 15 Viewports 320–2560 (DE/EN/Datenschutz); Lighthouse mobil `/` und
+`/en/` **100/100/100/100**, 56 bestanden, 0 Fehler.
+
+**Offen / Nutzer muss entscheiden:**
+- **Re-Design**-Text ist aus der Branchenbedeutung formuliert → Claudia prüfen lassen.
+- Video zeigt im Film selbst noch das alte Siegel (~18 s, Schluss) → Re-Render im
+  privaten Videoprojekt nötig.
+- Firmenwortlaut „Raum & Ordnung" (Meta/Impressum) vs. Logo-Unterzeile
+  „interior design • professional organizing".
+- OG-Karten (`og-image-de/en.jpg`) zeigen altes Bild/Schrift — nicht erneuert.
+- `Logo2.png` und `Titelbild Homepage.png` sind committet (Quellen des
+  Build-Skripts, ohnehin öffentlich auf der Seite).
+- Vom Nutzer freigegeben und gepusht: `b9bfe3f` (Assets), `edf16b4` (Redesign),
+  danach Doku-Commit. `CI.pptx` **bewusst nicht** committet (öffentliches Repo) —
+  liegt weiter untracked im Root; gehört ins private Repo `plessl-projekt`.
+
+**Rollback:** `git revert edf16b4 b9bfe3f` und pushen (Deploy läuft automatisch).
 
 ## Video mit Claudias Stimme (2026-09-27) — **live**
 
