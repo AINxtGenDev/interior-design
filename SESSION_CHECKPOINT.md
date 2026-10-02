@@ -58,8 +58,8 @@ Build → 0. Origin im Workflow beim Domainwechsel anpassen.
 Workflow-Schritt live (`ee4945d`, Deploy success, „kept 0" — korrekt, CSS
 unverändert).
 
-**Vorstellungsvideo mit CI-Logo neu gerendert (2026-10-02) — lokal, Push
-wartet auf Freigabe:** `vorstellung.mp4` ersetzt (4,72 MB, 58,3 s, 1749 Frames).
+**Vorstellungsvideo mit CI-Logo neu gerendert (2026-10-02) — live** (`ff62a5b`,
+Deploy `36981729149`, Live-Datei byte-identisch; vom Nutzer freigegeben): `vorstellung.mp4` ersetzt (4,72 MB, 58,3 s, 1749 Frames).
 Frame 3 + 7 zeigen Logo2 statt Siegel; alle übrigen Frames identisch
 (0,000/255), Ton per Stream-Copy bit-identisch (Audio-MD5 `375e8a8c…`).
 Poster bleibt (24 s, unverändert). JSON-LD `uploadDate` → 2026-10-02. Im
