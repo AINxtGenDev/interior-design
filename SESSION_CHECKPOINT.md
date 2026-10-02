@@ -58,6 +58,12 @@ Build → 0. Origin im Workflow beim Domainwechsel anpassen.
 Workflow-Schritt live (`ee4945d`, Deploy success, „kept 0" — korrekt, CSS
 unverändert).
 
+**README nachgezogen (2026-10-02, Nutzerauftrag):** Abschnitt *Accessibility*
+war veraltet („no mobile nav menu", alte Token-Namen, rotierendes Logo) →
+neu geschrieben; *Intro film* um Poster-Wechsel, verbleibendes Siegel im Film
+und KI-Offenlegung in der Bildunterschrift ergänzt; Tabelle *Verified on the
+live site* als Stand 2026-08-19 gekennzeichnet.
+
 **Nachtrag 4 (Nutzer) — live (`4dbfa99`, Deploy `36980764201`):** Bildunterschrift „Stimmungsbilder, KI-generiert —
 keine Kundenprojekte." unter dem Projekte-Raster (DE/EN) entfernt — der
 KI-Hinweis im Footer jeder Seite deckt die Bilder ab; der Abschnitt sagt

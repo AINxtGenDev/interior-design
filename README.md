@@ -293,6 +293,15 @@ Cyrillic cut, Inter likewise — so both fell back silently and the wordmark in
 every shipped copy of the film was Liberation Sans, not Jost. Both now come from
 this site's build output.
 
+**Since 2026-10-02:** the poster is the frame at t = 24 s (the Ordnung |
+Gestaltung split), because the earlier poster showed the retired seal. The film
+itself still shows the seal at about 18 s and in the closing frame — that needs
+a re-render in the video project. The narration is Claudia's cloned voice, so
+the caption directly under the player carries the EU AI Act Art. 50
+disclosure: "Vorstellungsvideo, 58 Sekunden, KI-generierte Stimme" /
+"Introduction, 58 seconds, AI-generated voice". Keep it at the video; the
+footer notice alone is further from the point of first exposure.
+
 The full HyperFrames working project (renders, voiceover, assets) lives outside
 this repository, in the **private** repo `AINxtGenDev/plessl-projekt` under
 `79_plessl-video/`, together with the business documents — none of that belongs
@@ -303,7 +312,12 @@ in this public repository.
 Measured against the deployed URL, not assumed. Re-measured in full on
 **2026-08-19**, after the seal logo, the per-language OG cards and the
 re-rendered film, then again the same day in Chrome DevTools after the
-machine-readable layer and the contrast fix:
+machine-readable layer and the contrast fix.
+
+> **This table predates the CI redesign** (fonts, logo and rotation have
+> changed since). The 2026-10-02 measurements are under *Corporate identity*
+> above: no overflow on 15 viewports, Lighthouse mobile 100 × 4 on `/` and
+> `/en/`, assets byte-identical at the live URL.
 
 | Check | Result |
 |---|---|
@@ -345,27 +359,25 @@ the privacy page.
 
 ### Accessibility
 
-Skip-to-content link (localised, visible on focus), visible focus rings, tap
-targets ≥44 px on standalone controls, `prefers-reduced-motion` honoured —
-including the rotating logo, which simply stands still — decorative images with
-empty `alt` and `aria-hidden` on the mark, and a correct heading outline.
-**Lighthouse accessibility is 100** on all three page types.
+Skip-to-content link (localised, visible on focus), 3 px focus rings (white on
+the dark contact band), tap targets ≥ 44 px, `prefers-reduced-motion` honoured,
+semantic landmarks with labelled navigation, `lang` on the English claim inside
+the German page, and a correct heading outline. **Lighthouse accessibility is
+100** on `/` and `/en/` (2026-10-02).
 
-Colour contrast clears WCAG AA, but only since 2026-08-19 — the first audit
-found 20 elements below the minimum. Two tokens were darkened by the least
-amount that clears 4.5:1 against the worst background (`#f6f3ee`), holding hue
-and saturation: `anthracite-400` `#7a7a80` → `#6e6e74`, `sage-600` `#637a53` →
-`#5f7550`. Both are text-only tokens, so nothing else moved.
+**Contrast is decided per CI tone, measured** (see *Corporate identity*): text
+uses only anthrazit-dark (12.5:1), sage-dark (5.2:1) and, for captions,
+anthrazit-mid (4.9:1). Blush-dark (3.3:1) and every *-mid/-soft/-light tone are
+surfaces, rules and decoration only. Base styles live in `@layer base` so
+Tailwind utilities can override them — unlayered, `h2 { color }` once beat
+`text-white` and left the contact heading at 2.4:1.
 
-> ⚠️ **`sage-300` and `sage-500` are not text-only** — they also draw the
-> hairline borders, the underline decorations and the footer rules, so they were
-> left alone and the two failing sites use a darker step instead. And do **not**
-> globally replace `text-sage-300`: three contact labels use it on the dark sage
-> panel, where it runs at 4.95:1. Darkening those would make them worse.
-
-There is **no mobile nav menu** — the in-page section links are hidden below
-`lg`. That is deliberate for a one-pager, since scrolling reaches everything,
-but it becomes a gap the moment the site grows past a single page.
+**Navigation on phones and tablets:** below 1024 px a "Menü" button opens the
+full tree (slide 4 order, the four offers always expanded). From 1024 px the
+"Mein Angebot" entry is a click/Enter disclosure, not a hover menu, so it works
+on touch tablets. Both close on Escape (focus returns to the button) and on an
+outside tap. The DE | EN switch stays visible in the header at every width and
+lands on the counterpart page.
 
 ## Machine-readable layer
 
