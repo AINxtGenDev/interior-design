@@ -58,7 +58,7 @@ Build → 0. Origin im Workflow beim Domainwechsel anpassen.
 Workflow-Schritt live (`ee4945d`, Deploy success, „kept 0" — korrekt, CSS
 unverändert).
 
-**Nachtrag 4 (Nutzer):** Bildunterschrift „Stimmungsbilder, KI-generiert —
+**Nachtrag 4 (Nutzer) — live (`4dbfa99`, Deploy `36980764201`):** Bildunterschrift „Stimmungsbilder, KI-generiert —
 keine Kundenprojekte." unter dem Projekte-Raster (DE/EN) entfernt — der
 KI-Hinweis im Footer jeder Seite deckt die Bilder ab; der Abschnitt sagt
 weiterhin, dass Projekte erst dokumentiert werden. Feld `projects.imageNote`
