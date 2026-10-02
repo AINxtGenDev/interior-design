@@ -2,7 +2,7 @@
 
 ## Meta
 
-- Datum: 2026-10-02 (CI-Redesign committet und gepusht — siehe unten)
+- Datum: 2026-10-02 (CI-Redesign live — siehe unten)
 - Repository: `AINxtGenDev/interior-design` (public)
 - Arbeitskopie: `/home/nuc8/05_development/55_laulau/78_plessl-website`
   (**verschoben am 2026-08-16** — vorher `/home/nuc8/05_development/78_plessl-website`)
@@ -14,7 +14,12 @@
   GitHub-Actions-Deploy `32004332796` erfolgreich, alle 6 Routen an der
   Live-URL nachgeprüft (neuer Name, neues Logo byte-identisch, KI-Hinweis).
 
-## CI-Redesign nach `CI.pptx` (2026-10-02) — **committet und gepusht**
+## CI-Redesign nach `CI.pptx` (2026-10-02) — **live**
+
+Gepusht bis `6d8db34`, Deploy `36978097543` **success**. An der Live-URL geprüft:
+alle 6 Routen + Manifest, Favicon, Poster 200; neue Inhalte DE/EN ausgeliefert
+(inkl. EN-Hero-Overlay); `logo-480/960`, `hero-narrow-640/1077` und Poster
+**byte-identisch** zur lokalen Fassung.
 
 Auftrag: Website auf neue CI — `Logo2.png`, `Titelbild Homepage.png`,
 `CI.pptx` Folien 4/5/6/9; DE **und** EN; sichtbarer DE|EN-Umschalter.
