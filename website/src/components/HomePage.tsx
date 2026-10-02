@@ -246,7 +246,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
             </div>
 
             {/* The "Anwendungsbeispiele" grid of the style-guide slide. */}
-            <figure>
+            <div>
               <div className="grid grid-cols-2 gap-3 sm:gap-4">
                 <p className="flex aspect-square items-end bg-sage-dark p-4 font-[family-name:var(--font-accent)] text-[clamp(1rem,0.85rem+0.8vw,1.5rem)] leading-snug text-white sm:p-6">
                   {c.projects.tiles[0]}
@@ -270,8 +270,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
                   <span aria-hidden="true" className="rule mt-3 w-10 bg-anthrazit-dark" />
                 </p>
               </div>
-              <figcaption className="small mt-3 text-anthrazit-mid">{c.projects.imageNote}</figcaption>
-            </figure>
+            </div>
           </div>
         </Section>
 

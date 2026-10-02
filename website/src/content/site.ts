@@ -147,7 +147,6 @@ export type Content = {
     status: string;
     tiles: [string, string];
     imageAlt: [string, string];
-    imageNote: string;
     cta: string;
   };
   faq: { heading: string; lead: string; items: Faq[] };
@@ -414,7 +413,6 @@ const de: Content = {
       "Wohnbereich in warmen Naturtönen mit Sofa, Olivenbaum und gerahmter Kunst",
       "Offenes Regalsystem mit beschrifteten Boxen, gefalteter Wäsche und Kleiderstange",
     ],
-    imageNote: "Stimmungsbilder, KI-generiert — keine Kundenprojekte.",
     cta: "Ihr Raum als nächstes Projekt?",
   },
   faq: {
@@ -676,7 +674,6 @@ const en: Content = {
       "Living area in warm natural tones with a sofa, olive tree and framed art",
       "Open shelving system with labelled boxes, folded textiles and a clothes rail",
     ],
-    imageNote: "Mood images, AI-generated — not client projects.",
     cta: "Could your space be the next project?",
   },
   faq: {

@@ -58,6 +58,12 @@ Build → 0. Origin im Workflow beim Domainwechsel anpassen.
 Workflow-Schritt live (`ee4945d`, Deploy success, „kept 0" — korrekt, CSS
 unverändert).
 
+**Nachtrag 4 (Nutzer):** Bildunterschrift „Stimmungsbilder, KI-generiert —
+keine Kundenprojekte." unter dem Projekte-Raster (DE/EN) entfernt — der
+KI-Hinweis im Footer jeder Seite deckt die Bilder ab; der Abschnitt sagt
+weiterhin, dass Projekte erst dokumentiert werden. Feld `projects.imageNote`
+entfernt, `<figure>` → `<div>`.
+
 **EN-Headline wie DE — live** (`e3ac5a3`, Deploy `36980241790` success). Live
 geprüft: kein Overlay mehr im HTML, `hero-en-narrow-640` byte-identisch, neues
 CSS 200. **Cache-Schutz bestanden:** dieser Deploy änderte das CSS, der neue
