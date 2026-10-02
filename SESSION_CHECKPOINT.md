@@ -31,6 +31,14 @@ Auftrag: Website auf neue CI — `Logo2.png`, `Titelbild Homepage.png`,
   Kontrast gemessen: blush-dark 3,3:1 → nur Deko/≥ 24 px.
 - Folie 6: Manrope Bold/Regular, Montserrat Regular. Folie 9: „ENJOY YOUR HOME".
 
+**Nachtrag (Nutzer, Android):** Auf `/en/` fehlte am Handy die Zeile
+„INTERIOR DESIGN · PROFESSIONAL ORGANIZING" im Hero — war unter 640 px bewusst
+ausgeblendet. Jetzt sichtbar, Größe `min(14px, 3.5cqw)` (12–14 px auf 360–430 px),
+Overlay 72 % breit. Dabei einen eigenen Fehler gefunden: der Umbruchpunkt lag
+**innerhalb** der `nowrap`-Spans → 34–48 px horizontaler Überlauf auf allen
+Handys (vor dem Push gemessen, nie live). Leerzeichen jetzt zwischen den Spans;
+geprüft auf 11 Breiten 320–1920: 2 Zeilen am Handy, kein Überlauf.
+
 **Umgesetzt:** `globals.css` (Tokens, Typo-Skala, Base in `@layer base`),
 `src/app/fonts.ts`, `site.ts` (Nav, 4 Angebote + Workshops mit Preis-Hinweis aus
 der Paketliste, Projekte, FAQ, Claim, `LANG_ALTERNATES`), neue Komponenten

@@ -254,7 +254,8 @@
   container-type: inline-size;
   --cx: 50%;
   --s: 4.6;
-  --w: 66%;
+  /* 72 %: the widest band of plain wall in the 4:3 crop (14–86 %). */
+  --w: 72%;
 }
 
 @media (min-width: 40rem) {
@@ -303,23 +304,25 @@
   text-transform: uppercase;
 }
 
-/* Hidden on phones: at 4:3 it would need < 12 px, and the logo and the H1
-   right below already say the same. */
+/*
+ * Phones: "PROFESSIONAL ORGANIZING" is the longest unbreakable run (~18.9 em
+ * at this tracking) and must fit in --w, so the size follows the container:
+ * 3.5cqw → 11.2 px at 320, 13.1 px at 375, capped at 14 px.
+ */
 .hero__sub {
-  display: none;
   margin-top: 0.9em;
   font-family: var(--font-accent);
-  font-size: max(0.875rem, calc(var(--s) * 0.3cqw));
+  font-size: min(0.875rem, 3.5cqw);
   line-height: 1.5;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   text-wrap: balance;
 }
 
-/* After the base rule, or the base rule's display: none wins. */
 @media (min-width: 40rem) {
   .hero__sub {
-    display: block;
+    font-size: max(0.875rem, calc(var(--s) * 0.3cqw));
+    letter-spacing: 0.14em;
   }
 }
 

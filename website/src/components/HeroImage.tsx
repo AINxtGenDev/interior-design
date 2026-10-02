@@ -17,6 +17,7 @@ import enMedium1200 from "@/assets/hero-en-medium-1200.webp";
 import enMedium1560 from "@/assets/hero-en-medium-1560.webp";
 import enWide1440 from "@/assets/hero-en-wide-1440.webp";
 import enWide1947 from "@/assets/hero-en-wide-1947.webp";
+import { Fragment } from "react";
 import type { Content, Locale } from "@/content/site";
 
 type Img = { src: string; width: number; height: number };
@@ -101,10 +102,14 @@ export default function HeroImage({
               a wrap never starts a line with the separator. */}
           <p className="hero__sub">
             {content.hero.descriptor.split(" · ").map((part, i, all) => (
-              <span key={part} className="whitespace-nowrap">
-                {part}
-                {i < all.length - 1 && "\u00a0· "}
-              </span>
+              <Fragment key={part}>
+                <span className="whitespace-nowrap">
+                  {part}
+                  {i < all.length - 1 && "\u00a0·"}
+                </span>
+                {/* The break opportunity must sit outside the nowrap span. */}
+                {i < all.length - 1 && " "}
+              </Fragment>
             ))}
           </p>
         </div>
