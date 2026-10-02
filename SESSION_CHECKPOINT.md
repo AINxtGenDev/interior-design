@@ -2,17 +2,19 @@
 
 ## Meta
 
-- Datum: 2026-10-02 (CI-Redesign live — siehe unten)
+- Datum: 2026-10-02 (CI-Redesign, Film mit neuem Logo und OG-Karten live — siehe unten)
 - Repository: `AINxtGenDev/interior-design` (public)
 - Arbeitskopie: `/home/nuc8/05_development/55_laulau/78_plessl-website`
   (**verschoben am 2026-08-16** — vorher `/home/nuc8/05_development/78_plessl-website`)
 - Live: https://ainxtgendev.github.io/interior-design/
-- Status: Website live und getestet; Vorstellungsvideo produziert und
-  eingebettet. Musik am 2026-08-16 ersetzt (Queen -> Suno-Instrumental);
-  rechtliche Platzhalter im Impressum/AGB weiterhin offen.
-  **Umbenennung vom 2026-08-17 ist live:** gepusht bis `d0f98d6`,
-  GitHub-Actions-Deploy `32004332796` erfolgreich, alle 6 Routen an der
-  Live-URL nachgeprüft (neuer Name, neues Logo byte-identisch, KI-Hinweis).
+- Status (2026-10-02): Website auf neuer CI (`CI.pptx`, `Logo2.png`,
+  Titelbild) live, DE und EN, DE|EN-Umschalter. Vorstellungsvideo mit neuem
+  Logo neu gerendert (Ton unverändert) und live; Open-Graph-Karten neu und
+  live; Deploy-Schutz gegen ungestylte Seiten aus dem Cache aktiv.
+  **Offen:** Re-Design-Text von Claudia bestätigen lassen; Firmenwortlaut
+  „Raum & Ordnung" vs. Logo-Unterzeile klären; rechtliche Platzhalter im
+  Impressum/AGB weiterhin offen. (Älterer Stand, Umbenennung 2026-08-17:
+  Deploy `32004332796`.)
 
 ## CI-Redesign nach `CI.pptx` (2026-10-02) — **live**
 
@@ -147,11 +149,12 @@ Entfernt: `LogoMark.tsx`, `logo-mark.webp`, `hero.webp` (Logo-Rotation entfällt
 
 **Offen / Nutzer muss entscheiden:**
 - **Re-Design**-Text ist aus der Branchenbedeutung formuliert → Claudia prüfen lassen.
-- Video zeigt im Film selbst noch das alte Siegel (~18 s, Schluss) → Re-Render im
-  privaten Videoprojekt nötig.
+- ~~Video zeigt im Film noch das alte Siegel~~ — **erledigt 2026-10-02**,
+  Film mit Logo2 neu gerendert und live (siehe oben).
 - Firmenwortlaut „Raum & Ordnung" (Meta/Impressum) vs. Logo-Unterzeile
   „interior design • professional organizing".
-- OG-Karten (`og-image-de/en.jpg`) zeigen altes Bild/Schrift — nicht erneuert.
+- ~~OG-Karten zeigen altes Bild/Schrift~~ — **erledigt 2026-10-02**, neu mit
+  Logo2 und Titelbild, live (siehe oben).
 - `Logo2.png` und `Titelbild Homepage.png` sind committet (Quellen des
   Build-Skripts, ohnehin öffentlich auf der Seite).
 - Vom Nutzer freigegeben und gepusht: `b9bfe3f` (Assets), `edf16b4` (Redesign),
