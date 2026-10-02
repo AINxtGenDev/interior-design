@@ -48,6 +48,13 @@ KI-generierte Stimme" / „Introduction, 58 seconds, AI-generated voice"
 (EU AI Act Art. 50(4)/(5): Offenlegung beim ersten Kontakt). Feld
 `video.voiceNotice` entfernt; Footer-Hinweis unverändert.
 
+**Nachtrag 6 (Nutzer, 2026-10-02):** DE|EN-Umschalter startet die Seite jetzt
+immer oben. Vorher trug `LangSwitch` auf der Startseite den aktuellen
+`#abschnitt` mit (z. B. `#kontakt` → Sprung fast ans Ende). onClick entfernt,
+Komponente ist kein Client-Component mehr. Lokal im Browser geprüft: DE `#kontakt`
+→ EN y = 0, EN gescrollt → DE y = 0. Ausnahme bleibt: Rechtsseiten
+(`impressum/` → `/en/legal/#imprint` usw.) springen auf den passenden Abschnitt.
+
 **Nachtrag 5 (Nutzer, 2026-10-02):** „KI-generierte Stimme" / „AI-generated
 voice" aus der Bildunterschrift am Video entfernt — Begründung Nutzer: der
 Footer-Hinweis (`footer.imageNotice`) nennt die KI-Stimme bereits. Unterschrift
