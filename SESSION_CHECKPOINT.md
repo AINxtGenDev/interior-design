@@ -58,6 +58,18 @@ Build → 0. Origin im Workflow beim Domainwechsel anpassen.
 Workflow-Schritt live (`ee4945d`, Deploy success, „kept 0" — korrekt, CSS
 unverändert).
 
+**Open-Graph-Karten mit neuem Logo (2026-10-02, Nutzerauftrag):** Die alten
+Karten hatten **gar kein Logo** (altes Foto mit schwarzen Balken, alte
+Schriften). Neu erzeugt von `build_og()` in
+`brand/build_web_assets.py`: Layout wie Kopfband von CI-Folie 5 — Logo2 auf
+Papiergrund links (330 px, Blush-Linie), Haarlinie, rechts Titelbild (DE
+Original-Slogan, EN gemalte englische Headline), Bildausschnitt ab x = 340,
+damit „LESS CLUTTER MORE LIFE" nicht angeschnitten ist. Dateinamen unverändert
+(`og-image-de/en.jpg`), Layouts/JSON-LD unverändert. Entfernt (verwaist,
+`build_og_images.py` hätte die neuen Karten überschrieben):
+`build_og_images.py`, `website/public/og-image.jpg`, `brand/fonts/Jost-latin.ttf`
+— in Git-Historie. Alle anderen Assets byte-identisch beim Neu-Build.
+
 **Vorstellungsvideo mit CI-Logo neu gerendert (2026-10-02) — live** (`ff62a5b`,
 Deploy `36981729149`, Live-Datei byte-identisch; vom Nutzer freigegeben): `vorstellung.mp4` ersetzt (4,72 MB, 58,3 s, 1749 Frames).
 Frame 3 + 7 zeigen Logo2 statt Siegel; alle übrigen Frames identisch

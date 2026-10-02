@@ -10,6 +10,7 @@ Outputs:
     website/src/assets/hero-en-{crop}-{w}.webp         same, headline set in English
     website/src/app/{favicon.ico,icon.png,apple-icon.png}
     website/public/icons/android-chrome-*.png          incl. maskable
+    website/public/og-image-{de,en}.jpg                 Open Graph cards
 
 Run from the repo root (OpenCV is only needed for the English hero; its
 headline font is brand/fonts/PlayfairDisplay[wght].ttf, SIL OFL):
@@ -190,13 +191,59 @@ def build_icons(logo: Image.Image) -> None:
     mask.convert("RGB").save(ICONS / "android-chrome-maskable-512x512.png", optimize=True)
 
 
+# Open Graph cards (1200x630), after the top band of the CI style guide
+# (slide 5): the logo on the paper ground at left, a hairline, and the title
+# image with its painted slogan at right. File names stay og-image-{de,en}.jpg
+# so the layouts and the JSON-LD need no change.
+OG_W, OG_H = 1200, 630
+OG_PANEL = 400                 # paper panel with the logo
+OG_LOGO_W = 330                # logo width inside the panel
+OG_HAIRLINE = (199, 201, 204)  # anthrazit-soft #C7C9CC
+OG_RULE = (228, 168, 159)      # blush-mid #E4A89F
+# Left edge of the photo crop in the title image. Centring on the slogan
+# (x 419) cut the book title to "ESS CLUTTER"; the stack starts at x ~ 362.
+OG_CROP_LEFT = 340
+
+
+def build_og(logo: Image.Image, heroes: dict) -> None:
+    from PIL import ImageDraw
+
+    lockup = trim(logo, pad=0)
+    lw = OG_LOGO_W
+    lh = round(lockup.height * lw / lockup.width)
+    mark = lockup.resize((lw, lh), Image.LANCZOS)
+
+    photo_w = OG_W - OG_PANEL
+    for lang, hero in heroes.items():
+        # Crop the title image to the photo panel's aspect, full height, then
+        # scale to the panel.
+        cw = round(hero.height * photo_w / OG_H)
+        left = OG_CROP_LEFT
+        photo = hero.crop((left, 0, left + cw, hero.height)).resize((photo_w, OG_H), Image.LANCZOS)
+
+        card = Image.new("RGBA", (OG_W, OG_H), (*PAPER, 255))
+        card.paste(photo, (OG_PANEL, 0))
+        gap = 34
+        top = (OG_H - (lh + gap + 2)) // 2
+        card.alpha_composite(mark, ((OG_PANEL - lw) // 2, top))
+        d = ImageDraw.Draw(card)
+        d.rectangle([OG_PANEL // 2 - 32, top + lh + gap, OG_PANEL // 2 + 31, top + lh + gap + 1], fill=OG_RULE)
+        d.rectangle([OG_PANEL - 1, 0, OG_PANEL - 1, OG_H - 1], fill=OG_HAIRLINE)
+
+        path = ROOT / "website/public" / f"og-image-{lang}.jpg"
+        card.convert("RGB").save(path, "JPEG", quality=88, subsampling=0, optimize=True)
+        print(f"  {path.relative_to(ROOT)} {OG_W}x{OG_H} {path.stat().st_size // 1024} KB (crop x {left}..{left + cw})")
+
+
 def main() -> None:
     logo = Image.open(ROOT / "Logo2.png").convert("RGBA")
     hero = Image.open(ROOT / "Titelbild Homepage.png").convert("RGB")
     build_logo(logo)
     build_hero(hero)
-    build_hero(english_headline(hero), prefix="hero-en")
+    hero_en = english_headline(hero)
+    build_hero(hero_en, prefix="hero-en")
     build_icons(logo)
+    build_og(logo, {"de": hero, "en": hero_en})
 
 
 if __name__ == "__main__":
