@@ -56,7 +56,7 @@ export default function Impressum() {
           E-Mail:{" "}
           <a
             href={`mailto:${CONTACT.email}`}
-            className="underline decoration-sage-300 underline-offset-4 hover:decoration-sage-500"
+            className="underline decoration-sage-mid underline-offset-4 hover:decoration-sage-dark"
           >
             {CONTACT.email}
           </a>
@@ -64,7 +64,7 @@ export default function Impressum() {
           Telefon:{" "}
           <a
             href={`tel:${CONTACT.phoneHref}`}
-            className="underline decoration-sage-300 underline-offset-4 hover:decoration-sage-500"
+            className="underline decoration-sage-mid underline-offset-4 hover:decoration-sage-dark"
           >
             {CONTACT.phone}
           </a>
@@ -85,7 +85,7 @@ export default function Impressum() {
           Anwendbare Rechtsvorschrift: Gewerbeordnung (GewO),{" "}
           <a
             href="https://www.ris.bka.gv.at"
-            className="underline decoration-sage-300 underline-offset-4 hover:decoration-sage-500"
+            className="underline decoration-sage-mid underline-offset-4 hover:decoration-sage-dark"
             rel="noopener noreferrer"
             target="_blank"
           >

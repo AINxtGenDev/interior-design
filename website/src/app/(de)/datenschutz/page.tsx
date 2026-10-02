@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 const linkClass =
-  "underline decoration-sage-300 underline-offset-4 hover:decoration-sage-500";
+  "underline decoration-sage-mid underline-offset-4 hover:decoration-sage-dark";
 
 export default function Datenschutz() {
   return (

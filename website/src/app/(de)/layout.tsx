@@ -1,33 +1,7 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Inter, Jost } from "next/font/google";
 import "../globals.css";
+import { fontVariables } from "../fonts";
 import { CONTACT, CONTENT, SITE_URL } from "@/content/site";
-
-/*
- * next/font downloads and self-hosts these at build time, so the published
- * site makes no request to fonts.googleapis.com. That is what keeps the
- * Datenschutzerklärung's "no third-party requests" claim true.
- */
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
-  subsets: ["latin", "latin-ext"],
-  weight: ["300", "400", "500"],
-  display: "swap",
-});
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin", "latin-ext"],
-  weight: ["400", "500"],
-  display: "swap",
-});
-
-const jost = Jost({
-  variable: "--font-jost",
-  subsets: ["latin", "latin-ext"],
-  weight: ["400", "500"],
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -58,7 +32,7 @@ export default function DeRootLayout({
   return (
     <html
       lang="de-AT"
-      className={`${cormorant.variable} ${inter.variable} ${jost.variable}`}
+      className={fontVariables}
     >
       <body>{children}</body>
     </html>

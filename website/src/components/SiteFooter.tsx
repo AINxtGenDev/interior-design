@@ -1,5 +1,5 @@
 import Link from "next/link";
-import LogoMark from "@/components/LogoMark";
+import BrandLogo from "@/components/BrandLogo";
 import { CONTACT, type Content, type Locale } from "@/content/site";
 
 export default function SiteFooter({
@@ -17,59 +17,44 @@ export default function SiteFooter({
   ] as const;
 
   return (
-    <footer className="border-t border-sage-200/70 bg-warm-cream/50 px-5 py-10 md:px-8">
-      <div className="mx-auto flex max-w-6xl flex-col gap-6 md:flex-row md:items-center md:justify-between">
-        <div className="text-sm text-anthracite-500">
-          {/* Full brand lockup, recreating the printed card: monogram,
-              wordmark, and the rule-flanked descriptor beneath it. */}
-          <div className="flex items-center gap-4">
-            <LogoMark className="h-16" />
-            <div>
-              <p className="font-nav text-sm font-medium tracking-[0.2em] text-anthracite-700 uppercase">
-                Mag. Claudia Plessl
-              </p>
-              <p className="mt-1.5 flex items-center gap-2 font-nav text-[0.6rem] font-medium tracking-[0.28em] text-anthracite-400 uppercase">
-                <span aria-hidden="true" className="h-px w-4 bg-sage-300" />
-                {/* Firmenwortlaut, in beiden Sprachen unübersetzt. */}
-                Raum &amp; Ordnung
-                <span aria-hidden="true" className="h-px w-4 bg-sage-300" />
-              </p>
-            </div>
-          </div>
+    <footer className="bg-sage-light">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-[auto_1fr] md:gap-16 md:py-16 lg:px-8">
+        {/* 96 px tall: the largest placement, where the descriptor line of
+            the logo is still legible (~9 px cap height). */}
+        <BrandLogo sizes="180px" className="h-24" />
 
-          <p className="mt-5">
+        <div className="small space-y-2">
+          <p>
             {CONTACT.street} · {CONTACT.postalCode} {CONTACT.city} ·{" "}
             {locale === "de" ? CONTACT.country : CONTACT.countryEn}
           </p>
-          <p className="mt-1">
+          <p>
             &copy; {year} {CONTACT.name}. {content.footer.rights}
           </p>
           {/* KI-Offenlegung sichtbar auf jeder Seite, nicht nur im Impressum. */}
-          <p className="mt-1 text-xs text-anthracite-400">
-            {content.footer.imageNotice}
-          </p>
-        </div>
+          <p className="text-anthrazit-mid">{content.footer.imageNotice}</p>
 
-        <nav
-          aria-label={locale === "de" ? "Rechtliches" : "Legal"}
-          className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm"
-        >
-          {links.map(([href, label], i) => (
-            <span key={href} className="flex items-center gap-5">
-              {i > 0 && (
-                <span aria-hidden="true" className="text-sage-300">
-                  |
-                </span>
-              )}
-              <Link
-                href={href}
-                className="inline-flex min-h-11 items-center text-anthracite-500 underline decoration-sage-300 underline-offset-4 transition-colors hover:text-sage-700 hover:decoration-sage-500"
-              >
-                {label}
-              </Link>
-            </span>
-          ))}
-        </nav>
+          <nav aria-label={locale === "de" ? "Rechtliches" : "Legal"} className="pt-2">
+            <ul className="flex flex-wrap gap-x-6">
+              {links.map(([href, label]) => (
+                <li key={href}>
+                  <Link href={href} className="link inline-flex min-h-11 min-w-11 items-center justify-center">
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      {/* Closing line of the style-guide slide. The non-breaking space keeps
+          each "•" off the start of a wrapped line. */}
+      <div className="border-t border-sage-soft">
+        <div className="eyebrow mx-auto flex max-w-6xl flex-col items-center gap-x-10 gap-y-2 px-4 py-5 text-center text-sage-dark sm:px-6 md:flex-row md:justify-between lg:px-8">
+          <p>{"Claudia Plessl — Interior Design • Professional Organizing".replace(/ • /g, "\u00a0• ")}</p>
+          <p>{content.footer.values.replace(/ • /g, "\u00a0• ")}</p>
+        </div>
       </div>
     </footer>
   );

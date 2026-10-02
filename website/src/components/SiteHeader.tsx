@@ -1,98 +1,101 @@
-import Link from "next/link";
-import LogoMark from "@/components/LogoMark";
-import { CONTACT, type Content, type Locale } from "@/content/site";
+import BrandLogo from "@/components/BrandLogo";
+import LangSwitch from "@/components/LangSwitch";
+import SiteNav, { type NavModel } from "@/components/SiteNav";
+import { ASSET_PREFIX, CONTACT, type Content, type Locale } from "@/content/site";
 
-const SECTION_IDS = {
+/*
+ * Section anchors. Identical in both languages so the language switch can
+ * keep the reader in place; the older ids (leistungen, fuer-wen, ablauf,
+ * pakete) are kept so existing links still land.
+ */
+export const SECTION_IDS = {
+  top: "top",
   services: "leistungen",
   audience: "fuer-wen",
   process: "ablauf",
   packages: "pakete",
   about: "ueber-mich",
+  projects: "projekte",
+  faq: "faq",
   contact: "kontakt",
 } as const;
 
-export { SECTION_IDS };
-
 /**
- * Sticky top bar. The nav links are in-page anchors, so they only make sense
- * on the one-pager — `showNav` is false on the legal pages, which link home
- * instead.
+ * Sticky top bar: logo, main navigation (CI.pptx slide 4), DE | EN switch.
+ *
+ * Every nav link points at the home page's anchors with the full path, so the
+ * same header works on the legal pages too. Plain hrefs need basePath added
+ * by hand; next/link would do it, but these are same-document jumps on the
+ * home page and must not trigger client-side routing.
  */
 export default function SiteHeader({
   content,
   locale,
-  showNav = true,
+  path,
 }: {
   content: Content;
   locale: Locale;
-  showNav?: boolean;
+  /** Current page path, as in LANG_ALTERNATES ("" for the German home). */
+  path: string;
 }) {
-  const home = locale === "de" ? "/" : "/en/";
-  const nav = [
-    ["services", content.nav.services],
-    ["audience", content.nav.audience],
-    ["process", content.nav.process],
-    ["packages", content.nav.packages],
-    ["about", content.nav.about],
-    ["contact", content.nav.contact],
-  ] as const;
+  const home = `${ASSET_PREFIX}${locale === "de" ? "/" : "/en/"}`;
+  const at = (id: string) => `${home}#${id}`;
+  const n = content.nav;
+
+  const model: NavModel = {
+    label: n.label,
+    home: { label: n.home, href: at(SECTION_IDS.top) },
+    offer: {
+      label: n.offer,
+      overview: { label: n.offerOverview, href: at(SECTION_IDS.services) },
+      children: content.services.items.map((s) => ({ label: s.title, href: at(s.id) })),
+      // Not in slide 4, but without them prices and workshops were
+      // unreachable from the menu. Shown below a divider.
+      more: [
+        { label: n.audience, href: at(SECTION_IDS.audience) },
+        { label: n.process, href: at(SECTION_IDS.process) },
+        { label: n.packages, href: at(SECTION_IDS.packages) },
+        { label: n.workshops, href: at(content.services.workshops.id) },
+      ],
+    },
+    rest: [
+      { label: n.about, href: at(SECTION_IDS.about) },
+      { label: n.projects, href: at(SECTION_IDS.projects) },
+      { label: n.faq, href: at(SECTION_IDS.faq) },
+    ],
+    contact: { label: n.contact, href: at(SECTION_IDS.contact) },
+    menuOpen: n.menuOpen,
+    menuClose: n.menuClose,
+  };
 
   return (
     <>
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:inline-flex focus:min-h-11 focus:items-center focus:rounded-full focus:bg-sage-800 focus:px-5 focus:text-sm focus:text-warm-white"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:inline-flex focus:min-h-11 focus:items-center focus:rounded focus:bg-sage-dark focus:px-5 focus:font-bold focus:text-white"
       >
-        {locale === "de" ? "Zum Inhalt springen" : "Skip to content"}
+        {n.skip}
       </a>
 
-      <header className="no-print sticky top-0 z-50 border-b border-sage-200/70 bg-warm-white/90 backdrop-blur-md">
-      <div className="rule-gold" aria-hidden="true" />
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 md:px-8">
-        {/* Brand lockup: the redrawn monogram plus the wordmark as live text,
-            which stays crisp at any size and matches the printed card's
-            letter-spaced geometric sans. The mark sits on a square canvas with
-            its own safe-area margin, so it runs a size up from the old scan to
-            keep the same optical weight. */}
-        <Link
-          href={home}
-          aria-label={CONTACT.businessName}
-          className="group inline-flex min-h-11 items-center gap-3"
-        >
-          <LogoMark priority className="h-10 md:h-11" />
-          <span className="font-nav text-[0.8rem] leading-none font-medium tracking-[0.2em] text-anthracite-700 uppercase transition-colors group-hover:text-sage-700 sm:text-sm">
-            Mag.&nbsp;Claudia&nbsp;Plessl
-          </span>
-        </Link>
-
-        {showNav && (
-          <nav
-            aria-label={locale === "de" ? "Hauptnavigation" : "Main navigation"}
-            className="hidden items-center gap-7 lg:flex"
+      <header className="no-print sticky top-0 z-50 border-b border-anthrazit-light bg-paper/95 backdrop-blur-md">
+        <div className="mx-auto flex h-[var(--header-h)] max-w-6xl items-center gap-2 px-4 sm:gap-3 sm:px-6 lg:px-8">
+          <a
+            href={home}
+            aria-label={`${CONTACT.businessName} – ${n.home}`}
+            className="mr-auto flex min-h-11 shrink-0 items-center"
           >
-            {nav.map(([key, label]) => (
-              <a
-                key={key}
-                href={`#${SECTION_IDS[key]}`}
-                className="eyebrow text-anthracite-500 transition-colors hover:text-sage-700"
-              >
-                {label}
-              </a>
-            ))}
-          </nav>
-        )}
+            {/* 48 px tall on phones, 56 px from 1024 px: the wordmark is
+                ~29 % of the logo's height, so this keeps it at 14–16 px. */}
+            <BrandLogo priority sizes="(min-width: 1024px) 105px, 90px" className="h-12 lg:h-14" />
+          </a>
 
-        <Link
-          href={content.langSwitch.href}
-          hrefLang={locale === "de" ? "en" : "de"}
-          aria-label={
-            locale === "de" ? "Switch to English" : "Auf Deutsch wechseln"
-          }
-          className="eyebrow flex h-11 min-w-11 items-center justify-center rounded-full border border-sage-300 px-3 text-sage-700 transition-colors hover:border-sage-500 hover:bg-sage-50"
-        >
-          {content.langSwitch.hrefLabel}
-        </Link>
-      </div>
+          <SiteNav
+            model={model}
+            langSwitch={
+              <LangSwitch locale={locale} path={path} label={content.langSwitch.label} />
+            }
+          />
+        </div>
       </header>
     </>
   );

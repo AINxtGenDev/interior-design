@@ -11,11 +11,11 @@ import { CONTACT } from "@/content/site";
  * They then follow a custom-domain switch (BASE_PATH="") like everything else.
  *
  * Zwei Sorten Icons: die regulaeren behalten ihren eigenen Rand und sind "any".
- * Daneben steht seit dem Siegel-Logo ein eigenes "maskable"-Icon — Android
- * schneidet Maskable-Icons auf eine Form zu und beschneidet alles ausserhalb
- * eines Kreises von 80 % Kantenlaenge. Das Siegel sitzt dort nachweislich
- * innerhalb von 204,6 px der erlaubten 204,8 px und traegt einen deckenden
- * Grund, weil Maskable-Icons randlos gefuellt sein muessen.
+ * Daneben steht ein eigenes "maskable"-Icon — Android schneidet
+ * Maskable-Icons auf eine Form zu und beschneidet alles ausserhalb eines
+ * Kreises von 80 % Kantenlaenge. Das CP-Monogramm aus Logo2.png reicht dort
+ * bis 159,1 px der erlaubten 204,8 px (brand/build_web_assets.py prueft das
+ * per assert) und traegt einen deckenden Grund.
  */
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
@@ -31,8 +31,9 @@ export default function manifest(): MetadataRoute.Manifest {
     start_url: `${basePath}/`,
     scope: `${basePath}/`,
     display: "standalone",
-    background_color: "#faf9f7",
-    theme_color: "#faf9f7",
+    // CI page background (CI.pptx slide 5).
+    background_color: "#fafbfa",
+    theme_color: "#fafbfa",
     icons: [
       {
         src: `${basePath}/icons/android-chrome-192x192.png`,

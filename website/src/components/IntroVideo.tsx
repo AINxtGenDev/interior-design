@@ -21,19 +21,21 @@ export default function IntroVideo({
   const captions = `${ASSET_PREFIX}/video/vorstellung-de.vtt`;
 
   return (
-    <div className="bg-warm-cream/60">
-      <section className="mx-auto max-w-6xl scroll-mt-20 px-5 py-20 md:px-8 md:py-28">
-        <h2 className="display-lg text-anthracite-800">{content.video.heading}</h2>
-        <div className="rule-gold mt-6 w-24" aria-hidden="true" />
-        <p className="mt-6 max-w-2xl text-lg text-anthracite-600">
-          {content.video.lead}
-        </p>
+    <section aria-labelledby="video-heading" className="bg-sage-light">
+      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-24 lg:px-8">
+        <h2 id="video-heading" className="h2">
+          {content.video.heading}
+        </h2>
+        <span aria-hidden="true" className="rule mt-6" />
+        <p className="lead mt-6">{content.video.lead}</p>
 
         <figure className="mt-12">
           {/* 9:16 source — constrained on desktop so it never dominates the page. */}
-          <div className="mx-auto w-full max-w-[360px]">
+          {/* Never taller than 70 % of the viewport, so the controls stay
+              in view on short phones. */}
+          <div className="mx-auto w-full max-w-[min(360px,calc(70svh*9/16))]">
             <video
-              className="block h-auto w-full rounded-sm border border-sage-200 bg-anthracite-900"
+              className="block h-auto w-full rounded border border-sage-soft bg-anthrazit-dark"
               controls
               preload="metadata"
               playsInline
@@ -57,22 +59,20 @@ export default function IntroVideo({
           </div>
 
           <figcaption className="mt-5 text-center">
-            <span className="eyebrow block text-anthracite-400">
-              {content.video.caption}
-            </span>
-            <span className="mx-auto mt-3 block max-w-[360px] text-sm text-anthracite-500">
+            <span className="small block font-bold">{content.video.caption}</span>
+            <span className="small mx-auto mt-3 block max-w-[360px] text-anthrazit-mid">
               {content.video.voiceNotice}
             </span>
           </figcaption>
         </figure>
 
         {locale === "en" && (
-          <p className="mt-6 text-center text-sm text-anthracite-500">
+          <p className="small mx-auto mt-6 max-w-[360px] text-center">
             The film is narrated in German. German subtitles can be switched on
             in the player.
           </p>
         )}
-      </section>
-    </div>
+      </div>
+    </section>
   );
 }

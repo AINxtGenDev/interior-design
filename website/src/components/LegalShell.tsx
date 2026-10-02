@@ -5,7 +5,7 @@ import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
 import JsonLd from "./JsonLd";
 
-/** Chrome shared by every legal page: header without in-page nav, narrow
+/** Chrome shared by every legal page: the full site header, narrow
  *  reading measure, back-link, footer.
  *
  *  `path` and `updatedIso` are the machine-readable halves of what the page
@@ -34,20 +34,17 @@ export default function LegalShell({
     <>
       <JsonLd graph={buildLegalGraph(locale, { path, title, updatedIso })} />
 
-      <SiteHeader content={c} locale={locale} showNav={false} />
+      <SiteHeader content={c} locale={locale} path={path} />
 
-      <main id="main" className="px-5 py-16 md:px-8 md:py-24">
-        <div className="mx-auto max-w-[68ch]">
-          <Link
-            href={home}
-            className="eyebrow no-print inline-flex min-h-11 items-center text-sage-600 transition-colors hover:text-sage-800"
-          >
+      <main id="main" className="px-4 py-12 sm:px-6 md:py-20">
+        <div className="mx-auto max-w-[42rem]">
+          <Link href={home} className="link no-print inline-flex min-h-11 items-center">
             {locale === "de" ? "← Zur Startseite" : "← Back to home"}
           </Link>
 
-          <h1 className="display-lg mt-6 text-anthracite-800">{title}</h1>
-          <div className="rule-gold mt-5 w-24" aria-hidden="true" />
-          <p className="mt-4 text-sm text-anthracite-400">
+          <h1 className="h1 mt-6">{title}</h1>
+          <span aria-hidden="true" className="rule mt-5" />
+          <p className="small mt-4 text-anthrazit-mid">
             <time dateTime={updatedIso}>{updated}</time>
           </p>
 
@@ -71,11 +68,9 @@ export function LegalSection({
   children: React.ReactNode;
 }) {
   return (
-    <section id={id} className="mt-10 scroll-mt-20 first:mt-0">
-      <h2 className="font-heading text-2xl font-normal text-anthracite-800">
-        {heading}
-      </h2>
-      <div className="mt-4 space-y-4 text-anthracite-600">{children}</div>
+    <section id={id} className="mt-12 first:mt-0">
+      <h2 className="h3">{heading}</h2>
+      <div className="mt-4 space-y-4">{children}</div>
     </section>
   );
 }
@@ -84,7 +79,7 @@ export function LegalSection({
  *  silently missing GISA number is worse than an obvious gap. */
 export function Todo({ children }: { children: React.ReactNode }) {
   return (
-    <mark className="rounded-sm bg-gold-accent/25 px-1.5 py-0.5 text-anthracite-700 not-italic">
+    <mark className="rounded-sm bg-blush-soft px-1.5 py-0.5 text-anthrazit-dark not-italic">
       {children}
     </mark>
   );

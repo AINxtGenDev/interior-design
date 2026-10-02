@@ -12,8 +12,10 @@
  * Deliberately absent:
  *  - `openingHours` — there are none; the work happens at the client's place.
  *  - `SearchAction` — the site has no search. Declaring one is a classic lie.
- *  - `FAQPage` — there is no FAQ content. Marking up invented Q&A to farm a
- *    rich result is what earns a manual action.
+ *  - `FAQPage` — the FAQ on the page (since 2026-10) is real, but it is
+ *    left out of the graph: every answer restates a fact that the business,
+ *    service and offer nodes already carry, and a second copy is one more
+ *    place for the two to disagree.
  *  - `vatID` — Kleinunternehmerin, and the UID is still a placeholder in the
  *    Impressum. An invented identifier is worse than a missing one.
  */
@@ -93,7 +95,9 @@ export function buildHomeGraph(locale: Locale): JsonLdNode[] {
   const videoId = `${home}#video`;
   const catalogId = `${home}#packages`;
 
-  const serviceIds = c.services.items.map(
+  // The four offers of the "Mein Angebot" menu plus the workshops.
+  const allServices = [...c.services.items, c.services.workshops];
+  const serviceIds = allServices.map(
     (_, i) => `${home}#service-${i + 1}`,
   );
 
@@ -126,7 +130,7 @@ export function buildHomeGraph(locale: Locale): JsonLdNode[] {
     currenciesAccepted: "EUR",
     priceRange: "EUR 110–690",
     availableLanguage: ["de-AT", "en"],
-    knowsAbout: c.services.items.map((s) => s.title),
+    knowsAbout: allServices.map((s) => s.title),
     hasOfferCatalog: { "@id": catalogId },
   };
 
@@ -155,11 +159,11 @@ export function buildHomeGraph(locale: Locale): JsonLdNode[] {
   };
 
   /*
-   * Each of the three services carries its bullet list as an OfferCatalog of
+   * Each service carries its bullet list as an OfferCatalog of
    * un-priced Offers — the schema.org-canonical way to say "this is included",
    * and the part an agent needs to answer "does she do document organisation?".
    */
-  const services: JsonLdNode[] = c.services.items.map((s, i) => ({
+  const services: JsonLdNode[] = allServices.map((s, i) => ({
     "@type": "Service",
     "@id": serviceIds[i],
     name: s.title,

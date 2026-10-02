@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 const linkClass =
-  "underline decoration-sage-300 underline-offset-4 hover:decoration-sage-500";
+  "underline decoration-sage-mid underline-offset-4 hover:decoration-sage-dark";
 
 export default function Legal() {
   return (
@@ -23,8 +23,8 @@ export default function Legal() {
       updated="As of August 2026"
       updatedIso="2026-08"
     >
-      <div className="rounded-sm border border-gold-accent/50 bg-gold-accent/10 p-5">
-        <p className="text-sm text-anthracite-700">
+      <div className="rounded-sm border border-blush-mid bg-blush-light p-5">
+        <p className="text-sm text-anthrazit-dark">
           This page is a courtesy summary in English. The business operates
           under Austrian law, and the{" "}
           <strong>German versions are the legally binding ones</strong>. In case

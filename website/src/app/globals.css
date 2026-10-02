@@ -1,245 +1,368 @@
 @import "tailwindcss";
 
 /*
- * Palette and type scale derived from the brand cover image
- * (linkedin-cover2.png): warm cream surfaces, muted sage green, oak accents,
- * a soft gold hairline, and a high-contrast serif for display type.
+ * Design system from CI.pptx (Study Retreat 09/26).
  *
- * The brand is deliberately light-only — the identity is built on airy,
- * daylit interiors, and a forced dark inversion misrepresents it. `color-scheme`
- * is pinned to light so browsers do not auto-darken the page.
- */
-
-/*
+ *   Slide 5 — palette: Salbeigrün, Blush, Anthrazit, four tones each, on a
+ *             near-white page (#FAFBFA, sampled from the style guide).
+ *   Slide 6 — type: Manrope Bold for headlines, Manrope Regular for body
+ *             text and subtitles, Montserrat Regular for accents and quotes.
+ *   Slide 9 — the "ENJOY YOUR HOME" claim: Montserrat, sage dark, on #F6F6F6.
+ *
+ * Contrast, measured against WCAG 2.2 (1.4.3 / 1.4.11), decides which CI tone
+ * may carry text:
+ *
+ *   anthrazit-dark  12.5 : 1 on paper   → all running text
+ *   sage-dark        5.2 : 1 on paper   → labels, links, buttons (white on it: 5.4)
+ *   anthrazit-mid    4.9 : 1 on paper   → captions and meta text only
+ *   blush-dark       3.3 : 1 on paper   → large accents (>= 24 px) and rules only
+ *   *-mid / *-soft / *-light            → surfaces, borders, decoration only
+ *
+ * The brand stays light-only, as before: `color-scheme` is pinned so browsers
+ * do not auto-darken the page.
+ *
  * `@theme` (not `@theme inline`) so every token is emitted as a real custom
- * property on :root. The hand-written rules below use var() directly, and
- * `inline` would tree-shake those variables away — leaving the fonts silently
- * falling back to the browser default sans.
+ * property on :root — the hand-written rules below use var() directly.
  */
 @theme {
-  /* ─── Sage Green — primary brand hue ─── */
-  --color-sage-50: #f6f7f4;
-  --color-sage-100: #e8ebe3;
-  --color-sage-200: #d1d8c7;
-  --color-sage-300: #b3bfa3;
-  --color-sage-400: #8fa37a;
-  --color-sage-500: #7a9468;
-  --color-sage-600: #5f7550;
-  --color-sage-700: #4d6040;
-  --color-sage-800: #3a4a30;
-  --color-sage-900: #283521;
+  /* ─── Salbeigrün ─── */
+  --color-sage-light: #eff4ee;
+  --color-sage-soft: #d6e0d4;
+  --color-sage-mid: #9caf95;
+  --color-sage-dark: #5e6f5b;
+  /* Not a CI tone: sage-dark at 7:1 on white, for hover/pressed states only. */
+  --color-sage-ink: #4e5c4c;
 
-  /* ─── Anthracite — body text and UI ─── */
-  --color-anthracite-50: #f5f5f6;
-  --color-anthracite-100: #e5e5e7;
-  --color-anthracite-200: #ccccce;
-  --color-anthracite-300: #a3a3a7;
-  --color-anthracite-400: #6e6e74;
-  --color-anthracite-500: #57575e;
-  --color-anthracite-600: #434349;
-  --color-anthracite-700: #333338;
-  --color-anthracite-800: #242428;
-  --color-anthracite-900: #18181b;
+  /* ─── Blush ─── */
+  --color-blush-light: #fdedea;
+  --color-blush-soft: #f6d1cd;
+  --color-blush-mid: #e4a89f;
+  --color-blush-dark: #c2766e;
 
-  /* ─── Surfaces & accents ─── */
-  --color-warm-white: #faf9f7;
-  --color-warm-cream: #f3efe8;
-  --color-warm-oak: #d9c3a5;
-  --color-gold-accent: #c9a96e;
+  /* ─── Anthrazit ─── */
+  --color-anthrazit-light: #e9eaec;
+  --color-anthrazit-soft: #c7c9cc;
+  --color-anthrazit-mid: #6b6e72;
+  --color-anthrazit-dark: #2e3134;
 
-  /* ─── Fonts ─── */
-  --font-heading: var(--font-cormorant), Georgia, "Times New Roman", serif;
-  --font-body: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-nav: var(--font-jost), "Helvetica Neue", Arial, sans-serif;
+  /* ─── Surfaces ─── */
+  --color-paper: #fafbfa;
+  --color-mist: #f6f6f6;
+
+  /* ─── Fonts (next/font variables, set on <html>) ─── */
+  --font-heading: var(--font-manrope), "Segoe UI", system-ui, sans-serif;
+  --font-body: var(--font-manrope), "Segoe UI", system-ui, sans-serif;
+  --font-accent: var(--font-montserrat), "Helvetica Neue", Arial, sans-serif;
 }
 
 :root {
   color-scheme: light;
+  /* Sticky header height; anchors and scroll-padding follow it. */
+  --header-h: 4.25rem;
 }
 
-html {
-  scroll-behavior: smooth;
-  /* Sticky header is 4rem; keep anchor targets clear of it. */
-  scroll-padding-top: 5rem;
-  -webkit-text-size-adjust: 100%;
+@media (min-width: 64rem) {
+  :root {
+    --header-h: 5rem;
+  }
 }
 
-body {
-  background-color: var(--color-warm-white);
-  color: var(--color-anthracite-700);
-  font-family: var(--font-body);
-  font-size: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
-  line-height: 1.7;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  /* Long words and URLs must never force the page sideways. */
-  overflow-wrap: break-word;
+/*
+ * Base rules sit in `@layer base` so Tailwind utilities (layered) can override
+ * them. Unlayered, `h2 { color }` beat `text-white` and left the contact
+ * heading dark grey on dark green at 2.4:1.
+ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--header-h) + 1rem);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-anthrazit-dark);
+    font-family: var(--font-body);
+    font-weight: 400;
+    /* 17 px on phones, 19 px on large screens — Manrope is wide, so the
+       line length stays comfortable at this size. */
+    font-size: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-wrap: break-word;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--color-anthrazit-dark);
+    text-wrap: balance;
+  }
+
+  p,
+  li,
+  dd {
+    text-wrap: pretty;
+  }
 }
 
-h1,
-h2,
-h3 {
-  font-family: var(--font-heading);
-  line-height: 1.15;
-  text-wrap: balance;
+/* ─── Type scale ─── */
+@layer components {
+  .h1,
+  .h2 {
+    /* "Datenschutzerklärung" at 320 px otherwise breaks mid-word. */
+    hyphens: auto;
+  }
+
+  .h1 {
+    font-size: clamp(1.875rem, 1.35rem + 2.3vw, 3.25rem);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+  }
+
+  .h2 {
+    font-size: clamp(1.625rem, 1.3rem + 1.5vw, 2.5rem);
+    line-height: 1.18;
+    letter-spacing: -0.015em;
+  }
+
+  .h3 {
+    font-size: clamp(1.1875rem, 1.1rem + 0.4vw, 1.375rem);
+    line-height: 1.3;
+    letter-spacing: -0.005em;
+  }
+
+  /* Lead paragraph under a section heading. */
+  .lead {
+    font-size: clamp(1.125rem, 1.05rem + 0.35vw, 1.3125rem);
+    line-height: 1.6;
+    max-width: 40rem;
+  }
+
+  /* Captions, notes, meta text. Never below 15 px. */
+  .small {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+
+  /* Montserrat accent label (CI: "Akzente"). Short strings only — tracked
+     capitals are slow to read, so never for sentences. */
+  .eyebrow {
+    font-family: var(--font-accent);
+    font-size: 0.9375rem;
+    font-weight: 400;
+    line-height: 1.45;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+
+  /* Short blush rule under headings, as on the style-guide slide. */
+  .rule {
+    display: block;
+    width: 4rem;
+    height: 2px;
+    background: var(--color-blush-mid);
+  }
+
+  /* ─── Buttons ─── */
+  .btn {
+    display: inline-flex;
+    min-height: 3rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 0.25rem;
+    padding: 0.625rem 1.5rem;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.3;
+    text-align: center;
+    transition:
+      background-color 0.15s,
+      border-color 0.15s,
+      color 0.15s;
+  }
+
+  .btn-primary {
+    background: var(--color-sage-dark);
+    color: #fff;
+  }
+
+  .btn-primary:hover {
+    background: var(--color-sage-ink);
+  }
+
+  .btn-secondary {
+    border: 2px solid var(--color-sage-dark);
+    color: var(--color-sage-dark);
+  }
+
+  .btn-secondary:hover {
+    background: var(--color-sage-light);
+    color: var(--color-sage-ink);
+  }
+
+  /* Inverted pair for the dark contact band. */
+  .btn-light {
+    background: #fff;
+    color: var(--color-sage-ink);
+  }
+
+  .btn-light:hover {
+    background: var(--color-sage-light);
+  }
+
+  .btn-outline-light {
+    border: 2px solid #fff;
+    color: #fff;
+  }
+
+  .btn-outline-light:hover {
+    background: var(--color-sage-ink);
+  }
+
+  /* Inline text link. */
+  .link {
+    color: var(--color-sage-dark);
+    text-decoration: underline;
+    text-decoration-color: var(--color-sage-mid);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+
+  .link:hover {
+    color: var(--color-sage-ink);
+    text-decoration-color: currentColor;
+  }
 }
 
-p {
-  text-wrap: pretty;
+/* ─── Hero ─── */
+/*
+ * The picture is art-directed in three crops (see HeroImage.tsx). On the
+ * English page the German slogan has been removed from the pixels and is set
+ * as live text over the same patch of wall; these values place it there.
+ * --cx is the slogan's centre in each crop, --s the headline size in
+ * container-width percent, both measured on the source image.
+ */
+.hero {
+  position: relative;
+  container-type: inline-size;
+  --cx: 50%;
+  --s: 4.6;
+  --w: 66%;
 }
 
-/* ─── Display type ─── */
-.display-xl {
-  font-size: clamp(2.75rem, 1.9rem + 4.2vw, 5.5rem);
-  font-weight: 300;
-  letter-spacing: -0.02em;
+@media (min-width: 40rem) {
+  .hero {
+    --s: 3.2;
+    --w: 46%;
+  }
 }
 
-.display-lg {
-  font-size: clamp(2rem, 1.5rem + 2.2vw, 3.25rem);
-  font-weight: 300;
-  letter-spacing: -0.015em;
+@media (min-width: 75rem) {
+  .hero {
+    --cx: 47.9%;
+    --s: 2.6;
+    --w: 37%;
+  }
 }
 
-/* Wide-tracked uppercase micro-type, as used on the brand cover. */
-.eyebrow {
-  font-family: var(--font-nav);
-  font-size: clamp(0.65rem, 0.6rem + 0.15vw, 0.75rem);
-  font-weight: 500;
-  letter-spacing: 0.25em;
+/*
+ * On laptops and desktops the full frame would push the H1 below the fold
+ * (1366x768: H1 at y=742). Cap the height and crop symmetrically around the
+ * slogan line, which sits at 48 % — the overlay's `top` — so it stays put.
+ */
+@media (min-width: 64rem) {
+  .hero img {
+    max-height: max(22rem, calc(100svh - var(--header-h) - 15rem));
+    object-fit: cover;
+    object-position: 50% 48%;
+  }
+}
+
+.hero__slogan {
+  position: absolute;
+  top: 48%;
+  left: var(--cx);
+  width: var(--w);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: var(--color-anthrazit-dark);
+}
+
+.hero__headline {
+  font-family: var(--font-accent);
+  font-size: calc(var(--s) * 1cqw);
+  line-height: 1.2;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
-/* ─── Hairline rule ─── */
-.rule-gold {
-  height: 1px;
-  background: linear-gradient(
-    to right,
-    var(--color-gold-accent),
-    color-mix(in oklab, var(--color-gold-accent) 25%, transparent)
-  );
+/* Hidden on phones: at 4:3 it would need < 12 px, and the logo and the H1
+   right below already say the same. */
+.hero__sub {
+  display: none;
+  margin-top: 0.9em;
+  font-family: var(--font-accent);
+  font-size: max(0.875rem, calc(var(--s) * 0.3cqw));
+  line-height: 1.5;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-wrap: balance;
 }
 
-/* ─── Decorative corner frame ─── */
-.corner-frame {
-  position: relative;
-}
-
-.corner-frame::before,
-.corner-frame::after {
-  content: "";
-  position: absolute;
-  width: 22px;
-  height: 22px;
-  border-color: var(--color-sage-300);
-  pointer-events: none;
-}
-
-.corner-frame::before {
-  top: -10px;
-  left: -10px;
-  border-top: 1px solid;
-  border-left: 1px solid;
-}
-
-.corner-frame::after {
-  bottom: -10px;
-  right: -10px;
-  border-bottom: 1px solid;
-  border-right: 1px solid;
-}
-
-/* ─── Entrance animations ─── */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+/* After the base rule, or the base rule's display: none wins. */
+@media (min-width: 40rem) {
+  .hero__sub {
+    display: block;
   }
 }
 
-@keyframes revealLine {
-  from {
-    transform: scaleX(0);
-  }
-  to {
-    transform: scaleX(1);
-  }
+/* ─── Slide 9 claim ─── */
+.claim {
+  font-family: var(--font-accent);
+  font-weight: 400;
+  /* Sized to the viewport so "ENJOY YOUR HOME" holds one line from 320 px. */
+  font-size: clamp(1.25rem, 6.2vw, 4.5rem);
+  line-height: 1.1;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-sage-dark);
 }
 
-.animate-fade-in-up {
-  animation: fadeInUp 0.8s ease-out both;
+/* ─── FAQ disclosure ─── */
+.faq summary {
+  list-style: none;
+  cursor: pointer;
 }
 
-.animate-reveal-line {
-  animation: revealLine 0.9s ease-out both;
-  transform-origin: left;
+.faq summary::-webkit-details-marker {
+  display: none;
 }
 
-.delay-1 { animation-delay: 0.12s; }
-.delay-2 { animation-delay: 0.24s; }
-.delay-3 { animation-delay: 0.36s; }
-.delay-4 { animation-delay: 0.48s; }
-
-/* ─── Rotating brand mark ─── */
-/*
- * Two-sided card (see LogoMark.tsx): the back face is pre-flipped so the
- * monogram never reads mirrored. `perspective` is deliberately moderate —
- * flatter looks like the logo is merely being squashed sideways, tighter
- * turns an identity mark into a carnival effect.
- */
-.logo-spin {
-  display: inline-block;
-  flex: none;
-  perspective: 300px;
+.faq__icon {
+  transition: transform 0.2s;
 }
 
-.logo-spin__inner {
-  display: block;
-  position: relative;
-  height: 100%;
-  aspect-ratio: 1 / 1;
-  transform-style: preserve-3d;
-}
-
-.logo-spin__face {
-  display: block;
-  height: 100%;
-  width: 100%;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-
-.logo-spin__face--back {
-  position: absolute;
-  inset: 0;
-  transform: rotateY(180deg);
-}
-
-@keyframes logoSpinY {
-  from {
-    transform: rotateY(0deg);
-  }
-  to {
-    transform: rotateY(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .logo-spin__inner {
-    animation: logoSpinY 24s linear infinite;
-    will-change: transform;
-  }
+.faq[open] .faq__icon {
+  transform: rotate(45deg);
 }
 
 /* ─── Focus visibility ─── */
 :focus-visible {
-  outline: 2px solid var(--color-sage-600);
+  outline: 3px solid var(--color-sage-dark);
   outline-offset: 3px;
   border-radius: 2px;
+}
+
+/* On the dark contact band the outline would vanish. */
+.on-dark :focus-visible {
+  outline-color: #fff;
 }
 
 /* ─── Reduced motion ─── */
@@ -248,16 +371,10 @@ p {
     scroll-behavior: auto;
   }
 
-  .animate-fade-in-up,
-  .animate-reveal-line {
-    animation: none !important;
-    opacity: 1 !important;
-    transform: none !important;
-  }
-
   *,
   *::before,
   *::after {
+    animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
 }
