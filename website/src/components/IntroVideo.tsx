@@ -59,10 +59,9 @@ export default function IntroVideo({
           </div>
 
           <figcaption className="mt-5 text-center">
+            {/* The caption carries the EU AI Act Art. 50(4) disclosure for the
+                cloned voice, right at the video. Keep it there. */}
             <span className="small block font-bold">{content.video.caption}</span>
-            <span className="small mx-auto mt-3 block max-w-[360px] text-anthrazit-mid">
-              {content.video.voiceNotice}
-            </span>
           </figcaption>
         </figure>
 

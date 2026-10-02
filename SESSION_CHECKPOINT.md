@@ -39,6 +39,13 @@ Overlay 72 % breit. Dabei einen eigenen Fehler gefunden: der Umbruchpunkt lag
 Handys (vor dem Push gemessen, nie live). Leerzeichen jetzt zwischen den Spans;
 geprüft auf 11 Breiten 320–1920: 2 Zeilen am Handy, kein Überlauf.
 
+**Nachtrag 2 (Nutzer):** KI-Stimmhinweis unter dem Video (2 Sätze, DE/EN)
+auf Wunsch entfernt — nach Rückfrage **gekürzt statt gestrichen**: die
+Bildunterschrift direkt am Video lautet jetzt „Vorstellungsvideo, 58 Sekunden,
+KI-generierte Stimme" / „Introduction, 58 seconds, AI-generated voice"
+(EU AI Act Art. 50(4)/(5): Offenlegung beim ersten Kontakt). Feld
+`video.voiceNotice` entfernt; Footer-Hinweis unverändert.
+
 **Umgesetzt:** `globals.css` (Tokens, Typo-Skala, Base in `@layer base`),
 `src/app/fonts.ts`, `site.ts` (Nav, 4 Angebote + Workshops mit Preis-Hinweis aus
 der Paketliste, Projekte, FAQ, Claim, `LANG_ALTERNATES`), neue Komponenten
