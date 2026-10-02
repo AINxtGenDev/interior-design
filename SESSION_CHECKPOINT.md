@@ -54,6 +54,7 @@ immer oben. Vorher trug `LangSwitch` auf der Startseite den aktuellen
 Komponente ist kein Client-Component mehr. Lokal im Browser geprüft: DE `#kontakt`
 → EN y = 0, EN gescrollt → DE y = 0. Ausnahme bleibt: Rechtsseiten
 (`impressum/` → `/en/legal/#imprint` usw.) springen auf den passenden Abschnitt.
+**Live** (`d630c98`, Deploy `37003521424` success).
 
 **Nachtrag 5 (Nutzer, 2026-10-02):** „KI-generierte Stimme" / „AI-generated
 voice" aus der Bildunterschrift am Video entfernt — Begründung Nutzer: der
