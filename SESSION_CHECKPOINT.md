@@ -58,7 +58,13 @@ Build → 0. Origin im Workflow beim Domainwechsel anpassen.
 Workflow-Schritt live (`ee4945d`, Deploy success, „kept 0" — korrekt, CSS
 unverändert).
 
-**In Arbeit (Nutzer: „make the english headline look like german"):** EN-Hero
+**EN-Headline wie DE — live** (`e3ac5a3`, Deploy `36980241790` success). Live
+geprüft: kein Overlay mehr im HTML, `hero-en-narrow-640` byte-identisch, neues
+CSS 200. **Cache-Schutz bestanden:** dieser Deploy änderte das CSS, der neue
+Schritt übernahm 8 Dateien, das vorige CSS `8e9cb15b…css` wird weiter mit 200
+ausgeliefert → gecachte Seiten bleiben gestylt.
+
+**Verlauf (Nutzer: „make the english headline look like german"):** EN-Hero
 soll wie DE aussehen — gemalte Serifen-Headline im Bild statt Live-Overlay.
 Plan: nur die 2 Headline-Zeilen entfernen (Strich-Maske, y 288–408), Blush-Linie
 und Unterzeile „INTERIOR DESIGN • PROFESSIONAL ORGANIZING" bleiben Original-
