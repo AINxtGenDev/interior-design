@@ -108,8 +108,7 @@ export type Content = {
   video: {
     heading: string;
     lead: string;
-    /** Also the EU AI Act Art. 50(4) disclosure: the narration is a synthetic
-     *  copy of a real person's voice, so the caption must say so. */
+    /** The AI-voice disclosure lives in `footer.imageNotice`. */
     caption: string;
     unsupported: string;
     captionsLabel: string;
@@ -250,7 +249,7 @@ const de: Content = {
   video: {
     heading: "In einer Minute erklärt",
     lead: "Wie aus Ordnung und Gestaltung ein Raum wird, der zu Ihrem Alltag passt.",
-    caption: "Vorstellungsvideo, 58 Sekunden, KI-generierte Stimme",
+    caption: "Vorstellungsvideo, 58 Sekunden",
     unsupported: "Ihr Browser kann dieses Video nicht abspielen.",
     captionsLabel: "Deutsch",
   },
@@ -511,7 +510,7 @@ const en: Content = {
   video: {
     heading: "Explained in a minute",
     lead: "How order and design combine into a room that fits the way you actually live.",
-    caption: "Introduction, 58 seconds, AI-generated voice",
+    caption: "Introduction, 58 seconds",
     unsupported: "Your browser cannot play this video.",
     captionsLabel: "German",
   },

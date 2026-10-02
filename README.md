@@ -283,11 +283,10 @@ identical to the previous release (compared frame by frame: 0.000/255 outside
 14.3–19.0 s and 53.7–58.3 s), and the audio was stream-copied from it, so the
 voice and mix are bit-identical (audio MD5 `375e8a8c…`, −14.5 LUFS). Picture
 hash now `5c916d81…`. The poster stays at t = 24 s (the Ordnung | Gestaltung
-photo frame) — the brand frame is mostly empty below the logo. The narration is Claudia's cloned voice, so
-the caption directly under the player carries the EU AI Act Art. 50
-disclosure: "Vorstellungsvideo, 58 Sekunden, KI-generierte Stimme" /
-"Introduction, 58 seconds, AI-generated voice". Keep it at the video; the
-footer notice alone is further from the point of first exposure.
+photo frame) — the brand frame is mostly empty below the logo. The narration is Claudia's cloned voice; the
+AI disclosure for it is the footer notice (`footer.imageNotice`), by the
+owner's decision of 2026-10-02 — the caption under the player is just
+"Vorstellungsvideo, 58 Sekunden" / "Introduction, 58 seconds".
 
 The full HyperFrames working project (renders, voiceover, assets) lives outside
 this repository, in the **private** repo `AINxtGenDev/plessl-projekt` under

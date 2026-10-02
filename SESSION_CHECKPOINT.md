@@ -48,6 +48,12 @@ KI-generierte Stimme" / „Introduction, 58 seconds, AI-generated voice"
 (EU AI Act Art. 50(4)/(5): Offenlegung beim ersten Kontakt). Feld
 `video.voiceNotice` entfernt; Footer-Hinweis unverändert.
 
+**Nachtrag 5 (Nutzer, 2026-10-02):** „KI-generierte Stimme" / „AI-generated
+voice" aus der Bildunterschrift am Video entfernt — Begründung Nutzer: der
+Footer-Hinweis (`footer.imageNotice`) nennt die KI-Stimme bereits. Unterschrift
+jetzt „Vorstellungsvideo, 58 Sekunden" / „Introduction, 58 seconds". Build ok,
+lokal committet, **noch nicht gepusht/deployt**.
+
 **Nachtrag 3 (Nutzer, Android: „english is absolutely bad"):** Screenshot
 zeigte `/en/` **ganz ohne CSS**. Live waren CSS und HTML zu dem Zeitpunkt
 korrekt (beide 200). Ursache (sehr wahrscheinlich, nicht direkt beobachtet):
