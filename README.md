@@ -293,10 +293,14 @@ Cyrillic cut, Inter likewise — so both fell back silently and the wordmark in
 every shipped copy of the film was Liberation Sans, not Jost. Both now come from
 this site's build output.
 
-**Since 2026-10-02:** the poster is the frame at t = 24 s (the Ordnung |
-Gestaltung split), because the earlier poster showed the retired seal. The film
-itself still shows the seal at about 18 s and in the closing frame — that needs
-a re-render in the video project. The narration is Claudia's cloned voice, so
+**Re-rendered on 2026-10-02 onto the CI logo (Logo2.png).** Frame 3 builds the
+logo from its three rows (monogram, wordmark, descriptor) on the seal's old
+beats; frame 7 shows the full logo where the seal was. Every other frame is
+identical to the previous release (compared frame by frame: 0.000/255 outside
+14.3–19.0 s and 53.7–58.3 s), and the audio was stream-copied from it, so the
+voice and mix are bit-identical (audio MD5 `375e8a8c…`, −14.5 LUFS). Picture
+hash now `5c916d81…`. The poster stays at t = 24 s (the Ordnung | Gestaltung
+photo frame) — the brand frame is mostly empty below the logo. The narration is Claudia's cloned voice, so
 the caption directly under the player carries the EU AI Act Art. 50
 disclosure: "Vorstellungsvideo, 58 Sekunden, KI-generierte Stimme" /
 "Introduction, 58 seconds, AI-generated voice". Keep it at the video; the

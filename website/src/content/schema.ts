@@ -40,7 +40,7 @@ const VAT_INCLUDED = false;
  * Publication date of the intro film, from the commit that added the current
  * render (`git log -1 -- public/video/vorstellung.mp4`), not from today.
  */
-const VIDEO_UPLOAD_DATE = "2026-09-27";
+const VIDEO_UPLOAD_DATE = "2026-10-02";
 
 /** Measured with ffprobe on `public/video/vorstellung.mp4`: 58.3 s. */
 const VIDEO_DURATION = "PT58S";
