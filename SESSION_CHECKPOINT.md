@@ -51,8 +51,8 @@ KI-generierte Stimme" / „Introduction, 58 seconds, AI-generated voice"
 **Nachtrag 5 (Nutzer, 2026-10-02):** „KI-generierte Stimme" / „AI-generated
 voice" aus der Bildunterschrift am Video entfernt — Begründung Nutzer: der
 Footer-Hinweis (`footer.imageNotice`) nennt die KI-Stimme bereits. Unterschrift
-jetzt „Vorstellungsvideo, 58 Sekunden" / „Introduction, 58 seconds". Build ok,
-lokal committet, **noch nicht gepusht/deployt**.
+jetzt „Vorstellungsvideo, 58 Sekunden" / „Introduction, 58 seconds". **Live**
+(`26d83ed`, Deploy `36982930304` success; DE/EN-Unterschrift live geprüft).
 
 **Nachtrag 3 (Nutzer, Android: „english is absolutely bad"):** Screenshot
 zeigte `/en/` **ganz ohne CSS**. Live waren CSS und HTML zu dem Zeitpunkt
