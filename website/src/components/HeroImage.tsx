@@ -1,7 +1,8 @@
 /*
  * Built from "Titelbild Homepage.png" by brand/build_web_assets.py in three
- * crops around the slogan painted on the wall. The hero-en-* set has the
- * German slogan removed so the English page can set its own as live text.
+ * crops around the slogan painted on the wall. The hero-en-* set carries
+ * the English headline, painted in the same face (Playfair Display Medium,
+ * identified by measurement) — so both languages look and scale identically.
  */
 import deNarrow640 from "@/assets/hero-narrow-640.webp";
 import deNarrow1077 from "@/assets/hero-narrow-1077.webp";
@@ -17,7 +18,6 @@ import enMedium1200 from "@/assets/hero-en-medium-1200.webp";
 import enMedium1560 from "@/assets/hero-en-medium-1560.webp";
 import enWide1440 from "@/assets/hero-en-wide-1440.webp";
 import enWide1947 from "@/assets/hero-en-wide-1947.webp";
-import { Fragment } from "react";
 import type { Content, Locale } from "@/content/site";
 
 type Img = { src: string; width: number; height: number };
@@ -47,8 +47,7 @@ const largest = (imgs: Img[]) => imgs[imgs.length - 1];
  *
  * The full frame on a phone would shrink the painted lettering to ~5 px.
  * Each <source> carries its own width/height so the box is reserved for
- * whichever crop wins (no layout shift). The breakpoints match the
- * `.hero` custom properties in globals.css, which place the English overlay.
+ * whichever crop wins (no layout shift).
  */
 export default function HeroImage({
   content,
@@ -58,7 +57,6 @@ export default function HeroImage({
   locale: Locale;
 }) {
   const set = SETS[locale];
-  const [taglineA, taglineB] = content.hero.tagline.split("\n");
 
   return (
     <figure className="hero mx-auto max-w-[1947px]">
@@ -89,31 +87,6 @@ export default function HeroImage({
           className="block h-auto w-full"
         />
       </picture>
-
-      {locale === "en" && (
-        <div className="hero__slogan">
-          <p className="hero__headline">
-            {taglineA}
-            <br />
-            {taglineB}
-          </p>
-          <span aria-hidden="true" className="rule mx-auto mt-[0.6em]" />
-          {/* Each item unbreakable, the "·" glued to the item before it, so
-              a wrap never starts a line with the separator. */}
-          <p className="hero__sub">
-            {content.hero.descriptor.split(" · ").map((part, i, all) => (
-              <Fragment key={part}>
-                <span className="whitespace-nowrap">
-                  {part}
-                  {i < all.length - 1 && "\u00a0·"}
-                </span>
-                {/* The break opportunity must sit outside the nowrap span. */}
-                {i < all.length - 1 && " "}
-              </Fragment>
-            ))}
-          </p>
-        </div>
-      )}
     </figure>
   );
 }

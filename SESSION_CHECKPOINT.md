@@ -55,9 +55,31 @@ neuem CSS-Hash → gecachtes HTML zeigte auf gelöschte CSS-Datei. Fix:
 von der Live-Seite referenzierten `/_next/static/`-Dateien (inkl. Fonts aus
 altem CSS). Lokal getestet: leeres Out → 34 Dateien übernommen, aktueller
 Build → 0. Origin im Workflow beim Domainwechsel anpassen.
-**Offen/optional:** EN-Hero-Headline als gemalte Serifenschrift wie DE
-(Kalibrierung mit Cormorant Garamond: zu schmal, Buchstaben stoßen an — nicht
-übernommen).
+Workflow-Schritt live (`ee4945d`, Deploy success, „kept 0" — korrekt, CSS
+unverändert).
+
+**In Arbeit (Nutzer: „make the english headline look like german"):** EN-Hero
+soll wie DE aussehen — gemalte Serifen-Headline im Bild statt Live-Overlay.
+Plan: nur die 2 Headline-Zeilen entfernen (Strich-Maske, y 288–408), Blush-Linie
+und Unterzeile „INTERIOR DESIGN • PROFESSIONAL ORGANIZING" bleiben Original-
+pixel; „BEAUTIFUL SPACES. / A CLEARER DAY." in Serifenschrift einsetzen
+(Kapitälchenhöhe 36 px, Zeilen-Oberkante y 304/364, Breite ~409 px, Mitte
+x≈930, Farbe #3B4538). Schrift wird per Messung gewählt: 20 OFL-Kandidaten
+(Google-Fonts-Repo) rendern „SCHÖNE RÄUME." und gegen das Original vergleichen.
+Cormorant Garamond allein: Buchstaben zu breit → stoßen an.
+**Ergebnis Schriftsuche:** Messung über 20 Kandidaten × 3 Gewichte mit
+wortweiser Laufweite: **Playfair Display Medium** passt bei natürlicher
+Laufweite (+0,4 px), Tintenmenge 1,00, Match 0,81 (nur Prata ähnlich; alle
+anderen brauchen −3…−5 px Stauchung). Gegenprobe: deutsche Zeilen damit neu
+gesetzt → 406/412 px gegen Original 409/409, optisch kaum unterscheidbar.
+Schrift + OFL unter `brand/fonts/`.
+**Umgesetzt:** `english_headline()` im Build-Skript ersetzt `remove_slogan()`
+(nur die 2 Headline-Zeilen werden entfernt und englisch neu gemalt; Linie +
+Unterzeile bleiben Originalpixel). Live-Overlay samt CSS (`.hero__*`,
+Container-Units) und Feld `hero.descriptor` entfernt; EN-Alt-Text enthält den
+gemalten Text. Neu-Build ändert nur die 7 `hero-en-*`-Dateien (DE + Icons
+byte-identisch). Geprüft lokal: kein Überlauf 320–1920 DE/EN, Lighthouse mobil
+`/en/` 100/100/100/100.
 
 **Umgesetzt:** `globals.css` (Tokens, Typo-Skala, Base in `@layer base`),
 `src/app/fonts.ts`, `site.ts` (Nav, 4 Angebote + Workshops mit Preis-Hinweis aus

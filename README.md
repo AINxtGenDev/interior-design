@@ -91,7 +91,7 @@ uv run --with pillow --with numpy --with opencv-python-headless \
 |---|---|---|
 | `src/assets/logo-{480,960}.webp` | Logo2.png | trimmed to the mark, lossless, with alpha |
 | `src/assets/hero-{narrow,medium,wide}-*.webp` | Titelbild | three crops around the painted slogan |
-| `src/assets/hero-en-*.webp` | Titelbild | same crops, German slogan removed |
+| `src/assets/hero-en-*.webp` | Titelbild | same crops, headline painted in English |
 | `favicon.ico`, `icon.png`, `apple-icon.png`, `public/icons/*` | Logo2.png | CP monogram only (rows above 640) |
 
 - **The logo is a plain `<img srcset>`** (`BrandLogo.tsx`), not `next/image`:
@@ -100,10 +100,16 @@ uv run --with pillow --with numpy --with opencv-python-headless \
 - **The title image is art-directed** (`HeroImage.tsx`): 4:3 below 640 px,
   1.93:1 up to 1199 px, the full 2.41:1 frame above. Its slogan is painted on
   the wall; at full width on a phone it would be ~5 px tall.
-- **English page:** the German slogan is removed from the pixels (glyph-stroke
-  mask + inpaint, `remove_slogan()`) and re-set as live text in Montserrat,
-  positioned by the `.hero` custom properties in `globals.css`. Change a crop
-  in the script and those values have to move with it.
+- **English page:** only the two German headline lines are removed
+  (glyph-stroke mask + inpaint) and "BEAUTIFUL SPACES. / A CLEARER DAY." is
+  painted in their place by `english_headline()` — same face, size, colour and
+  axis, so both languages look and scale identically. The rule and the
+  "INTERIOR DESIGN • PROFESSIONAL ORGANIZING" line stay original pixels.
+  The face was **identified by measurement**: of 20 OFL serifs, only
+  **Playfair Display Medium** fits the original word widths at natural
+  spacing with the same amount of ink; re-setting the German lines with it
+  gives 406/412 px against the original 409/409. Font and licence:
+  `brand/fonts/PlayfairDisplay[wght].ttf`, `PlayfairDisplay-OFL.txt`.
 - The previous round seal (`brand/logo-optimized/`) and its 24-second rotation
   are retired. A rotating wordmark is unreadable for half of every turn.
 

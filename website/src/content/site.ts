@@ -97,11 +97,9 @@ export type Content = {
   langSwitch: { label: string };
   hero: {
     title: string;
-    /** The slogan painted into the title image (German). Feeds the image alt
-     *  on `/`, the live overlay on `/en/`, and the JSON-LD slogan. */
+    /** The slogan painted into the title image of each language. Feeds the
+     *  JSON-LD slogan; the image alt repeats it. */
     tagline: string;
-    /** Second line under the slogan in the image. */
-    descriptor: string;
     lead: string;
     ctaPrimary: string;
     ctaSecondary: string;
@@ -244,7 +242,6 @@ const de: Content = {
   hero: {
     title: "Raumgestaltung und Ordnungscoaching aus einer Hand",
     tagline: "Schöne Räume.\nKlarer Alltag.",
-    descriptor: "Interior Design · Professional Organizing",
     lead: "Erst schaffen wir Klarheit, dann gestalten wir den Raum, der dabei frei wird. Persönlich, diskret und systematisch — in Wien und Niederösterreich.",
     ctaPrimary: "Raumcheck anfragen",
     ctaSecondary: "Angebot ansehen",
@@ -507,12 +504,11 @@ const en: Content = {
   hero: {
     title: "Interior design and professional organizing from a single source",
     tagline: "Beautiful spaces.\nA clearer day.",
-    descriptor: "Interior Design · Professional Organizing",
     lead: "First we create clarity, then we design the space it frees up. Personal, discreet and systematic — in Vienna and Lower Austria.",
     ctaPrimary: "Request a space check",
     ctaSecondary: "See my services",
-    // The slogan is live text on /en/, so the picture itself is decorative.
-    imageAlt: "",
+    imageAlt:
+      "Beautiful spaces. A clearer day. Interior Design · Professional Organizing — lettering on a light wall between a living area with a sofa and olive tree and a lit shelf with labelled boxes and a clothes rail",
   },
   video: {
     heading: "Explained in a minute",

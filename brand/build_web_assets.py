@@ -7,11 +7,12 @@ Inputs (repo root, supplied by the client):
 Outputs:
     website/src/assets/logo-{480,960}.webp            trimmed logo, lossless
     website/src/assets/hero-{crop}-{w}.webp            art-directed hero crops
-    website/src/assets/hero-en-{crop}-{w}.webp         same, German slogan removed
+    website/src/assets/hero-en-{crop}-{w}.webp         same, headline set in English
     website/src/app/{favicon.ico,icon.png,apple-icon.png}
     website/public/icons/android-chrome-*.png          incl. maskable
 
-Run from the repo root (OpenCV is only needed for the English hero):
+Run from the repo root (OpenCV is only needed for the English hero; its
+headline font is brand/fonts/PlayfairDisplay[wght].ttf, SIL OFL):
     uv run --with pillow --with numpy --with opencv-python-headless \
         python brand/build_web_assets.py
 Re-running is idempotent.
@@ -65,25 +66,68 @@ def build_logo(logo: Image.Image) -> None:
         print(f"  {path.relative_to(ROOT)} {out.size} {path.stat().st_size // 1024} KB")
 
 
-def remove_slogan(hero: Image.Image) -> Image.Image:
-    """The English page sets its slogan as live text, so it needs the wall
-    without the German lettering. Only the glyph strokes are masked (dark
-    against a morphological-closing background estimate, plus the blush rule)
-    and inpainted; a box mask leaves visible blotches on the light gradient.
+# The headline painted on the wall, measured on the source image: two lines
+# of capitals, cap height 36 px, cap tops at y = 304 / 364, each line centred
+# on its own axis, colour #3B4538. The face was identified by measurement:
+# of 20 OFL serifs, only Playfair Display Medium fits the original word
+# widths at natural spacing (+0.4 px) with the same amount of ink. Re-setting
+# the German lines with these values gives 406/412 px against 409/409.
+HEADLINE_FONT = ROOT / "brand/fonts/PlayfairDisplay[wght].ttf"
+HEADLINE_WEIGHT = 500
+HEADLINE_CAP = 36
+HEADLINE_TOPS = (304, 364)
+HEADLINE_AXES = (928, 932)
+HEADLINE_COLOR = (59, 69, 56)
+HEADLINE_TRACK = 0.4
+HEADLINE_EN = ("BEAUTIFUL SPACES.", "A CLEARER DAY.")
+
+
+def english_headline(hero: Image.Image) -> Image.Image:
+    """The German headline, replaced by the English one in the same face.
+
+    Only the two headline lines are removed (glyph strokes against a
+    morphological-closing background estimate, then inpainted — a box mask
+    leaves blotches on the light gradient). The blush rule and the line
+    "INTERIOR DESIGN • PROFESSIONAL ORGANIZING" are already English and stay
+    as original pixels.
     """
     import cv2
+    from PIL import ImageDraw, ImageFont
 
     im = cv2.cvtColor(np.array(hero), cv2.COLOR_RGB2BGR)
     g = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
     bg = cv2.morphologyEx(g, cv2.MORPH_CLOSE, np.ones((19, 19), np.uint8))
     dark = (bg.astype(int) - g.astype(int)) > 10
     mask = np.zeros(g.shape, np.uint8)
-    mask[285:500, 630:1240] = dark[285:500, 630:1240] * 255
-    warm = (im[:, :, 2].astype(int) - im[:, :, 0].astype(int)) > 25
-    mask[420:445, 860:1010] |= (warm[420:445, 860:1010] * 255).astype(np.uint8)
+    mask[288:408, 630:1240] = dark[288:408, 630:1240] * 255
     mask = cv2.dilate(mask, np.ones((3, 3), np.uint8), iterations=2)
-    out = cv2.inpaint(im, mask, 5, cv2.INPAINT_TELEA)
-    return Image.fromarray(cv2.cvtColor(out, cv2.COLOR_BGR2RGB))
+    clean = cv2.inpaint(im, mask, 5, cv2.INPAINT_TELEA)
+    out = Image.fromarray(cv2.cvtColor(clean, cv2.COLOR_BGR2RGB)).convert("RGBA")
+
+    ss = 4  # supersampling for clean antialiasing
+    size = 20.0
+    while True:
+        font = ImageFont.truetype(str(HEADLINE_FONT), int(size * ss))
+        font.set_variation_by_axes([HEADLINE_WEIGHT])
+        cap_box = font.getbbox("H")
+        if cap_box[3] - cap_box[1] >= HEADLINE_CAP * ss:
+            break
+        size += 0.25
+
+    for text, top, axis in zip(HEADLINE_EN, HEADLINE_TOPS, HEADLINE_AXES):
+        width = int(font.getlength(text) + HEADLINE_TRACK * ss * len(text)) + 40 * ss
+        layer = Image.new("L", (width, HEADLINE_CAP * 3 * ss))
+        draw = ImageDraw.Draw(layer)
+        x = 20 * ss
+        for ch in text:
+            draw.text((x, HEADLINE_CAP * ss - cap_box[1]), ch, font=font, fill=255)
+            x += font.getlength(ch) + HEADLINE_TRACK * ss
+        layer = layer.resize((layer.width // ss, layer.height // ss), Image.LANCZOS)
+        xs = np.where((np.array(layer) > 40).any(0))[0]
+        ink = Image.new("RGBA", layer.size, (*HEADLINE_COLOR, 255))
+        ink.putalpha(layer)
+        out.alpha_composite(ink, (round(axis - (xs.min() + xs.max()) / 2), top - HEADLINE_CAP))
+    return out.convert("RGB")
 
 
 def build_hero(hero: Image.Image, prefix: str = "hero") -> None:
@@ -151,7 +195,7 @@ def main() -> None:
     hero = Image.open(ROOT / "Titelbild Homepage.png").convert("RGB")
     build_logo(logo)
     build_hero(hero)
-    build_hero(remove_slogan(hero), prefix="hero-en")
+    build_hero(english_headline(hero), prefix="hero-en")
     build_icons(logo)
 
 
