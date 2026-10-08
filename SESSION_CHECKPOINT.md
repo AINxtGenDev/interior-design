@@ -944,7 +944,8 @@ Alle diese Stellen sind auf der Seite als hervorgehobene `[…]`-Marker sichtbar
   Rollback: `git revert 5c938f0` + `gh api -X PUT
   repos/AINxtGenDev/interior-design/pages -F cname=`.
   **Hinweis:** Lokaler DNS `192.168.1.35` hatte ~09:10 noch ein
-  NXDOMAIN aus der Zeit vor der Delegation im Cache (läuft von selbst ab).
+  NXDOMAIN aus der Zeit vor der Delegation im Cache — abgelaufen, laut
+  Nutzer lädt die Seite im Heimnetz.
   **Offen:** JSON-LD mit Schema Markup Validator / Rich Results Test an der
   neuen URL prüfen; alte URL noch im Handout
   (`handout/claudia-plessl-uebersicht.html`) und im gerenderten Video
