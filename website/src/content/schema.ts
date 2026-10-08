@@ -146,11 +146,12 @@ export function buildHomeGraph(locale: Locale): JsonLdNode[] {
     worksFor: { "@id": businessId },
     knowsLanguage: ["de-AT", "en"],
     /*
-     * No `credentialCategory`: the certification is one, the annual continuing
-     * education is not, and tagging both "certificate" would overstate the
-     * second.
+     * No `credentialCategory`: the certification will be one, the annual
+     * continuing education is not, and tagging both "certificate" would
+     * overstate the second. A credential still in training is not held yet, so it is left
+     * out rather than claimed; work experience is not a credential at all.
      */
-    hasCredential: c.about.credentials.items.map((cred) => ({
+    hasCredential: c.about.credentials.items.filter((cred) => !cred.inTraining).map((cred) => ({
       "@type": "EducationalOccupationalCredential",
       name: cred.title,
       description: cred.note,
@@ -183,7 +184,7 @@ export function buildHomeGraph(locale: Locale): JsonLdNode[] {
   }));
 
   /*
-   * The seven priced packages. Every price on the site is a floor ("ab EUR
+   * The eight priced packages. Every price on the site is a floor ("ab EUR
    * 110"), so it is a `minPrice` — a bare `price` would assert a fixed fee the
    * business does not offer.
    */

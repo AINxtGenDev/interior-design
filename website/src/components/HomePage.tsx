@@ -6,6 +6,8 @@ import Image from "next/image";
  */
 import detailLiving from "@/assets/detail-living.webp";
 import detailOrder from "@/assets/detail-order.webp";
+import portrait480 from "@/assets/portrait-480.webp";
+import portrait1045 from "@/assets/portrait-1045.webp";
 import { CONTACT, getContent, type Locale } from "@/content/site";
 import { buildHomeGraph } from "@/content/schema";
 import SiteHeader, { SECTION_IDS } from "./SiteHeader";
@@ -105,7 +107,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
         </Section>
 
         {/* ─────────── Für wen ─────────── */}
-        <Section id={SECTION_IDS.audience} heading={c.audience.heading} lead={c.audience.lead} tone="sage">
+        <Section id={SECTION_IDS.audience} heading={c.audience.heading} tone="sage">
           <div className="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
             {c.audience.items.map((a) => (
               <article key={a.title} className="border-t-2 border-sage-mid pt-6">
@@ -198,37 +200,56 @@ export default function HomePage({ locale }: { locale: Locale }) {
 
         {/* ─────────── Über mich ─────────── */}
         <Section id={SECTION_IDS.about} heading={c.about.heading}>
-          <div className="mt-10 grid gap-12 lg:grid-cols-[1.5fr_1fr] lg:gap-16">
-            <div className="max-w-[40rem] space-y-5">
+          {/* Slide 16: portrait and principles on the left, text and
+              qualifications on the right. Phones read top to bottom:
+              portrait, text, qualifications, principles. */}
+          <div className="mt-10 grid gap-10 lg:grid-cols-[2fr_3fr] lg:gap-x-16 lg:gap-y-12">
+            {/* eslint-disable-next-line @next/next/no-img-element -- srcset; see BrandLogo */}
+            <img
+              src={portrait480.src}
+              srcSet={`${portrait480.src} 480w, ${portrait1045.src} 1045w`}
+              sizes="(min-width: 1024px) 400px, (min-width: 640px) 360px, 100vw"
+              width={portrait1045.width}
+              height={portrait1045.height}
+              alt={c.about.portraitAlt}
+              loading="lazy"
+              decoding="async"
+              className="h-auto w-full max-w-[360px] rounded lg:max-w-none"
+            />
+
+            <div className="max-w-[40rem] space-y-5 lg:col-start-2 lg:row-start-1">
               {c.about.body.map((p) => (
                 <p key={p.slice(0, 40)}>{p}</p>
               ))}
             </div>
 
-            <aside className="space-y-10">
-              <div>
-                <h3 className="h3">{c.about.principlesHeading}</h3>
-                <ul className="mt-5 space-y-3">
-                  {c.about.principles.map((p) => (
-                    <li key={p} className="border-l-2 border-blush-mid pl-4">
-                      {p}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <h3 className="h3">{c.about.credentials.heading}</h3>
-                <dl className="mt-5 space-y-6">
-                  {c.about.credentials.items.map((item) => (
-                    <div key={item.title}>
-                      <dt className="font-bold">{item.title}</dt>
-                      <dd className="mt-1 text-sage-dark">{item.issuer}</dd>
-                      <dd className="small mt-1 text-anthrazit-mid">{item.note}</dd>
-                    </div>
-                  ))}
-                </dl>
-              </div>
-            </aside>
+            <div className="lg:col-start-2">
+              <h3 className="h3">{c.about.credentials.heading}</h3>
+              <dl className="mt-5 space-y-6">
+                <div>
+                  <dt className="font-bold">{c.about.credentials.experience.title}</dt>
+                  <dd className="small mt-1 text-anthrazit-mid">{c.about.credentials.experience.note}</dd>
+                </div>
+                {c.about.credentials.items.map((item) => (
+                  <div key={item.title}>
+                    <dt className="font-bold">{item.title}</dt>
+                    <dd className="mt-1 text-sage-dark">{item.issuer}</dd>
+                    <dd className="small mt-1 text-anthrazit-mid">{item.note}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+
+            <div className="lg:col-start-1 lg:row-start-2">
+              <h3 className="h3">{c.about.principlesHeading}</h3>
+              <ul className="mt-5 space-y-3">
+                {c.about.principles.map((p) => (
+                  <li key={p} className="border-l-2 border-blush-mid pl-4">
+                    {p}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </Section>
 

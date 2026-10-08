@@ -121,7 +121,7 @@ export type Content = {
     moreLabel: string;
     workshops: Service;
   };
-  audience: { heading: string; lead: string; items: Audience[] };
+  audience: { heading: string; items: Audience[] };
   process: { heading: string; lead: string; items: Step[] };
   packages: {
     heading: string;
@@ -133,11 +133,15 @@ export type Content = {
   about: {
     heading: string;
     body: string[];
+    portraitAlt: string;
     principlesHeading: string;
     principles: string[];
     credentials: {
       heading: string;
-      items: { title: string; issuer: string; note: string }[];
+      /** Work experience: listed first, but not a credential (kept out of JSON-LD). */
+      experience: { title: string; note: string };
+      /** `inTraining`: not yet awarded, so not claimed as held in JSON-LD. */
+      items: { title: string; issuer: string; note: string; inTraining?: boolean }[];
     };
   };
   projects: {
@@ -195,7 +199,8 @@ export const LANG_ALTERNATES: Record<string, string> = {
 const dePackages: Package[] = [
   { name: "Raumcheck", scope: "60–90 Minuten Analyse von Ordnung und Gestaltung", audience: "Privat & Betrieb", price: "ab EUR 110" },
   { name: "Ordnungs-Startpaket", scope: "Ein klar abgegrenzter Bereich, z. B. Küche, Schlafzimmer oder Homeoffice", audience: "Privat", price: "ab EUR 220" },
-  { name: "Gestaltungsberatung", scope: "Farb-, Material- und Einrichtungsberatung für einen Raum", audience: "Privat", price: "ab EUR 280" },
+  { name: "Re-Design-Beratung", scope: "Neue Wirkung mit vorhandenen Möbeln, Textilien und Accessoires", audience: "Privat", price: "ab EUR 280" },
+  { name: "Gestaltungsberatung", scope: "Farb-, Material- und Einrichtungsberatung für einen Raum", audience: "Privat", price: "ab EUR 320" },
   { name: "Ordnung & Stil", scope: "Decluttering und anschließende Gestaltung eines Raums", audience: "Privat", price: "ab EUR 480" },
   { name: "Intensivbegleitung", scope: "Mehrere Termine für Organisation und Gestaltung inklusive Nachbetreuung", audience: "Privat", price: "ab EUR 690" },
   { name: "Workshop", scope: "Gruppenworkshop zu Raumgestaltung oder Organisation, halber Tag", audience: "Privat & Betrieb", price: "ab EUR 350" },
@@ -205,7 +210,8 @@ const dePackages: Package[] = [
 const enPackages: Package[] = [
   { name: "Space check", scope: "60–90 minute assessment of order and design", audience: "Private & business", price: "from EUR 110" },
   { name: "Organizing starter", scope: "One clearly defined area, e.g. kitchen, bedroom or home office", audience: "Private", price: "from EUR 220" },
-  { name: "Design consultation", scope: "Colour, material and furnishing advice for one room", audience: "Private", price: "from EUR 280" },
+  { name: "Re-design consultation", scope: "A new look with your existing furniture, textiles and accessories", audience: "Private", price: "from EUR 280" },
+  { name: "Design consultation", scope: "Colour, material and furnishing advice for one room", audience: "Private", price: "from EUR 320" },
   { name: "Order & style", scope: "Decluttering followed by the design of one room", audience: "Private", price: "from EUR 480" },
   { name: "Intensive support", scope: "Several appointments for organising and design, including follow-up", audience: "Private", price: "from EUR 690" },
   { name: "Workshop", scope: "Half-day group workshop on room design or organisation", audience: "Private & business", price: "from EUR 350" },
@@ -240,7 +246,7 @@ const de: Content = {
   hero: {
     title: "Raumgestaltung und Ordnungscoaching aus einer Hand",
     tagline: "Schöne Räume.\nKlarer Alltag.",
-    lead: "Erst schaffen wir Klarheit, dann gestalten wir den Raum, der dabei frei wird. Persönlich, diskret und systematisch — in Wien und Niederösterreich.",
+    lead: "Erst schaffen wir Klarheit, dann gestalten wir den Raum, der zu Ihnen und Ihrem Alltag passt. Persönlich, diskret und systematisch — in Wien und Niederösterreich.",
     ctaPrimary: "Raumcheck anfragen",
     ctaSecondary: "Angebot ansehen",
     imageAlt:
@@ -255,18 +261,18 @@ const de: Content = {
   },
   services: {
     heading: "Mein Angebot",
-    lead: "Ordnungscoaches räumen. Einrichtungsberaterinnen gestalten. Ich verbinde beides — einzeln oder kombiniert, ganz nach dem, was Ihr Raum braucht.",
+    lead: "Ordnungscoaches räumen. Einrichtungsberaterinnen gestalten. Ich verbinde beides.",
     items: [
       {
         id: "raumgestaltung",
-        price: `${dePackages[2].name} ${dePackages[2].price}`,
+        price: `${dePackages[3].name} ${dePackages[3].price}`,
         title: "Raumgestaltung",
-        lead: "Beratung und Einrichtungsvorschläge nach optischen und geschmacklichen Gesichtspunkten — damit aus einem aufgeräumten Raum ein Raum wird, in dem Sie gerne sind.",
+        lead: "Individuelle Beratung und stimmige Einrichtungskonzepte, die Ästhetik und Persönlichkeit verbinden — damit aus einem Raum ein Zuhause wird, in dem Sie sich rundum wohlfühlen.",
         points: [
-          "Raumanalyse vor Ort, per Foto oder Grundriss",
+          "Raumanalyse vor Ort oder per Grundriss und Fotos",
+          "Erstellung eines Einrichtungskonzepts",
           "Farb- und Materialberatung",
           "Arbeitsplatz- und Homeoffice-Gestaltung",
-          "Begleitung bei Neueinrichtung und Renovierung",
         ],
       },
       {
@@ -285,7 +291,7 @@ const de: Content = {
       },
       {
         id: "raumgestaltung-und-ordnung",
-        price: `${dePackages[3].name} ${dePackages[3].price}`,
+        price: `${dePackages[4].name} ${dePackages[4].price}`,
         title: "Raumgestaltung plus Ordnungscoaching",
         lead: "Ordnung und Gestaltung in einem Ablauf, mit einer Ansprechpartnerin — vom ersten Sortieren bis zum fertig eingerichteten Raum.",
         points: [
@@ -297,11 +303,11 @@ const de: Content = {
       },
       {
         id: "re-design",
-        price: "Preis nach dem Raumcheck",
+        price: `${dePackages[2].name} ${dePackages[2].price}`,
         title: "Re-Design",
         lead: "Neue Wirkung mit dem, was schon da ist: Vorhandene Möbel, Textilien und Accessoires werden neu arrangiert — ergänzt wird nur, was wirklich fehlt.",
         points: [
-          "Umstellen und neu arrangieren vorhandener Möbel",
+          "Planung für das Umstellen und Neuarrangieren vorhandener Möbel",
           "Gezielte Farb- und Materialakzente",
           "Einkaufsliste nur für das, was wirklich fehlt",
           "Styling für Verkauf oder Vermietung",
@@ -311,9 +317,9 @@ const de: Content = {
     moreLabel: "Außerdem",
     workshops: {
       id: "workshops",
-      price: `${dePackages[5].name} ${dePackages[5].price}`,
+      price: `${dePackages[6].name} ${dePackages[6].price}`,
       title: "Workshops & Training",
-      lead: "Praxisnahe Wissensvermittlung für Gruppen und Teams — damit Sie Räume künftig selbst gestalten und Ordnung eigenständig halten können.",
+      lead: "Werden in Kürze angeboten.",
       points: [
         "Halbtages- und Tagesworkshops",
         "Mehrteilige Kursreihen",
@@ -325,7 +331,6 @@ const de: Content = {
   },
   audience: {
     heading: "Für wen ich arbeite",
-    lead: "Drei Situationen, in denen sich die Kombination aus Ordnung und Gestaltung am stärksten auszahlt.",
     items: [
       {
         title: "Berufstätige Familien",
@@ -380,6 +385,7 @@ const de: Content = {
       "Deshalb beginne ich bei der Struktur und nicht beim Katalog. Erst wenn klar ist, was bleibt, welche Wege der Alltag nimmt und wo etwas hakt, lohnt sich die Frage nach Farbe, Material und Einrichtung. Diese Reihenfolge spart Geld und hält länger.",
       "Und weil die besten Lösungen die sind, die ohne mich weiterlaufen, gebe ich das Handwerk in Workshops weiter — für alle, die das lieber selbst können möchten.",
     ],
+    portraitAlt: "Porträt von Claudia Plessl: kurze dunkle Haare, runde Brille, weißes Shirt, vor einer salbeigrünen Wand",
     principlesHeading: "Worauf Sie sich verlassen können",
     principles: [
       "Diskretion — was ich in Ihrer Wohnung sehe, bleibt dort.",
@@ -389,9 +395,14 @@ const de: Content = {
     ],
     credentials: {
       heading: "Qualifikation",
+      experience: {
+        title: "Über 10 Jahre Erfahrung in der Innenraumgestaltung",
+        note: "Zahlreiche umgesetzte Projekte.",
+      },
       items: [
         {
-          title: "Zertifizierter Ordnungscoach",
+          title: "Zertifizierter Ordnungscoach (in Ausbildung)",
+          inTraining: true,
           issuer: "Akademie der Ordnung",
           note: "Zertifizierte Ausbildung in professioneller Ordnungsbegleitung — Methodik, Kundenprozess und praktische Umsetzung.",
         },
@@ -428,7 +439,7 @@ const de: Content = {
       },
       {
         q: "Geht das auch online?",
-        a: "Ja. Der Raumcheck ist auch online möglich, und eine Raumanalyse funktioniert ebenso per Foto oder Grundriss.",
+        a: "Ja. Der Raumcheck ist auch online möglich, und eine Raumanalyse funktioniert ebenso per Grundriss und Fotos.",
       },
       {
         q: "Muss ich mich von vielen Dingen trennen?",
@@ -468,7 +479,7 @@ const de: Content = {
     terms: "AGB",
     values: "Natürlich • Klar • Lebenswert",
     imageNotice:
-      "Die Bilder auf dieser Website und die Stimme im Vorstellungsvideo wurden mit künstlicher Intelligenz erstellt.",
+      "Die Raumbilder auf dieser Website und die Stimme im Vorstellungsvideo wurden mit künstlicher Intelligenz erstellt.",
   },
   legalLinks: { imprint: "/impressum/", privacy: "/datenschutz/", terms: "/agb/" },
 };
@@ -478,7 +489,7 @@ const en: Content = {
   meta: {
     title: `${CONTACT.businessName} | Vienna & Lower Austria`,
     description:
-      "Interior design, professional organizing and workshops from a single source. Create clarity first, then design the space it frees up — for families, people in transition and small businesses in Vienna and Lower Austria.",
+      "Interior design, professional organizing and workshops from a single source. Create clarity first, then design a space that suits the way you live — for families, people in transition and small businesses in Vienna and Lower Austria.",
   },
   nav: {
     label: "Main navigation",
@@ -501,7 +512,7 @@ const en: Content = {
   hero: {
     title: "Interior design and professional organizing from a single source",
     tagline: "Beautiful spaces.\nA clearer day.",
-    lead: "First we create clarity, then we design the space it frees up. Personal, discreet and systematic — in Vienna and Lower Austria.",
+    lead: "First we create clarity, then we design the space that suits you and the way you live. Personal, discreet and systematic — in Vienna and Lower Austria.",
     ctaPrimary: "Request a space check",
     ctaSecondary: "See my services",
     imageAlt:
@@ -516,18 +527,18 @@ const en: Content = {
   },
   services: {
     heading: "My services",
-    lead: "Organizers declutter. Interior consultants decorate. I combine the two — on their own or together, depending on what your space needs.",
+    lead: "Organizers declutter. Interior consultants decorate. I combine the two.",
     items: [
       {
         id: "raumgestaltung",
-        price: `${enPackages[2].name} ${enPackages[2].price}`,
+        price: `${enPackages[3].name} ${enPackages[3].price}`,
         title: "Interior design",
-        lead: "Advice and furnishing proposals on visual and aesthetic grounds — so that a tidy room becomes a room you actually enjoy being in.",
+        lead: "Personal advice and coherent furnishing concepts that bring aesthetics and personality together — so that a room becomes a home where you feel completely at ease.",
         points: [
-          "Room analysis on site, by photo or floor plan",
+          "Room analysis on site, or from a floor plan and photos",
+          "Drawing up a furnishing concept",
           "Colour and material consulting",
           "Workspace and home office design",
-          "Support with refurnishing and renovation",
         ],
       },
       {
@@ -546,7 +557,7 @@ const en: Content = {
       },
       {
         id: "raumgestaltung-und-ordnung",
-        price: `${enPackages[3].name} ${enPackages[3].price}`,
+        price: `${enPackages[4].name} ${enPackages[4].price}`,
         title: "Interior design plus organizing",
         lead: "Organising and design in one process, with one person — from the first sort-out to the finished room.",
         points: [
@@ -558,11 +569,11 @@ const en: Content = {
       },
       {
         id: "re-design",
-        price: "Priced after the space check",
+        price: `${enPackages[2].name} ${enPackages[2].price}`,
         title: "Re-design",
         lead: "A new look with what you already own: existing furniture, textiles and accessories are rearranged — only what is genuinely missing gets added.",
         points: [
-          "Rearranging the furniture you already have",
+          "Planning how to move and rearrange the furniture you already have",
           "Targeted colour and material accents",
           "A shopping list only for what is really missing",
           "Styling for sale or rental",
@@ -572,9 +583,9 @@ const en: Content = {
     moreLabel: "Also",
     workshops: {
       id: "workshops",
-      price: `${enPackages[5].name} ${enPackages[5].price}`,
+      price: `${enPackages[6].name} ${enPackages[6].price}`,
       title: "Workshops & Training",
-      lead: "Hands-on knowledge transfer for groups and teams — so you can design your spaces and maintain order on your own.",
+      lead: "Coming soon.",
       points: [
         "Half-day and full-day workshops",
         "Multi-part course series",
@@ -586,7 +597,6 @@ const en: Content = {
   },
   audience: {
     heading: "Who I work with",
-    lead: "Three situations where combining order and design pays off the most.",
     items: [
       {
         title: "Working families",
@@ -641,6 +651,7 @@ const en: Content = {
       "That is why I start with structure rather than with a catalogue. Only once it is clear what stays, how daily life moves through the space and where things get stuck is it worth asking about colour, material and furnishing. That order of operations saves money and lasts longer.",
       "And because the best solutions are the ones that keep working without me, I pass the craft on in workshops — for anyone who would rather do it themselves.",
     ],
+    portraitAlt: "Portrait of Claudia Plessl: short dark hair, round glasses, white top, in front of a sage-green wall",
     principlesHeading: "What you can rely on",
     principles: [
       "Discretion — what I see in your home stays there.",
@@ -650,9 +661,14 @@ const en: Content = {
     ],
     credentials: {
       heading: "Qualifications",
+      experience: {
+        title: "Over 10 years of experience in interior design",
+        note: "Numerous completed projects.",
+      },
       items: [
         {
-          title: "Certified Organizing Coach",
+          title: "Certified Organizing Coach (in training)",
+          inTraining: true,
           issuer: "Akademie der Ordnung",
           note: "Certified training in professional organizing — methodology, client process and hands-on implementation.",
         },
@@ -689,7 +705,7 @@ const en: Content = {
       },
       {
         q: "Can we work online?",
-        a: "Yes. The space check is also available online, and a room analysis works just as well by photo or floor plan.",
+        a: "Yes. The space check is also available online, and a room analysis works just as well from a floor plan and photos.",
       },
       {
         q: "Will I have to part with a lot of things?",
@@ -729,7 +745,7 @@ const en: Content = {
     terms: "Terms",
     values: "Natural • Clear • Worth living",
     imageNotice:
-      "The images on this website and the voice in the introduction video were created using artificial intelligence.",
+      "The room images on this website and the voice in the introduction video were created using artificial intelligence.",
   },
   legalLinks: { imprint: "/en/legal/#imprint", privacy: "/en/legal/#privacy", terms: "/en/legal/#terms" },
 };
