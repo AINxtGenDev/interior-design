@@ -6,7 +6,7 @@ import { ASSET_PREFIX, type Content, type Locale } from "@/content/site";
  * Deliberately NOT a YouTube/Vimeo embed: the site currently makes zero
  * third-party requests and sets no cookies, which is what makes the
  * Datenschutzerklärung's claims true. An iframe embed would break that and
- * oblige a privacy-policy change. 4.2 MB, faststart, `preload="metadata"` so
+ * oblige a privacy-policy change. 3.9 MB, faststart, `preload="metadata"` so
  * nothing but the header is fetched until the visitor presses play.
  */
 export default function IntroVideo({

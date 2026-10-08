@@ -245,9 +245,9 @@ anchors are shared across both languages so the switcher keeps the reader's plac
 
 ## Intro film
 
-A 58-second German-narrated introduction sits between the hero and the services
+A 72-second German-narrated introduction sits between the hero and the services
 section, self-hosted at `website/public/video/vorstellung.mp4` (1080×1920,
-4.75 MB, faststart, −14.5 LUFS) with a poster frame and a German WebVTT subtitle
+3.9 MB, faststart, −14.5 LUFS) with a poster frame and a German WebVTT subtitle
 track. **Subtitles are off by default** — the `<track>` carries no `default`
 attribute, so nothing is overlaid on the film; a viewer can still switch them on
 from the player's own controls.
@@ -293,7 +293,17 @@ hash now `5c916d81…`. The poster stays at t = 24 s (the Ordnung | Gestaltung
 photo frame) — the brand frame is mostly empty below the logo. The narration is Claudia's cloned voice; the
 AI disclosure for it is the footer notice (`footer.imageNotice`), by the
 owner's decision of 2026-10-02 — the caption under the player is just
-"Vorstellungsvideo, 58 Sekunden" / "Introduction, 58 seconds".
+"Vorstellungsvideo, 72 Sekunden" / "Introduction, 72 seconds".
+
+**Re-rendered on 2026-10-08 after the change deck (slides 4–9).** CI fonts
+(Manrope, Montserrat — the website's own subsets) in every frame; frame 1 shows
+the overfull wardrobe, frames 2–3 sit on sage light, frame 3 shows Claudia's
+portrait instead of the logo, and the end card is logo · moodboard · e-mail and
+phone. Lines 4, 6 and 7 are new takes in the cloned voice (6 no longer claims a
+finished certification), so the film grew from 58.3 to 72.2 s. Rendered at
+`--crf 26` (3.9 MB; the default came out at 12 MB because of the slow photo
+push-ins — SSIM 0.997 against it). Picture hash `d896a38d…`. The poster is
+t = 29 s, the Ordnung | Gestaltung frame again.
 
 The full HyperFrames working project (renders, voiceover, assets) lives outside
 this repository, in the **private** repo `AINxtGenDev/plessl-projekt` under
