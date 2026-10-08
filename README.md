@@ -3,7 +3,7 @@
 Business website for **Mag. Claudia Plessl**, Interior Designerin and certified
 Ordnungscoach in Vienna and Lower Austria.
 
-🔗 **Live:** [ainxtgendev.github.io/interior-design](https://ainxtgendev.github.io/interior-design/)
+🔗 **Live:** [claudiaplessl.at](https://claudiaplessl.at/)
 
 German is the primary language and lives at the site root; English is served
 from `/en/`.
@@ -179,7 +179,7 @@ document-shaped rather than reusable.
 ```bash
 cd website
 npm install
-npm run dev     # http://localhost:3000/interior-design
+npm run dev     # http://localhost:3000
 npm run build   # static export into website/out
 npx eslint src  # lint
 ```
@@ -197,9 +197,8 @@ To preview the production build exactly as Pages serves it:
 
 ```bash
 cd website && npm run build
-mkdir -p /tmp/preview && cp -r out /tmp/preview/interior-design
-cd /tmp/preview && python3 -m http.server 8787 --protocol HTTP/1.1
-# → http://localhost:8787/interior-design/
+cd out && python3 -m http.server 8787 --protocol HTTP/1.1
+# → http://localhost:8787/
 ```
 
 > **Do not drop `--protocol HTTP/1.1`.** The default is HTTP/1.0, which closes
@@ -412,11 +411,8 @@ what the layouts emit into the HTML. The three German legal pages have no
 one-to-one English counterpart — all three would have to name `/en/legal/`,
 which can only name one of them back, so the cluster would contradict itself.
 
-> ⚠️ **`robots.txt` does nothing until the custom domain lands.** Crawlers read
-> it only from the origin root. While the site sits under
-> `…github.io/interior-design/` the file is published at
-> `/interior-design/robots.txt`, where nothing looks for it. The sitemap and the
-> JSON-LD have no such problem and work today.
+Crawlers read `robots.txt` only from the origin root, so it only took effect
+when the site moved from `…github.io/interior-design/` to its own domain.
 
 After the next deploy, check the JSON-LD against the
 [Schema Markup Validator](https://validator.schema.org/) and Google's
@@ -435,21 +431,26 @@ so this only ever adds files.
 
 ## Custom domain
 
-`next.config.ts` reads `BASE_PATH` (default `/interior-design`). When a custom
-domain is pointed at Pages:
+The site is served from the root of **claudiaplessl.at** since 2026-10-08
+(registered at Hetzner; DNS in the Hetzner Console). The zone holds the four
+GitHub Pages A and AAAA records on the apex, `www` as a CNAME to
+`ainxtgendev.github.io`, and the TXT record
+`_github-pages-challenge-ainxtgendev` that keeps the domain verified for the
+GitHub account — **do not delete it**. GitHub redirects `www` and the old
+`ainxtgendev.github.io/interior-design/` URLs to the apex.
 
-1. Set `BASE_PATH: ""` in `.github/workflows/deploy.yml`.
-2. Add the domain in the repository's Pages settings (creates a `CNAME`).
-3. Update `SITE_URL` in `src/content/site.ts` — one constant, which the two
-   layouts and the JSON-LD all read.
-4. Confirm `https://<domain>/robots.txt` resolves. Until this step it is dead
-   (see *Machine-readable layer*), so this is the moment it starts working.
-5. Consider `llms.txt` at that point. It is a community convention with no
-   standards body behind it, and the measured traffic does not support it —
-   Google said on the record in July 2025 that it does not read the file, and
-   crawler logs show AI bots fetching HTML directly rather than `/llms.txt`. It
-   is cheap insurance, not a channel, and it has the same origin-root
-   constraint as `robots.txt`.
+Moving to another domain touches three places: the Pages settings of the
+repository, `SITE_URL` in `src/content/site.ts` (the two layouts and the
+JSON-LD all read it), and the origin passed to `keep-live-assets.sh` in
+`.github/workflows/deploy.yml`. `next.config.ts` still honours `BASE_PATH` for
+hosting under a sub-path.
+
+Still open: whether to add `llms.txt`. It is a community convention with no
+standards body behind it, and the measured traffic does not support it —
+Google said on the record in July 2025 that it does not read the file, and
+crawler logs show AI bots fetching HTML directly rather than `/llms.txt`. It
+is cheap insurance, not a channel, and now that the site sits at an origin
+root it would be served from the right place.
 
 ---
 

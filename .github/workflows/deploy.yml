@@ -32,16 +32,12 @@ jobs:
 
       - name: Build static export
         working-directory: website
-        # Set BASE_PATH to "" once a custom domain is pointed at Pages.
-        env:
-          BASE_PATH: /interior-design
         run: npm run build
 
       # Pages caches HTML for 10 min; without this, anyone who loaded a page
       # just before a deploy gets HTML pointing at deleted CSS (unstyled page).
-      # Update the origin when the custom domain goes live.
       - name: Keep the live site's hashed assets
-        run: .github/keep-live-assets.sh website/out https://ainxtgendev.github.io /interior-design
+        run: .github/keep-live-assets.sh website/out https://claudiaplessl.at ""
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

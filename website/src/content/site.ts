@@ -23,12 +23,12 @@ export const ASSET_PREFIX = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
  *
  * Lives here rather than in the two layouts because the JSON-LD needs absolute
  * URLs as well — schema.org @id values and contentUrls cannot be relative — and
- * a third copy of this string would be a third place to forget on the
- * custom-domain switch.
+ * a third copy of this string would be a third place to forget on a domain
+ * change.
  */
-export const SITE_URL = "https://ainxtgendev.github.io/interior-design/";
+export const SITE_URL = "https://claudiaplessl.at/";
 
-/** `absoluteUrl("impressum/")` → `https://…/interior-design/impressum/`. */
+/** `absoluteUrl("impressum/")` → `https://claudiaplessl.at/impressum/`. */
 export function absoluteUrl(path = ""): string {
   return `${SITE_URL}${path.replace(/^\//, "")}`;
 }

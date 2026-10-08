@@ -1,9 +1,8 @@
 import type { NextConfig } from "next";
 
-// basePath is only needed while the site lives under
-// https://ainxtgendev.github.io/interior-design/. Once a custom domain is
-// pointed at GitHub Pages, set BASE_PATH="" in the deploy workflow.
-const basePath = process.env.BASE_PATH ?? "/interior-design";
+// The site is served from the root of https://claudiaplessl.at/, so there is
+// no basePath. BASE_PATH stays overridable for hosting under a sub-path.
+const basePath = process.env.BASE_PATH ?? "";
 
 const nextConfig: NextConfig = {
   output: "export",

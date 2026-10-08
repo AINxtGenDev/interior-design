@@ -2,11 +2,8 @@ import type { MetadataRoute } from "next";
 import { absoluteUrl } from "@/content/site";
 
 /*
- * Crawlers only ever read robots.txt from the origin root. While the site lives
- * under https://ainxtgendev.github.io/interior-design/ this file is published at
- * /interior-design/robots.txt, where nothing looks for it — it goes live the day
- * BASE_PATH is emptied and the custom domain is pointed at Pages. It is written
- * now so that switch is one less thing to remember.
+ * Crawlers only ever read robots.txt from the origin root, which is why it only
+ * took effect once the site moved to https://claudiaplessl.at/ (2026-10-08).
  *
  * Everything is allowed, AI crawlers included. The site exists to be found, and
  * being citable in an assistant's answer is worth more to a one-person business

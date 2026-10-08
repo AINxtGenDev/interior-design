@@ -12,7 +12,7 @@
 # means fewer files are kept; it never fails the deploy.
 #
 # Usage: keep-live-assets.sh <out-dir> <origin> <base-path>
-#   e.g. keep-live-assets.sh website/out https://ainxtgendev.github.io /interior-design
+#   e.g. keep-live-assets.sh website/out https://claudiaplessl.at ""
 set -uo pipefail
 
 out=$1 origin=$2 base=$3

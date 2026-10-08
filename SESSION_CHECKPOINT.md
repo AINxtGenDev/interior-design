@@ -931,9 +931,9 @@ Alle diese Stellen sind auf der Seite als hervorgehobene `[…]`-Marker sichtbar
   unverändert. Vorher: A/AAAA auf Hetzner-Webhosting 88.198.219.246 /
   2a01:4f8:d0a:27bd::2 — Rollback = Zonefile mit diesen Werten
   re-importieren. An `ns1.your-server.de` per dig geprüft.
-  **Offen:** .at-Delegation war um ~09:00 noch nicht aktiv → danach Domain
-  unter github.com/settings/pages verifizieren („Verify"); dann
-  Site-Umstellung als eigener Schritt (README „Custom domain": `BASE_PATH`,
+  .at-Delegation ~09:05 aktiv; Domain unter github.com/settings/pages für
+  Konto AINxtGenDev **verifiziert** (TXT-Record nicht löschen, sonst
+  verfällt die Verifizierung). **Offen:** Site-Umstellung als eigener Schritt (README „Custom domain": `BASE_PATH`,
   Custom Domain im Repo, `SITE_URL`, Origin im `keep-live-assets`-Schritt).
 - ~~Musik im Video ersetzen (Queen-Titel)~~ — am 2026-08-16 erledigt (Suno-
   Instrumental, siehe „Vorstellungsvideo"); offen ist nur noch die Suno-Lizenz.
