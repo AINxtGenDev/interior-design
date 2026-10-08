@@ -57,7 +57,18 @@ FAQ „per Grundriss und Fotos", README, `.gitignore` `*.pptx`.
 - **Video (Blocker für Konsistenz):** sagt „Zertifizierter Ordnungscoach" (Ton, Bild, VTT) → Folien 4–9-Job.
 - Handout `handout/` veraltet (EUR 280, zertifiziert, Workshops).
 Nächster Schritt: Nutzer-Freigabe → `git push` (= Deploy) → live prüfen. Danach Video in `79_plessl-video`.
-Lokale Vorschau: `python3 -m http.server 8765` in `website/out`.
+Lokale Vorschau: `python3 -m http.server 5000 --bind 0.0.0.0` in `website/out` (Port 5000 ist in ufw offen,
+8765 nicht) → Handy im WLAN: `http://192.168.178.24:5000/`.
+
+**Korrektur Nutzer (21:37): Handy muss das ganze Bild zeigen wie Folie 2 „Handy".** Das Handy-Mockup
+(pptx `image2.png`, 637×1063) ist ein **eigenes Bild** von Claudia, kein Ausschnitt des Titelbilds →
+als `Titelbild Handy.png` im Repo, Build schneidet 4 px links/1 px oben ab (`PHONE_CROP`) und malt für EN
+die englische Headline (`english_headline()` parametrisiert, `PHONE_HEADLINE`: Cap 30, Tops 491/541, Achse 320).
+Paneele (`PANELS`, `living_panel()`, `hero-{slogan,living,wardrobe}`) und Tailwind-Variante `full` entfernt;
+`HeroImage.tsx` = ein `<picture>`: Hochformat < 768 px Handy-Bild, sonst volles Bild. Geprüft 390×844@3:
+nur `hero-phone-633` geladen, Bild 391×655, H1 bei 764 px (knapp unter dem ersten Bildschirm — Kundenwunsch),
+kein Überlauf; EN sauber; Querformat 844×390 → volles Bild. Auflösung 633 px = ~1,6× auf 3×-Handys
+(leicht weicher) — höher aufgelöstes Original bei Claudia anfragen, falls vorhanden.
 
 ## CI-Redesign nach `CI.pptx` (2026-10-02) — **live**
 

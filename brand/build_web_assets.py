@@ -3,11 +3,12 @@
 Inputs (repo root, supplied by the client):
     Logo2.png               1325x1187 RGBA, primary logo with real alpha
     Titelbild Homepage.png  1947x808 RGB, homepage title image
+    Titelbild Handy.png     637x1063, phone version of it (change deck 8.10.26, slide 2)
 
 Outputs:
     website/src/assets/logo-{480,960}.webp            trimmed logo, lossless
-    website/src/assets/hero-{full,slogan,living,wardrobe}-{w}.webp   full frame + phone panels
-    website/src/assets/hero-en-{full,slogan}-{w}.webp  same, headline set in English
+    website/src/assets/hero-{full,phone}-{w}.webp      title image, desktop + phone
+    website/src/assets/hero-en-{full,phone}-{w}.webp   same, headline set in English
     website/src/assets/portrait-{w}.webp               Über mich, from "Portrait Homepage.png"
     website/src/app/{favicon.ico,icon.png,apple-icon.png}
     website/public/icons/android-chrome-*.png          incl. maskable
@@ -84,14 +85,30 @@ HEADLINE_TRACK = 0.4
 HEADLINE_EN = ("BEAUTIFUL SPACES.", "A CLEARER DAY.")
 
 
-def english_headline(hero: Image.Image) -> Image.Image:
+# The phone version (slide 2, "Handy") is a separate picture composed by the
+# client — living room, slogan, wardrobe stacked — not a crop of the title
+# image. The source has a light 4 px strip on its left edge and a 1 px line
+# on top; PHONE_CROP cuts both. Its headline is the same face at 30/36 of the
+# size: cap height 30 px, cap tops at y = 491 / 541, centred on x = 320
+# (measured on the cropped picture).
+PHONE_CROP = (4, 1, 637, 1063)
+PHONE_HEADLINE = dict(box=(475, 579, 116, 526), cap=30, tops=(491, 541), axes=(320, 320))
+
+
+def english_headline(
+    hero: Image.Image,
+    box=(288, 408, 630, 1240),
+    cap=HEADLINE_CAP,
+    tops=HEADLINE_TOPS,
+    axes=HEADLINE_AXES,
+) -> Image.Image:
     """The German headline, replaced by the English one in the same face.
 
     Only the two headline lines are removed (glyph strokes against a
     morphological-closing background estimate, then inpainted — a box mask
     leaves blotches on the light gradient). The blush rule and the line
     "INTERIOR DESIGN • PROFESSIONAL ORGANIZING" are already English and stay
-    as original pixels.
+    as original pixels. `box` (y0, y1, x0, x1) bounds the German lines.
     """
     import cv2
     from PIL import ImageDraw, ImageFont
@@ -100,53 +117,38 @@ def english_headline(hero: Image.Image) -> Image.Image:
     g = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
     bg = cv2.morphologyEx(g, cv2.MORPH_CLOSE, np.ones((19, 19), np.uint8))
     dark = (bg.astype(int) - g.astype(int)) > 10
+    y0, y1, x0, x1 = box
     mask = np.zeros(g.shape, np.uint8)
-    mask[288:408, 630:1240] = dark[288:408, 630:1240] * 255
+    mask[y0:y1, x0:x1] = dark[y0:y1, x0:x1] * 255
     mask = cv2.dilate(mask, np.ones((3, 3), np.uint8), iterations=2)
     clean = cv2.inpaint(im, mask, 5, cv2.INPAINT_TELEA)
     out = Image.fromarray(cv2.cvtColor(clean, cv2.COLOR_BGR2RGB)).convert("RGBA")
 
     ss = 4  # supersampling for clean antialiasing
+    track = HEADLINE_TRACK * cap / HEADLINE_CAP
     size = 20.0
     while True:
         font = ImageFont.truetype(str(HEADLINE_FONT), int(size * ss))
         font.set_variation_by_axes([HEADLINE_WEIGHT])
         cap_box = font.getbbox("H")
-        if cap_box[3] - cap_box[1] >= HEADLINE_CAP * ss:
+        if cap_box[3] - cap_box[1] >= cap * ss:
             break
         size += 0.25
 
-    for text, top, axis in zip(HEADLINE_EN, HEADLINE_TOPS, HEADLINE_AXES):
-        width = int(font.getlength(text) + HEADLINE_TRACK * ss * len(text)) + 40 * ss
-        layer = Image.new("L", (width, HEADLINE_CAP * 3 * ss))
+    for text, top, axis in zip(HEADLINE_EN, tops, axes):
+        width = int(font.getlength(text) + track * ss * len(text)) + 40 * ss
+        layer = Image.new("L", (width, cap * 3 * ss))
         draw = ImageDraw.Draw(layer)
         x = 20 * ss
         for ch in text:
-            draw.text((x, HEADLINE_CAP * ss - cap_box[1]), ch, font=font, fill=255)
-            x += font.getlength(ch) + HEADLINE_TRACK * ss
+            draw.text((x, cap * ss - cap_box[1]), ch, font=font, fill=255)
+            x += font.getlength(ch) + track * ss
         layer = layer.resize((layer.width // ss, layer.height // ss), Image.LANCZOS)
         xs = np.where((np.array(layer) > 40).any(0))[0]
         ink = Image.new("RGBA", layer.size, (*HEADLINE_COLOR, 255))
         ink.putalpha(layer)
-        out.alpha_composite(ink, (round(axis - (xs.min() + xs.max()) / 2), top - HEADLINE_CAP))
+        out.alpha_composite(ink, (round(axis - (xs.min() + xs.max()) / 2), top - cap))
     return out.convert("RGB")
-
-
-# Phone panels (Homepage Änderungen 8.10.26, slide 2): the title image is cut
-# into three pieces stacked on top of each other, so a phone shows all of it
-# at a readable size instead of a crop. Boxes in source px, measured on
-# "Titelbild Homepage.png": slogan ink x 649-1215 / y 296-481, wardrobe edge
-# x ~1275, foreground books up to x ~735. Only plain wall and table are lost.
-# Living and wardrobe share one aspect ratio (0.897), so side by side on a
-# phone they end on the same line.
-PANELS = {
-    "living": (0, 0, 725, 808),
-    "slogan": (600, 240, 1270, 540),
-    "wardrobe": (1275, 60, 1947, 808),
-}
-# The living panel overlaps the left end of the slogan; those strokes are
-# painted out of that panel only.
-LIVING_SLOGAN_BOX = (275, 495, 630, 725)  # y0, y1, x0, x1
 
 
 def save_webp(im: Image.Image, name: str, widths) -> None:
@@ -157,33 +159,10 @@ def save_webp(im: Image.Image, name: str, widths) -> None:
         print(f"  {path.relative_to(ROOT)} {out.size} {path.stat().st_size // 1024} KB")
 
 
-def living_panel(hero: Image.Image) -> Image.Image:
-    import cv2
-
-    im = cv2.cvtColor(np.array(hero.crop(PANELS["living"])), cv2.COLOR_RGB2BGR)
-    g = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
-    bg = cv2.morphologyEx(g, cv2.MORPH_CLOSE, np.ones((19, 19), np.uint8))
-    dark = (bg.astype(int) - g.astype(int)) > 10
-    y0, y1, x0, x1 = LIVING_SLOGAN_BOX
-    top = PANELS["living"][1]
-    mask = np.zeros(g.shape, np.uint8)
-    mask[y0 - top : y1 - top, x0:x1] = dark[y0 - top : y1 - top, x0:x1] * 255
-    mask = cv2.dilate(mask, np.ones((3, 3), np.uint8), iterations=2)
-    clean = cv2.inpaint(im, mask, 5, cv2.INPAINT_TELEA)
-    return Image.fromarray(cv2.cvtColor(clean, cv2.COLOR_BGR2RGB))
-
-
-def build_hero(hero: Image.Image, prefix: str = "hero") -> None:
-    """Full frame for tablet and desktop, three stacked panels for phones.
-
-    The living and wardrobe panels carry no headline, so only the German
-    build writes them; the slogan panel and the full frame exist per language.
-    """
+def build_hero(hero: Image.Image, phone: Image.Image, prefix: str = "hero") -> None:
+    """Full frame for tablet and desktop, the stacked phone picture for phones."""
     save_webp(hero, f"{prefix}-full", (800, 1200, 1440, hero.width))
-    save_webp(hero.crop(PANELS["slogan"]), f"{prefix}-slogan", (480, 10_000))
-    if prefix == "hero":
-        save_webp(living_panel(hero), "hero-living", (480, 10_000))
-        save_webp(hero.crop(PANELS["wardrobe"]), "hero-wardrobe", (480, 10_000))
+    save_webp(phone, f"{prefix}-phone", (480, phone.width))
 
 
 def build_portrait(portrait: Image.Image) -> None:
@@ -276,10 +255,11 @@ def build_og(logo: Image.Image, heroes: dict) -> None:
 def main() -> None:
     logo = Image.open(ROOT / "Logo2.png").convert("RGBA")
     hero = Image.open(ROOT / "Titelbild Homepage.png").convert("RGB")
+    phone = Image.open(ROOT / "Titelbild Handy.png").convert("RGB").crop(PHONE_CROP)
     build_logo(logo)
-    build_hero(hero)
+    build_hero(hero, phone)
     hero_en = english_headline(hero)
-    build_hero(hero_en, prefix="hero-en")
+    build_hero(hero_en, english_headline(phone, **PHONE_HEADLINE), prefix="hero-en")
     build_portrait(Image.open(ROOT / "Portrait Homepage.png").convert("RGB"))
     build_icons(logo)
     build_og(logo, {"de": hero, "en": hero_en})

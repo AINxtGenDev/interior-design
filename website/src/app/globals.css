@@ -1,17 +1,5 @@
 @import "tailwindcss";
 
-/* Full title image from 768 px and on every landscape screen; the stacked
-   phone panels only in portrait below 768 px. Must match FULL_FROM in
-   HeroImage.tsx. */
-@custom-variant full {
-  @media (min-width: 48rem) {
-    @slot;
-  }
-  @media (orientation: landscape) {
-    @slot;
-  }
-}
-
 /*
  * Design system from CI.pptx (Study Retreat 09/26).
  *

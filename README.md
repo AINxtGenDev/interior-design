@@ -80,8 +80,8 @@ uv run --with pillow --with numpy --with opencv-python-headless \
 |---|---|---|
 | `src/assets/logo-{480,960}.webp` | Logo2.png | trimmed to the mark, lossless, with alpha |
 | `src/assets/hero-full-*.webp` | Titelbild | the full frame, tablet and desktop |
-| `src/assets/hero-{slogan,living,wardrobe}-*.webp` | Titelbild | phone panels (`PANELS` in the script) |
-| `src/assets/hero-en-{full,slogan}-*.webp` | Titelbild | same, headline painted in English |
+| `src/assets/hero-phone-*.webp` | Titelbild Handy.png | phone version (change deck slide 2), edges trimmed |
+| `src/assets/hero-en-{full,phone}-*.webp` | both Titelbild files | same, headline painted in English |
 | `src/assets/portrait-*.webp` | Portrait Homepage.png | Über mich |
 | `favicon.ico`, `icon.png`, `apple-icon.png`, `public/icons/*` | Logo2.png | CP monogram only (rows above 640) |
 
@@ -89,13 +89,13 @@ uv run --with pillow --with numpy --with opencv-python-headless \
   `images.unoptimized` makes `next/image` emit one file and no `srcset`, so a
   3× phone would get either a blurry or an oversized logo.
 - **The title image is always shown in full** (`HeroImage.tsx`, client
-  request 2026-10-08): from 768 px the uncropped 2.41:1 frame; below that it
-  is cut into panels — the painted slogan full width on top, living room and
-  wardrobe side by side below — because the slogan in the full frame would be
-  ~7 px tall on a phone. Only plain wall and table are left out. The living
-  panel overlaps the slogan's left end; those strokes are inpainted.
-  There is no height cap any more, so on a 1366×768 laptop the H1 sits below
-  the fold — accepted for the full image.
+  request 2026-10-08): from 768 px and on landscape screens the uncropped
+  2.41:1 frame; on portrait phones the client's own phone version
+  (`Titelbild Handy.png`, from slide 2: living room, slogan, wardrobe stacked,
+  633×1062 after trimming). It is ~655 px tall on a 390 px phone, so the H1
+  starts just below the first screen — the client's choice. There is no
+  height cap any more, so on a 1366×768 laptop the H1 also sits below the
+  fold — accepted for the full image.
 - **English page:** only the two German headline lines are removed
   (glyph-stroke mask + inpaint) and "BEAUTIFUL SPACES. / A CLEARER DAY." is
   painted in their place by `english_headline()` — same face, size, colour and
