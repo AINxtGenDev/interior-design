@@ -53,7 +53,7 @@ export const CONTACT = {
   city: "Wolfpassing",
   country: "Österreich",
   countryEn: "Austria",
-  email: "claudia.plessl@gmail.com",
+  email: "claudiaplessl@gmail.com",
   phone: "+43 664 15 17 650",
   phoneHref: "+436641517650",
 } as const;

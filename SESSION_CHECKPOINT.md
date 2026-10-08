@@ -919,6 +919,13 @@ Alle diese Stellen sind auf der Seite als hervorgehobene `[…]`-Marker sichtbar
   Logos (die Seite ist aktuell bewusst light-only, also noch kein Problem).
 - Akademischer Titel/Studium fehlt bei den Qualifikationen (`site.ts`).
 - Eigene Domain und domainbasierte E-Mail-Adresse statt `@gmail.com`.
+  **E-Mail-Entscheidung 2026-10-08:** keine Domain-Mailadresse; geschäftlich
+  wird `claudiaplessl@gmail.com` verwendet (dasselbe Postfach wie
+  `claudia.plessl@gmail.com` — Gmail ignoriert Punkte). Umgestellt in
+  `site.ts` (Website, Impressum, Datenschutz, AGB, EN-Legal) und im Handout.
+  Video Frame 7 / STORYBOARD zeigen noch die Punkt-Schreibweise (funktioniert
+  weiter; Neu-Rendern optional). Verworfen: Google Workspace (~98 €/Jahr),
+  Hetzner Webhosting S (~23 €/Jahr), Gratis-Weiterleitung + Send-as.
   **2026-10-08: `claudiaplessl.at` bei Hetzner (konsoleH) registriert**
   (nur Domain, 13,20 €/Jahr inkl. 20 % USt.). Inhaberin Claudia Plessl
   (Typ Person, Feld Organisation „interior-design-plessl"). NIC.AT-whois
