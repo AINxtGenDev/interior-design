@@ -947,9 +947,9 @@ Alle diese Stellen sind auf der Seite als hervorgehobene `[…]`-Marker sichtbar
   NXDOMAIN aus der Zeit vor der Delegation im Cache — abgelaufen, laut
   Nutzer lädt die Seite im Heimnetz.
   **Offen:** JSON-LD mit Schema Markup Validator / Rich Results Test an der
-  neuen URL prüfen; alte URL noch im Handout
-  (`handout/claudia-plessl-uebersicht.html`) und im gerenderten Video
-  (Frame 7) — beide leiten um, Aktualisierung optional; `llms.txt` offen;
+  neuen URL prüfen; Handout auf claudiaplessl.at aktualisiert (2026-10-08);
+  alte URL nur noch im gerenderten Video (Frame 7) — leitet um,
+  Aktualisierung optional; `llms.txt` offen;
   Google Search Console für die neue Domain anlegen (optional).
 - ~~Musik im Video ersetzen (Queen-Titel)~~ — am 2026-08-16 erledigt (Suno-
   Instrumental, siehe „Vorstellungsvideo"); offen ist nur noch die Suno-Lizenz.
