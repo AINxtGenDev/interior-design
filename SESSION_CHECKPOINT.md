@@ -17,7 +17,7 @@
   Impressum/AGB weiterhin offen. (Älterer Stand, Umbenennung 2026-08-17:
   Deploy `32004332796`.)
 
-## Homepage-Änderungen nach `Homepage Änderngen_081026.pptx` (2026-10-08) — **in Arbeit, lokal, nicht gepusht**
+## Homepage-Änderungen nach `Homepage Änderngen_081026.pptx` (2026-10-08) — **fertig lokal, nicht gepusht**
 
 **Rollback-Punkt:** Tag `backup/pre-aenderungen-2026-10-08` (= `4eb4c06`, lokal, nicht gepusht) +
 Tarball `../backups/plessl-website_2026-10-08_pre-aenderungen_4eb4c06.tar.gz` (ohne node_modules/.next).
@@ -41,8 +41,23 @@ Umgesetzt (lokal, Build/Lint/TS grün):
 - Über mich: Porträt (`Portrait Homepage.png` aus Folie 6), Layout nach Folie 16, „Über 10 Jahre Erfahrung…",
   „Zertifizierter Ordnungscoach (in Ausbildung)" — in JSON-LD `hasCredential` herausgefiltert (`inTraining`).
 
-Prüfung läuft: Subagent „mobile-critic" (Lesbarkeit Handy) + „content-verifier" (DE/EN, Preise, JSON-LD).
-Danach: Befunde einarbeiten → Nutzer-Freigabe → Push (= Produktion) → live prüfen. Dann Video (Folien 4–9).
+**Stand Ende Sitzung:** lokal committet `cb76d4c..c9b59e7` (4 Commits), **nicht gepusht**.
+Hero final: Hochformat < 768 px = Slogan-Paneel oben voll breit, Wohnraum | Garderobe nebeneinander
+(gleiches Seitenverhältnis 0,897); sonst (≥ 768 px **oder** Querformat) volles Bild. Tailwind-Variante
+`full` (Block-Form, zwei @media — Kurzform mit Komma verlor die Landscape-Regel!).
+Mobile-Critic: produktionsreif (375×667: H1 bei 488 px; keine Überläufe 320–767; je Fall genau ein Bildsatz geladen).
+Content-Verifier-Befunde eingearbeitet: EN-Meta, KI-Hinweis → „Raumbilder", Preiszeilen aufsteigend,
+FAQ „per Grundriss und Fotos", README, `.gitignore` `*.pptx`.
+
+**Offen — Entscheidungen Claudia/Nutzer:**
+- A Workshops „in Kürze": Preis-Hinweis, Tabellenzeile, JSON-LD-Offer, Nav, Meta „…und Workshops", B2B „Teamworkshop" verkaufen sie weiter.
+- B „Zertifizierter Ordnungscoach (in Ausbildung)" (Deck: „(i.A.)") — Alternative „Ausbildung zur zertifizierten Ordnungscoachin (laufend)".
+- „Zahlreiche umgesetzte Projekte" vs. Projekte-Abschnitt „erste Projekte werden dokumentiert".
+- Über-mich-Text „gebe ich das Handwerk in Workshops weiter" (Gegenwart).
+- **Video (Blocker für Konsistenz):** sagt „Zertifizierter Ordnungscoach" (Ton, Bild, VTT) → Folien 4–9-Job.
+- Handout `handout/` veraltet (EUR 280, zertifiziert, Workshops).
+Nächster Schritt: Nutzer-Freigabe → `git push` (= Deploy) → live prüfen. Danach Video in `79_plessl-video`.
+Lokale Vorschau: `python3 -m http.server 8765` in `website/out`.
 
 ## CI-Redesign nach `CI.pptx` (2026-10-02) — **live**
 
