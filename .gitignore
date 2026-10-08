@@ -5,3 +5,6 @@ out/
 *.log
 .env*
 !.env.example
+
+# Client change decks (source material, not website content)
+*.pptx
