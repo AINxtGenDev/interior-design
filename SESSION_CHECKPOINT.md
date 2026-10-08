@@ -61,7 +61,10 @@ Live geprüft (curl, Cache-Buster): `/`, `/en/`, `/impressum/`, `/datenschutz/`,
 `hero-phone-633`, `hero-en-phone-633`, `portrait-480` = 200; „Re-Design-Beratung", „320", „in Ausbildung",
 „Über 10 Jahre Erfahrung", „Werden in Kürze angeboten" vorhanden, „Drei Situationen" weg.
 Rollback live: `git revert 4eb4c06..HEAD` + push (oder Tag `backup/pre-aenderungen-2026-10-08`, nur nach Rückfrage).
-Nächster Schritt: offene Punkte oben mit Claudia klären; danach Video (Folien 4–9) in `79_plessl-video`.
+**Video (Folien 4–9) live 2026-10-08 ~23:00** — `d3629ec`, Deploy `37843112338` success: neuer Film 72,2 s, 3,9 MB,
+Poster t = 29 s, Untertitel 10 Cues, Caption „72 Sekunden"/„72 seconds", JSON-LD `PT1M12S`, Upload 2026-10-08.
+Live-Dateien per SHA-256 = lokal. Einzelheiten und offene Punkte: Checkpoint `55_laulau`, Abschnitt „Video nach … Folien 4–9".
+Nächster Schritt: offene Punkte oben + Video-Takes mit Claudia klären.
 Lokale Vorschau (nach Deploy gestoppt): `python3 -m http.server 5000 --bind 0.0.0.0` in `website/out` (Port 5000 ist in ufw offen,
 8765 nicht) → Handy im WLAN: `http://192.168.178.24:5000/`.
 
