@@ -944,8 +944,10 @@ Alle diese Stellen sind auf der Seite als hervorgehobene `[…]`-Marker sichtbar
   Rollback: `git revert 5c938f0` + `gh api -X PUT
   repos/AINxtGenDev/interior-design/pages -F cname=`.
   **Hinweis:** Lokaler DNS `192.168.1.35` hatte ~09:10 noch ein
-  NXDOMAIN aus der Zeit vor der Delegation im Cache — abgelaufen, laut
-  Nutzer lädt die Seite im Heimnetz.
+  NXDOMAIN aus der Zeit vor der Delegation im Cache (Pi-hole; nuc8 nutzt
+  ihn über enp5s0, Handy/Tablet über WLAN die FritzBox 192.168.178.1, die
+  früher frei war). Gegen 09:25 abgelaufen — Seite laut Nutzer jetzt auf
+  Handy, Tablet und nuc8 erreichbar. Einmaliger Effekt, keine Änderung nötig.
   **Offen:** JSON-LD mit Schema Markup Validator / Rich Results Test an der
   neuen URL prüfen; Handout auf claudiaplessl.at aktualisiert (2026-10-08);
   alte URL nur noch im gerenderten Video (Frame 7) — leitet um,
