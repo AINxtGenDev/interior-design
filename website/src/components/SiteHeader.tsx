@@ -78,7 +78,9 @@ export default function SiteHeader({
       </a>
 
       <header className="no-print sticky top-0 z-50 border-b border-anthrazit-light bg-paper/95 backdrop-blur-md">
-        <div className="mx-auto flex h-[var(--header-h)] max-w-6xl items-center gap-2 px-4 sm:gap-3 sm:px-6 lg:px-8">
+        {/* As wide as the title image below it, so logo and menu sit at the
+            image edges (Homepage Änderungen 8.10.26, slide 2). */}
+        <div className="mx-auto flex h-[var(--header-h)] max-w-[1947px] items-center gap-2 px-4 sm:gap-3 sm:px-6 lg:px-8">
           <a
             href={home}
             aria-label={`${CONTACT.businessName} – ${n.home}`}

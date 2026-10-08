@@ -6,8 +6,9 @@ Inputs (repo root, supplied by the client):
 
 Outputs:
     website/src/assets/logo-{480,960}.webp            trimmed logo, lossless
-    website/src/assets/hero-{crop}-{w}.webp            art-directed hero crops
-    website/src/assets/hero-en-{crop}-{w}.webp         same, headline set in English
+    website/src/assets/hero-{full,slogan,living,wardrobe}-{w}.webp   full frame + phone panels
+    website/src/assets/hero-en-{full,slogan}-{w}.webp  same, headline set in English
+    website/src/assets/portrait-{w}.webp               Über mich, from "Portrait Homepage.png"
     website/src/app/{favicon.ico,icon.png,apple-icon.png}
     website/public/icons/android-chrome-*.png          incl. maskable
     website/public/og-image-{de,en}.jpg                 Open Graph cards
@@ -131,27 +132,64 @@ def english_headline(hero: Image.Image) -> Image.Image:
     return out.convert("RGB")
 
 
-def build_hero(hero: Image.Image, prefix: str = "hero") -> None:
-    """Three crops around the slogan baked into the image (centre x ~ 932).
+# Phone panels (Homepage Änderungen 8.10.26, slide 2): the title image is cut
+# into three pieces stacked on top of each other, so a phone shows all of it
+# at a readable size instead of a crop. Boxes in source px, measured on
+# "Titelbild Homepage.png": slogan ink x 649-1215 / y 296-481, wardrobe edge
+# x ~1275, foreground books up to x ~735. Only plain wall and table are lost.
+# Living and wardrobe share one aspect ratio (0.897), so side by side on a
+# phone they end on the same line.
+PANELS = {
+    "living": (0, 0, 725, 808),
+    "slogan": (600, 240, 1270, 540),
+    "wardrobe": (1275, 60, 1947, 808),
+}
+# The living panel overlaps the left end of the slogan; those strokes are
+# painted out of that panel only.
+LIVING_SLOGAN_BOX = (275, 495, 630, 725)  # y0, y1, x0, x1
 
-    The slogan is part of the picture, so narrow screens get a tighter crop
-    instead of a full-width strip in which the lettering would be ~5 px tall.
+
+def save_webp(im: Image.Image, name: str, widths) -> None:
+    for w in widths:
+        out = resize_w(im, w) if w < im.width else im
+        path = ASSETS / f"{name}-{out.width}.webp"
+        out.save(path, "WEBP", quality=84, method=6)
+        print(f"  {path.relative_to(ROOT)} {out.size} {path.stat().st_size // 1024} KB")
+
+
+def living_panel(hero: Image.Image) -> Image.Image:
+    import cv2
+
+    im = cv2.cvtColor(np.array(hero.crop(PANELS["living"])), cv2.COLOR_RGB2BGR)
+    g = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
+    bg = cv2.morphologyEx(g, cv2.MORPH_CLOSE, np.ones((19, 19), np.uint8))
+    dark = (bg.astype(int) - g.astype(int)) > 10
+    y0, y1, x0, x1 = LIVING_SLOGAN_BOX
+    top = PANELS["living"][1]
+    mask = np.zeros(g.shape, np.uint8)
+    mask[y0 - top : y1 - top, x0:x1] = dark[y0 - top : y1 - top, x0:x1] * 255
+    mask = cv2.dilate(mask, np.ones((3, 3), np.uint8), iterations=2)
+    clean = cv2.inpaint(im, mask, 5, cv2.INPAINT_TELEA)
+    return Image.fromarray(cv2.cvtColor(clean, cv2.COLOR_BGR2RGB))
+
+
+def build_hero(hero: Image.Image, prefix: str = "hero") -> None:
+    """Full frame for tablet and desktop, three stacked panels for phones.
+
+    The living and wardrobe panels carry no headline, so only the German
+    build writes them; the slogan panel and the full frame exist per language.
     """
-    cx = 932
-    crops = {
-        # name: (crop width in source px, output widths)
-        "wide": (hero.width, (1440, 1947)),
-        "medium": (1560, (800, 1200, 1560)),
-        "narrow": (1077, (640, 1077)),  # 4:3
-    }
-    for name, (cw, widths) in crops.items():
-        left = min(max(cx - cw // 2, 0), hero.width - cw)
-        crop = hero.crop((left, 0, left + cw, hero.height))
-        for w in widths:
-            out = resize_w(crop, w) if w < crop.width else crop
-            path = ASSETS / f"{prefix}-{name}-{w}.webp"
-            out.save(path, "WEBP", quality=84, method=6)
-            print(f"  {path.relative_to(ROOT)} {out.size} {path.stat().st_size // 1024} KB")
+    save_webp(hero, f"{prefix}-full", (800, 1200, 1440, hero.width))
+    save_webp(hero.crop(PANELS["slogan"]), f"{prefix}-slogan", (480, 10_000))
+    if prefix == "hero":
+        save_webp(living_panel(hero), "hero-living", (480, 10_000))
+        save_webp(hero.crop(PANELS["wardrobe"]), "hero-wardrobe", (480, 10_000))
+
+
+def build_portrait(portrait: Image.Image) -> None:
+    """Über mich portrait (slide 16). The source, taken from the change deck,
+    has a 2 px dark line on its left edge; cut it off symmetrically."""
+    save_webp(portrait.crop((4, 0, portrait.width - 4, portrait.height)), "portrait", (480, 10_000))
 
 
 def square(mark: Image.Image, size: int, fill: float, bg=None) -> Image.Image:
@@ -242,6 +280,7 @@ def main() -> None:
     build_hero(hero)
     hero_en = english_headline(hero)
     build_hero(hero_en, prefix="hero-en")
+    build_portrait(Image.open(ROOT / "Portrait Homepage.png").convert("RGB"))
     build_icons(logo)
     build_og(logo, {"de": hero, "en": hero_en})
 

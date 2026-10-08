@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
+/* Full title image from 768 px and on every landscape screen; the stacked
+   phone panels only in portrait below 768 px. Must match FULL_FROM in
+   HeroImage.tsx. */
+@custom-variant full {
+  @media (min-width: 48rem) {
+    @slot;
+  }
+  @media (orientation: landscape) {
+    @slot;
+  }
+}
+
 /*
  * Design system from CI.pptx (Study Retreat 09/26).
  *
@@ -238,20 +250,6 @@
   .link:hover {
     color: var(--color-sage-ink);
     text-decoration-color: currentColor;
-  }
-}
-
-/* ─── Hero ─── */
-/*
- * On laptops and desktops the full frame would push the H1 below the fold
- * (1366x768: H1 at y=742). Cap the height and crop symmetrically around the
- * slogan painted on the wall (at 48 % of the image height).
- */
-@media (min-width: 64rem) {
-  .hero img {
-    max-height: max(22rem, calc(100svh - var(--header-h) - 15rem));
-    object-fit: cover;
-    object-position: 50% 48%;
   }
 }
 
