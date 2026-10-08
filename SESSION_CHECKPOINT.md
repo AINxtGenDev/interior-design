@@ -2,7 +2,7 @@
 
 ## Meta
 
-- Datum: 2026-10-08 (Umzug auf eigene Domain claudiaplessl.at — live)
+- Datum: 2026-10-08 (eigene Domain claudiaplessl.at live; Geschäftsadresse claudiaplessl@gmail.com; Domain ohne Mail abgesichert)
 - Repository: `AINxtGenDev/interior-design` (public)
 - Arbeitskopie: `/home/nuc8/05_development/55_laulau/78_plessl-website`
   (**verschoben am 2026-08-16** — vorher `/home/nuc8/05_development/78_plessl-website`)
@@ -926,6 +926,18 @@ Alle diese Stellen sind auf der Seite als hervorgehobene `[…]`-Marker sichtbar
   Video Frame 7 / STORYBOARD zeigen noch die Punkt-Schreibweise (funktioniert
   weiter; Neu-Rendern optional). Verworfen: Google Workspace (~98 €/Jahr),
   Hetzner Webhosting S (~23 €/Jahr), Gratis-Weiterleitung + Send-as.
+  Live seit Deploy `37744990526` (`489804e`) — an allen 6 Routen geprüft.
+  **DNS-Mail-Bereinigung 2026-10-08** (Domain versendet/empfängt keine
+  Mails): MX, `autoconfig`-CNAME und 4 SRV (Hetzner-Defaults) entfernt; SPF
+  `v=spf1 -all`; neu `_dmarc` TXT `v=DMARC1; p=reject`. SOA-Serial
+  2026100802, an allen 3 Hetzner-Nameservern per dig geprüft; Website,
+  `www`, GitHub-TXT unverändert, Pages-Domain weiter `verified`.
+  Rollback: alte Werte = MX `10 www4.your-server.de.`, SPF
+  `v=spf1 +a +mx ?all`, autoconfig → `mail.your-server.de.`, SRV
+  `_autodiscover/_imaps/_pop3s/_submission._tcp` → `mail.your-server.de.`
+  (443/993/995/587). **Falls später Domain-Mail kommt:** MX/SPF/DKIM neu
+  setzen und DMARC von `reject` auf `none` zurücknehmen, sonst werden
+  eigene Mails abgewiesen.
   **2026-10-08: `claudiaplessl.at` bei Hetzner (konsoleH) registriert**
   (nur Domain, 13,20 €/Jahr inkl. 20 % USt.). Inhaberin Claudia Plessl
   (Typ Person, Feld Organisation „interior-design-plessl"). NIC.AT-whois
