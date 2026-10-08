@@ -1,7 +1,7 @@
 # Mag. Claudia Plessl — Raum & Ordnung
 
-Business website for **Mag. Claudia Plessl**, Interior Designerin and certified
-Ordnungscoach in Vienna and Lower Austria.
+Business website for **Mag. Claudia Plessl**, Interior Designerin and
+Ordnungscoach (certification in progress) in Vienna and Lower Austria.
 
 🔗 **Live:** [claudiaplessl.at](https://claudiaplessl.at/)
 
@@ -30,7 +30,8 @@ from `/en/`.
 
 The palette and type are derived from the brand cover image; the hero and
 detail photography are crops of that same asset, so the site ships no
-third-party imagery.
+third-party imagery. The one real photograph is Claudia's portrait in
+*Über mich* (`Portrait Homepage.png`, taken from the 2026-10-08 change deck).
 
 ### Open Graph cards
 
@@ -78,16 +79,23 @@ uv run --with pillow --with numpy --with opencv-python-headless \
 | Output | From | Notes |
 |---|---|---|
 | `src/assets/logo-{480,960}.webp` | Logo2.png | trimmed to the mark, lossless, with alpha |
-| `src/assets/hero-{narrow,medium,wide}-*.webp` | Titelbild | three crops around the painted slogan |
-| `src/assets/hero-en-*.webp` | Titelbild | same crops, headline painted in English |
+| `src/assets/hero-full-*.webp` | Titelbild | the full frame, tablet and desktop |
+| `src/assets/hero-{slogan,living,wardrobe}-*.webp` | Titelbild | phone panels (`PANELS` in the script) |
+| `src/assets/hero-en-{full,slogan}-*.webp` | Titelbild | same, headline painted in English |
+| `src/assets/portrait-*.webp` | Portrait Homepage.png | Über mich |
 | `favicon.ico`, `icon.png`, `apple-icon.png`, `public/icons/*` | Logo2.png | CP monogram only (rows above 640) |
 
 - **The logo is a plain `<img srcset>`** (`BrandLogo.tsx`), not `next/image`:
   `images.unoptimized` makes `next/image` emit one file and no `srcset`, so a
   3× phone would get either a blurry or an oversized logo.
-- **The title image is art-directed** (`HeroImage.tsx`): 4:3 below 640 px,
-  1.93:1 up to 1199 px, the full 2.41:1 frame above. Its slogan is painted on
-  the wall; at full width on a phone it would be ~5 px tall.
+- **The title image is always shown in full** (`HeroImage.tsx`, client
+  request 2026-10-08): from 768 px the uncropped 2.41:1 frame; below that it
+  is cut into panels — the painted slogan full width on top, living room and
+  wardrobe side by side below — because the slogan in the full frame would be
+  ~7 px tall on a phone. Only plain wall and table are left out. The living
+  panel overlaps the slogan's left end; those strokes are inpainted.
+  There is no height cap any more, so on a 1366×768 laptop the H1 sits below
+  the fold — accepted for the full image.
 - **English page:** only the two German headline lines are removed
   (glyph-stroke mask + inpaint) and "BEAUTIFUL SPACES. / A CLEARER DAY." is
   painted in their place by `english_headline()` — same face, size, colour and
@@ -477,8 +485,9 @@ Notes:
 - The Austrian **Kleinunternehmergrenze is EUR 55,000 gross** as of 2025. The
   business plan projects EUR 52,000, which leaves little headroom — worth
   watching, since crossing it changes the invoicing and the AGB wording.
-- Claudia's academic degree is not on the site; only the certification and
-  ongoing training are listed. Add it in `site.ts` under `about.credentials`.
+- Claudia's academic degree is not on the site; only her interior-design
+  experience, the organizing-coach certification (in training — kept out of
+  the JSON-LD until awarded) and ongoing training are listed. Add it in `site.ts` under `about.credentials`.
 
 ---
 

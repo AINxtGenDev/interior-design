@@ -2,7 +2,7 @@
 
 ## Meta
 
-- Datum: 2026-10-08 (eigene Domain claudiaplessl.at live; Geschäftsadresse claudiaplessl@gmail.com; Domain ohne Mail abgesichert)
+- Datum: 2026-10-08 (Homepage-Änderungen 081026 in Arbeit, siehe unten; eigene Domain claudiaplessl.at live; Geschäftsadresse claudiaplessl@gmail.com; Domain ohne Mail abgesichert)
 - Repository: `AINxtGenDev/interior-design` (public)
 - Arbeitskopie: `/home/nuc8/05_development/55_laulau/78_plessl-website`
   (**verschoben am 2026-08-16** — vorher `/home/nuc8/05_development/78_plessl-website`)
@@ -16,6 +16,33 @@
   „Raum & Ordnung" vs. Logo-Unterzeile klären; rechtliche Platzhalter im
   Impressum/AGB weiterhin offen. (Älterer Stand, Umbenennung 2026-08-17:
   Deploy `32004332796`.)
+
+## Homepage-Änderungen nach `Homepage Änderngen_081026.pptx` (2026-10-08) — **in Arbeit, lokal, nicht gepusht**
+
+**Rollback-Punkt:** Tag `backup/pre-aenderungen-2026-10-08` (= `4eb4c06`, lokal, nicht gepusht) +
+Tarball `../backups/plessl-website_2026-10-08_pre-aenderungen_4eb4c06.tar.gz` (ohne node_modules/.next).
+Zurück: `git reset --hard backup/pre-aenderungen-2026-10-08` (nur nach Rückfrage).
+
+Deck: 16 Folien. Folien 2–3 + 10–16 = Website, **Folien 4–9 = Vorstellungsvideo** (CI-Schrift,
+Bild unaufgeräumter Schrank, Porträt auf Sage light statt Logo, neue Texte, Endkarte Logo/Bild/Kontakt,
+**neuer gesprochener Satz → Voice-Clone neu**). Nutzerentscheid: erst Website, Video danach separat
+in `79_plessl-video`. Folie 14 = Einleitungssatz „Drei Situationen…" weg; Folie 15 (leer) = unverändert;
+EN wird mitübersetzt.
+
+Umgesetzt (lokal, Build/Lint/TS grün):
+- Header-Container `max-w-[1947px]` (Logo links / Menü rechts am Bildrand).
+- Hero: < 640 px drei gestapelte Paneele (Wohnraum / Slogan / Garderobe), ab 640 px volles Bild;
+  Laptop-Höhenbegrenzung (object-fit cover) entfernt → H1 auf 1366×768 unter dem Falz (bewusst).
+  `build_web_assets.py`: `PANELS`, `living_panel()` (Slogan-Reste per Inpainting entfernt), `build_portrait()`.
+  Alte `hero-{narrow,medium,wide}`-Dateien gelöscht.
+- Texte DE/EN: Hero-Lead, Angebot-Lead, Raumgestaltung (Lead + 4 Punkte), Re-Design (Punkt + Preis),
+  Workshops „Werden in Kürze angeboten.", Für-wen-Einleitung entfernt.
+- Preise: Gestaltungsberatung 280 → **320**; neue Paketzeile **Re-Design-Beratung ab EUR 280** (Index-Verweise angepasst).
+- Über mich: Porträt (`Portrait Homepage.png` aus Folie 6), Layout nach Folie 16, „Über 10 Jahre Erfahrung…",
+  „Zertifizierter Ordnungscoach (in Ausbildung)" — in JSON-LD `hasCredential` herausgefiltert (`inTraining`).
+
+Prüfung läuft: Subagent „mobile-critic" (Lesbarkeit Handy) + „content-verifier" (DE/EN, Preise, JSON-LD).
+Danach: Befunde einarbeiten → Nutzer-Freigabe → Push (= Produktion) → live prüfen. Dann Video (Folien 4–9).
 
 ## CI-Redesign nach `CI.pptx` (2026-10-02) — **live**
 
