@@ -2,7 +2,7 @@
 
 ## Meta
 
-- Datum: 2026-10-08 (Homepage-Änderungen 081026 in Arbeit, siehe unten; eigene Domain claudiaplessl.at live; Geschäftsadresse claudiaplessl@gmail.com; Domain ohne Mail abgesichert)
+- Datum: 2026-10-08 (Homepage-Änderungen 081026 live seit 21:42, siehe unten; eigene Domain claudiaplessl.at live; Geschäftsadresse claudiaplessl@gmail.com; Domain ohne Mail abgesichert)
 - Repository: `AINxtGenDev/interior-design` (public)
 - Arbeitskopie: `/home/nuc8/05_development/55_laulau/78_plessl-website`
   (**verschoben am 2026-08-16** — vorher `/home/nuc8/05_development/78_plessl-website`)
@@ -17,7 +17,7 @@
   Impressum/AGB weiterhin offen. (Älterer Stand, Umbenennung 2026-08-17:
   Deploy `32004332796`.)
 
-## Homepage-Änderungen nach `Homepage Änderngen_081026.pptx` (2026-10-08) — **fertig lokal, nicht gepusht**
+## Homepage-Änderungen nach `Homepage Änderngen_081026.pptx` (2026-10-08) — **LIVE** (Deploy `37833797964`, success)
 
 **Rollback-Punkt:** Tag `backup/pre-aenderungen-2026-10-08` (= `4eb4c06`, lokal, nicht gepusht) +
 Tarball `../backups/plessl-website_2026-10-08_pre-aenderungen_4eb4c06.tar.gz` (ohne node_modules/.next).
@@ -56,8 +56,13 @@ FAQ „per Grundriss und Fotos", README, `.gitignore` `*.pptx`.
 - Über-mich-Text „gebe ich das Handwerk in Workshops weiter" (Gegenwart).
 - **Video (Blocker für Konsistenz):** sagt „Zertifizierter Ordnungscoach" (Ton, Bild, VTT) → Folien 4–9-Job.
 - Handout `handout/` veraltet (EUR 280, zertifiziert, Workshops).
-Nächster Schritt: Nutzer-Freigabe → `git push` (= Deploy) → live prüfen. Danach Video in `79_plessl-video`.
-Lokale Vorschau: `python3 -m http.server 5000 --bind 0.0.0.0` in `website/out` (Port 5000 ist in ufw offen,
+**Gepusht 2026-10-08 ~21:41** (`4eb4c06..1e261f2`, Nutzer: „commit and push"), Deploy `37833797964` success.
+Live geprüft (curl, Cache-Buster): `/`, `/en/`, `/impressum/`, `/datenschutz/`, `/agb/` = 200;
+`hero-phone-633`, `hero-en-phone-633`, `portrait-480` = 200; „Re-Design-Beratung", „320", „in Ausbildung",
+„Über 10 Jahre Erfahrung", „Werden in Kürze angeboten" vorhanden, „Drei Situationen" weg.
+Rollback live: `git revert 4eb4c06..HEAD` + push (oder Tag `backup/pre-aenderungen-2026-10-08`, nur nach Rückfrage).
+Nächster Schritt: offene Punkte oben mit Claudia klären; danach Video (Folien 4–9) in `79_plessl-video`.
+Lokale Vorschau (nach Deploy gestoppt): `python3 -m http.server 5000 --bind 0.0.0.0` in `website/out` (Port 5000 ist in ufw offen,
 8765 nicht) → Handy im WLAN: `http://192.168.178.24:5000/`.
 
 **Korrektur Nutzer (21:37): Handy muss das ganze Bild zeigen wie Folie 2 „Handy".** Das Handy-Mockup
