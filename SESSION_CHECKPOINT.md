@@ -918,6 +918,23 @@ Alle diese Stellen sind auf der Seite als hervorgehobene `[…]`-Marker sichtbar
   Logos (die Seite ist aktuell bewusst light-only, also noch kein Problem).
 - Akademischer Titel/Studium fehlt bei den Qualifikationen (`site.ts`).
 - Eigene Domain und domainbasierte E-Mail-Adresse statt `@gmail.com`.
+  **2026-10-08: `claudiaplessl.at` bei Hetzner (konsoleH) registriert**
+  (nur Domain, 13,20 €/Jahr inkl. 20 % USt.). Inhaberin Claudia Plessl
+  (Typ Person, Feld Organisation „interior-design-plessl"). NIC.AT-whois
+  bestätigt: Registrar Hetzner, Nameserver ns1.your-server.de /
+  ns.second-ns.com / ns3.second-ns.de.
+  **DNS 2026-10-08 gesetzt** (Hetzner Console → DNS → Zonefile-Import,
+  SOA-Serial 2026100801): Apex A 185.199.108–111.153, AAAA
+  2606:50c0:8000–8003::153, `www` CNAME `ainxtgendev.github.io.`, TXT
+  `_github-pages-challenge-ainxtgendev` (Hetzner lehnt Großbuchstaben ab;
+  DNS ist case-insensitiv). Hetzner-Mail-Defaults (MX/SRV/SPF/autoconfig)
+  unverändert. Vorher: A/AAAA auf Hetzner-Webhosting 88.198.219.246 /
+  2a01:4f8:d0a:27bd::2 — Rollback = Zonefile mit diesen Werten
+  re-importieren. An `ns1.your-server.de` per dig geprüft.
+  **Offen:** .at-Delegation war um ~09:00 noch nicht aktiv → danach Domain
+  unter github.com/settings/pages verifizieren („Verify"); dann
+  Site-Umstellung als eigener Schritt (README „Custom domain": `BASE_PATH`,
+  Custom Domain im Repo, `SITE_URL`, Origin im `keep-live-assets`-Schritt).
 - ~~Musik im Video ersetzen (Queen-Titel)~~ — am 2026-08-16 erledigt (Suno-
   Instrumental, siehe „Vorstellungsvideo"); offen ist nur noch die Suno-Lizenz.
 - Echte Vorher-Nachher-Referenzen für einen Projekte-Abschnitt sammeln.
