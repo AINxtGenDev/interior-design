@@ -2,11 +2,12 @@
 
 ## Meta
 
-- Datum: 2026-10-02 (CI-Redesign, Film mit neuem Logo und OG-Karten live — siehe unten)
+- Datum: 2026-10-08 (Umzug auf eigene Domain claudiaplessl.at — live)
 - Repository: `AINxtGenDev/interior-design` (public)
 - Arbeitskopie: `/home/nuc8/05_development/55_laulau/78_plessl-website`
   (**verschoben am 2026-08-16** — vorher `/home/nuc8/05_development/78_plessl-website`)
-- Live: https://ainxtgendev.github.io/interior-design/
+- Live: **https://claudiaplessl.at/** (seit 2026-10-08; `www` und die alte
+  URL `ainxtgendev.github.io/interior-design/…` leiten per 301 dorthin um)
 - Status (2026-10-02): Website auf neuer CI (`CI.pptx`, `Logo2.png`,
   Titelbild) live, DE und EN, DE|EN-Umschalter. Vorstellungsvideo mit neuem
   Logo neu gerendert (Ton unverändert) und live; Open-Graph-Karten neu und
@@ -933,8 +934,22 @@ Alle diese Stellen sind auf der Seite als hervorgehobene `[…]`-Marker sichtbar
   re-importieren. An `ns1.your-server.de` per dig geprüft.
   .at-Delegation ~09:05 aktiv; Domain unter github.com/settings/pages für
   Konto AINxtGenDev **verifiziert** (TXT-Record nicht löschen, sonst
-  verfällt die Verifizierung). **Offen:** Site-Umstellung als eigener Schritt (README „Custom domain": `BASE_PATH`,
-  Custom Domain im Repo, `SITE_URL`, Origin im `keep-live-assets`-Schritt).
+  verfällt die Verifizierung).
+  **Site umgestellt 2026-10-08 — live:** Commit `5c938f0` (kein basePath
+  mehr, `SITE_URL` = `https://claudiaplessl.at/`, keep-live-assets-Origin
+  neu, README), Custom Domain per `gh api` gesetzt, Deploy `37741752932`
+  success. Geprüft (über GitHub-IP): alle 6 Routen, robots.txt, Sitemap,
+  Manifest, Video, OG-Bild, CSS = 200; Zertifikat (Let's Encrypt via GitHub)
+  für Apex + `www`, gültig bis 2027-01-06; HTTPS erzwungen, http → 301 https.
+  Rollback: `git revert 5c938f0` + `gh api -X PUT
+  repos/AINxtGenDev/interior-design/pages -F cname=`.
+  **Hinweis:** Lokaler DNS `192.168.1.35` hatte ~09:10 noch ein
+  NXDOMAIN aus der Zeit vor der Delegation im Cache (läuft von selbst ab).
+  **Offen:** JSON-LD mit Schema Markup Validator / Rich Results Test an der
+  neuen URL prüfen; alte URL noch im Handout
+  (`handout/claudia-plessl-uebersicht.html`) und im gerenderten Video
+  (Frame 7) — beide leiten um, Aktualisierung optional; `llms.txt` offen;
+  Google Search Console für die neue Domain anlegen (optional).
 - ~~Musik im Video ersetzen (Queen-Titel)~~ — am 2026-08-16 erledigt (Suno-
   Instrumental, siehe „Vorstellungsvideo"); offen ist nur noch die Suno-Lizenz.
 - Echte Vorher-Nachher-Referenzen für einen Projekte-Abschnitt sammeln.
