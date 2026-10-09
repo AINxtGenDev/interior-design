@@ -12,7 +12,9 @@
   Screenshot-Aufträgen umgesetzt und live (Einzelheiten je Abschnitt unten): „Für wen ich arbeite"
   entfernt · Ordnungscoach „(i.A.)" · „Gepr. ArbeitsplatzExpertin" ergänzt · „Laufende Fortbildung"
   entfernt · Projekte-Collage `Bild Projekte.png` · Pakete & Preise auf `#e9eaec` · vCard-QR im Kontakt · **Video Frame 1 neues Schrankbild** (`6ee860b`) · **Video Frame 3 Logo unter der Linie** (`7e8fd77`) · Video-Bildunterschrift ohne Dauer (`c7d5c23`) · **Video Frame 4 neue Bilder Ordnung/Gestaltung** (`09c724f`) · **Video Szene 6 „Warum mit mir" gestrichen, Film 58 s** (`2e5f248`). · **Workshops ohne Preis/Aufzählung, Paket „Workshop" entfernt (7 Pakete)** (`a1222f5`) · **Über mich: Qualifikation als eigener Kartenblock, Grundsätze rechts unter dem Text** (`675ab16`) · **Handout auf Website-Stand** (`8223bd2`, nur lokal, nicht deployt) · **Impressum: GISA/Gewerbewortlaut/BH Tulln, UID entfernt** (`8ecf358`).
-  Letzte Prüfung (2026-10-09, `782e760`, Deploy `37965180956` success): alle 6 Routen live 200. Davor (`2e5f248`): `vorstellung.mp4` (`3f7edc26…`), `-de.vtt`, `-poster.jpg` live = lokal; JSON-LD `PT58S`. Lighthouse mobil `/` (lokal) zuletzt 100/100/100/100 (vor den Video-Änderungen, nicht neu gemessen).
+  Letzte Prüfung (2026-10-09 abends, Stand `46ca1d9`, live): 6 Seiten + robots/sitemap/manifest 200; alle 25 verlinkten
+  Assets 200; JSON-LD parsebar; 7 Pakete, kein „350", Qualifikationsblock da; Impressum 2× GISA, kein UID, FG gesetzt;
+  Browser 393 px alle 6 Seiten: kein Überlauf, keine kaputten Bilder, keine Konsolenfehler. Davor (`2e5f248`): `vorstellung.mp4` (`3f7edc26…`), `-de.vtt`, `-poster.jpg` live = lokal; JSON-LD `PT58S`. Lighthouse mobil `/` (lokal) zuletzt 100/100/100/100 (vor den Video-Änderungen, nicht neu gemessen).
 - **Offen — mit Claudia klären:**
   - ArbeitsplatzExpertin: Beschreibungszeile, EN-Titel „Certified Workplace Expert", Schreibweise
     „Mensch & Büro-Akademie".
