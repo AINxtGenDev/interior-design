@@ -2,20 +2,29 @@
 
 ## Meta
 
-- Datum: 2026-10-09 (Pakete & Preise Hintergrund #e9eaec; Projekte-Bild durch „Bild Projekte.png" ersetzt; „Laufende Fortbildung" entfernt; Qualifikation „Gepr. ArbeitsplatzExpertin" ergänzt; „in Ausbildung" → „i.A."; Abschnitt „Für wen ich arbeite" entfernt; Homepage-Änderungen 081026 live seit 21:42, siehe unten; eigene Domain claudiaplessl.at live; Geschäftsadresse claudiaplessl@gmail.com; Domain ohne Mail abgesichert)
+- Datum: 2026-10-09 (alles gepusht und live)
 - Repository: `AINxtGenDev/interior-design` (public)
 - Arbeitskopie: `/home/nuc8/05_development/55_laulau/78_plessl-website`
   (**verschoben am 2026-08-16** — vorher `/home/nuc8/05_development/78_plessl-website`)
 - Live: **https://claudiaplessl.at/** (seit 2026-10-08; `www` und die alte
   URL `ainxtgendev.github.io/interior-design/…` leiten per 301 dorthin um)
-- Status (2026-10-02): Website auf neuer CI (`CI.pptx`, `Logo2.png`,
-  Titelbild) live, DE und EN, DE|EN-Umschalter. Vorstellungsvideo mit neuem
-  Logo neu gerendert (Ton unverändert) und live; Open-Graph-Karten neu und
-  live; Deploy-Schutz gegen ungestylte Seiten aus dem Cache aktiv.
-  **Offen:** Re-Design-Text von Claudia bestätigen lassen; Firmenwortlaut
-  „Raum & Ordnung" vs. Logo-Unterzeile klären; rechtliche Platzhalter im
-  Impressum/AGB weiterhin offen. (Älterer Stand, Umbenennung 2026-08-17:
-  Deploy `32004332796`.)
+- Status (2026-10-09): Website live auf CI-Stand, DE und EN, Video 72 s live. Am 2026-10-09 per
+  Screenshot-Aufträgen umgesetzt und live (Einzelheiten je Abschnitt unten): „Für wen ich arbeite"
+  entfernt · Ordnungscoach „(i.A.)" · „Gepr. ArbeitsplatzExpertin" ergänzt · „Laufende Fortbildung"
+  entfernt · Projekte-Collage `Bild Projekte.png` · Pakete & Preise auf `#e9eaec`.
+  Letzte Prüfung: `/` + `/en/` 200 nach `d4f4156` (alle 6 Routen 200 bei `36c355d`); Lighthouse mobil `/` (lokal) 100/100/100/100.
+- **Offen — mit Claudia klären:**
+  - ArbeitsplatzExpertin: Beschreibungszeile, EN-Titel „Certified Workplace Expert", Schreibweise
+    „Mensch & Büro-Akademie".
+  - EN-Projekte-Collage (DE-Collage hat Texte eingebrannt; EN zeigt flache Live-Text-Kacheln).
+  - Rosa Linie/Kartenränder in Pakete & Preise auch grau? (bewusst nicht geändert)
+  - Workshops „in Kürze" vs. Preise/Nav/JSON-LD; „Zahlreiche umgesetzte Projekte" vs. Projekte-Text;
+    Video sagt noch „Zertifizierter Ordnungscoach"; Handout veraltet (siehe Abschnitt 2026-10-08).
+  - Re-Design-Text bestätigen; Firmenwortlaut „Raum & Ordnung" vs. Logo-Unterzeile; rechtliche
+    Platzhalter in Impressum/AGB.
+  - `Logo_kurz.png` liegt ungetrackt im Repo-Root — Zweck unklar, nicht committet.
+- Arbeitsweise: Änderung → `tsc`/`eslint`/`npm run build` → lokal `out/` auf Port 5000 im Browser prüfen →
+  Commit + Push → Deploy abwarten → Live per curl prüfen → Checkpoint „LIVE" nachtragen.
 
 ## Pakete & Preise: Hintergrund Blush → `#e9eaec` (2026-10-09, Nutzerauftrag per Screenshot) — **LIVE** (`d4f4156`, Deploy `37895991378` success)
 
