@@ -163,6 +163,8 @@ export type Content = {
     addressLabel: string;
     areaLabel: string;
     area: string;
+    qrAlt: string;
+    qrCaption: string;
     mailSubject: string;
     mailBody: string;
   };
@@ -448,6 +450,8 @@ const de: Content = {
     addressLabel: "Anschrift",
     areaLabel: "Einsatzgebiet",
     area: "Wien und Niederösterreich, bis rund 60 Minuten Fahrzeit",
+    qrAlt: "QR-Code mit meinen Kontaktdaten als elektronische Visitenkarte (vCard)",
+    qrCaption: "QR-Code scannen und Kontakt direkt im Handy speichern.",
     mailSubject: "Anfrage Raumcheck",
     mailBody:
       "Guten Tag Frau Plessl,\n\nich interessiere mich für einen Raumcheck.\n\nUm welche Räume geht es?\n\nWo befindet sich das Objekt?\n\nWas soll sich verändern?\n\nMit freundlichen Grüßen\n",
@@ -692,6 +696,8 @@ const en: Content = {
     addressLabel: "Address",
     areaLabel: "Service area",
     area: "Vienna and Lower Austria, up to roughly 60 minutes' travel",
+    qrAlt: "QR code with my contact details as an electronic business card (vCard)",
+    qrCaption: "Scan the QR code to save my contact straight to your phone.",
     mailSubject: "Space check enquiry",
     mailBody:
       "Dear Ms Plessl,\n\nI am interested in a space check.\n\nWhich rooms are involved?\n\nWhere is the property located?\n\nWhat would you like to change?\n\nKind regards\n",

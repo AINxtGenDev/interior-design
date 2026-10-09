@@ -10,7 +10,7 @@ import projectsLiving from "@/assets/projects-living-610.webp";
 import projectsOrder from "@/assets/projects-order-610.webp";
 import portrait480 from "@/assets/portrait-480.webp";
 import portrait1045 from "@/assets/portrait-1045.webp";
-import { CONTACT, getContent, type Locale } from "@/content/site";
+import { ASSET_PREFIX, CONTACT, getContent, type Locale } from "@/content/site";
 import { buildHomeGraph } from "@/content/schema";
 import SiteHeader, { SECTION_IDS } from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
@@ -354,9 +354,25 @@ export default function HomePage({ locale }: { locale: Locale }) {
                   <span className="sr-only">{c.contact.phoneLabel}: </span>
                   {CONTACT.phone}
                 </a>
+                {/* vCard QR (81 modules, error correction H, logo inside). The
+                    SVG brings its own white quiet zone. 288 px (fits a 320 px
+                    phone) so both test decoders read it from a 1x screenshot. */}
+                <figure className="mt-6">
+                  {/* eslint-disable-next-line @next/next/no-img-element -- static SVG from public/ */}
+                  <img
+                    src={`${ASSET_PREFIX}/claudia-plessl-vcard-logo-cp.svg`}
+                    width={288}
+                    height={288}
+                    alt={c.contact.qrAlt}
+                    loading="lazy"
+                    decoding="async"
+                    className="size-72 rounded"
+                  />
+                  <figcaption className="small mt-3 text-sage-light">{c.contact.qrCaption}</figcaption>
+                </figure>
               </div>
 
-              <dl className="grid gap-6">
+              <dl className="grid content-start gap-6">
                 <div>
                   <dt className="eyebrow text-sage-light">{c.contact.emailLabel}</dt>
                   <dd className="mt-1">

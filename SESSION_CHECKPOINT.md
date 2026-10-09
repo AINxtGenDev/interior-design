@@ -11,7 +11,7 @@
 - Status (2026-10-09): Website live auf CI-Stand, DE und EN, Video 72 s live. Am 2026-10-09 per
   Screenshot-Aufträgen umgesetzt und live (Einzelheiten je Abschnitt unten): „Für wen ich arbeite"
   entfernt · Ordnungscoach „(i.A.)" · „Gepr. ArbeitsplatzExpertin" ergänzt · „Laufende Fortbildung"
-  entfernt · Projekte-Collage `Bild Projekte.png` · Pakete & Preise auf `#e9eaec`.
+  entfernt · Projekte-Collage `Bild Projekte.png` · Pakete & Preise auf `#e9eaec` · vCard-QR im Kontakt.
   Letzte Prüfung: `/` + `/en/` 200 nach `d4f4156` (alle 6 Routen 200 bei `36c355d`); Lighthouse mobil `/` (lokal) 100/100/100/100.
 - **Offen — mit Claudia klären:**
   - ArbeitsplatzExpertin: Beschreibungszeile, EN-Titel „Certified Workplace Expert", Schreibweise
@@ -22,9 +22,22 @@
     Video sagt noch „Zertifizierter Ordnungscoach"; Handout veraltet (siehe Abschnitt 2026-10-08).
   - Re-Design-Text bestätigen; Firmenwortlaut „Raum & Ordnung" vs. Logo-Unterzeile; rechtliche
     Platzhalter in Impressum/AGB.
+  - **vCard-QR enthält keine Telefonnummer** (`TEL` fehlt) — neuen QR mit Telefon erzeugen lassen?
   - `Logo_kurz.png` liegt ungetrackt im Repo-Root — Zweck unklar, nicht committet.
 - Arbeitsweise: Änderung → `tsc`/`eslint`/`npm run build` → lokal `out/` auf Port 5000 im Browser prüfen →
   Commit + Push → Deploy abwarten → Live per curl prüfen → Checkpoint „LIVE" nachtragen.
+
+## vCard-QR im Kontaktabschnitt (2026-10-09, Nutzerauftrag)
+
+`claudia-plessl-vcard-logo-cp.svg` (vom Nutzer, 890², 81 Module, Fehlerkorrektur **H**, CP-Logo 13×13 Module
+in der Mitte, eigene weiße Ruhezone) nach `website/public/` verschoben; links unter den Kontakt-Buttons als
+`<figure>` 288×288 CSS-px mit Bildunterschrift + Alt-Text DE/EN (`contact.qrAlt`, `contact.qrCaption`).
+Inhalt (dekodiert): N/FN, Adresse, E-Mail, URL — alles ohnehin öffentlich; **keine Telefonnummer**.
+Lesbarkeit geprüft (zxing-cpp + OpenCV): SVG gerendert 120–890 px → zxing ab 120, OpenCV ab 240;
+Browser-Screenshot bei 288 px/DPR 1 → zxing ✓, OpenCV erst bei DPR 2 ✓ (Handys/Laptops); Kontrast 6,1:1.
+`<dl>` rechts `content-start`, sonst zog der höhere linke Block die Zeilen auseinander.
+Lighthouse mobil `/en/` 100/100/100/100, kein Überlauf (passt auf 320 px: 288 + 2×16).
+Empfehlung: einmal mit echtem Handy vom Bildschirm scannen.
 
 ## Pakete & Preise: Hintergrund Blush → `#e9eaec` (2026-10-09, Nutzerauftrag per Screenshot) — **LIVE** (`d4f4156`, Deploy `37895991378` success)
 
