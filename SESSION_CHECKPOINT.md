@@ -12,7 +12,8 @@
   Screenshot-Aufträgen umgesetzt und live (Einzelheiten je Abschnitt unten): „Für wen ich arbeite"
   entfernt · Ordnungscoach „(i.A.)" · „Gepr. ArbeitsplatzExpertin" ergänzt · „Laufende Fortbildung"
   entfernt · Projekte-Collage `Bild Projekte.png` · Pakete & Preise auf `#e9eaec` · vCard-QR im Kontakt · **Video Frame 1 neues Schrankbild** (`6ee860b`) · **Video Frame 3 Logo unter der Linie** (`7e8fd77`) · Video-Bildunterschrift ohne Dauer (`c7d5c23`).
-  Letzte Prüfung: `/` + `/en/` 200 nach `d4f4156` (alle 6 Routen 200 bei `36c355d`); Lighthouse mobil `/` (lokal) 100/100/100/100.
+  Letzte Prüfung: `/` + `/en/` 200 + Bildunterschrift live nach `c7d5c23`; alle 6 Routen 200 und `vorstellung.mp4` SHA-256 `815b9e07…` = lokal
+  bei `7e8fd77`. Lighthouse mobil `/` (lokal) zuletzt 100/100/100/100 (vor den Video-Änderungen, nicht neu gemessen).
 - **Offen — mit Claudia klären:**
   - ArbeitsplatzExpertin: Beschreibungszeile, EN-Titel „Certified Workplace Expert", Schreibweise
     „Mensch & Büro-Akademie".
@@ -26,6 +27,12 @@
   `Video Ordnung Gestaltung.png` = nur zum Testen.
 - Arbeitsweise: Änderung → `tsc`/`eslint`/`npm run build` → lokal `out/` auf Port 5000 im Browser prüfen →
   Commit + Push → Deploy abwarten → Live per curl prüfen → Checkpoint „LIVE" nachtragen.
+  Video-Änderungen: Frame in `79_plessl-video/…/compositions/frames/` → `npm run check` → `hyperframes@0.8.2 snapshot`
+  → Critic-Subagent → `render -q standard --crf 26 -o renders/claudia-plessl-promo-web-VO-only.mp4` → MD5-Wächter in
+  `scripts/render_{vo_only,web_mix}.sh` nachziehen → beide Skripte → MP4 nach `website/public/video/vorstellung.mp4`,
+  geänderte Frames nach `video-source/` spiegeln. Lokal Video prüfen nur mit Range-Server
+  (`npx http-server@14.1.1 -p 5000 -s` in `website/out`; `python -m http.server` kann nicht seeken) und `?cb=` gegen Cache.
+- Nächste Schritte: offene Punkte oben mit Claudia klären; Video-Takes abhören lassen (Key bis ~2026-10-15).
 
 ## Video-Bildunterschrift ohne Laufzeit (2026-10-09, Nutzerauftrag) — **LIVE** (`c7d5c23`, Deploy `37957513816` success)
 
@@ -105,7 +112,6 @@ Neue Kunden-Collage (1254², 2×2, **deutsche Kacheltexte eingebrannt**: „Räu
   Claudia eine liefert.
 - `detail-{living,order}.webp` entfernt (verwaist). Asset-Neubau: alle übrigen Dateien byte-identisch.
 - Build/tsc/eslint grün; lokal DE/EN geprüft: richtige Bilder geladen, keine Konsolenfehler, kein Überlauf.
-- `Logo_kurz.png` liegt ungetrackt im Repo-Root — nicht angefasst, nicht committet.
 
 ## Qualifikation „Laufende Fortbildung" entfernt (2026-10-09, Nutzerauftrag per Screenshot) — **LIVE** (`33af442`, Deploy `37893421377` success)
 
