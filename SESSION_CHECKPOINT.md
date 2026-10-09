@@ -8,18 +8,18 @@
   (**verschoben am 2026-08-16** — vorher `/home/nuc8/05_development/78_plessl-website`)
 - Live: **https://claudiaplessl.at/** (seit 2026-10-08; `www` und die alte
   URL `ainxtgendev.github.io/interior-design/…` leiten per 301 dorthin um)
-- Status (2026-10-09): Website live auf CI-Stand, DE und EN, Video 72 s live. Am 2026-10-09 per
+- Status (2026-10-09): Website live auf CI-Stand, DE und EN, Video **58 s** live. Am 2026-10-09 per
   Screenshot-Aufträgen umgesetzt und live (Einzelheiten je Abschnitt unten): „Für wen ich arbeite"
   entfernt · Ordnungscoach „(i.A.)" · „Gepr. ArbeitsplatzExpertin" ergänzt · „Laufende Fortbildung"
-  entfernt · Projekte-Collage `Bild Projekte.png` · Pakete & Preise auf `#e9eaec` · vCard-QR im Kontakt · **Video Frame 1 neues Schrankbild** (`6ee860b`) · **Video Frame 3 Logo unter der Linie** (`7e8fd77`) · Video-Bildunterschrift ohne Dauer (`c7d5c23`) · **Video Frame 4 neue Bilder Ordnung/Gestaltung** (`09c724f`).
-  Letzte Prüfung (`09c724f`): alle 6 Routen 200; `vorstellung.mp4` (`ecc3b424…`) und `-poster.jpg` live = lokal. Lighthouse mobil `/` (lokal) zuletzt 100/100/100/100 (vor den Video-Änderungen, nicht neu gemessen).
+  entfernt · Projekte-Collage `Bild Projekte.png` · Pakete & Preise auf `#e9eaec` · vCard-QR im Kontakt · **Video Frame 1 neues Schrankbild** (`6ee860b`) · **Video Frame 3 Logo unter der Linie** (`7e8fd77`) · Video-Bildunterschrift ohne Dauer (`c7d5c23`) · **Video Frame 4 neue Bilder Ordnung/Gestaltung** (`09c724f`) · **Video Szene 6 „Warum mit mir" gestrichen, Film 58 s** (`2e5f248`).
+  Letzte Prüfung (`2e5f248`): alle 6 Routen 200; `vorstellung.mp4` (`3f7edc26…`), `-de.vtt`, `-poster.jpg` live = lokal; JSON-LD `PT58S`. Lighthouse mobil `/` (lokal) zuletzt 100/100/100/100 (vor den Video-Änderungen, nicht neu gemessen).
 - **Offen — mit Claudia klären:**
   - ArbeitsplatzExpertin: Beschreibungszeile, EN-Titel „Certified Workplace Expert", Schreibweise
     „Mensch & Büro-Akademie".
   - EN-Projekte-Collage (DE-Collage hat Texte eingebrannt; EN zeigt flache Live-Text-Kacheln).
   - Rosa Linie/Kartenränder in Pakete & Preise auch grau? (bewusst nicht geändert)
   - Workshops „in Kürze" vs. Preise/Nav/JSON-LD; „Zahlreiche umgesetzte Projekte" vs. Projekte-Text;
-    Video sagt noch „Zertifizierter Ordnungscoach"; Handout veraltet (siehe Abschnitt 2026-10-08).
+    ~~Video sagt noch „Zertifizierter Ordnungscoach"~~ (erledigt: Szene 6 gestrichen); Handout veraltet (siehe Abschnitt 2026-10-08).
   - Re-Design-Text bestätigen; Firmenwortlaut „Raum & Ordnung" vs. Logo-Unterzeile; rechtliche
     Platzhalter in Impressum/AGB.
 - Ungetrackt im Repo-Root, **bewusst nicht committen** (Nutzer 2026-10-09): `Logo_kurz.png` = Initialen des Nutzers („my initials");
@@ -33,6 +33,23 @@
   geänderte Frames nach `video-source/` spiegeln. Lokal Video prüfen nur mit Range-Server
   (`npx http-server@14.1.1 -p 5000 -s` in `website/out`; `python -m http.server` kann nicht seeken) und `?cb=` gegen Cache.
 - Nächste Schritte: offene Punkte oben mit Claudia klären; Video-Takes abhören lassen (Key bis ~2026-10-15).
+
+## Video: Szene 6 „Warum mit mir" gestrichen, Film 58,2 s (2026-10-09, Nutzerauftrag) — **LIVE** (`2e5f248`, Deploy `37962189609` success)
+
+Rückfrage per Auswahl → Nutzer: **ganze Szene + Sprechzeile** entfernen (Bildtexte „Über 10 Jahre …", „Zertifizierter
+Ordnungscoach (in Ausbildung)", „Diskret, ohne Urteil", „Ein System, das bleibt"; VO Zeile 6).
+- Videoprojekt (`85ae957`): Frame 6 aus `index.html` und Datei gelöscht; Frame 7 Start 62,2 → **48,2 s**; Film 72,2 → **58,2 s**.
+  `vo-timeline.wav`: 48,2–62,2 s herausgeschnitten (beide Schnitte in Sprechpausen; Rest sample-identisch geprüft).
+  `bed.mp3` mit `build_bgm_bed.sh casa_in_ordine.mp3 106.3` neu auf 58,2 s (−33,4 LUFS, Ausblendung am neuen Ende).
+  VTT: Cues 8/9 weg, Endkarten-Cue 48,2–54,4 s (VO-Einsatz gemessen 48,21 s). Videospur-MD5 `3f15caa9…`, −14,5 LUFS.
+- Bild 0–48,2 s unverändert (alle Frames PSNR ≥ 60 dB), Endkarte = alte 62,2–72,2 s bis auf Encoderrauschen (SSIM 0,998).
+- Website: `vorstellung.mp4` + `-de.vtt` neu, `schema.ts` `VIDEO_DURATION` `PT1M12S` → `PT58S`, `VIDEO_UPLOAD_DATE` → 2026-10-09
+  (Datei heute mehrfach geändert). Poster t = 29 s pixelgleich → unverändert. Überschrift „In einer Minute erklärt" passt jetzt wieder.
+- Getestet lokal (chrome-devtools): iPhone 15 393×852 DE — Dauer 58,2, 8 Cues, Endkarte ok, Bildunterschrift „Vorstellungsvideo",
+  kein Überlauf, keine Konsolenfehler; Desktop 1920×1080 EN — 58,2 s, Player 360 px, „Introduction". Alle 9 lokalen Pfade 200.
+- Hinweis `npm run check`: neue Kontrast-Warnung in **Frame 5** bei t = 42,03 s (Station mitten im Einblenden, 2,37:1) — Frame 5
+  unverändert, nur der Stichproben-Zeitpunkt verschob sich mit der neuen Länge.
+- Rollback: `git revert 2e5f248` (Website) bzw. `git revert 85ae957` (Projekt).
 
 ## Video Frame 4: neue Bilder Ordnung | Gestaltung (2026-10-09, Nutzerauftrag) — **LIVE** (`09c724f`, Deploy `37960533665` success)
 
