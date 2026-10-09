@@ -54,6 +54,8 @@ innehalten, der letzte Satz warm und persönlich.
 
 ## Line 6 — Vertrauen (Frame 6)
 
+> **Entfernt 2026-10-09 (Nutzerauftrag):** Szene und Sprechzeile 6 sind aus dem Film gestrichen. Frame 7 beginnt jetzt bei 48,2 s, Film 58,2 s; `vo-timeline.wav` ohne 48,2–62,2 s, `bed.mp3` neu auf 58,2 s.
+
 **Time:** 48.2 – 62.2s (neu seit 2026-10-08, Folie 8 — die Zertifizierung läuft noch)
 **Delivery:** Leiser, verbindlicher. „ohne Urteil" ohne Nachdruck sprechen — es wirkt stärker.
 

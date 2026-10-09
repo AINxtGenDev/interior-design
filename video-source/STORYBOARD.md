@@ -215,6 +215,8 @@ Scene 5 (9.0–10.4s): gehalten auf Station 03.
 
 ## Frame 6 — Warum mit mir
 
+> **Entfernt 2026-10-09 (Nutzerauftrag):** Szene und Sprechzeile 6 sind aus dem Film gestrichen. Frame 7 beginnt jetzt bei 48,2 s, Film 58,2 s; `vo-timeline.wav` ohne 48,2–62,2 s, `bed.mp3` neu auf 58,2 s.
+
 - status: animated
 - src: compositions/frames/06-warum-mit-mir.html
 - duration: 9.2s
