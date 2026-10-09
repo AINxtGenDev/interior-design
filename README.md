@@ -305,6 +305,11 @@ finished certification), so the film grew from 58.3 to 72.2 s. Rendered at
 push-ins — SSIM 0.997 against it). Picture hash `d896a38d…`. The poster is
 t = 29 s, the Ordnung | Gestaltung frame again.
 
+**Poster replaced on 2026-10-09:** it is no longer a frame of the film but the
+client's own title card `Video Start.png` ("Schöne Räume. Klarer Alltag."),
+scaled to 1080×1920. It shows only until play is pressed; the film itself still
+opens on the overfull wardrobe.
+
 The full HyperFrames working project (renders, voiceover, assets) lives outside
 this repository, in the **private** repo `AINxtGenDev/plessl-projekt` under
 `79_plessl-video/`, together with the business documents — none of that belongs

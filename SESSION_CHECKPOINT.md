@@ -2,7 +2,7 @@
 
 ## Meta
 
-- Datum: 2026-10-09 abends (alles gepusht und live; Sitzungsende, bereit für /clear)
+- Datum: 2026-10-09 abends (Video-Poster „Video Start.png“)
 - Repository: `AINxtGenDev/interior-design` (public)
 - Arbeitskopie: `/home/nuc8/05_development/55_laulau/78_plessl-website`
   (**verschoben am 2026-08-16** — vorher `/home/nuc8/05_development/78_plessl-website`)
@@ -26,7 +26,7 @@
     Platzhalter: keine mehr — Impressum, Datenschutz und AGB vollständig (2026-10-09).
 - Ungetrackt im Repo-Root, **bewusst nicht committen** (Nutzer 2026-10-09): `Logo_kurz.png` = Initialen des Nutzers („my initials");
   `Video Ordnung Gestaltung.png` = nur zum Testen.
-  Neu aufgetaucht, Zweck noch offen (nicht angefasst): `Video Start.png`, `Video Start_landscape.png`.
+  `Video Start.png` → Quelle des Video-Posters (2026-10-09); `Video Start_landscape.png` unbenutzt (Video ist 9:16). Beide nicht committet.
 - Arbeitsweise: Änderung → `tsc`/`eslint`/`npm run build` → lokal `out/` auf Port 5000 im Browser prüfen →
   Commit + Push → Deploy abwarten → Live per curl prüfen → Checkpoint „LIVE" nachtragen.
   Video-Änderungen: Frame in `79_plessl-video/…/compositions/frames/` → `npm run check` → `hyperframes@0.8.2 snapshot`
@@ -35,6 +35,18 @@
   geänderte Frames nach `video-source/` spiegeln. Lokal Video prüfen nur mit Range-Server
   (`npx http-server@14.1.1 -p 5000 -s` in `website/out`; `python -m http.server` kann nicht seeken) und `?cb=` gegen Cache.
 - Nächste Schritte: offene Punkte oben mit Claudia klären; Video-Takes abhören lassen (Key bis ~2026-10-15).
+
+## Video-Poster = „Video Start.png" (2026-10-09, Nutzerauftrag) — gepusht, Deploy prüfen
+
+- Auftrag: vor dem Abspielen „Video Start.png" („Schöne Räume. Klarer Alltag.") zeigen; nach Play beginnt der Film mit
+  `Schank unordentlich.png` (= Frame 1, seit `6ee860b` schon so → Film **nicht** neu gerendert).
+- `website/public/video/vorstellung-poster.jpg` ersetzt (vorher Frame t = 29 s Ordnung|Gestaltung): ffmpeg aus 941×1672 auf
+  1080×1920 skaliert/zugeschnitten, `-q:v 4`, 90 KB. Gleicher Dateiname → kein Code geändert; JSON-LD `thumbnailUrl` zeigt
+  automatisch das neue Bild. README-Abschnitt Video ergänzt.
+- Geprüft lokal (Range-Server, chrome-devtools, 393 px DPR 2): vor Play Poster sichtbar; nach Play t = 1,1 s „Der Schrank ist voll."
+  + Schrankbild; kein Überlauf, keine Konsolenfehler (nur bekannter Hinweis „Lazy-loaded images … dimensions").
+- Hinweis: nach dem Ende zeigt der Browser das letzte Filmbild, nicht wieder das Poster (Standardverhalten).
+- Rollback: `git revert <commit>`; altes Poster = `ffmpeg -ss 29 -i vorstellung.mp4 -frames:v 1 -q:v 5`.
 
 ## AGB: Kleinunternehmerregelung festgelegt (2026-10-09, Nutzerauftrag) — **LIVE** (`24433dc`, Deploy `37969847549` success; live `/agb/` 200, Satz da, Platzhalter weg)
 
