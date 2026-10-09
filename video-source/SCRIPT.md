@@ -39,28 +39,29 @@ nicht tröstend-herablassend.
 
 ## Line 4 — Das Angebot (Frame 4)
 
-**Time:** 18.0 – 28.0s
-**Delivery:** Der Gedankenstrich ist eine echte Pause — erst Ordnung, dann Gestaltung.
+**Time:** 19.0 – 37.8s (neu seit 2026-10-08, Änderungsdeck Folie 7)
+**Delivery:** Ruhig erzählend, drei klare Schritte mit kleinen Pausen; nach „ganz einfach:" kurz
+innehalten, der letzte Satz warm und persönlich.
 
-    Ich schaffe zuerst Ordnung — und gestalte dann den Raum, der dabei frei wird. Beides aus einer Hand.
+    Zuerst schaffen wir Klarheit, reduzieren Überflüssiges und entwickeln sinnvolle Strukturen. Danach gestalte ich daraus ein stimmiges Raum- und Einrichtungskonzept. Mein Ziel ist ganz einfach: nicht nur ein schöner Raum, sondern ein Zuhause, das zu Ihnen und Ihrem Leben passt.
 
 ## Line 5 — Der Ablauf (Frame 5)
 
-**Time:** 28.0 – 39.0s
+**Time:** 37.8 – 48.2s
 **Delivery:** Sachlich, gegliedert. Drei Schritte, drei kleine Pausen.
 
     Wir starten mit einem Raumcheck. Sie bekommen ein Konzept mit Fixpreis. Dann arbeiten wir Bereich für Bereich, in Ihrem Tempo.
 
 ## Line 6 — Vertrauen (Frame 6)
 
-**Time:** 39.0 – 48.0s
+**Time:** 48.2 – 62.2s (neu seit 2026-10-08, Folie 8 — die Zertifizierung läuft noch)
 **Delivery:** Leiser, verbindlicher. „ohne Urteil" ohne Nachdruck sprechen — es wirkt stärker.
 
-    Zertifizierter Ordnungscoach. Diskret, ohne Urteil. Und ein System, das Sie ohne mich halten können.
+    Über zehn Jahre Erfahrung in der Innenraumgestaltung. Ordnungscoach in Ausbildung. Diskret, ohne Urteil. Und ein System, das Sie ohne mich halten können.
 
 ## Line 7 — Handlungsaufruf (Frame 7)
 
-**Time:** 48.0 – 57.0s
-**Delivery:** Freundlich öffnend, kein Verkaufsdruck. „Schreiben Sie mir." als Einladung.
+**Time:** 62.2 – 72.2s (neu seit 2026-10-08, Folie 9)
+**Delivery:** Freundlich öffnend, kein Verkaufsdruck; „Ich freue mich auf Ihre Nachricht" als herzliche Einladung.
 
-    Raumcheck ab einhundertzehn Euro, in Wien und Niederösterreich. Schreiben Sie mir.
+    Ihre Wohnwünsche beginnen mit einem kostenlosen Erstgespräch. Ich freue mich auf Ihre Nachricht.

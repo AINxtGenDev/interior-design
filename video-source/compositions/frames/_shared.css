@@ -2,24 +2,19 @@
    clones <template> contents, so every frame file inlines this block itself.
    Kept here so a change can be applied consistently across all seven frames. */
 
+/* CI fonts (CI.pptx slide 6): Manrope for headlines and text, Montserrat for
+   accents — the latin subsets from the website build. Frame 3 needs none. */
 @font-face {
-  font-family: "Cormorant Garamond";
-  src: url("assets/fonts/CormorantGaramond-300.woff2") format("woff2");
-  font-weight: 100 900;
+  font-family: "Manrope";
+  src: url("assets/fonts/Manrope-var.woff2") format("woff2");
+  font-weight: 200 800;
   font-style: normal;
   font-display: block;
 }
 @font-face {
-  font-family: "Inter";
-  src: url("assets/fonts/Inter-400.woff2") format("woff2");
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: block;
-}
-@font-face {
-  font-family: "Jost";
-  src: url("assets/fonts/Jost-400.woff2") format("woff2");
-  font-weight: 100 900;
+  font-family: "Montserrat";
+  src: url("assets/fonts/Montserrat-400.woff2") format("woff2");
+  font-weight: 400;
   font-style: normal;
   font-display: block;
 }

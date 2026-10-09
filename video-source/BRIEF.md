@@ -12,6 +12,10 @@ angle: "Die Kombination aus einer Hand — Ordnungscoaches räumen, Einrichtungs
 voice: gemini-replicated-claudia   # bis 2026-09-27: gemini-sulafat
 ---
 
+> **Stand 2026-08-15 (Planung).** Seit 2026-10-08 gelten für Frames 1–4, 6 und 7 das Änderungsdeck
+> `Homepage Änderngen_081026.pptx` (Folien 4–9), `SCRIPT.md` und die Frame-Dateien; Film 72,2 s.
+
+
 ## Intent
 
 Ein professionelles Vorstellungsvideo für die neu gegründete Ein-Personen-

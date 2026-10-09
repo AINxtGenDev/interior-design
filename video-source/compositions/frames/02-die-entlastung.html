@@ -7,37 +7,49 @@
   <body>
     <template>
       <style>
-        @font-face { font-family:"Cormorant Garamond"; src:url("assets/fonts/CormorantGaramond-300.woff2") format("woff2"); font-weight:100 900; font-style:normal; font-display:block; }
-        @font-face { font-family:"Inter"; src:url("assets/fonts/Inter-400.woff2") format("woff2"); font-weight:100 900; font-style:normal; font-display:block; }
-        @font-face { font-family:"Jost"; src:url("assets/fonts/Jost-400.woff2") format("woff2"); font-weight:100 900; font-style:normal; font-display:block; }
+        @font-face { font-family:"Manrope"; src:url("assets/fonts/Manrope-var.woff2") format("woff2"); font-weight:200 800; font-style:normal; font-display:block; }
+        @font-face { font-family:"Montserrat"; src:url("assets/fonts/Montserrat-400.woff2") format("woff2"); font-weight:400; font-style:normal; font-display:block; }
 
         #root { position:absolute; inset:0; overflow:hidden; }
+        /* Starts on Frame 1's canvas and turns sage light (#EFF4EE, change deck
+           8.10.26, slide 5) while Frame 1's content dissolves. */
         #f2-bg { position:absolute; inset:0; background:#f3eee8; }
 
-        /* Ghosts of Frame 1's block — they dissolve rather than fly away. */
-        #f2-ghost { position:absolute; left:140px; top:660px; width:800px; }
-        .f2-ghost-line {
-          display:block; margin:0 0 26px;
-          font-family:"Cormorant Garamond", Georgia, serif;
-          font-weight:400; font-size:66px; line-height:1.18; color:#333338;
+        /* Ghosts of Frame 1 — same layout, they dissolve rather than fly away. */
+        #f2-ghost {
+          position:absolute; inset:0;
+          display:flex; flex-direction:column; align-items:center; justify-content:center;
         }
-        #f2-ghost-line3 { margin-bottom:0; }
+        .f2-ghost-text {
+          width:960px; margin:0; text-align:center; text-wrap:balance;
+          font-family:"Manrope", system-ui, sans-serif;
+          font-weight:500; font-size:70px; line-height:1.25; letter-spacing:-0.005em;
+          color:#333338;
+        }
+        .f2-ghost-line { display:block; }
+        #f2-ghost-photo { width:820px; height:860px; margin:44px 0; overflow:hidden; flex:none; }
+        #f2-ghost-photo img {
+          display:block; width:100%; height:100%; object-fit:cover; object-position:50% 40%;
+          transform:scale(1.04);
+        }
 
-        /* Sits clear of the hairline at y=1180: three wrapped lines at 84px/1.1
-           end at ~1037, leaving the rule a clean 140px below the text. */
+        /* Sits clear of the hairline at y=1180. */
         #f2-statement {
           position:absolute; left:140px; top:760px; width:820px;
-          font-family:"Cormorant Garamond", Georgia, serif;
-          font-weight:400; font-size:84px; line-height:1.1; color:#333338;
+          font-family:"Manrope", system-ui, sans-serif;
+          font-weight:700; font-size:66px; line-height:1.15; letter-spacing:-0.01em;
+          color:#333338;
           opacity:0;
         }
         .f2-say { display:block; }
         #f2-system { color:#333338; }
 
-        /* Inherited from Frame 1 at exactly the same coordinates — the constant across the cut. */
+        /* The film's spine. Since 2026-10-09 it draws in here (Frame 1's picture
+           covers y=1180) and hands over to Frame 3 at the same coordinates. */
         #f2-rule {
           position:absolute; left:140px; top:1180px;
           width:800px; height:1px; background:#8fa37a;
+          transform-origin:left center;
         }
       </style>
 
@@ -51,9 +63,14 @@
         <div id="f2-bg"></div>
 
         <div id="f2-ghost">
-          <span class="f2-ghost-line">Der Schrank ist voll.</span>
-          <span class="f2-ghost-line">Der Tisch auch.</span>
-          <span class="f2-ghost-line" id="f2-ghost-line3">Und am Wochenende reicht die Zeit nur fürs Nachräumen.</span>
+          <p class="f2-ghost-text">
+            <span class="f2-ghost-line">Der Schrank ist voll.</span>
+            <span class="f2-ghost-line">Der Tisch auch.</span>
+          </p>
+          <div id="f2-ghost-photo"><img src="assets/schrank-unaufgeraeumt.webp" alt="" /></div>
+          <p class="f2-ghost-text">
+            <span class="f2-ghost-line">Und am Wochenende reicht die Zeit nur fürs Nachräumen.</span>
+          </p>
         </div>
 
         <div id="f2-statement">
@@ -69,8 +86,11 @@
           window.__timelines = window.__timelines || {};
           const tl = gsap.timeline({ paused: true });
 
-          // Frame 1's lines dissolve; the hairline deliberately does not move.
+          // Frame 1 dissolves and the room lightens.
           tl.to("#f2-ghost", { opacity: 0, duration: 0.8, ease: "power2.out" }, 0.0);
+          // The hairline draws in once the picture has cleared its line.
+          tl.fromTo("#f2-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: "power2.out" }, 0.45);
+          tl.to("#f2-bg", { backgroundColor: "#eff4ee", duration: 0.8, ease: "power2.out" }, 0.0);
 
           tl.fromTo("#f2-statement", { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" }, 0.85);
 

@@ -8,6 +8,10 @@ mode: autonomous
 music: none
 ---
 
+> **Stand 2026-08-15 (Planung).** Seit 2026-10-08 gelten für Frames 1–4, 6 und 7 das Änderungsdeck
+> `Homepage Änderngen_081026.pptx` (Folien 4–9), `SCRIPT.md` und die Frame-Dateien; Film 72,2 s.
+
+
 ## Video direction
 
 **Palette & type — from `frame.md`, never invented.** Canvas warm cream `#F3EEE8`, ink
@@ -58,6 +62,12 @@ with rounded strokes. No price shown as a final price — always "ab". No Englis
 - asset_candidates: none
 - asset_rationale: reine Typografie auf Creme; ein Bild würde die Aussage illustrieren statt tragen
 - handoff_out: sage Haarlinie, x=140px, y=1180px, Breite 800px, opacity 1, ruht (Geschwindigkeit 0)
+
+> **Stand 2026-10-09 (überholt die Angaben oben):** Bild `Schank unordentlich.png` →
+> `assets/schrank-unaufgeraeumt.webp`. Zeilen 1–2 **über** dem Bild, Zeile 3 **unter** dem Bild,
+> alles zentriert (Flex-Block auf Bildmitte 540/960), Manrope 500. Die Haarlinie zieht **nicht
+> mehr in Frame 1** (das Bild deckt y=1180), sondern zu Beginn von Frame 2 (0,45 s); handoff_out
+> von Frame 1 ist damit „keine Linie", Frame 2 → 3 unverändert.
 
 **Adapt:** Struktur von `kinetic-type-beats` bleibt (drei Textbeats, je auf seinen VO-Cue), aber
 die Beats setzen sich als *ganze Zeilen* statt Wort für Wort — die Signature-Bewegung (Beat landet
