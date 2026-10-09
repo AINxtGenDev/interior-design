@@ -497,7 +497,8 @@ Notes:
   watching, since crossing it changes the invoicing and the AGB wording.
 - Claudia's academic degree is not on the site; only her interior-design
   experience, the organizing-coach certification (in training — kept out of
-  the JSON-LD until awarded) and ongoing training are listed. Add it in `site.ts` under `about.credentials`.
+  the JSON-LD until awarded) and the Mensch & Büro-Akademie workplace-expert
+  qualification are listed. Add it in `site.ts` under `about.credentials`.
 
 ---
 

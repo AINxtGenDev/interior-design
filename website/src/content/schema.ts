@@ -146,9 +146,7 @@ export function buildHomeGraph(locale: Locale): JsonLdNode[] {
     worksFor: { "@id": businessId },
     knowsLanguage: ["de-AT", "en"],
     /*
-     * No `credentialCategory`: the certification will be one, the annual
-     * continuing education is not, and tagging both "certificate" would
-     * overstate the second. A credential still in training is not held yet, so it is left
+     * No `credentialCategory`. A credential still in training is not held yet, so it is left
      * out rather than claimed; work experience is not a credential at all.
      */
     hasCredential: c.about.credentials.items.filter((cred) => !cred.inTraining).map((cred) => ({

@@ -386,11 +386,6 @@ const de: Content = {
           title: "Gepr. ArbeitsplatzExpertin",
           issuer: "Mensch & Büro-Akademie",
         },
-        {
-          title: "Laufende Fortbildung",
-          issuer: "Mindestens eine einschlägige Weiterbildung pro Jahr",
-          note: "Farb- und Materiallehre, Didaktik und Ordnungsmethodik.",
-        },
       ],
     },
   },
@@ -634,11 +629,6 @@ const en: Content = {
         {
           title: "Certified Workplace Expert",
           issuer: "Mensch & Büro-Akademie",
-        },
-        {
-          title: "Continuing education",
-          issuer: "At least one relevant course per year",
-          note: "Colour and material theory, teaching methods and organizing methodology.",
         },
       ],
     },

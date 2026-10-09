@@ -2,7 +2,7 @@
 
 ## Meta
 
-- Datum: 2026-10-09 (Qualifikation „Gepr. ArbeitsplatzExpertin" ergänzt; „in Ausbildung" → „i.A."; Abschnitt „Für wen ich arbeite" entfernt; Homepage-Änderungen 081026 live seit 21:42, siehe unten; eigene Domain claudiaplessl.at live; Geschäftsadresse claudiaplessl@gmail.com; Domain ohne Mail abgesichert)
+- Datum: 2026-10-09 („Laufende Fortbildung" entfernt; Qualifikation „Gepr. ArbeitsplatzExpertin" ergänzt; „in Ausbildung" → „i.A."; Abschnitt „Für wen ich arbeite" entfernt; Homepage-Änderungen 081026 live seit 21:42, siehe unten; eigene Domain claudiaplessl.at live; Geschäftsadresse claudiaplessl@gmail.com; Domain ohne Mail abgesichert)
 - Repository: `AINxtGenDev/interior-design` (public)
 - Arbeitskopie: `/home/nuc8/05_development/55_laulau/78_plessl-website`
   (**verschoben am 2026-08-16** — vorher `/home/nuc8/05_development/78_plessl-website`)
@@ -16,6 +16,12 @@
   „Raum & Ordnung" vs. Logo-Unterzeile klären; rechtliche Platzhalter im
   Impressum/AGB weiterhin offen. (Älterer Stand, Umbenennung 2026-08-17:
   Deploy `32004332796`.)
+
+## Qualifikation „Laufende Fortbildung" entfernt (2026-10-09, Nutzerauftrag per Screenshot)
+
+Eintrag „Laufende Fortbildung" / „Continuing education" (DE/EN) unter Über mich → Qualifikation entfernt; damit
+auch aus JSON-LD `hasCredential` (enthält jetzt nur noch die ArbeitsplatzExpertin). Verwaister Kommentar in
+`schema.ts` und README-Satz („ongoing training") nachgezogen. Build/tsc/eslint grün, lokal DE/EN geprüft.
 
 ## Qualifikation „Gepr. ArbeitsplatzExpertin" ergänzt (2026-10-09, Nutzerauftrag) — **LIVE** (`bff9d0f`, Deploy `37892861506` success; live DE/EN 200, Eintrag vorhanden)
 
