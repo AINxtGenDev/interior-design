@@ -11,7 +11,7 @@
 - Status (2026-10-09): Website live auf CI-Stand, DE und EN, Video **58 s** live. Am 2026-10-09 per
   Screenshot-Aufträgen umgesetzt und live (Einzelheiten je Abschnitt unten): „Für wen ich arbeite"
   entfernt · Ordnungscoach „(i.A.)" · „Gepr. ArbeitsplatzExpertin" ergänzt · „Laufende Fortbildung"
-  entfernt · Projekte-Collage `Bild Projekte.png` · Pakete & Preise auf `#e9eaec` · vCard-QR im Kontakt · **Video Frame 1 neues Schrankbild** (`6ee860b`) · **Video Frame 3 Logo unter der Linie** (`7e8fd77`) · Video-Bildunterschrift ohne Dauer (`c7d5c23`) · **Video Frame 4 neue Bilder Ordnung/Gestaltung** (`09c724f`) · **Video Szene 6 „Warum mit mir" gestrichen, Film 58 s** (`2e5f248`). · **Workshops ohne Preis/Aufzählung, Paket „Workshop" entfernt (7 Pakete)**.
+  entfernt · Projekte-Collage `Bild Projekte.png` · Pakete & Preise auf `#e9eaec` · vCard-QR im Kontakt · **Video Frame 1 neues Schrankbild** (`6ee860b`) · **Video Frame 3 Logo unter der Linie** (`7e8fd77`) · Video-Bildunterschrift ohne Dauer (`c7d5c23`) · **Video Frame 4 neue Bilder Ordnung/Gestaltung** (`09c724f`) · **Video Szene 6 „Warum mit mir" gestrichen, Film 58 s** (`2e5f248`). · **Workshops ohne Preis/Aufzählung, Paket „Workshop" entfernt (7 Pakete)** · **Über mich: Qualifikation als eigener Kartenblock**.
   Letzte Prüfung (`2e5f248`): alle 6 Routen 200; `vorstellung.mp4` (`3f7edc26…`), `-de.vtt`, `-poster.jpg` live = lokal; JSON-LD `PT58S`. Lighthouse mobil `/` (lokal) zuletzt 100/100/100/100 (vor den Video-Änderungen, nicht neu gemessen).
 - **Offen — mit Claudia klären:**
   - ArbeitsplatzExpertin: Beschreibungszeile, EN-Titel „Certified Workplace Expert", Schreibweise
@@ -33,6 +33,18 @@
   geänderte Frames nach `video-source/` spiegeln. Lokal Video prüfen nur mit Range-Server
   (`npx http-server@14.1.1 -p 5000 -s` in `website/out`; `python -m http.server` kann nicht seeken) und `?cb=` gegen Cache.
 - Nächste Schritte: offene Punkte oben mit Claudia klären; Video-Takes abhören lassen (Key bis ~2026-10-15).
+
+## Über mich: Qualifikation als eigener Block (2026-10-09, Nutzerauftrag per Screenshot) — **gepusht**
+
+- „Qualifikation" nicht mehr in der Porträt-Grid-Spalte, sondern eigener Unterabschnitt **unter** dem Grid, weiter in
+  `#ueber-mich`: Trennlinie (`border-t`), H3 + Blush-Rule, 3 weiße Karten (Erfahrung · Ordnungscoach i.A. · ArbeitsplatzExpertin)
+  mit abwechselnd Salbei/Blush-Oberkante wie die Angebotskarten; `md:` 3 Spalten, mobil gestapelt. `dl`-Semantik bleibt.
+- Folgeänderung Layout: Porträt jetzt `lg:row-span-2` links, Text **und** „Worauf Sie sich verlassen können" rechts
+  (vorher Grundsätze links unter dem Porträt → rechts große Lücke). Mobile Reihenfolge unverändert: Porträt, Text, Grundsätze, Qualifikation.
+- Nur `HomePage.tsx`; Inhalte/JSON-LD unverändert.
+- Getestet lokal (chrome-devtools): tsc/eslint/build grün; DE 1440 px Screenshot ok; 768 px 3 Karten à 219 px, 393 px EN gestapelt,
+  kein Überlauf, keine Konsolenfehler.
+- Rollback: `git revert <dieser Commit>`.
 
 ## Workshops: Preis und Aufzählung entfernt, Paket „Workshop" aus Pakete & Preise (2026-10-09, Nutzerauftrag per 2 Screenshots) — **LIVE** (`a1222f5`, Deploy `37963634201` success; live DE/EN 200, kein „350", 7 Pakete)
 

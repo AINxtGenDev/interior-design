@@ -186,9 +186,9 @@ export default function HomePage({ locale }: { locale: Locale }) {
 
         {/* ─────────── Über mich ─────────── */}
         <Section id={SECTION_IDS.about} heading={c.about.heading}>
-          {/* Slide 16: portrait and principles on the left, text and
-              qualifications on the right. Phones read top to bottom:
-              portrait, text, qualifications, principles. */}
+          {/* Portrait on the left, text and principles on the right.
+              Phones read top to bottom: portrait, text, principles.
+              The qualifications follow as their own block below. */}
           <div className="mt-10 grid gap-10 lg:grid-cols-[2fr_3fr] lg:gap-x-16 lg:gap-y-12">
             {/* eslint-disable-next-line @next/next/no-img-element -- srcset; see BrandLogo */}
             <img
@@ -200,7 +200,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
               alt={c.about.portraitAlt}
               loading="lazy"
               decoding="async"
-              className="h-auto w-full max-w-[360px] rounded lg:max-w-none"
+              className="h-auto w-full max-w-[360px] rounded lg:row-span-2 lg:max-w-none"
             />
 
             <div className="max-w-[40rem] space-y-5 lg:col-start-2 lg:row-start-1">
@@ -209,24 +209,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
               ))}
             </div>
 
-            <div className="lg:col-start-2">
-              <h3 className="h3">{c.about.credentials.heading}</h3>
-              <dl className="mt-5 space-y-6">
-                <div>
-                  <dt className="font-bold">{c.about.credentials.experience.title}</dt>
-                  <dd className="small mt-1 text-anthrazit-mid">{c.about.credentials.experience.note}</dd>
-                </div>
-                {c.about.credentials.items.map((item) => (
-                  <div key={item.title}>
-                    <dt className="font-bold">{item.title}</dt>
-                    <dd className="mt-1 text-sage-dark">{item.issuer}</dd>
-                    {item.note && <dd className="small mt-1 text-anthrazit-mid">{item.note}</dd>}
-                  </div>
-                ))}
-              </dl>
-            </div>
-
-            <div className="lg:col-start-1 lg:row-start-2">
+            <div className="max-w-[40rem] lg:col-start-2 lg:row-start-2">
               <h3 className="h3">{c.about.principlesHeading}</h3>
               <ul className="mt-5 space-y-3">
                 {c.about.principles.map((p) => (
@@ -236,6 +219,32 @@ export default function HomePage({ locale }: { locale: Locale }) {
                 ))}
               </ul>
             </div>
+          </div>
+
+          {/* Qualifications: a separate block under the portrait grid, one
+              card each, top borders alternating like the service cards. */}
+          <div className="mt-16 border-t border-anthrazit-light pt-12 md:mt-20 md:pt-16">
+            <h3 id="qualifications-heading" className="h3">
+              {c.about.credentials.heading}
+            </h3>
+            <span aria-hidden="true" className="rule mt-4" />
+            <dl aria-labelledby="qualifications-heading" className="mt-8 grid gap-6 md:grid-cols-3">
+              {[
+                { title: c.about.credentials.experience.title, note: c.about.credentials.experience.note },
+                ...c.about.credentials.items,
+              ].map((item, i) => (
+                <div
+                  key={item.title}
+                  className={`rounded border border-anthrazit-light border-t-4 bg-white p-6 ${
+                    i % 2 === 0 ? "border-t-sage-mid" : "border-t-blush-mid"
+                  }`}
+                >
+                  <dt className="font-bold">{item.title}</dt>
+                  {"issuer" in item && <dd className="mt-2 text-sage-dark">{item.issuer}</dd>}
+                  {item.note && <dd className="small mt-2 text-anthrazit-mid">{item.note}</dd>}
+                </div>
+              ))}
+            </dl>
           </div>
         </Section>
 
