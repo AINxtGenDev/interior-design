@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import LegalShell, { LegalSection, Todo } from "@/components/LegalShell";
+import LegalShell, { LegalSection } from "@/components/LegalShell";
 import { CONTACT } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -190,10 +190,9 @@ export default function AGB() {
       <LegalSection heading="8. Workshops und Trainings">
         <p>
           Die Anmeldung zu Workshops ist verbindlich. Die Durchführung setzt
-          eine Mindestteilnehmerzahl von{" "}
-          <Todo>[Anzahl festlegen, z. B. 5]</Todo> Personen voraus. Wird diese
-          nicht erreicht, kann die Veranstaltung bis{" "}
-          <Todo>[Frist, z. B. 5 Tage]</Todo> vor dem Termin abgesagt werden;
+          eine Mindestteilnehmerzahl von 5&nbsp;Personen voraus. Wird diese
+          nicht erreicht, kann die Veranstaltung bis 5&nbsp;Tage vor dem Termin
+          abgesagt werden;
           bereits bezahlte Gebühren werden in diesem Fall vollständig
           rückerstattet.
         </p>

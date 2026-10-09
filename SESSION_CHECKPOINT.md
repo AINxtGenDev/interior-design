@@ -23,7 +23,7 @@
   - ~~Workshops „in Kürze" vs. Preise~~ (erledigt: Preis + Paket entfernt); „Zahlreiche umgesetzte Projekte" vs. Projekte-Text;
     ~~Video sagt noch „Zertifizierter Ordnungscoach"~~ (erledigt: Szene 6 gestrichen); ~~Handout veraltet~~ (erledigt 2026-10-09).
   - Re-Design-Text bestätigen; Firmenwortlaut „Raum & Ordnung" vs. Logo-Unterzeile; rechtliche
-    Platzhalter in AGB; Impressum und Datenschutz vollständig (2026-10-09).
+    Platzhalter: keine mehr — Impressum, Datenschutz und AGB vollständig (2026-10-09).
 - Ungetrackt im Repo-Root, **bewusst nicht committen** (Nutzer 2026-10-09): `Logo_kurz.png` = Initialen des Nutzers („my initials");
   `Video Ordnung Gestaltung.png` = nur zum Testen.
   Neu aufgetaucht, Zweck noch offen (nicht angefasst): `Video Start.png`, `Video Start_landscape.png`.
@@ -46,9 +46,11 @@
   Anzahlung von 30 % vereinbart werden." (geschützte Leerzeichen; Nutzertext hatte „Auftragwert" — Schreibweise „Auftragswert" beibehalten).
   **LIVE** (`f6525ca`, Deploy `37970072535` success).
 - Nachtrag (Nutzerauftrag): Punkt 7 Storno → bis 7 Tage vorher kostenfrei · bis 48 Stunden vorher 50 % · später/Nichterscheinen 100 %
-  des vereinbarten Honorars. **gepusht**
-- Weitere AGB-Platzhalter **weiter offen**: nur noch Punkt 8 Workshops — Mindestteilnehmerzahl („[Anzahl festlegen, z. B. 5]") und
-  Absagefrist („[Frist, z. B. 5 Tage]").
+  des vereinbarten Honorars. **LIVE** (`84d4d2f`, Deploy `37970299918` success).
+- Nachtrag (Nutzerauftrag): Punkt 8 Workshops → Mindestteilnehmerzahl 5 Personen, Absage durch die Veranstalterin bis 5 Tage vor dem
+  Termin. **gepusht**
+- **Keine Platzhalter mehr auf der ganzen Website** (0 `<mark>` in allen 6 Seiten). Dadurch verwaiste `Todo`-Komponente aus
+  `LegalShell.tsx` entfernt (Imports in AGB entfernt).
 - Geprüft: build grün; Text im gebauten HTML; 6 Routen lokal 200; `/agb/` 393 px ok, „§ 6" nicht getrennt, keine Konsolenfehler.
 
 ## Datenschutz: Abschnitt „Datenübermittlung in die USA" (2026-10-09, Nutzerauftrag per Screenshot + Text) — **LIVE** (`e2dd379`, Deploy `37969232002` success; live `/datenschutz/` 200, Abschnitt da, Platzhalter weg)

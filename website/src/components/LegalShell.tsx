@@ -74,13 +74,3 @@ export function LegalSection({
     </section>
   );
 }
-
-/** Marks a value the founder still has to supply. Visible on purpose — a
- *  silently missing GISA number is worse than an obvious gap. */
-export function Todo({ children }: { children: React.ReactNode }) {
-  return (
-    <mark className="rounded-sm bg-blush-soft px-1.5 py-0.5 text-anthrazit-dark not-italic">
-      {children}
-    </mark>
-  );
-}
