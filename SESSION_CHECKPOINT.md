@@ -42,7 +42,7 @@
   Wortlaute wörtlich übernommen. Gewerbebehörde: **Bezirkshauptmannschaft Tulln**. **UID-Zeile entfernt.** Stand → Oktober 2026.
 - `schema.ts`: nur Kommentar zu `vatID` angepasst (keine UID).
 - Nachtrag (Nutzerauftrag): Mitgliedschaft „Wirtschaftskammer Niederösterreich, WKNÖ, FG Persönliche Dienstleister" —
-  Impressum hat damit **keine `<Todo>`-Platzhalter mehr** (ungenutzten `Todo`-Import entfernt). Unverändert: „Unternehmensgegenstand" (nennt noch
+  Impressum hat damit **keine `<Todo>`-Platzhalter mehr** (ungenutzten `Todo`-Import entfernt). **LIVE** (`2a1142e`, Deploy `37967169338` success). Unverändert: „Unternehmensgegenstand" (nennt noch
   „Trainings und Workshops", kein Feng-Shui) und EN-Legal-Kurzfassung (verweist nur auf das DE-Impressum).
 - Geprüft: tsc/eslint/build grün; gebautes `/impressum/` enthält beide Wortlaute zeichengleich, kein „UID"; 6 Routen lokal 200;
   393 px ohne Überlauf, keine Konsolenfehler.
