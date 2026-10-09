@@ -17,7 +17,7 @@
   Impressum/AGB weiterhin offen. (Älterer Stand, Umbenennung 2026-08-17:
   Deploy `32004332796`.)
 
-## Qualifikation „Laufende Fortbildung" entfernt (2026-10-09, Nutzerauftrag per Screenshot)
+## Qualifikation „Laufende Fortbildung" entfernt (2026-10-09, Nutzerauftrag per Screenshot) — **LIVE** (`33af442`, Deploy `37893421377` success)
 
 Eintrag „Laufende Fortbildung" / „Continuing education" (DE/EN) unter Über mich → Qualifikation entfernt; damit
 auch aus JSON-LD `hasCredential` (enthält jetzt nur noch die ArbeitsplatzExpertin). Verwaister Kommentar in
