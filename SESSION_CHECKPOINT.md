@@ -11,7 +11,7 @@
 - Status (2026-10-09): Website live auf CI-Stand, DE und EN, Video 72 s live. Am 2026-10-09 per
   Screenshot-Aufträgen umgesetzt und live (Einzelheiten je Abschnitt unten): „Für wen ich arbeite"
   entfernt · Ordnungscoach „(i.A.)" · „Gepr. ArbeitsplatzExpertin" ergänzt · „Laufende Fortbildung"
-  entfernt · Projekte-Collage `Bild Projekte.png` · Pakete & Preise auf `#e9eaec` · vCard-QR im Kontakt · **Video Frame 1 neues Schrankbild** (`6ee860b`).
+  entfernt · Projekte-Collage `Bild Projekte.png` · Pakete & Preise auf `#e9eaec` · vCard-QR im Kontakt · **Video Frame 1 neues Schrankbild** (`6ee860b`) · **Video Frame 3 Logo unter der Linie** (`7e8fd77`).
   Letzte Prüfung: `/` + `/en/` 200 nach `d4f4156` (alle 6 Routen 200 bei `36c355d`); Lighthouse mobil `/` (lokal) 100/100/100/100.
 - **Offen — mit Claudia klären:**
   - ArbeitsplatzExpertin: Beschreibungszeile, EN-Titel „Certified Workplace Expert", Schreibweise
@@ -25,6 +25,18 @@
   - `Logo_kurz.png` und `Video Ordnung Gestaltung.png` liegen ungetrackt im Repo-Root — Zweck unklar, nicht committet.
 - Arbeitsweise: Änderung → `tsc`/`eslint`/`npm run build` → lokal `out/` auf Port 5000 im Browser prüfen →
   Commit + Push → Deploy abwarten → Live per curl prüfen → Checkpoint „LIVE" nachtragen.
+
+## Video Frame 3: Logo unter der Linie (2026-10-09, Nutzerauftrag) — **LIVE** (`7e8fd77`, Deploy `37957158925` success)
+
+`Logo ohne cp.png` (Wortmarke + Unterzeile, **auf Schwarz, ohne Alpha**) → per Farb-Keying (Salbei `#657558`/Rosa)
+freigestellt → `assets/logo-ohne-cp.webp` (lossless, 1266×281, kein Schwarzsaum). In F3 760 px breit unter der
+Haarlinie; Porträt + Linie + Logo als Gruppe zentriert (Inhalt y 412–1503, Mitte 957,5; Porträt 423–1231,5, Linie
+1263,5, Logo 1328,5–1497). Linie gleitet jetzt 0,0–0,7 s um +83,5 px nach unten (vorher −60 hoch), damit sie das
+einblendende Porträt nie kreuzt. Logo blendet bei 3,7 s ein (VO „Ich bin Claudia Plessl" ab 3,63 s).
+Critic: **APPROVE** (Unterzeile auf iPhone SE ≈ 7,6 px — als Logo akzeptiert). Nur 12,5–19 s geändert.
+Videospur-MD5 `cbe2da29…`, −14,5 LUFS. Lokal iPhone SE geprüft; live 6 Routen 200, MP4 SHA-256 = lokal.
+Hinweis: der Browser zeigte lokal erst den alten Film aus dem Cache — mit `?cb=` neu laden.
+Rollback: `git revert 7e8fd77` (Website) bzw. `git revert 65da12e` (Projekt).
 
 ## Video Frame 1: neues Schrankbild, Text oben/unten (2026-10-09, Nutzerauftrag) — **LIVE** (`6ee860b`, Deploy `37954240052` success)
 
