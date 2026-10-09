@@ -377,7 +377,7 @@ const de: Content = {
       },
       items: [
         {
-          title: "Zertifizierter Ordnungscoach (i. A.)",
+          title: "Zertifizierter Ordnungscoach (i.A.)",
           inTraining: true,
           issuer: "Akademie der Ordnung",
           note: "Zertifizierte Ausbildung in professioneller Ordnungsbegleitung — Methodik, Kundenprozess und praktische Umsetzung.",

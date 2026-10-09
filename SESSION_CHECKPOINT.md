@@ -2,7 +2,7 @@
 
 ## Meta
 
-- Datum: 2026-10-09 („in Ausbildung" → „i. A."; Abschnitt „Für wen ich arbeite" entfernt; Homepage-Änderungen 081026 live seit 21:42, siehe unten; eigene Domain claudiaplessl.at live; Geschäftsadresse claudiaplessl@gmail.com; Domain ohne Mail abgesichert)
+- Datum: 2026-10-09 („in Ausbildung" → „i.A."; Abschnitt „Für wen ich arbeite" entfernt; Homepage-Änderungen 081026 live seit 21:42, siehe unten; eigene Domain claudiaplessl.at live; Geschäftsadresse claudiaplessl@gmail.com; Domain ohne Mail abgesichert)
 - Repository: `AINxtGenDev/interior-design` (public)
 - Arbeitskopie: `/home/nuc8/05_development/55_laulau/78_plessl-website`
   (**verschoben am 2026-08-16** — vorher `/home/nuc8/05_development/78_plessl-website`)
@@ -17,11 +17,11 @@
   Impressum/AGB weiterhin offen. (Älterer Stand, Umbenennung 2026-08-17:
   Deploy `32004332796`.)
 
-## „Zertifizierter Ordnungscoach (in Ausbildung)" → „(i. A.)" (2026-10-09, Nutzerauftrag)
+## „Zertifizierter Ordnungscoach (in Ausbildung)" → „(i.A.)" (2026-10-09, Nutzerauftrag; Schreibweise ohne Leerzeichen laut Nutzer) — **LIVE** (siehe Commit „Write the credential as (i.A.)")
 
-Nur DE (`site.ts`, Über mich). EN bleibt „(in training)" — „i. A." ist auf Englisch unverständlich.
+Nur DE (`site.ts`, Über mich). EN bleibt „(in training)" — „i.A." ist auf Englisch unverständlich.
 `inTraining: true` bleibt → weiterhin nicht im JSON-LD `hasCredential`. Vgl. offener Punkt B unten.
-Hinweis: „i. A." heißt in AT meist „im Auftrag" — mehrdeutig, aber so im Kundendeck („(i.A.)").
+Hinweis: „i.A." heißt in AT meist „im Auftrag" — mehrdeutig, aber so im Kundendeck („(i.A.)").
 
 ## Abschnitt „Für wen ich arbeite" entfernt (2026-10-09, Nutzerauftrag per Screenshot) — **LIVE** (`0975e3d`, Deploy `37892070140` success; live `/` + `/en/` 200, Abschnitt weg)
 
