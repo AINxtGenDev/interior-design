@@ -17,7 +17,7 @@
   Impressum/AGB weiterhin offen. (Älterer Stand, Umbenennung 2026-08-17:
   Deploy `32004332796`.)
 
-## Qualifikation „Gepr. ArbeitsplatzExpertin" ergänzt (2026-10-09, Nutzerauftrag)
+## Qualifikation „Gepr. ArbeitsplatzExpertin" ergänzt (2026-10-09, Nutzerauftrag) — **LIVE** (`bff9d0f`, Deploy `37892861506` success; live DE/EN 200, Eintrag vorhanden)
 
 Über mich → Qualifikation, nach dem Ordnungscoach: DE „Gepr. ArbeitsplatzExpertin", EN „Certified Workplace
 Expert", Aussteller „Mensch & Büro-Akademie" (Nutzer schrieb „Mensch&Büro-Akademie"; Leerzeichen gesetzt —
@@ -26,7 +26,7 @@ offizielle Schreibweise nicht geprüft). **Keine Beschreibungszeile** (Kursinhal
 `hasCredential` (ohne `description`). Build/tsc/eslint grün, lokal DE/EN geprüft, keine Konsolenfehler.
 **Offen:** Beschreibungszeile und EN-Titel von Claudia bestätigen lassen.
 
-## „Zertifizierter Ordnungscoach (in Ausbildung)" → „(i.A.)" (2026-10-09, Nutzerauftrag; Schreibweise ohne Leerzeichen laut Nutzer) — **LIVE** (siehe Commit „Write the credential as (i.A.)")
+## „Zertifizierter Ordnungscoach (in Ausbildung)" → „(i.A.)" (2026-10-09, Nutzerauftrag; Schreibweise ohne Leerzeichen laut Nutzer) — **LIVE** (`241c5b2`, Deploy `37892624768` success)
 
 Nur DE (`site.ts`, Über mich). EN bleibt „(in training)" — „i.A." ist auf Englisch unverständlich.
 `inTraining: true` bleibt → weiterhin nicht im JSON-LD `hasCredential`. Vgl. offener Punkt B unten.
