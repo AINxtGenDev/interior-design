@@ -34,7 +34,7 @@
   (`npx http-server@14.1.1 -p 5000 -s` in `website/out`; `python -m http.server` kann nicht seeken) und `?cb=` gegen Cache.
 - Nächste Schritte: offene Punkte oben mit Claudia klären; Video-Takes abhören lassen (Key bis ~2026-10-15).
 
-## Handout an Website angeglichen (2026-10-09, Nutzerauftrag) — **gepusht**
+## Handout an Website angeglichen (2026-10-09, Nutzerauftrag) — **gepusht** (`8223bd2`)
 
 `handout/claudia-plessl-uebersicht.html` (nur lokal, nicht deployt) inhaltlich auf DE-Website-Stand, Design unverändert:
 Kopfzeile „Raumgestaltung · Ordnungscoaching", Hero-Text; „Drei Leistungen" → **„Mein Angebot"** mit den 4 Angeboten
@@ -42,7 +42,7 @@ Kopfzeile „Raumgestaltung · Ordnungscoaching", Hero-Text; „Drei Leistungen"
 Gestaltungsberatung 320, kein Workshop); Ablauf- und Preis-Fußnote wortgleich; Qualifikation = 3 Website-Einträge
 („Laufende Fortbildung", „Zertifizierter Ordnungscoach" ohne i.A. weg); Fußzeile „Stand Oktober 2026".
 Geprüft: Skript vergleicht mit `website/out/index.html` — 7/7 Pakete inkl. Inhalt/Preis, jeder Handout-Satz wortgleich auf der
-Website; 393 px hell + dunkel ohne Überlauf, keine Konsolenfehler. Rollback: `git revert <dieser Commit>`.
+Website; 393 px hell + dunkel ohne Überlauf, keine Konsolenfehler. Rollback: `git revert 8223bd2`.
 
 ## Über mich: Qualifikation als eigener Block (2026-10-09, Nutzerauftrag per Screenshot) — **LIVE** (`675ab16`, Deploy `37964809805` success; live DE/EN 200, neuer Block vorhanden)
 
