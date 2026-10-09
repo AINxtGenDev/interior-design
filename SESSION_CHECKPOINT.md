@@ -11,9 +11,8 @@
 - Status (2026-10-09): Website live auf CI-Stand, DE und EN, Video 72 s live. Am 2026-10-09 per
   Screenshot-Aufträgen umgesetzt und live (Einzelheiten je Abschnitt unten): „Für wen ich arbeite"
   entfernt · Ordnungscoach „(i.A.)" · „Gepr. ArbeitsplatzExpertin" ergänzt · „Laufende Fortbildung"
-  entfernt · Projekte-Collage `Bild Projekte.png` · Pakete & Preise auf `#e9eaec` · vCard-QR im Kontakt · **Video Frame 1 neues Schrankbild** (`6ee860b`) · **Video Frame 3 Logo unter der Linie** (`7e8fd77`) · Video-Bildunterschrift ohne Dauer (`c7d5c23`).
-  Letzte Prüfung: `/` + `/en/` 200 + Bildunterschrift live nach `c7d5c23`; alle 6 Routen 200 und `vorstellung.mp4` SHA-256 `815b9e07…` = lokal
-  bei `7e8fd77`. Lighthouse mobil `/` (lokal) zuletzt 100/100/100/100 (vor den Video-Änderungen, nicht neu gemessen).
+  entfernt · Projekte-Collage `Bild Projekte.png` · Pakete & Preise auf `#e9eaec` · vCard-QR im Kontakt · **Video Frame 1 neues Schrankbild** (`6ee860b`) · **Video Frame 3 Logo unter der Linie** (`7e8fd77`) · Video-Bildunterschrift ohne Dauer (`c7d5c23`) · **Video Frame 4 neue Bilder Ordnung/Gestaltung** (`09c724f`).
+  Letzte Prüfung (`09c724f`): alle 6 Routen 200; `vorstellung.mp4` (`ecc3b424…`) und `-poster.jpg` live = lokal. Lighthouse mobil `/` (lokal) zuletzt 100/100/100/100 (vor den Video-Änderungen, nicht neu gemessen).
 - **Offen — mit Claudia klären:**
   - ArbeitsplatzExpertin: Beschreibungszeile, EN-Titel „Certified Workplace Expert", Schreibweise
     „Mensch & Büro-Akademie".
@@ -25,6 +24,7 @@
     Platzhalter in Impressum/AGB.
 - Ungetrackt im Repo-Root, **bewusst nicht committen** (Nutzer 2026-10-09): `Logo_kurz.png` = Initialen des Nutzers („my initials");
   `Video Ordnung Gestaltung.png` = nur zum Testen.
+  Neu aufgetaucht, Zweck noch offen (nicht angefasst): `Video Start.png`, `Video Start_landscape.png`.
 - Arbeitsweise: Änderung → `tsc`/`eslint`/`npm run build` → lokal `out/` auf Port 5000 im Browser prüfen →
   Commit + Push → Deploy abwarten → Live per curl prüfen → Checkpoint „LIVE" nachtragen.
   Video-Änderungen: Frame in `79_plessl-video/…/compositions/frames/` → `npm run check` → `hyperframes@0.8.2 snapshot`
@@ -33,6 +33,19 @@
   geänderte Frames nach `video-source/` spiegeln. Lokal Video prüfen nur mit Range-Server
   (`npx http-server@14.1.1 -p 5000 -s` in `website/out`; `python -m http.server` kann nicht seeken) und `?cb=` gegen Cache.
 - Nächste Schritte: offene Punkte oben mit Claudia klären; Video-Takes abhören lassen (Key bis ~2026-10-15).
+
+## Video Frame 4: neue Bilder Ordnung | Gestaltung (2026-10-09, Nutzerauftrag) — **LIVE** (`09c724f`, Deploy `37960533665` success)
+
+`Video Ordnung.png` (links) / `Video Gestaltung.png` (rechts), je 1122×1402 mit weißem Rand und **eingebranntem
+Serifen-Label** (Fotokante 1205 vs 1158 — ungleich hoch). Nur Fototeil verwendet → `assets/video-{ordnung,gestaltung}.webp`
+(548×1204 / 565×1157); die animierten CI-Labels (Montserrat) bleiben. Alte Bilddateien bleiben (in `capture/` referenziert).
+- Layout neu: Panes 450×960 bei x 80/550 (vorher 500×940 mit 40 px Überlappung), Teilerlinie im 20-px-Spalt; Labels 32 → **42 px**,
+  `text-indent` gleicht das Nachlauf-Letterspacing aus (Wortmitte = Panemitte ±1 px); Labels rücken bei 11,45 s ±40 zusammen.
+- Zentrierung: bis 14,8 s Block y 440–1491 (Mitte 965,5); dann gleiten Panes+Labels 68 px hoch, Schlusszeile kommt → y 372–1551 (Mitte 961,5).
+- Critic Runde 1 **REJECT** (Teiler-Stummel 77 px schwebte im Spalt; Labels ≈ 5 px auf iPhone SE; 68 px dezentriert) → alle drei behoben
+  (Teiler schrumpft auf 0). Nur 19,4–37,8 s geändert. Videospur-MD5 `66d11790…`, −14,5 LUFS; Datei 5,3 MB (vorher 4,27 — detailreichere Bilder).
+- **Poster neu** (t = 29 s liegt in Frame 4): `ffmpeg -ss 29 … -q:v 5` → 145 KB.
+- Rollback: `git revert 09c724f` (Website) bzw. `git revert 662eeee` (Projekt).
 
 ## Video-Bildunterschrift ohne Laufzeit (2026-10-09, Nutzerauftrag) — **LIVE** (`c7d5c23`, Deploy `37957513816` success)
 
