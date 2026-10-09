@@ -96,7 +96,10 @@ export function buildHomeGraph(locale: Locale): JsonLdNode[] {
   const catalogId = `${home}#packages`;
 
   // The four offers of the "Mein Angebot" menu plus the workshops.
-  const allServices = [...c.services.items, c.services.workshops];
+  const allServices: { title: string; lead: string; points?: string[] }[] = [
+    ...c.services.items,
+    c.services.workshops,
+  ];
   const serviceIds = allServices.map(
     (_, i) => `${home}#service-${i + 1}`,
   );
@@ -171,18 +174,21 @@ export function buildHomeGraph(locale: Locale): JsonLdNode[] {
     inLanguage: lang,
     provider: { "@id": businessId },
     areaServed: AREA_SERVED,
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: s.title,
-      itemListElement: s.points.map((point) => ({
-        "@type": "Offer",
-        itemOffered: { "@type": "Service", name: point },
-      })),
-    },
+    // The workshops are "coming soon" and list nothing yet.
+    ...(s.points && {
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: s.title,
+        itemListElement: s.points.map((point) => ({
+          "@type": "Offer",
+          itemOffered: { "@type": "Service", name: point },
+        })),
+      },
+    }),
   }));
 
   /*
-   * The eight priced packages. Every price on the site is a floor ("ab EUR
+   * The seven priced packages. Every price on the site is a floor ("ab EUR
    * 110"), so it is a `minPrice` — a bare `price` would assert a fixed fee the
    * business does not offer.
    */

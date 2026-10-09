@@ -117,7 +117,8 @@ export type Content = {
     /** The four offers of slide 4, in its order. */
     items: Service[];
     moreLabel: string;
-    workshops: Service;
+    /** "Coming soon": no price and no bullet list until they are offered. */
+    workshops: Pick<Service, "id" | "title" | "lead">;
   };
   process: { heading: string; lead: string; items: Step[] };
   packages: {
@@ -205,7 +206,6 @@ const dePackages: Package[] = [
   { name: "Gestaltungsberatung", scope: "Farb-, Material- und Einrichtungsberatung für einen Raum", audience: "Privat", price: "ab EUR 320" },
   { name: "Ordnung & Stil", scope: "Decluttering und anschließende Gestaltung eines Raums", audience: "Privat", price: "ab EUR 480" },
   { name: "Intensivbegleitung", scope: "Mehrere Termine für Organisation und Gestaltung inklusive Nachbetreuung", audience: "Privat", price: "ab EUR 690" },
-  { name: "Workshop", scope: "Gruppenworkshop zu Raumgestaltung oder Organisation, halber Tag", audience: "Privat & Betrieb", price: "ab EUR 350" },
   { name: "B2B-Kompakt", scope: "Analyse, Bürogestaltung und Teamworkshop im Paket", audience: "Betrieb", price: "ab EUR 690" },
 ];
 
@@ -216,7 +216,6 @@ const enPackages: Package[] = [
   { name: "Design consultation", scope: "Colour, material and furnishing advice for one room", audience: "Private", price: "from EUR 320" },
   { name: "Order & style", scope: "Decluttering followed by the design of one room", audience: "Private", price: "from EUR 480" },
   { name: "Intensive support", scope: "Several appointments for organising and design, including follow-up", audience: "Private", price: "from EUR 690" },
-  { name: "Workshop", scope: "Half-day group workshop on room design or organisation", audience: "Private & business", price: "from EUR 350" },
   { name: "Business compact", scope: "Assessment, office design and team workshop bundled", audience: "Business", price: "from EUR 690" },
 ];
 
@@ -318,16 +317,8 @@ const de: Content = {
     moreLabel: "Außerdem",
     workshops: {
       id: "workshops",
-      price: `${dePackages[6].name} ${dePackages[6].price}`,
       title: "Workshops & Training",
       lead: "Werden in Kürze angeboten.",
-      points: [
-        "Halbtages- und Tagesworkshops",
-        "Mehrteilige Kursreihen",
-        "Firmenworkshops zu Büro- und Arbeitsplatzorganisation",
-        "Online-Kurse und Webinare",
-        "Vorträge bei Netzwerktreffen und Vereinen",
-      ],
     },
   },
   process: {
@@ -566,16 +557,8 @@ const en: Content = {
     moreLabel: "Also",
     workshops: {
       id: "workshops",
-      price: `${enPackages[6].name} ${enPackages[6].price}`,
       title: "Workshops & Training",
       lead: "Coming soon.",
-      points: [
-        "Half-day and full-day workshops",
-        "Multi-part course series",
-        "Company workshops on office and workspace organisation",
-        "Online courses and webinars",
-        "Talks at networking events and associations",
-      ],
     },
   },
   process: {

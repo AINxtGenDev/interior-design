@@ -94,17 +94,13 @@ export default function HomePage({ locale }: { locale: Locale }) {
           <article
             id={c.services.workshops.id}
             aria-labelledby="workshops-title"
-            className="mt-6 grid gap-6 rounded bg-sage-light p-6 sm:p-8 lg:grid-cols-2 lg:gap-12"
+            className="mt-6 rounded bg-sage-light p-6 sm:p-8"
           >
-            <div>
-              <p className="eyebrow text-sage-dark">{c.services.moreLabel}</p>
-              <h3 id="workshops-title" className="h3 mt-2">
-                {c.services.workshops.title}
-              </h3>
-              <p className="mt-4">{c.services.workshops.lead}</p>
-              <PriceHint text={c.services.workshops.price} />
-            </div>
-            <BulletList items={c.services.workshops.points} />
+            <p className="eyebrow text-sage-dark">{c.services.moreLabel}</p>
+            <h3 id="workshops-title" className="h3 mt-2">
+              {c.services.workshops.title}
+            </h3>
+            <p className="mt-4">{c.services.workshops.lead}</p>
           </article>
         </Section>
 
