@@ -11,7 +11,7 @@
 - Status (2026-10-09): Website live auf CI-Stand, DE und EN, Video 72 s live. Am 2026-10-09 per
   Screenshot-Aufträgen umgesetzt und live (Einzelheiten je Abschnitt unten): „Für wen ich arbeite"
   entfernt · Ordnungscoach „(i.A.)" · „Gepr. ArbeitsplatzExpertin" ergänzt · „Laufende Fortbildung"
-  entfernt · Projekte-Collage `Bild Projekte.png` · Pakete & Preise auf `#e9eaec` · vCard-QR im Kontakt · **Video Frame 1 neues Schrankbild** (`6ee860b`) · **Video Frame 3 Logo unter der Linie** (`7e8fd77`).
+  entfernt · Projekte-Collage `Bild Projekte.png` · Pakete & Preise auf `#e9eaec` · vCard-QR im Kontakt · **Video Frame 1 neues Schrankbild** (`6ee860b`) · **Video Frame 3 Logo unter der Linie** (`7e8fd77`) · Video-Bildunterschrift ohne Dauer (`c7d5c23`).
   Letzte Prüfung: `/` + `/en/` 200 nach `d4f4156` (alle 6 Routen 200 bei `36c355d`); Lighthouse mobil `/` (lokal) 100/100/100/100.
 - **Offen — mit Claudia klären:**
   - ArbeitsplatzExpertin: Beschreibungszeile, EN-Titel „Certified Workplace Expert", Schreibweise
@@ -25,6 +25,12 @@
   - `Logo_kurz.png` und `Video Ordnung Gestaltung.png` liegen ungetrackt im Repo-Root — Zweck unklar, nicht committet.
 - Arbeitsweise: Änderung → `tsc`/`eslint`/`npm run build` → lokal `out/` auf Port 5000 im Browser prüfen →
   Commit + Push → Deploy abwarten → Live per curl prüfen → Checkpoint „LIVE" nachtragen.
+
+## Video-Bildunterschrift ohne Laufzeit (2026-10-09, Nutzerauftrag) — **LIVE** (`c7d5c23`, Deploy `37957513816` success)
+
+`video.caption` in `site.ts`: „Vorstellungsvideo, 72 Sekunden" → „Vorstellungsvideo"; EN analog „Introduction, 72 seconds"
+→ „Introduction" (nicht ausdrücklich verlangt, zur Konsistenz). Live per curl geprüft (DE/EN, kein „72 Sekunden" mehr).
+JSON-LD `duration PT1M12S` bleibt (Maschinenangabe, weiterhin korrekt).
 
 ## Video Frame 3: Logo unter der Linie (2026-10-09, Nutzerauftrag) — **LIVE** (`7e8fd77`, Deploy `37957158925` success)
 
