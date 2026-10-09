@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import LegalShell, { LegalSection, Todo } from "@/components/LegalShell";
+import LegalShell, { LegalSection } from "@/components/LegalShell";
 import { CONTACT } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -19,8 +19,8 @@ export default function Datenschutz() {
       locale="de"
       path="datenschutz/"
       title="Datenschutzerklärung"
-      updated="Stand: August 2026"
-      updatedIso="2026-08"
+      updated="Stand: Oktober 2026"
+      updatedIso="2026-10"
     >
       <LegalSection heading="Verantwortliche">
         <p>
@@ -80,25 +80,43 @@ export default function Datenschutz() {
           Speicherdauer und Umfang dieser Logfiles besteht kein Einfluss; die
           Verarbeitung erfolgt durch den Hostinganbieter.
         </p>
+      </LegalSection>
+
+      <LegalSection heading="Datenübermittlung in die USA">
         <p>
-          Da der Anbieter seinen Sitz in den USA hat, kann eine Übermittlung
-          personenbezogener Daten in ein Drittland stattfinden. Grundlage dafür
-          ist{" "}
-          <Todo>
-            [vor Veröffentlichung prüfen und konkret benennen: EU-US Data
-            Privacy Framework und/oder Standardvertragsklauseln nach Art. 46
-            DSGVO]
-          </Todo>
-          . Details:{" "}
+          Im Zusammenhang mit der Nutzung von GitHub können personenbezogene
+          Daten an GitHub, Inc., USA, übermittelt und dort verarbeitet werden.
+          GitHub, Inc. ist nach dem EU-U.S. Data Privacy Framework (DPF)
+          zertifiziert. Soweit die Datenübermittlung von dieser Zertifizierung
+          erfasst ist, erfolgt sie auf Grundlage des Angemessenheitsbeschlusses
+          der Europäischen Kommission gemäß Art. 45 Abs. 1 DSGVO
+          (Durchführungsbeschluss (EU) 2023/1795 vom 10. Juli 2023).
+        </p>
+        <p>
+          Weitere Informationen zur Verarbeitung personenbezogener Daten durch
+          GitHub finden Sie in der Datenschutzerklärung von GitHub:
+          <br />
           <a
-            href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement"
-            className={linkClass}
+            href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement"
+            className={`${linkClass} break-all`}
             rel="noopener noreferrer"
             target="_blank"
           >
-            GitHub Privacy Statement
+            https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement
           </a>
-          .
+        </p>
+        <p>
+          Die Zertifizierung von GitHub können Sie im offiziellen Data Privacy
+          Framework Register einsehen:
+          <br />
+          <a
+            href="https://www.dataprivacyframework.gov/participant/6174"
+            className={`${linkClass} break-all`}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            https://www.dataprivacyframework.gov/participant/6174
+          </a>
         </p>
       </LegalSection>
 

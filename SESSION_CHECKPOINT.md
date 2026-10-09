@@ -23,7 +23,7 @@
   - ~~Workshops „in Kürze" vs. Preise~~ (erledigt: Preis + Paket entfernt); „Zahlreiche umgesetzte Projekte" vs. Projekte-Text;
     ~~Video sagt noch „Zertifizierter Ordnungscoach"~~ (erledigt: Szene 6 gestrichen); ~~Handout veraltet~~ (erledigt 2026-10-09).
   - Re-Design-Text bestätigen; Firmenwortlaut „Raum & Ordnung" vs. Logo-Unterzeile; rechtliche
-    Platzhalter in AGB; Impressum vollständig (2026-10-09).
+    Platzhalter in AGB; Impressum und Datenschutz vollständig (2026-10-09).
 - Ungetrackt im Repo-Root, **bewusst nicht committen** (Nutzer 2026-10-09): `Logo_kurz.png` = Initialen des Nutzers („my initials");
   `Video Ordnung Gestaltung.png` = nur zum Testen.
   Neu aufgetaucht, Zweck noch offen (nicht angefasst): `Video Start.png`, `Video Start_landscape.png`.
@@ -35,6 +35,17 @@
   geänderte Frames nach `video-source/` spiegeln. Lokal Video prüfen nur mit Range-Server
   (`npx http-server@14.1.1 -p 5000 -s` in `website/out`; `python -m http.server` kann nicht seeken) und `?cb=` gegen Cache.
 - Nächste Schritte: offene Punkte oben mit Claudia klären; Video-Takes abhören lassen (Key bis ~2026-10-15).
+
+## Datenschutz: Abschnitt „Datenübermittlung in die USA" (2026-10-09, Nutzerauftrag per Screenshot + Text) — **gepusht**
+
+- `src/app/(de)/datenschutz/page.tsx`: Platzhalter („vor Veröffentlichung prüfen … DPF und/oder SCC") samt Absatz unter
+  Hosting entfernt; neuer eigener Abschnitt nach „Hosting und Server-Logfiles" mit dem Nutzertext wörtlich: GitHub DPF-zertifiziert,
+  Angemessenheitsbeschluss Art. 45 Abs. 1 DSGVO (DB (EU) 2023/1795 vom 10.07.2023); Links als sichtbare URLs (`break-all`):
+  GitHub General Privacy Statement (`docs.github.com/en/…`) und DPF-Register `participant/6174`. Stand → Oktober 2026.
+  Datenschutz hat damit **keine `<Todo>` mehr** (Import entfernt). EN-Legal (`/en/legal/`) unverändert (nennt nur Hosting bei GitHub, USA).
+- Geprüft: build grün; Text zeichengleich im gebauten HTML; beide Links 200; DPF-Register im Browser: 6174 = **GitHub, EU-U.S. DPF
+  „Active", nächste Rezertifizierung 2027-08-03** (UK-Extension ebenfalls aktiv); 393 px ohne Überlauf, keine Konsolenfehler.
+- Hinweis: DPF-Status vor 2027-08-03 erneut prüfen.
 
 ## Impressum: „WKNÖ" aus der Mitgliedschaft entfernt (2026-10-09, Nutzerauftrag per Screenshot) — **LIVE** (`9ec6c39`, Deploy `37967943630` success; live kein „WKNÖ", FG vorhanden)
 
