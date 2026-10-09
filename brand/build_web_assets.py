@@ -4,12 +4,15 @@ Inputs (repo root, supplied by the client):
     Logo2.png               1325x1187 RGBA, primary logo with real alpha
     Titelbild Homepage.png  1947x808 RGB, homepage title image
     Titelbild Handy.png     637x1063, phone version of it (change deck 8.10.26, slide 2)
+    Bild Projekte.png       1254x1254, Projekte collage with the German tiles (2026-10-09)
 
 Outputs:
     website/src/assets/logo-{480,960}.webp            trimmed logo, lossless
     website/src/assets/hero-{full,phone}-{w}.webp      title image, desktop + phone
     website/src/assets/hero-en-{full,phone}-{w}.webp   same, headline set in English
     website/src/assets/portrait-{w}.webp               Über mich, from "Portrait Homepage.png"
+    website/src/assets/projects-{640,1254}.webp        Projekte collage (German page)
+    website/src/assets/projects-{living,order}-610.webp its two photos (English page)
     website/src/app/{favicon.ico,icon.png,apple-icon.png}
     website/public/icons/android-chrome-*.png          incl. maskable
     website/public/og-image-{de,en}.jpg                 Open Graph cards
@@ -171,6 +174,21 @@ def build_portrait(portrait: Image.Image) -> None:
     save_webp(portrait.crop((4, 0, portrait.width - 4, portrait.height)), "portrait", (480, 10_000))
 
 
+# The collage is a 2x2 grid on light gutters (columns 615-639, rows 613-638,
+# measured). Photo tiles: top right and bottom left; cut 2 px inside the
+# gutter so no anti-aliased edge survives. Re-measure if the source changes.
+PROJECTS_LIVING = (642, 1, 1252, 611)
+PROJECTS_ORDER = (2, 641, 612, 1251)
+
+
+def build_projects(collage: Image.Image) -> None:
+    """Projekte section. The German tiles are baked into the collage, so the
+    English page keeps its live-text tiles and only takes the two photos."""
+    save_webp(collage, "projects", (640, collage.width))
+    save_webp(collage.crop(PROJECTS_LIVING), "projects-living", (10_000,))
+    save_webp(collage.crop(PROJECTS_ORDER), "projects-order", (10_000,))
+
+
 def square(mark: Image.Image, size: int, fill: float, bg=None) -> Image.Image:
     """Centre the mark on a square canvas, its longer side at `fill` of it."""
     scale = fill * size / max(mark.size)
@@ -261,6 +279,7 @@ def main() -> None:
     hero_en = english_headline(hero)
     build_hero(hero_en, english_headline(phone, **PHONE_HEADLINE), prefix="hero-en")
     build_portrait(Image.open(ROOT / "Portrait Homepage.png").convert("RGB"))
+    build_projects(Image.open(ROOT / "Bild Projekte.png").convert("RGB"))
     build_icons(logo)
     build_og(logo, {"de": hero, "en": hero_en})
 

@@ -2,7 +2,7 @@
 
 ## Meta
 
-- Datum: 2026-10-09 („Laufende Fortbildung" entfernt; Qualifikation „Gepr. ArbeitsplatzExpertin" ergänzt; „in Ausbildung" → „i.A."; Abschnitt „Für wen ich arbeite" entfernt; Homepage-Änderungen 081026 live seit 21:42, siehe unten; eigene Domain claudiaplessl.at live; Geschäftsadresse claudiaplessl@gmail.com; Domain ohne Mail abgesichert)
+- Datum: 2026-10-09 (Projekte-Bild durch „Bild Projekte.png" ersetzt; „Laufende Fortbildung" entfernt; Qualifikation „Gepr. ArbeitsplatzExpertin" ergänzt; „in Ausbildung" → „i.A."; Abschnitt „Für wen ich arbeite" entfernt; Homepage-Änderungen 081026 live seit 21:42, siehe unten; eigene Domain claudiaplessl.at live; Geschäftsadresse claudiaplessl@gmail.com; Domain ohne Mail abgesichert)
 - Repository: `AINxtGenDev/interior-design` (public)
 - Arbeitskopie: `/home/nuc8/05_development/55_laulau/78_plessl-website`
   (**verschoben am 2026-08-16** — vorher `/home/nuc8/05_development/78_plessl-website`)
@@ -16,6 +16,20 @@
   „Raum & Ordnung" vs. Logo-Unterzeile klären; rechtliche Platzhalter im
   Impressum/AGB weiterhin offen. (Älterer Stand, Umbenennung 2026-08-17:
   Deploy `32004332796`.)
+
+## Projekte-Raster durch `Bild Projekte.png` ersetzt (2026-10-09, Nutzerauftrag)
+
+Neue Kunden-Collage (1254², 2×2, **deutsche Kacheltexte eingebrannt**: „Räume, die gut tun." /
+„Organisation trifft Ästhetik.") im Repo-Root, gebaut von `build_projects()` in `brand/build_web_assets.py`.
+- **DE:** Collage als ein Bild (`projects-{640,1254}.webp`, srcset), Alt-Text beschreibt alle 4 Felder
+  (`projects.collageAlt`, nur DE gesetzt → steuert die Darstellung).
+- **EN:** HTML-Raster mit englischen Live-Text-Kacheln bleibt, die zwei Fotos kommen jetzt aus der Collage
+  (`projects-{living,order}-610.webp`, 2 px innerhalb der gemessenen Stege geschnitten). EN-Kacheln
+  sind weiterhin flach (ohne Blattschatten/Serifenschrift der DE-Collage) — englische Collage nur, falls
+  Claudia eine liefert.
+- `detail-{living,order}.webp` entfernt (verwaist). Asset-Neubau: alle übrigen Dateien byte-identisch.
+- Build/tsc/eslint grün; lokal DE/EN geprüft: richtige Bilder geladen, keine Konsolenfehler, kein Überlauf.
+- `Logo_kurz.png` liegt ungetrackt im Repo-Root — nicht angefasst, nicht committet.
 
 ## Qualifikation „Laufende Fortbildung" entfernt (2026-10-09, Nutzerauftrag per Screenshot) — **LIVE** (`33af442`, Deploy `37893421377` success)
 

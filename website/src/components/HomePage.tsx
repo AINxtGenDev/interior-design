@@ -4,8 +4,10 @@ import Image from "next/image";
  * "/x.webp" string would resolve to the domain root and 404 on the
  * project-path Pages URL.
  */
-import detailLiving from "@/assets/detail-living.webp";
-import detailOrder from "@/assets/detail-order.webp";
+import projects640 from "@/assets/projects-640.webp";
+import projects1254 from "@/assets/projects-1254.webp";
+import projectsLiving from "@/assets/projects-living-610.webp";
+import projectsOrder from "@/assets/projects-order-610.webp";
 import portrait480 from "@/assets/portrait-480.webp";
 import portrait1045 from "@/assets/portrait-1045.webp";
 import { CONTACT, getContent, type Locale } from "@/content/site";
@@ -253,32 +255,49 @@ export default function HomePage({ locale }: { locale: Locale }) {
               </a>
             </div>
 
-            {/* The "Anwendungsbeispiele" grid of the style-guide slide. */}
-            <div>
-              <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                <p className="flex aspect-square items-end bg-sage-dark p-4 font-[family-name:var(--font-accent)] text-[clamp(1rem,0.85rem+0.8vw,1.5rem)] leading-snug text-white sm:p-6">
-                  {c.projects.tiles[0]}
-                </p>
-                <Image
-                  src={detailLiving}
-                  alt={c.projects.imageAlt[0]}
-                  sizes="(min-width: 1024px) 300px, 50vw"
-                  className="aspect-square h-full w-full object-cover"
-                />
-                <Image
-                  src={detailOrder}
-                  alt={c.projects.imageAlt[1]}
-                  sizes="(min-width: 1024px) 300px, 50vw"
-                  className="aspect-square h-full w-full object-cover"
-                />
-                {/* Slide 5 sets this tile in tracked capitals; below 640 px a
-                    tile is ~110 px wide and "ORGANISATION" would not fit. */}
-                <p className="flex aspect-square flex-col items-center justify-center bg-blush-soft p-4 text-center font-[family-name:var(--font-accent)] text-[clamp(1rem,0.85rem+0.6vw,1.25rem)] leading-snug text-anthrazit-dark sm:p-6 sm:tracking-[0.12em] sm:uppercase">
-                  {c.projects.tiles[1]}
-                  <span aria-hidden="true" className="rule mt-3 w-10 bg-anthrazit-dark" />
-                </p>
+            {/* The "Anwendungsbeispiele" grid of the style-guide slide. German
+                shows the client's collage ("Bild Projekte.png"), whose tiles
+                are baked in; English rebuilds it with live-text tiles. */}
+            {c.projects.collageAlt ? (
+              // eslint-disable-next-line @next/next/no-img-element -- srcset; see BrandLogo
+              <img
+                src={projects640.src}
+                srcSet={`${projects640.src} 640w, ${projects1254.src} 1254w`}
+                sizes="(min-width: 1024px) 620px, 100vw"
+                width={projects1254.width}
+                height={projects1254.height}
+                alt={c.projects.collageAlt}
+                loading="lazy"
+                decoding="async"
+                className="h-auto w-full"
+              />
+            ) : (
+              <div>
+                <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                  <p className="flex aspect-square items-end bg-sage-dark p-4 font-[family-name:var(--font-accent)] text-[clamp(1rem,0.85rem+0.8vw,1.5rem)] leading-snug text-white sm:p-6">
+                    {c.projects.tiles[0]}
+                  </p>
+                  <Image
+                    src={projectsLiving}
+                    alt={c.projects.imageAlt[0]}
+                    sizes="(min-width: 1024px) 300px, 50vw"
+                    className="aspect-square h-full w-full object-cover"
+                  />
+                  <Image
+                    src={projectsOrder}
+                    alt={c.projects.imageAlt[1]}
+                    sizes="(min-width: 1024px) 300px, 50vw"
+                    className="aspect-square h-full w-full object-cover"
+                  />
+                  {/* Slide 5 sets this tile in tracked capitals; below 640 px a
+                      tile is ~110 px wide and "ORGANISATION" would not fit. */}
+                  <p className="flex aspect-square flex-col items-center justify-center bg-blush-soft p-4 text-center font-[family-name:var(--font-accent)] text-[clamp(1rem,0.85rem+0.6vw,1.25rem)] leading-snug text-anthrazit-dark sm:p-6 sm:tracking-[0.12em] sm:uppercase">
+                    {c.projects.tiles[1]}
+                    <span aria-hidden="true" className="rule mt-3 w-10 bg-anthrazit-dark" />
+                  </p>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </Section>
 

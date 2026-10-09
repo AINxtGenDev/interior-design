@@ -147,6 +147,9 @@ export type Content = {
     status: string;
     tiles: [string, string];
     imageAlt: [string, string];
+    /** Set where the client's collage, with this language's tiles baked in,
+     *  replaces the live-text grid (German only). */
+    collageAlt?: string;
     cta: string;
   };
   faq: { heading: string; lead: string; items: Faq[] };
@@ -398,6 +401,8 @@ const de: Content = {
       "Wohnbereich in warmen Naturtönen mit Sofa, Olivenbaum und gerahmter Kunst",
       "Offenes Regalsystem mit beschrifteten Boxen, gefalteter Wäsche und Kleiderstange",
     ],
+    collageAlt:
+      "Collage aus vier Feldern: „Räume, die gut tun.“ auf Salbeigrün, ein Wohnbereich mit Sofa, Olivenbaum und gerahmter Kunst, ein Regal mit beschrifteten Boxen, gefalteter Wäsche und Kleiderstange sowie „Organisation trifft Ästhetik.“ auf Rosé",
     cta: "Ihr Raum als nächstes Projekt?",
   },
   faq: {
