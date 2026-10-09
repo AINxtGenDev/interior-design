@@ -40,8 +40,6 @@ export default function Legal() {
         <p>
           <strong>{CONTACT.name}</strong>
           <br />
-          Raum &amp; Ordnung
-          <br />
           {CONTACT.street}
           <br />
           {CONTACT.postalCode} {CONTACT.city}

@@ -36,6 +36,12 @@
   (`npx http-server@14.1.1 -p 5000 -s` in `website/out`; `python -m http.server` kann nicht seeken) und `?cb=` gegen Cache.
 - Nächste Schritte: offene Punkte oben mit Claudia klären; Video-Takes abhören lassen (Key bis ~2026-10-15).
 
+## Impressum/Legal: Zeile „Raum & Ordnung" unter dem Namen entfernt (2026-10-09, Nutzerauftrag per Screenshot) — **gepusht**
+
+Anschriftblock jetzt Name → Straße → PLZ Ort → Land. Gleicher Block auch in `/en/legal/` → dort ebenfalls entfernt.
+Markenname „Mag. Claudia Plessl — Raum & Ordnung" (`CONTACT.businessName`, Seitentitel, Footer, JSON-LD) unverändert.
+Geprüft: tsc/eslint/build grün; 6 Routen lokal 200; `/impressum/` 393 px Screenshot ok, kein Überlauf, keine Konsolenfehler.
+
 ## Impressum: GISA-Zahlen, Gewerbewortlaute, BH Tulln; UID entfernt (2026-10-09, Nutzerauftrag) — **LIVE** (`8ecf358`, Deploy `37966895387` success; live `/impressum/` 200, beide GISA-Zahlen + BH Tulln vorhanden, kein „UID")
 
 - `src/app/(de)/impressum/page.tsx`: Platzhalter ersetzt durch Nutzerangaben — **zwei Gewerbe**: GISA 40024813
