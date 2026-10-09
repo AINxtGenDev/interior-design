@@ -11,7 +11,7 @@
 - Status (2026-10-09): Website live auf CI-Stand, DE und EN, Video **58 s** live. Am 2026-10-09 per
   Screenshot-Aufträgen umgesetzt und live (Einzelheiten je Abschnitt unten): „Für wen ich arbeite"
   entfernt · Ordnungscoach „(i.A.)" · „Gepr. ArbeitsplatzExpertin" ergänzt · „Laufende Fortbildung"
-  entfernt · Projekte-Collage `Bild Projekte.png` · Pakete & Preise auf `#e9eaec` · vCard-QR im Kontakt · **Video Frame 1 neues Schrankbild** (`6ee860b`) · **Video Frame 3 Logo unter der Linie** (`7e8fd77`) · Video-Bildunterschrift ohne Dauer (`c7d5c23`) · **Video Frame 4 neue Bilder Ordnung/Gestaltung** (`09c724f`) · **Video Szene 6 „Warum mit mir" gestrichen, Film 58 s** (`2e5f248`). · **Workshops ohne Preis/Aufzählung, Paket „Workshop" entfernt (7 Pakete)** · **Über mich: Qualifikation als eigener Kartenblock**.
+  entfernt · Projekte-Collage `Bild Projekte.png` · Pakete & Preise auf `#e9eaec` · vCard-QR im Kontakt · **Video Frame 1 neues Schrankbild** (`6ee860b`) · **Video Frame 3 Logo unter der Linie** (`7e8fd77`) · Video-Bildunterschrift ohne Dauer (`c7d5c23`) · **Video Frame 4 neue Bilder Ordnung/Gestaltung** (`09c724f`) · **Video Szene 6 „Warum mit mir" gestrichen, Film 58 s** (`2e5f248`). · **Workshops ohne Preis/Aufzählung, Paket „Workshop" entfernt (7 Pakete)** · **Über mich: Qualifikation als eigener Kartenblock** · **Handout auf Website-Stand**.
   Letzte Prüfung (`2e5f248`): alle 6 Routen 200; `vorstellung.mp4` (`3f7edc26…`), `-de.vtt`, `-poster.jpg` live = lokal; JSON-LD `PT58S`. Lighthouse mobil `/` (lokal) zuletzt 100/100/100/100 (vor den Video-Änderungen, nicht neu gemessen).
 - **Offen — mit Claudia klären:**
   - ArbeitsplatzExpertin: Beschreibungszeile, EN-Titel „Certified Workplace Expert", Schreibweise
@@ -19,7 +19,7 @@
   - EN-Projekte-Collage (DE-Collage hat Texte eingebrannt; EN zeigt flache Live-Text-Kacheln).
   - Rosa Linie/Kartenränder in Pakete & Preise auch grau? (bewusst nicht geändert)
   - ~~Workshops „in Kürze" vs. Preise~~ (erledigt: Preis + Paket entfernt); „Zahlreiche umgesetzte Projekte" vs. Projekte-Text;
-    ~~Video sagt noch „Zertifizierter Ordnungscoach"~~ (erledigt: Szene 6 gestrichen); Handout veraltet (siehe Abschnitt 2026-10-08).
+    ~~Video sagt noch „Zertifizierter Ordnungscoach"~~ (erledigt: Szene 6 gestrichen); ~~Handout veraltet~~ (erledigt 2026-10-09).
   - Re-Design-Text bestätigen; Firmenwortlaut „Raum & Ordnung" vs. Logo-Unterzeile; rechtliche
     Platzhalter in Impressum/AGB.
 - Ungetrackt im Repo-Root, **bewusst nicht committen** (Nutzer 2026-10-09): `Logo_kurz.png` = Initialen des Nutzers („my initials");
@@ -33,6 +33,16 @@
   geänderte Frames nach `video-source/` spiegeln. Lokal Video prüfen nur mit Range-Server
   (`npx http-server@14.1.1 -p 5000 -s` in `website/out`; `python -m http.server` kann nicht seeken) und `?cb=` gegen Cache.
 - Nächste Schritte: offene Punkte oben mit Claudia klären; Video-Takes abhören lassen (Key bis ~2026-10-15).
+
+## Handout an Website angeglichen (2026-10-09, Nutzerauftrag) — **gepusht**
+
+`handout/claudia-plessl-uebersicht.html` (nur lokal, nicht deployt) inhaltlich auf DE-Website-Stand, Design unverändert:
+Kopfzeile „Raumgestaltung · Ordnungscoaching", Hero-Text; „Drei Leistungen" → **„Mein Angebot"** mit den 4 Angeboten
+(Texte, Punkte, „ab"-Preis je Karte) + Workshops „Werden in Kürze angeboten."; **7 Pakete** wie Website (Re-Design-Beratung 280,
+Gestaltungsberatung 320, kein Workshop); Ablauf- und Preis-Fußnote wortgleich; Qualifikation = 3 Website-Einträge
+(„Laufende Fortbildung", „Zertifizierter Ordnungscoach" ohne i.A. weg); Fußzeile „Stand Oktober 2026".
+Geprüft: Skript vergleicht mit `website/out/index.html` — 7/7 Pakete inkl. Inhalt/Preis, jeder Handout-Satz wortgleich auf der
+Website; 393 px hell + dunkel ohne Überlauf, keine Konsolenfehler. Rollback: `git revert <dieser Commit>`.
 
 ## Über mich: Qualifikation als eigener Block (2026-10-09, Nutzerauftrag per Screenshot) — **LIVE** (`675ab16`, Deploy `37964809805` success; live DE/EN 200, neuer Block vorhanden)
 
