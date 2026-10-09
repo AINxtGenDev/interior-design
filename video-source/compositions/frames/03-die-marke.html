@@ -16,10 +16,12 @@
         #f3-lockup { position:absolute; left:0; top:0; width:1080px; height:1920px; }
 
         /* Claudia's portrait instead of the logo ("Ich bin Claudia Plessl").
-           700 px wide, 1045x1207 source -> 808.5 px high; its lower edge sits
-           32 px above the hairline, which rises from 1180 to 1120 to meet it. */
+           Change 2026-10-09: the logo without the CP mark sits below the hairline.
+           Group = portrait 808.5 + 32 + hairline + 64 + logo 168.6 = 1074 px,
+           centred on the frame (top 423, bottom 1497 — clear of the 15 % keep-out).
+           The hairline arrives at y=1180 from Frame 2 and settles at 1263.5. */
         #f3-portrait {
-          position:absolute; left:190px; top:279.5px; width:700px; height:808.5px;
+          position:absolute; left:190px; top:423px; width:700px; height:808.5px;
           overflow:hidden; opacity:0;
         }
         #f3-portrait img { display:block; width:100%; height:100%; object-fit:cover; }
@@ -29,6 +31,14 @@
           width:800px; height:1px; background:#8fa37a;
           transform-origin:center center;
         }
+
+        /* "Logo ohne cp.png", keyed off its black ground -> assets/logo-ohne-cp.webp
+           (1266x281). 760 px wide, centred. */
+        #f3-logo {
+          position:absolute; left:160px; top:1328.5px; width:760px; height:168.6px;
+          opacity:0;
+        }
+        #f3-logo img { display:block; width:100%; height:100%; }
       </style>
 
       <div
@@ -43,6 +53,7 @@
         <div id="f3-lockup">
           <div id="f3-portrait"><img id="f3-img" src="assets/portrait-claudia.webp" alt="" /></div>
           <div id="f3-rule"></div>
+          <div id="f3-logo"><img src="assets/logo-ohne-cp.webp" alt="claudia plessl — interior design · professional organizing" /></div>
         </div>
       </div>
 
@@ -51,12 +62,16 @@
           window.__timelines = window.__timelines || {};
           const tl = gsap.timeline({ paused: true });
 
-          // The inherited hairline rises to become the portrait's baseline.
-          tl.fromTo("#f3-rule", { y: 0 }, { y: -60, duration: 0.8, ease: "power2.out" }, 0.20);
+          // The inherited hairline settles under the portrait, between picture and logo.
+          tl.fromTo("#f3-rule", { y: 0 }, { y: 83.5, duration: 0.7, ease: "power2.out" }, 0.0);
+          // (starts at 0, so it is past the portrait's lower edge before the portrait shows)
 
           // "Schöne Räume" — the portrait settles in.
           tl.fromTo("#f3-portrait", { opacity: 0 }, { opacity: 1, duration: 0.9, ease: "power2.out" }, 0.30);
           tl.fromTo("#f3-img", { scale: 1.05 }, { scale: 1, duration: 1.4, ease: "power2.out" }, 0.30);
+
+          // "Ich bin Claudia Plessl" (VO 3.63 s) — the logo lands on the name.
+          tl.fromTo("#f3-logo", { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" }, 3.70);
 
           // A very slow 2% push-in runs under the held read; nothing else moves.
           tl.fromTo("#f3-lockup", { scale: 1 }, { scale: 1.02, duration: 6.5, ease: "none" }, 0);
