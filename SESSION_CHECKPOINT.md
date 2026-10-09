@@ -34,7 +34,7 @@
   (`npx http-server@14.1.1 -p 5000 -s` in `website/out`; `python -m http.server` kann nicht seeken) und `?cb=` gegen Cache.
 - Nächste Schritte: offene Punkte oben mit Claudia klären; Video-Takes abhören lassen (Key bis ~2026-10-15).
 
-## Workshops: Preis und Aufzählung entfernt, Paket „Workshop" aus Pakete & Preise (2026-10-09, Nutzerauftrag per 2 Screenshots) — **gepusht**
+## Workshops: Preis und Aufzählung entfernt, Paket „Workshop" aus Pakete & Preise (2026-10-09, Nutzerauftrag per 2 Screenshots) — **LIVE** (`a1222f5`, Deploy `37963634201` success; live DE/EN 200, kein „350", 7 Pakete)
 
 - Workshops-Karte (DE/EN) zeigt nur noch „Außerdem · Workshops & Training · Werden in Kürze angeboten." — Preislink
   „Workshop ab EUR 350" und die 5 Aufzählungspunkte weg; Karte einspaltig (`HomePage.tsx`).
@@ -46,7 +46,7 @@
 - Getestet lokal (`out/`, chrome-devtools): tsc/eslint/build grün; 6 Routen 200; DE 1440 px + EN 393 px mobil: Tabelle 7 Zeilen,
   kein „350" im HTML, kein Überlauf, keine Konsolenfehler.
 - Nicht geändert: `handout/claudia-plessl-uebersicht.html` nennt Workshops noch mit Aufzählung (Handout ohnehin veraltet).
-- Rollback: `git revert <dieser Commit>`.
+- Rollback: `git revert a1222f5`.
 
 ## Video: Szene 6 „Warum mit mir" gestrichen, Film 58,2 s (2026-10-09, Nutzerauftrag) — **LIVE** (`2e5f248`, Deploy `37962189609` success)
 
