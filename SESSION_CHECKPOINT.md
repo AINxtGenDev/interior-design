@@ -84,6 +84,8 @@ Website; 393 px hell + dunkel ohne Überlauf, keine Konsolenfehler. Rollback: `g
 Nachprüfung 2026-10-09 abends (Nutzerauftrag „update the handout to match the website"): seit `8223bd2` nur Impressum-Änderungen
 (GISA/UID/FG/„Raum & Ordnung"-Zeile/WKNÖ) — Handout enthält keine Impressum-Angaben; Skriptvergleich: alle Handout-Texte wortgleich
 auf der Website außer handout-eigenen Formulierungen (Kopfzeile, einzeilige Anschrift, Linktext, Fußzeile) → **keine Änderung nötig**.
+Erneut geprüft nach Datenschutz-Änderung (`e2dd379`): Handout enthält keine Datenschutz-Inhalte (Fußzeile verweist nur auf die
+Website), Skriptvergleich unverändert → **keine Änderung nötig**.
 
 ## Über mich: Qualifikation als eigener Block (2026-10-09, Nutzerauftrag per Screenshot) — **LIVE** (`675ab16`, Deploy `37964809805` success; live DE/EN 200, neuer Block vorhanden)
 
