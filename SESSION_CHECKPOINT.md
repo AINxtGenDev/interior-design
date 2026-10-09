@@ -11,7 +11,7 @@
 - Status (2026-10-09): Website live auf CI-Stand, DE und EN, Video 72 s live. Am 2026-10-09 per
   Screenshot-Aufträgen umgesetzt und live (Einzelheiten je Abschnitt unten): „Für wen ich arbeite"
   entfernt · Ordnungscoach „(i.A.)" · „Gepr. ArbeitsplatzExpertin" ergänzt · „Laufende Fortbildung"
-  entfernt · Projekte-Collage `Bild Projekte.png` · Pakete & Preise auf `#e9eaec` · vCard-QR im Kontakt.
+  entfernt · Projekte-Collage `Bild Projekte.png` · Pakete & Preise auf `#e9eaec` · vCard-QR im Kontakt · **Video Frame 1 neues Schrankbild** (`6ee860b`).
   Letzte Prüfung: `/` + `/en/` 200 nach `d4f4156` (alle 6 Routen 200 bei `36c355d`); Lighthouse mobil `/` (lokal) 100/100/100/100.
 - **Offen — mit Claudia klären:**
   - ArbeitsplatzExpertin: Beschreibungszeile, EN-Titel „Certified Workplace Expert", Schreibweise
@@ -22,9 +22,30 @@
     Video sagt noch „Zertifizierter Ordnungscoach"; Handout veraltet (siehe Abschnitt 2026-10-08).
   - Re-Design-Text bestätigen; Firmenwortlaut „Raum & Ordnung" vs. Logo-Unterzeile; rechtliche
     Platzhalter in Impressum/AGB.
-  - `Logo_kurz.png` liegt ungetrackt im Repo-Root — Zweck unklar, nicht committet.
+  - `Logo_kurz.png` und `Video Ordnung Gestaltung.png` liegen ungetrackt im Repo-Root — Zweck unklar, nicht committet.
 - Arbeitsweise: Änderung → `tsc`/`eslint`/`npm run build` → lokal `out/` auf Port 5000 im Browser prüfen →
   Commit + Push → Deploy abwarten → Live per curl prüfen → Checkpoint „LIVE" nachtragen.
+
+## Video Frame 1: neues Schrankbild, Text oben/unten (2026-10-09, Nutzerauftrag) — **LIVE** (`6ee860b`, Deploy `37954240052` success)
+
+Screenshot-Auftrag: Bild durch `Schank unordentlich.png` ersetzen, darüber „Der Schrank ist voll. / Der Tisch auch.",
+darunter „Und am Wochenende reicht die Zeit nur fürs Nachräumen." — plus Qualitätsvorgabe (Mobile-Lesbarkeit,
+exakte Zentrierung, Visual-Quality-Critic-Subagent, iterativ).
+- Videoprojekt (`plessl-projekt` `cb003fe`): F1 als Flex-Block auf Bildmitte (gemessen Mitte y=960,5, L/R ±3 px),
+  Manrope 500 **70 px** (vorher 52), Bild 820×860 (`object-position 50% 40%`), Abstände 44 px; Inhalt y 329–1592
+  (Keep-out oben 154 / unten 1632 frei). Haarlinie zieht jetzt in **F2** bei 0,45 s (Bild deckt y=1180); F2-Ghost
+  an neues Layout angepasst. Nur 0–12,5 s geändert (alle späteren Frames PSNR ≥ 60 dB zum alten Film).
+- Subagenten: Device-Validator (Playerbreite je Gerät) + Visual Quality Critic: Runde 1 **REJECT** (64 px ≈ 13 px auf
+  iPhone SE, Unterzeile breiter als Bild, knapp am Keep-out) → Runde 2 **APPROVE**.
+- Effektive Schrift: iPhone SE (Player 216–263 px) ≈ 14 px, typische Handys ≈ 17–19 px, Desktop/iPad (360 px) ≈ 23 px.
+- Render `hyperframes@0.8.2 -q standard --crf 26`, Videospur-MD5 `a4106c84…` (Wächter in beiden Mix-Skripten),
+  −14,5 LUFS, 72,2 s, Datei 4,27 MB (vorher 3,9). Poster (t = 29 s) und VTT unverändert.
+- Lokal geprüft (chrome-devtools, Range-Server nötig — `python -m http.server` kann nicht seeken): iPhone SE, Pixel 8,
+  iPad, Laptop 1366×768 — zentriert, kein Überlauf, keine Konsolenfehler. Live: 6 Routen 200, `vorstellung.mp4` SHA-256 = lokal.
+- `video-source/` war seit 2026-10-08 veraltet → komplett mit dem Videoprojekt synchronisiert.
+- Bekannt/akzeptiert: pausiert legt Chromes Steuerleisten-Verlauf sich leicht über die Unterzeile; eingeschaltete
+  Untertitel überdecken sie (Untertitel standardmäßig aus). Critic-Hinweis außerhalb des Auftrags: F2-Satz ist linksbündig.
+- Rollback: `git revert 6ee860b` (Website) bzw. `git revert cb003fe` (Projekt).
 
 ## vCard-QR ersetzt — jetzt mit Telefonnummer (2026-10-09, Nutzerauftrag) — **LIVE** (`636c596`, Deploy `37899401393` success)
 
