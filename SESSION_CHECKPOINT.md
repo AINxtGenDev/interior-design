@@ -17,7 +17,7 @@
   Impressum/AGB weiterhin offen. (Älterer Stand, Umbenennung 2026-08-17:
   Deploy `32004332796`.)
 
-## Abschnitt „Für wen ich arbeite" entfernt (2026-10-09, Nutzerauftrag per Screenshot)
+## Abschnitt „Für wen ich arbeite" entfernt (2026-10-09, Nutzerauftrag per Screenshot) — **LIVE** (`0975e3d`, Deploy `37892070140` success; live `/` + `/en/` 200, Abschnitt weg)
 
 Ganzer Abschnitt (3 Karten Familien / Umbruch / EPU) **DE und EN** entfernt, dazu Menüeintrag
 „Für wen"/„Who I work with" unter „Mein Angebot", Anker `#fuer-wen` (`SECTION_IDS.audience`), Typ
@@ -25,7 +25,7 @@ Ganzer Abschnitt (3 Karten Familien / Umbruch / EPU) **DE und EN** entfernt, daz
 (anderes Feld). tsc/eslint/Build grün; lokal geprüft: Abschnitt und Menülink in DE/EN weg, keine
 Konsolenfehler, kein Überlauf. Folge: Leistungen und Ablauf liegen jetzt beide auf Papiergrund
 direkt hintereinander (größere Lücke, liest sauber). Meta-Description nennt die Zielgruppen weiterhin.
-Alte Links auf `#fuer-wen` landen am Seitenanfang. Rollback: `git revert <commit>` + push.
+Alte Links auf `#fuer-wen` landen am Seitenanfang. Rollback: `git revert 0975e3d` + push.
 
 ## Homepage-Änderungen nach `Homepage Änderngen_081026.pptx` (2026-10-08) — **LIVE** (Deploy `37833797964`, success)
 
