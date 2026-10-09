@@ -79,8 +79,8 @@ export default function Impressum() {
         <p>
           Gewerbebehörde: Bezirkshauptmannschaft Tulln
           <br />
-          Mitgliedschaft: Wirtschaftskammer Niederösterreich, WKNÖ, FG
-          Persönliche Dienstleister
+          Mitgliedschaft: Wirtschaftskammer Niederösterreich, FG Persönliche
+          Dienstleister
           <br />
           Anwendbare Rechtsvorschrift: Gewerbeordnung (GewO),{" "}
           <a

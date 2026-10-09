@@ -36,7 +36,12 @@
   (`npx http-server@14.1.1 -p 5000 -s` in `website/out`; `python -m http.server` kann nicht seeken) und `?cb=` gegen Cache.
 - Nächste Schritte: offene Punkte oben mit Claudia klären; Video-Takes abhören lassen (Key bis ~2026-10-15).
 
-## Impressum/Legal: Zeile „Raum & Ordnung" unter dem Namen entfernt (2026-10-09, Nutzerauftrag per Screenshot) — **gepusht**
+## Impressum: „WKNÖ" aus der Mitgliedschaft entfernt (2026-10-09, Nutzerauftrag per Screenshot) — **gepusht**
+
+Jetzt: „Mitgliedschaft: Wirtschaftskammer Niederösterreich, FG Persönliche Dienstleister". Geprüft: build grün, 6 Routen lokal 200,
+`/impressum/` 393 px ok, keine Konsolenfehler.
+
+## Impressum/Legal: Zeile „Raum & Ordnung" unter dem Namen entfernt (2026-10-09, Nutzerauftrag per Screenshot) — **LIVE** (`7d4d580`, Deploy `37967736056` success; live `/impressum/` + `/en/legal/` 200, Zeile weg)
 
 Anschriftblock jetzt Name → Straße → PLZ Ort → Land. Gleicher Block auch in `/en/legal/` → dort ebenfalls entfernt.
 Markenname „Mag. Claudia Plessl — Raum & Ordnung" (`CONTACT.businessName`, Seitentitel, Footer, JSON-LD) unverändert.
@@ -49,7 +54,7 @@ Geprüft: tsc/eslint/build grün; 6 Routen lokal 200; `/impressum/` 393 px Scree
   GISA 40024837 (Beratung privater Haushalte betreffend das Aussortieren nicht mehr benötigter Güter (Aufräumcoach)),
   Wortlaute wörtlich übernommen. Gewerbebehörde: **Bezirkshauptmannschaft Tulln**. **UID-Zeile entfernt.** Stand → Oktober 2026.
 - `schema.ts`: nur Kommentar zu `vatID` angepasst (keine UID).
-- Nachtrag (Nutzerauftrag): Mitgliedschaft „Wirtschaftskammer Niederösterreich, WKNÖ, FG Persönliche Dienstleister" —
+- Nachtrag (Nutzerauftrag): Mitgliedschaft „Wirtschaftskammer Niederösterreich, FG Persönliche Dienstleister" (WKNÖ später entfernt) —
   Impressum hat damit **keine `<Todo>`-Platzhalter mehr** (ungenutzten `Todo`-Import entfernt). **LIVE** (`2a1142e`, Deploy `37967169338` success). Unverändert: „Unternehmensgegenstand" (nennt noch
   „Trainings und Workshops", kein Feng-Shui) und EN-Legal-Kurzfassung (verweist nur auf das DE-Impressum).
 - Geprüft: tsc/eslint/build grün; gebautes `/impressum/` enthält beide Wortlaute zeichengleich, kein „UID"; 6 Routen lokal 200;
