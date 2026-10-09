@@ -34,7 +34,7 @@
   (`npx http-server@14.1.1 -p 5000 -s` in `website/out`; `python -m http.server` kann nicht seeken) und `?cb=` gegen Cache.
 - Nächste Schritte: offene Punkte oben mit Claudia klären; Video-Takes abhören lassen (Key bis ~2026-10-15).
 
-## Über mich: Qualifikation als eigener Block (2026-10-09, Nutzerauftrag per Screenshot) — **gepusht**
+## Über mich: Qualifikation als eigener Block (2026-10-09, Nutzerauftrag per Screenshot) — **LIVE** (`675ab16`, Deploy `37964809805` success; live DE/EN 200, neuer Block vorhanden)
 
 - „Qualifikation" nicht mehr in der Porträt-Grid-Spalte, sondern eigener Unterabschnitt **unter** dem Grid, weiter in
   `#ueber-mich`: Trennlinie (`border-t`), H3 + Blush-Rule, 3 weiße Karten (Erfahrung · Ordnungscoach i.A. · ArbeitsplatzExpertin)
@@ -44,7 +44,7 @@
 - Nur `HomePage.tsx`; Inhalte/JSON-LD unverändert.
 - Getestet lokal (chrome-devtools): tsc/eslint/build grün; DE 1440 px Screenshot ok; 768 px 3 Karten à 219 px, 393 px EN gestapelt,
   kein Überlauf, keine Konsolenfehler.
-- Rollback: `git revert <dieser Commit>`.
+- Rollback: `git revert 675ab16`.
 
 ## Workshops: Preis und Aufzählung entfernt, Paket „Workshop" aus Pakete & Preise (2026-10-09, Nutzerauftrag per 2 Screenshots) — **LIVE** (`a1222f5`, Deploy `37963634201` success; live DE/EN 200, kein „350", 7 Pakete)
 
