@@ -11,8 +11,8 @@
 - Status (2026-10-09): Website live auf CI-Stand, DE und EN, Video **58 s** live. Am 2026-10-09 per
   Screenshot-Aufträgen umgesetzt und live (Einzelheiten je Abschnitt unten): „Für wen ich arbeite"
   entfernt · Ordnungscoach „(i.A.)" · „Gepr. ArbeitsplatzExpertin" ergänzt · „Laufende Fortbildung"
-  entfernt · Projekte-Collage `Bild Projekte.png` · Pakete & Preise auf `#e9eaec` · vCard-QR im Kontakt · **Video Frame 1 neues Schrankbild** (`6ee860b`) · **Video Frame 3 Logo unter der Linie** (`7e8fd77`) · Video-Bildunterschrift ohne Dauer (`c7d5c23`) · **Video Frame 4 neue Bilder Ordnung/Gestaltung** (`09c724f`) · **Video Szene 6 „Warum mit mir" gestrichen, Film 58 s** (`2e5f248`). · **Workshops ohne Preis/Aufzählung, Paket „Workshop" entfernt (7 Pakete)** · **Über mich: Qualifikation als eigener Kartenblock** · **Handout auf Website-Stand**.
-  Letzte Prüfung (`2e5f248`): alle 6 Routen 200; `vorstellung.mp4` (`3f7edc26…`), `-de.vtt`, `-poster.jpg` live = lokal; JSON-LD `PT58S`. Lighthouse mobil `/` (lokal) zuletzt 100/100/100/100 (vor den Video-Änderungen, nicht neu gemessen).
+  entfernt · Projekte-Collage `Bild Projekte.png` · Pakete & Preise auf `#e9eaec` · vCard-QR im Kontakt · **Video Frame 1 neues Schrankbild** (`6ee860b`) · **Video Frame 3 Logo unter der Linie** (`7e8fd77`) · Video-Bildunterschrift ohne Dauer (`c7d5c23`) · **Video Frame 4 neue Bilder Ordnung/Gestaltung** (`09c724f`) · **Video Szene 6 „Warum mit mir" gestrichen, Film 58 s** (`2e5f248`). · **Workshops ohne Preis/Aufzählung, Paket „Workshop" entfernt (7 Pakete)** (`a1222f5`) · **Über mich: Qualifikation als eigener Kartenblock, Grundsätze rechts unter dem Text** (`675ab16`) · **Handout auf Website-Stand** (`8223bd2`, nur lokal, nicht deployt).
+  Letzte Prüfung (2026-10-09, `782e760`, Deploy `37965180956` success): alle 6 Routen live 200. Davor (`2e5f248`): `vorstellung.mp4` (`3f7edc26…`), `-de.vtt`, `-poster.jpg` live = lokal; JSON-LD `PT58S`. Lighthouse mobil `/` (lokal) zuletzt 100/100/100/100 (vor den Video-Änderungen, nicht neu gemessen).
 - **Offen — mit Claudia klären:**
   - ArbeitsplatzExpertin: Beschreibungszeile, EN-Titel „Certified Workplace Expert", Schreibweise
     „Mensch & Büro-Akademie".
@@ -34,7 +34,7 @@
   (`npx http-server@14.1.1 -p 5000 -s` in `website/out`; `python -m http.server` kann nicht seeken) und `?cb=` gegen Cache.
 - Nächste Schritte: offene Punkte oben mit Claudia klären; Video-Takes abhören lassen (Key bis ~2026-10-15).
 
-## Handout an Website angeglichen (2026-10-09, Nutzerauftrag) — **gepusht** (`8223bd2`)
+## Handout an Website angeglichen (2026-10-09, Nutzerauftrag) — **gepusht**, nicht Teil des Deploys (`8223bd2`)
 
 `handout/claudia-plessl-uebersicht.html` (nur lokal, nicht deployt) inhaltlich auf DE-Website-Stand, Design unverändert:
 Kopfzeile „Raumgestaltung · Ordnungscoaching", Hero-Text; „Drei Leistungen" → **„Mein Angebot"** mit den 4 Angeboten
