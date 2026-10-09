@@ -2,7 +2,7 @@
 
 ## Meta
 
-- Datum: 2026-10-08 (Homepage-Änderungen 081026 live seit 21:42, siehe unten; eigene Domain claudiaplessl.at live; Geschäftsadresse claudiaplessl@gmail.com; Domain ohne Mail abgesichert)
+- Datum: 2026-10-09 (Abschnitt „Für wen ich arbeite" entfernt; Homepage-Änderungen 081026 live seit 21:42, siehe unten; eigene Domain claudiaplessl.at live; Geschäftsadresse claudiaplessl@gmail.com; Domain ohne Mail abgesichert)
 - Repository: `AINxtGenDev/interior-design` (public)
 - Arbeitskopie: `/home/nuc8/05_development/55_laulau/78_plessl-website`
   (**verschoben am 2026-08-16** — vorher `/home/nuc8/05_development/78_plessl-website`)
@@ -16,6 +16,16 @@
   „Raum & Ordnung" vs. Logo-Unterzeile klären; rechtliche Platzhalter im
   Impressum/AGB weiterhin offen. (Älterer Stand, Umbenennung 2026-08-17:
   Deploy `32004332796`.)
+
+## Abschnitt „Für wen ich arbeite" entfernt (2026-10-09, Nutzerauftrag per Screenshot)
+
+Ganzer Abschnitt (3 Karten Familien / Umbruch / EPU) **DE und EN** entfernt, dazu Menüeintrag
+„Für wen"/„Who I work with" unter „Mein Angebot", Anker `#fuer-wen` (`SECTION_IDS.audience`), Typ
+`Audience`, Felder `nav.audience` und `audience` in `site.ts`. Paket-Spalte „Für"/`p.audience` bleibt
+(anderes Feld). tsc/eslint/Build grün; lokal geprüft: Abschnitt und Menülink in DE/EN weg, keine
+Konsolenfehler, kein Überlauf. Folge: Leistungen und Ablauf liegen jetzt beide auf Papiergrund
+direkt hintereinander (größere Lücke, liest sauber). Meta-Description nennt die Zielgruppen weiterhin.
+Alte Links auf `#fuer-wen` landen am Seitenanfang. Rollback: `git revert <commit>` + push.
 
 ## Homepage-Änderungen nach `Homepage Änderngen_081026.pptx` (2026-10-08) — **LIVE** (Deploy `37833797964`, success)
 

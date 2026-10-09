@@ -106,19 +106,6 @@ export default function HomePage({ locale }: { locale: Locale }) {
           </article>
         </Section>
 
-        {/* ─────────── Für wen ─────────── */}
-        <Section id={SECTION_IDS.audience} heading={c.audience.heading} tone="sage">
-          <div className="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
-            {c.audience.items.map((a) => (
-              <article key={a.title} className="border-t-2 border-sage-mid pt-6">
-                <h3 className="h3">{a.title}</h3>
-                <p className="mt-3 text-sage-dark">{a.profile}</p>
-                <p className="mt-3">{a.need}</p>
-              </article>
-            ))}
-          </div>
-        </Section>
-
         {/* ─────────── Ablauf ─────────── */}
         <Section id={SECTION_IDS.process} heading={c.process.heading} lead={c.process.lead}>
           {/* Two columns at most: four were ~28 characters per line. */}

@@ -5,13 +5,12 @@ import { ASSET_PREFIX, CONTACT, type Content, type Locale } from "@/content/site
 
 /*
  * Section anchors. Identical in both languages so the language switch can
- * keep the reader in place; the older ids (leistungen, fuer-wen, ablauf,
+ * keep the reader in place; the older ids (leistungen, ablauf,
  * pakete) are kept so existing links still land.
  */
 export const SECTION_IDS = {
   top: "top",
   services: "leistungen",
-  audience: "fuer-wen",
   process: "ablauf",
   packages: "pakete",
   about: "ueber-mich",
@@ -52,7 +51,6 @@ export default function SiteHeader({
       // Not in slide 4, but without them prices and workshops were
       // unreachable from the menu. Shown below a divider.
       more: [
-        { label: n.audience, href: at(SECTION_IDS.audience) },
         { label: n.process, href: at(SECTION_IDS.process) },
         { label: n.packages, href: at(SECTION_IDS.packages) },
         { label: n.workshops, href: at(content.services.workshops.id) },

@@ -67,7 +67,6 @@ type Service = {
   /** Entry price, quoted from the package list so it cannot drift. */
   price: string;
 };
-type Audience = { title: string; profile: string; need: string };
 type Step = { title: string; body: string };
 type Package = { name: string; scope: string; price: string; audience: string };
 type Faq = { q: string; a: string };
@@ -86,7 +85,6 @@ export type Content = {
     faq: string;
     contact: string;
     /** Secondary links under "Mein Angebot", below the four slide-4 items. */
-    audience: string;
     process: string;
     packages: string;
     workshops: string;
@@ -121,7 +119,6 @@ export type Content = {
     moreLabel: string;
     workshops: Service;
   };
-  audience: { heading: string; items: Audience[] };
   process: { heading: string; lead: string; items: Step[] };
   packages: {
     heading: string;
@@ -234,7 +231,6 @@ const de: Content = {
     projects: "Projekte",
     faq: "FAQ",
     contact: "Kontakt",
-    audience: "Für wen",
     process: "Ablauf",
     packages: "Pakete & Preise",
     workshops: "Workshops",
@@ -328,26 +324,6 @@ const de: Content = {
         "Vorträge bei Netzwerktreffen und Vereinen",
       ],
     },
-  },
-  audience: {
-    heading: "Für wen ich arbeite",
-    items: [
-      {
-        title: "Berufstätige Familien",
-        profile: "Doppelverdiener-Haushalte mit Kindern in Wien und im niederösterreichischen Umland.",
-        need: "Der Stauraum ist zu klein geworden, für Schule, Papier und Hobbys fehlt ein System — und am Wochenende reicht die Zeit nur zum Nachräumen, nicht zum Neuordnen.",
-      },
-      {
-        title: "Menschen im Umbruch",
-        profile: "Umzug, Trennung, Auszug der Kinder, Verkleinerung des Haushalts, Nachlass.",
-        need: "Die Entscheidung, was bleibt und was geht, ist emotional und organisatorisch fordernd. Das Umzugsunternehmen trägt, entscheidet aber nicht mit — und die neue Wohnung will trotzdem eingerichtet werden.",
-      },
-      {
-        title: "EPU, Praxen & Homeoffice",
-        profile: "Selbständige, Ordinationen, kleine Studios und Agenturen mit ein bis fünf Personen.",
-        need: "Die Ablage ist über Jahre gewachsen statt geplant, der Arbeitsplatz hat sich aus dem Wohnraum entwickelt, und für Innenarchitektur ist weder Budget noch Zeit da.",
-      },
-    ],
   },
   process: {
     heading: "So arbeiten wir zusammen",
@@ -500,7 +476,6 @@ const en: Content = {
     projects: "Projects",
     faq: "FAQ",
     contact: "Contact",
-    audience: "Who I work with",
     process: "How it works",
     packages: "Packages & pricing",
     workshops: "Workshops",
@@ -594,26 +569,6 @@ const en: Content = {
         "Talks at networking events and associations",
       ],
     },
-  },
-  audience: {
-    heading: "Who I work with",
-    items: [
-      {
-        title: "Working families",
-        profile: "Dual-income households with children in Vienna and the surrounding Lower Austrian region.",
-        need: "Storage has become too small, there is no system for school, paperwork and hobbies — and the weekend only ever stretches to tidying up, never to reorganising.",
-      },
-      {
-        title: "People in transition",
-        profile: "Moving house, separation, children leaving home, downsizing, settling an estate.",
-        need: "Deciding what stays and what goes is demanding both emotionally and practically. The moving company carries boxes but takes no decisions — and the new home still needs furnishing.",
-      },
-      {
-        title: "Sole traders, practices & home offices",
-        profile: "Self-employed professionals, medical practices, small studios and agencies of one to five people.",
-        need: "Filing has grown over years rather than been planned, the workspace evolved out of the living room, and there is neither budget nor time for an interior architect.",
-      },
-    ],
   },
   process: {
     heading: "How we work together",
