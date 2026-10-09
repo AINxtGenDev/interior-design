@@ -2,7 +2,7 @@
 
 ## Meta
 
-- Datum: 2026-10-09 (Projekte-Bild durch „Bild Projekte.png" ersetzt; „Laufende Fortbildung" entfernt; Qualifikation „Gepr. ArbeitsplatzExpertin" ergänzt; „in Ausbildung" → „i.A."; Abschnitt „Für wen ich arbeite" entfernt; Homepage-Änderungen 081026 live seit 21:42, siehe unten; eigene Domain claudiaplessl.at live; Geschäftsadresse claudiaplessl@gmail.com; Domain ohne Mail abgesichert)
+- Datum: 2026-10-09 (Pakete & Preise Hintergrund #e9eaec; Projekte-Bild durch „Bild Projekte.png" ersetzt; „Laufende Fortbildung" entfernt; Qualifikation „Gepr. ArbeitsplatzExpertin" ergänzt; „in Ausbildung" → „i.A."; Abschnitt „Für wen ich arbeite" entfernt; Homepage-Änderungen 081026 live seit 21:42, siehe unten; eigene Domain claudiaplessl.at live; Geschäftsadresse claudiaplessl@gmail.com; Domain ohne Mail abgesichert)
 - Repository: `AINxtGenDev/interior-design` (public)
 - Arbeitskopie: `/home/nuc8/05_development/55_laulau/78_plessl-website`
   (**verschoben am 2026-08-16** — vorher `/home/nuc8/05_development/78_plessl-website`)
@@ -16,6 +16,13 @@
   „Raum & Ordnung" vs. Logo-Unterzeile klären; rechtliche Platzhalter im
   Impressum/AGB weiterhin offen. (Älterer Stand, Umbenennung 2026-08-17:
   Deploy `32004332796`.)
+
+## Pakete & Preise: Hintergrund Blush → `#e9eaec` (2026-10-09, Nutzerauftrag per Screenshot)
+
+`#e9eaec` = CI-Token `anthrazit-light` (Folie 5). `Section`-Ton `blush` (`bg-blush-light`, nur hier benutzt)
+→ `anthrazit` (`bg-anthrazit-light`), DE und EN. Folge: Preis-Fußnote in `anthrazit-mid` hätte auf dem neuen Grund
+nur 4,26:1 (AA braucht 4,5:1) → Fußnote jetzt `anthrazit-dark` (10,9:1). Rosa Kartenrand (`blush-soft`) und
+Blush-Linie unter der Überschrift unverändert. Build/tsc/eslint grün; Lighthouse mobil `/` 100/100/100/100, 0 Fehler.
 
 ## Projekte-Raster durch `Bild Projekte.png` ersetzt (2026-10-09, Nutzerauftrag) — **LIVE** (`d29a22a`, Deploy `37895386330` success; live DE/EN 200, alle 4 Bilder 200)
 

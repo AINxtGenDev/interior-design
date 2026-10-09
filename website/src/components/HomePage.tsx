@@ -129,7 +129,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
         </Section>
 
         {/* ─────────── Pakete & Preise ─────────── */}
-        <Section id={SECTION_IDS.packages} heading={c.packages.heading} lead={c.packages.lead} tone="blush">
+        <Section id={SECTION_IDS.packages} heading={c.packages.heading} lead={c.packages.lead} tone="anthrazit">
           {/* Cards on phones, a table from 768 px up. */}
           <ul className="mt-10 grid gap-4 md:hidden">
             {c.packages.items.map((p) => (
@@ -184,7 +184,8 @@ export default function HomePage({ locale }: { locale: Locale }) {
             </table>
           </div>
 
-          <p className="small mt-6 max-w-[40rem] text-anthrazit-mid">{c.packages.note}</p>
+          {/* anthrazit-mid is 4.26:1 on anthrazit-light; small text needs 4.5:1. */}
+          <p className="small mt-6 max-w-[40rem] text-anthrazit-dark">{c.packages.note}</p>
         </Section>
 
         {/* ─────────── Über mich ─────────── */}
@@ -392,7 +393,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
 const TONES = {
   paper: "",
   sage: "bg-sage-light",
-  blush: "bg-blush-light",
+  anthrazit: "bg-anthrazit-light",
 } as const;
 
 function Section({
