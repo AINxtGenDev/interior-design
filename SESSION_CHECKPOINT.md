@@ -36,6 +36,15 @@
   (`npx http-server@14.1.1 -p 5000 -s` in `website/out`; `python -m http.server` kann nicht seeken) und `?cb=` gegen Cache.
 - Nächste Schritte: offene Punkte oben mit Claudia klären; Video-Takes abhören lassen (Key bis ~2026-10-15).
 
+## AGB: Kleinunternehmerregelung festgelegt (2026-10-09, Nutzerauftrag) — **gepusht**
+
+- `src/app/(de)/agb/page.tsx`, Punkt 4: Platzhalter „[Vor Veröffentlichung festlegen: Umsatzsteuer-Status] — Bei Anwendung …"
+  → „Es gilt die Kleinunternehmerregelung gemäß §&nbsp;6 Abs. 1 Z 27 UStG. Es wird daher keine Umsatzsteuer ausgewiesen;
+  Rechnungen enthalten den Hinweis „Umsatzsteuerbefreit aufgrund der Kleinunternehmerregelung"." Fassung → Oktober 2026.
+- Zitat geprüft auf RIS (UStG 1994 § 6, Gesetzesnummer 10004873): Abs. 1 Z 27 = „die Umsätze der Kleinunternehmer", Grenze 55 000 Euro.
+- Weitere AGB-Platzhalter **weiter offen**: Anzahlung (Schwellenwert, %), Stornofristen/-sätze, Workshop-Mindestteilnehmer/Absagefrist.
+- Geprüft: build grün; Text im gebauten HTML; 6 Routen lokal 200; `/agb/` 393 px ok, „§ 6" nicht getrennt, keine Konsolenfehler.
+
 ## Datenschutz: Abschnitt „Datenübermittlung in die USA" (2026-10-09, Nutzerauftrag per Screenshot + Text) — **LIVE** (`e2dd379`, Deploy `37969232002` success; live `/datenschutz/` 200, Abschnitt da, Platzhalter weg)
 
 - `src/app/(de)/datenschutz/page.tsx`: Platzhalter („vor Veröffentlichung prüfen … DPF und/oder SCC") samt Absatz unter

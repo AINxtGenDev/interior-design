@@ -20,8 +20,8 @@ export default function AGB() {
       locale="de"
       path="agb/"
       title="Allgemeine Geschäftsbedingungen"
-      updated="Fassung: August 2026"
-      updatedIso="2026-08"
+      updated="Fassung: Oktober 2026"
+      updatedIso="2026-10"
     >
       <LegalSection heading="1. Geltungsbereich">
         <p>
@@ -90,11 +90,8 @@ export default function AGB() {
           verbindliche Preis wird nach dem Raumcheck im Angebot festgelegt.
         </p>
         <p>
-          <Todo>
-            [Vor Veröffentlichung festlegen: Umsatzsteuer-Status]
-          </Todo>{" "}
-          — Bei Anwendung der Kleinunternehmerregelung gemäß § 6 Abs. 1 Z 27
-          UStG wird keine Umsatzsteuer ausgewiesen; Rechnungen enthalten den
+          Es gilt die Kleinunternehmerregelung gemäß §&nbsp;6 Abs. 1 Z 27 UStG. Es
+          wird daher keine Umsatzsteuer ausgewiesen; Rechnungen enthalten den
           Hinweis „Umsatzsteuerbefreit aufgrund der Kleinunternehmerregelung“.
         </p>
         <p>
