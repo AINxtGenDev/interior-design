@@ -2,7 +2,7 @@
 
 ## Meta
 
-- Datum: 2026-10-09 abends (Video-Poster: Text nach oben verschoben, siehe eigener Abschnitt)
+- Datum: 2026-10-09 abends (alles gepusht und live, inkl. Poster-Text über dem Play-Button `3fba4f3`)
 - Repository: `AINxtGenDev/interior-design` (public)
 - Arbeitskopie: `/home/nuc8/05_development/55_laulau/78_plessl-website`
   (**verschoben am 2026-08-16** — vorher `/home/nuc8/05_development/78_plessl-website`)
@@ -36,7 +36,7 @@
   (`npx http-server@14.1.1 -p 5000 -s` in `website/out`; `python -m http.server` kann nicht seeken) und `?cb=` gegen Cache.
 - Nächste Schritte: offene Punkte oben mit Claudia klären; Video-Takes abhören lassen (Key bis ~2026-10-15).
 
-## Video-Poster: Text über den Play-Button gehoben (2026-10-09, Nutzerauftrag per Handy-Screenshot) — **lokal geprüft, Commit/Push folgt**
+## Video-Poster: Text über den Play-Button gehoben (2026-10-09, Nutzerauftrag per Handy-Screenshot) — **LIVE** (`3fba4f3`, Deploy `37974814824` success; live Poster SHA-256 = lokal `70335b7d…`)
 
 - Problem: auf dem Handy (Chrome Android) lag der große Play-Button mittig genau über „Schöne Räume. Klarer Alltag.".
 - Nur das Posterbild geändert (`website/public/video/vorstellung-poster.jpg`, 87 KB, SHA-256 `70335b7d…`); Film, Code, VTT unverändert.
@@ -47,7 +47,7 @@
 - Geprüft lokal (Range-Server, chrome-devtools 393 px DPR 2): Poster 200, Hash = Datei, kein Überlauf, keine kaputten Bilder,
   keine Konsolenfehler/Warnungen. Textunterkante bei ~31 % der Videohöhe; der Android-Button beginnt laut Screenshot bei ~37 %.
   Desktop-Chrome zeigt keinen Mitte-Button → am echten Handy noch einmal ansehen.
-- Rollback: `git revert <dieser Commit>` (stellt das zentrierte Poster aus `7859751` wieder her).
+- Rollback: `git revert 3fba4f3` (stellt das zentrierte Poster aus `7859751` wieder her).
 
 ## Video-Poster = „Video Start.png" (2026-10-09, Nutzerauftrag) — **LIVE** (`7859751`, Deploy `37971632685` success; live Poster SHA-256 = lokal `7e20ad87…`)
 
