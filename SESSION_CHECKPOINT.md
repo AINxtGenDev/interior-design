@@ -36,7 +36,7 @@
   (`npx http-server@14.1.1 -p 5000 -s` in `website/out`; `python -m http.server` kann nicht seeken) und `?cb=` gegen Cache.
 - Nächste Schritte: offene Punkte oben mit Claudia klären; Video-Takes abhören lassen (Key bis ~2026-10-15).
 
-## Video-Poster = „Video Start.png" (2026-10-09, Nutzerauftrag) — gepusht, Deploy prüfen
+## Video-Poster = „Video Start.png" (2026-10-09, Nutzerauftrag) — **LIVE** (`7859751`, Deploy `37971632685` success; live Poster SHA-256 = lokal `7e20ad87…`)
 
 - Auftrag: vor dem Abspielen „Video Start.png" („Schöne Räume. Klarer Alltag.") zeigen; nach Play beginnt der Film mit
   `Schank unordentlich.png` (= Frame 1, seit `6ee860b` schon so → Film **nicht** neu gerendert).
@@ -46,7 +46,7 @@
 - Geprüft lokal (Range-Server, chrome-devtools, 393 px DPR 2): vor Play Poster sichtbar; nach Play t = 1,1 s „Der Schrank ist voll."
   + Schrankbild; kein Überlauf, keine Konsolenfehler (nur bekannter Hinweis „Lazy-loaded images … dimensions").
 - Hinweis: nach dem Ende zeigt der Browser das letzte Filmbild, nicht wieder das Poster (Standardverhalten).
-- Rollback: `git revert <commit>`; altes Poster = `ffmpeg -ss 29 -i vorstellung.mp4 -frames:v 1 -q:v 5`.
+- Rollback: `git revert 7859751`; altes Poster = `ffmpeg -ss 29 -i vorstellung.mp4 -frames:v 1 -q:v 5`.
 
 ## AGB: Kleinunternehmerregelung festgelegt (2026-10-09, Nutzerauftrag) — **LIVE** (`24433dc`, Deploy `37969847549` success; live `/agb/` 200, Satz da, Platzhalter weg)
 
