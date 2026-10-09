@@ -36,7 +36,7 @@
   (`npx http-server@14.1.1 -p 5000 -s` in `website/out`; `python -m http.server` kann nicht seeken) und `?cb=` gegen Cache.
 - Nächste Schritte: offene Punkte oben mit Claudia klären; Video-Takes abhören lassen (Key bis ~2026-10-15).
 
-## AGB: Kleinunternehmerregelung festgelegt (2026-10-09, Nutzerauftrag) — **gepusht**
+## AGB: Kleinunternehmerregelung festgelegt (2026-10-09, Nutzerauftrag) — **LIVE** (`24433dc`, Deploy `37969847549` success; live `/agb/` 200, Satz da, Platzhalter weg)
 
 - `src/app/(de)/agb/page.tsx`, Punkt 4: Platzhalter „[Vor Veröffentlichung festlegen: Umsatzsteuer-Status] — Bei Anwendung …"
   → „Es gilt die Kleinunternehmerregelung gemäß §&nbsp;6 Abs. 1 Z 27 UStG. Es wird daher keine Umsatzsteuer ausgewiesen;
