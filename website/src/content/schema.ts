@@ -16,8 +16,8 @@
  *    left out of the graph: every answer restates a fact that the business,
  *    service and offer nodes already carry, and a second copy is one more
  *    place for the two to disagree.
- *  - `vatID` — Kleinunternehmerin, and the UID is still a placeholder in the
- *    Impressum. An invented identifier is worse than a missing one.
+ *  - `vatID` — Kleinunternehmerin without a UID; the Impressum lists none.
+ *    An invented identifier is worse than a missing one.
  */
 
 import {

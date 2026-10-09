@@ -16,8 +16,8 @@ export default function Impressum() {
       locale="de"
       path="impressum/"
       title="Impressum"
-      updated="Stand: August 2026"
-      updatedIso="2026-08"
+      updated="Stand: Oktober 2026"
+      updatedIso="2026-10"
     >
       <LegalSection heading="Informationspflicht laut § 5 E-Commerce-Gesetz (ECG)">
         <p>
@@ -36,18 +36,24 @@ export default function Impressum() {
           rein optischen und geschmacklichen Gesichtspunkten; Ordnungscoaching
           (Aufräumcoach); Trainings und Workshops.
         </p>
+        <p>Rechtsform: Einzelunternehmen</p>
         <p>
-          Rechtsform: Einzelunternehmen
+          GISA-Zahl: 40024813
           <br />
-          GISA-Zahl: <Todo>[GISA-Zahl der Gewerbeanmeldung eintragen]</Todo>
+          Gewerbewortlaut: Geomantische Beratung (Feng-Shui) sowie Erstellung
+          von Einrichtungsvorschlägen nach rein optischen und geschmacklichen
+          Gesichtspunkten unter Ausschluss jeder Beratungs-, Vorplanungs- und
+          Planungstätigkeit, betreffend den Grundriss von Räumlichkeiten und
+          deren haustechnischen Ausstattung sowie unter Ausschluss der den
+          Ingenieurbüros (Beratende Ingenieure) bzw. den einschlägigen
+          reglementierten Erzeugungsgewerben vorbehaltenen Beratungstätigkeiten
+          nach konstruktiven, funktionalen und ergonomischen Gesichtspunkten
+        </p>
+        <p>
+          GISA-Zahl: 40024837
           <br />
-          Genauer Gewerbewortlaut:{" "}
-          <Todo>[Wortlaut laut Gewerbeschein eintragen]</Todo>
-          <br />
-          UID-Nummer:{" "}
-          <Todo>
-            [UID eintragen — entfällt bei Anwendung der Kleinunternehmerregelung]
-          </Todo>
+          Gewerbewortlaut: Beratung privater Haushalte betreffend das
+          Aussortieren nicht mehr benötigter Güter (Aufräumcoach)
         </p>
       </LegalSection>
 
@@ -73,11 +79,7 @@ export default function Impressum() {
 
       <LegalSection heading="Gewerbebehörde und Mitgliedschaften">
         <p>
-          Gewerbebehörde:{" "}
-          <Todo>
-            [zuständige Bezirkshauptmannschaft laut Gewerbeschein bestätigen —
-            für 3424 Wolfpassing voraussichtlich BH Tulln]
-          </Todo>
+          Gewerbebehörde: Bezirkshauptmannschaft Tulln
           <br />
           Mitgliedschaft: Wirtschaftskammer Niederösterreich,{" "}
           <Todo>[Fachgruppe ergänzen]</Todo>
