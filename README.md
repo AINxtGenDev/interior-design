@@ -308,7 +308,9 @@ t = 29 s, the Ordnung | Gestaltung frame again.
 **Poster replaced on 2026-10-09:** it is no longer a frame of the film but the
 client's own title card `Video Start.png` ("Schöne Räume. Klarer Alltag."),
 scaled to 1080×1920. It shows only until play is pressed; the film itself still
-opens on the overfull wardrobe.
+opens on the overfull wardrobe. Same day, the title block was moved up
+(from the centre to ~16–32 % of the height, soft light veil behind it) because
+the mobile play button covered the text.
 
 The full HyperFrames working project (renders, voiceover, assets) lives outside
 this repository, in the **private** repo `AINxtGenDev/plessl-projekt` under
