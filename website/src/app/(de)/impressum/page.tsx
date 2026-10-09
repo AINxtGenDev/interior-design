@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import LegalShell, { LegalSection, Todo } from "@/components/LegalShell";
+import LegalShell, { LegalSection } from "@/components/LegalShell";
 import { CONTACT } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -81,8 +81,8 @@ export default function Impressum() {
         <p>
           Gewerbebehörde: Bezirkshauptmannschaft Tulln
           <br />
-          Mitgliedschaft: Wirtschaftskammer Niederösterreich,{" "}
-          <Todo>[Fachgruppe ergänzen]</Todo>
+          Mitgliedschaft: Wirtschaftskammer Niederösterreich, WKNÖ, FG
+          Persönliche Dienstleister
           <br />
           Anwendbare Rechtsvorschrift: Gewerbeordnung (GewO),{" "}
           <a

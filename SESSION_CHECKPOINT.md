@@ -21,7 +21,7 @@
   - ~~Workshops „in Kürze" vs. Preise~~ (erledigt: Preis + Paket entfernt); „Zahlreiche umgesetzte Projekte" vs. Projekte-Text;
     ~~Video sagt noch „Zertifizierter Ordnungscoach"~~ (erledigt: Szene 6 gestrichen); ~~Handout veraltet~~ (erledigt 2026-10-09).
   - Re-Design-Text bestätigen; Firmenwortlaut „Raum & Ordnung" vs. Logo-Unterzeile; rechtliche
-    Platzhalter in AGB; Impressum nur noch Fachgruppe offen.
+    Platzhalter in AGB; Impressum vollständig (2026-10-09).
 - Ungetrackt im Repo-Root, **bewusst nicht committen** (Nutzer 2026-10-09): `Logo_kurz.png` = Initialen des Nutzers („my initials");
   `Video Ordnung Gestaltung.png` = nur zum Testen.
   Neu aufgetaucht, Zweck noch offen (nicht angefasst): `Video Start.png`, `Video Start_landscape.png`.
@@ -41,7 +41,8 @@
   GISA 40024837 (Beratung privater Haushalte betreffend das Aussortieren nicht mehr benötigter Güter (Aufräumcoach)),
   Wortlaute wörtlich übernommen. Gewerbebehörde: **Bezirkshauptmannschaft Tulln**. **UID-Zeile entfernt.** Stand → Oktober 2026.
 - `schema.ts`: nur Kommentar zu `vatID` angepasst (keine UID).
-- Weiter offen im Impressum: `<Todo>` **Fachgruppe** (WKO NÖ). Unverändert: „Unternehmensgegenstand" (nennt noch
+- Nachtrag (Nutzerauftrag): Mitgliedschaft „Wirtschaftskammer Niederösterreich, WKNÖ, FG Persönliche Dienstleister" —
+  Impressum hat damit **keine `<Todo>`-Platzhalter mehr** (ungenutzten `Todo`-Import entfernt). Unverändert: „Unternehmensgegenstand" (nennt noch
   „Trainings und Workshops", kein Feng-Shui) und EN-Legal-Kurzfassung (verweist nur auf das DE-Impressum).
 - Geprüft: tsc/eslint/build grün; gebautes `/impressum/` enthält beide Wortlaute zeichengleich, kein „UID"; 6 Routen lokal 200;
   393 px ohne Überlauf, keine Konsolenfehler.
