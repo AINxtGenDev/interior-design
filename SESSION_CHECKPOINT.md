@@ -36,7 +36,7 @@
   (`npx http-server@14.1.1 -p 5000 -s` in `website/out`; `python -m http.server` kann nicht seeken) und `?cb=` gegen Cache.
 - Nächste Schritte: offene Punkte oben mit Claudia klären; Video-Takes abhören lassen (Key bis ~2026-10-15).
 
-## Datenschutz: Abschnitt „Datenübermittlung in die USA" (2026-10-09, Nutzerauftrag per Screenshot + Text) — **gepusht**
+## Datenschutz: Abschnitt „Datenübermittlung in die USA" (2026-10-09, Nutzerauftrag per Screenshot + Text) — **LIVE** (`e2dd379`, Deploy `37969232002` success; live `/datenschutz/` 200, Abschnitt da, Platzhalter weg)
 
 - `src/app/(de)/datenschutz/page.tsx`: Platzhalter („vor Veröffentlichung prüfen … DPF und/oder SCC") samt Absatz unter
   Hosting entfernt; neuer eigener Abschnitt nach „Hosting und Server-Logfiles" mit dem Nutzertext wörtlich: GitHub DPF-zertifiziert,
