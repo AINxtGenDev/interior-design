@@ -42,7 +42,9 @@
   → „Es gilt die Kleinunternehmerregelung gemäß §&nbsp;6 Abs. 1 Z 27 UStG. Es wird daher keine Umsatzsteuer ausgewiesen;
   Rechnungen enthalten den Hinweis „Umsatzsteuerbefreit aufgrund der Kleinunternehmerregelung"." Fassung → Oktober 2026.
 - Zitat geprüft auf RIS (UStG 1994 § 6, Gesetzesnummer 10004873): Abs. 1 Z 27 = „die Umsätze der Kleinunternehmer", Grenze 55 000 Euro.
-- Weitere AGB-Platzhalter **weiter offen**: Anzahlung (Schwellenwert, %), Stornofristen/-sätze, Workshop-Mindestteilnehmer/Absagefrist.
+- Nachtrag (Nutzerauftrag per Screenshot): Punkt 5 Anzahlung → „Bei Aufträgen ab einem Auftragswert von EUR 600 kann eine
+  Anzahlung von 30 % vereinbart werden." (geschützte Leerzeichen; Nutzertext hatte „Auftragwert" — Schreibweise „Auftragswert" beibehalten). **gepusht**
+- Weitere AGB-Platzhalter **weiter offen**: Stornofristen/-sätze (Punkt 7), Workshop-Mindestteilnehmer/Absagefrist (Punkt 8).
 - Geprüft: build grün; Text im gebauten HTML; 6 Routen lokal 200; `/agb/` 393 px ok, „§ 6" nicht getrennt, keine Konsolenfehler.
 
 ## Datenschutz: Abschnitt „Datenübermittlung in die USA" (2026-10-09, Nutzerauftrag per Screenshot + Text) — **LIVE** (`e2dd379`, Deploy `37969232002` success; live `/datenschutz/` 200, Abschnitt da, Platzhalter weg)

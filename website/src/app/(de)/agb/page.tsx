@@ -110,10 +110,8 @@ export default function AGB() {
           binnen 14 Tagen ab Rechnungsdatum ohne Abzug zur Zahlung fällig.
         </p>
         <p>
-          Bei Aufträgen ab einem Auftragswert von{" "}
-          <Todo>[Schwellenwert festlegen, z. B. EUR 600]</Todo> kann eine
-          Anzahlung von{" "}
-          <Todo>[Prozentsatz festlegen, z. B. 30 %]</Todo> vereinbart werden.
+          Bei Aufträgen ab einem Auftragswert von EUR&nbsp;600 kann eine
+          Anzahlung von 30&nbsp;% vereinbart werden.
           Workshop- und Kursgebühren sind vor Veranstaltungsbeginn fällig.
         </p>
         <p>
