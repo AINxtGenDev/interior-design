@@ -162,17 +162,14 @@ export default function AGB() {
           nach Punkt 6 gilt für die Absage einzelner Termine:
         </p>
         <ul className="ml-5 list-disc space-y-1.5">
+          <li>Absage bis 7&nbsp;Tage vor dem Termin: kostenfrei</li>
           <li>
-            Absage bis <Todo>[Frist, z. B. 7 Tage]</Todo> vor dem Termin:
-            kostenfrei
+            Absage bis 48&nbsp;Stunden vor dem Termin: 50&nbsp;% des
+            vereinbarten Honorars
           </li>
           <li>
-            Absage bis <Todo>[Frist, z. B. 48 Stunden]</Todo> vor dem Termin:{" "}
-            <Todo>[z. B. 50 %]</Todo> des vereinbarten Honorars
-          </li>
-          <li>
-            spätere Absage oder Nichterscheinen:{" "}
-            <Todo>[z. B. 100 %]</Todo> des vereinbarten Honorars
+            spätere Absage oder Nichterscheinen: 100&nbsp;% des vereinbarten
+            Honorars
           </li>
         </ul>
         <p>
