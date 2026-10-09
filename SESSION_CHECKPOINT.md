@@ -22,10 +22,17 @@
     Video sagt noch „Zertifizierter Ordnungscoach"; Handout veraltet (siehe Abschnitt 2026-10-08).
   - Re-Design-Text bestätigen; Firmenwortlaut „Raum & Ordnung" vs. Logo-Unterzeile; rechtliche
     Platzhalter in Impressum/AGB.
-  - **vCard-QR enthält keine Telefonnummer** (`TEL` fehlt) — neuen QR mit Telefon erzeugen lassen?
   - `Logo_kurz.png` liegt ungetrackt im Repo-Root — Zweck unklar, nicht committet.
 - Arbeitsweise: Änderung → `tsc`/`eslint`/`npm run build` → lokal `out/` auf Port 5000 im Browser prüfen →
   Commit + Push → Deploy abwarten → Live per curl prüfen → Checkpoint „LIVE" nachtragen.
+
+## vCard-QR ersetzt — jetzt mit Telefonnummer (2026-10-09, Nutzerauftrag)
+
+Neue `claudia-plessl-vcard-logo-cp.svg` vom Nutzer (930², **85 Module**, Fehlerkorrektur H, Logo-Mitte) ersetzt die
+alte in `website/public/` (gleicher Name, kein Code-Pfad geändert; nur Kommentar 81 → 85 Module).
+Dekodiert: wie vorher **plus `TEL;TYPE=CELL:+43 664 15 17 650`** (= Telefonnummer der Website).
+Lesbarkeit: SVG gerendert → zxing ab 120 px, OpenCV ab 400 px (240 ✗); **Browser-Screenshot 288 px, DPR 1
+(3,27 px/Modul): zxing ✓, OpenCV ✓**, OpenCV 2× ✓. Keine Konsolenfehler, kein Überlauf.
 
 ## vCard-QR im Kontaktabschnitt (2026-10-09, Nutzerauftrag) — **LIVE** (`ae4472b`, Deploy `37897499665` success)
 

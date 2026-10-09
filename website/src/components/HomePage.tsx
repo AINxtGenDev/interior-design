@@ -354,7 +354,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
                   <span className="sr-only">{c.contact.phoneLabel}: </span>
                   {CONTACT.phone}
                 </a>
-                {/* vCard QR (81 modules, error correction H, logo inside). The
+                {/* vCard QR (85 modules, error correction H, logo inside). The
                     SVG brings its own white quiet zone. 288 px (fits a 320 px
                     phone) so both test decoders read it from a 1x screenshot. */}
                 <figure className="mt-6">
