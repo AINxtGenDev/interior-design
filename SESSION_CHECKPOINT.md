@@ -17,7 +17,7 @@
   Impressum/AGB weiterhin offen. (Älterer Stand, Umbenennung 2026-08-17:
   Deploy `32004332796`.)
 
-## Projekte-Raster durch `Bild Projekte.png` ersetzt (2026-10-09, Nutzerauftrag)
+## Projekte-Raster durch `Bild Projekte.png` ersetzt (2026-10-09, Nutzerauftrag) — **LIVE** (`d29a22a`, Deploy `37895386330` success; live DE/EN 200, alle 4 Bilder 200)
 
 Neue Kunden-Collage (1254², 2×2, **deutsche Kacheltexte eingebrannt**: „Räume, die gut tun." /
 „Organisation trifft Ästhetik.") im Repo-Root, gebaut von `build_projects()` in `brand/build_web_assets.py`.
