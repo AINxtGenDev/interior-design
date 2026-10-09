@@ -14,12 +14,19 @@
         /* Starts on Frame 3's sage light and returns to the canvas. */
         #f4-bg { position:absolute; inset:0; background:#eff4ee; }
 
+        /* Change 2026-10-09: the client's two new pictures ("Video Ordnung.png",
+           "Video Gestaltung.png", photo part only — their burned-in labels are cut
+           off; the live labels below stay). Panes no longer overlap: 450x960 each,
+           20 px gap with the divider in it. Block = panes 960 + labels + closing
+           line = ~1180 px. Until the closing line arrives the panes+labels are centred
+           (top 440); at 14.8 s they slide up 68 px so the final block is centred too
+           (top 372, bottom ~1551). */
         .f4-pane {
-          position:absolute; top:460px; width:500px; height:940px;
+          position:absolute; top:440px; width:450px; height:960px;
           overflow:hidden;
         }
-        #f4-pane-l { left:60px; }
-        #f4-pane-r { left:520px; }
+        #f4-pane-l { left:80px; }
+        #f4-pane-r { left:550px; }
         /* Two layers per pane: the reveal scales the picture, the slow push-in
            scales the wrapper, so the tweens never fight over one property. */
         .f4-zoom { width:100%; height:100%; }
@@ -29,24 +36,25 @@
         }
 
         #f4-divider {
-          position:absolute; left:540px; top:460px;
-          width:1px; height:940px; background:#8fa37a;
+          position:absolute; left:540px; top:440px;
+          width:1px; height:960px; background:#8fa37a;
           transform-origin:center center;
         }
 
         .f4-label {
-          position:absolute; top:1450px; width:500px;
+          position:absolute; top:1450px; width:450px;
           text-align:center;
           font-family:"Montserrat", Arial, sans-serif;
-          font-weight:400; font-size:32px; letter-spacing:8px;
+          font-weight:400; font-size:42px; letter-spacing:6px;
+          text-indent:6px; /* balances the trailing letter-spacing so the word is truly centred */
           color:#4d6040; text-transform:uppercase;
           opacity:0;
         }
-        #f4-label-l { left:60px; }
-        #f4-label-r { left:520px; }
+        #f4-label-l { left:80px; }
+        #f4-label-r { left:550px; }
 
         #f4-close {
-          position:absolute; left:0; top:1560px; width:1080px;
+          position:absolute; left:0; top:1492px; width:1080px;
           text-align:center;
           font-family:"Manrope", system-ui, sans-serif;
           font-weight:700; font-size:46px; color:#333338;
@@ -65,12 +73,12 @@
 
         <div class="f4-pane" id="f4-pane-l" data-layout-allow-overflow>
           <div class="f4-zoom" id="f4-zoom-l">
-            <img id="f4-img-l" src="assets/offenes-regalsystem-mit-beschrifteten-bo.webp" alt="" />
+            <img id="f4-img-l" src="assets/video-ordnung.webp" alt="" />
           </div>
         </div>
         <div class="f4-pane" id="f4-pane-r" data-layout-allow-overflow>
           <div class="f4-zoom" id="f4-zoom-r">
-            <img id="f4-img-r" src="assets/wohnbereich-in-warmen-naturtnen-mit-sofa.webp" alt="" />
+            <img id="f4-img-r" src="assets/video-gestaltung.webp" alt="" />
           </div>
         </div>
 
@@ -106,12 +114,15 @@
           tl.fromTo("#f4-zoom-l", { scale: 1 }, { scale: 1.03, duration: 17.0, ease: "none" }, 1.50);
           tl.fromTo("#f4-zoom-r", { scale: 1 }, { scale: 1.03, duration: 11.0, ease: "none" }, 7.70);
 
-          // "Mein Ziel ist ganz einfach" — the division contracts into a short joining stroke.
-          tl.to("#f4-divider", { scaleY: 0.08, duration: 0.6, ease: "power2.out" }, 11.45);
-          tl.to("#f4-label-l", { x: 60, duration: 0.6, ease: "power2.out" }, 11.45);
-          tl.to("#f4-label-r", { x: -60, duration: 0.6, ease: "power2.out" }, 11.45);
+          // "Mein Ziel ist ganz einfach" — the division dissolves and the two words move together.
+          // (Shrinks to 0: with the panes no longer overlapping, a short stub would float in the gap.)
+          tl.to("#f4-divider", { scaleY: 0, duration: 0.5, ease: "power2.out" }, 11.45);
+          tl.to("#f4-label-l", { x: 40, duration: 0.6, ease: "power2.out" }, 11.45);
+          tl.to("#f4-label-r", { x: -40, duration: 0.6, ease: "power2.out" }, 11.45);
 
           // "… sondern ein Zuhause, das zu Ihnen und Ihrem Leben passt."
+          // The block makes room so panes + labels + closing line stay centred.
+          tl.to(["#f4-pane-l", "#f4-pane-r", "#f4-label-l", "#f4-label-r"], { y: -68, duration: 0.8, ease: "power2.inOut" }, 14.80);
           tl.fromTo("#f4-close", { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" }, 14.80);
 
           window.__timelines["04-ordnung-gestaltung"] = tl;
