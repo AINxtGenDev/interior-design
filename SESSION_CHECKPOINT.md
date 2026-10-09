@@ -26,7 +26,7 @@
 - Arbeitsweise: Änderung → `tsc`/`eslint`/`npm run build` → lokal `out/` auf Port 5000 im Browser prüfen →
   Commit + Push → Deploy abwarten → Live per curl prüfen → Checkpoint „LIVE" nachtragen.
 
-## vCard-QR ersetzt — jetzt mit Telefonnummer (2026-10-09, Nutzerauftrag)
+## vCard-QR ersetzt — jetzt mit Telefonnummer (2026-10-09, Nutzerauftrag) — **LIVE** (`636c596`, Deploy `37899401393` success)
 
 Neue `claudia-plessl-vcard-logo-cp.svg` vom Nutzer (930², **85 Module**, Fehlerkorrektur H, Logo-Mitte) ersetzt die
 alte in `website/public/` (gleicher Name, kein Code-Pfad geändert; nur Kommentar 81 → 85 Module).
