@@ -22,7 +22,7 @@
     Video sagt noch „Zertifizierter Ordnungscoach"; Handout veraltet (siehe Abschnitt 2026-10-08).
   - Re-Design-Text bestätigen; Firmenwortlaut „Raum & Ordnung" vs. Logo-Unterzeile; rechtliche
     Platzhalter in Impressum/AGB.
-- Ungetrackt im Repo-Root, **bewusst nicht committen** (Nutzer 2026-10-09): `Logo_kurz.png` = Werners Initialen;
+- Ungetrackt im Repo-Root, **bewusst nicht committen** (Nutzer 2026-10-09): `Logo_kurz.png` = Initialen des Nutzers („my initials");
   `Video Ordnung Gestaltung.png` = nur zum Testen.
 - Arbeitsweise: Änderung → `tsc`/`eslint`/`npm run build` → lokal `out/` auf Port 5000 im Browser prüfen →
   Commit + Push → Deploy abwarten → Live per curl prüfen → Checkpoint „LIVE" nachtragen.
