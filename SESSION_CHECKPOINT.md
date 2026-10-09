@@ -17,7 +17,7 @@
   Impressum/AGB weiterhin offen. (Älterer Stand, Umbenennung 2026-08-17:
   Deploy `32004332796`.)
 
-## Pakete & Preise: Hintergrund Blush → `#e9eaec` (2026-10-09, Nutzerauftrag per Screenshot)
+## Pakete & Preise: Hintergrund Blush → `#e9eaec` (2026-10-09, Nutzerauftrag per Screenshot) — **LIVE** (`d4f4156`, Deploy `37895991378` success)
 
 `#e9eaec` = CI-Token `anthrazit-light` (Folie 5). `Section`-Ton `blush` (`bg-blush-light`, nur hier benutzt)
 → `anthrazit` (`bg-anthrazit-light`), DE und EN. Folge: Preis-Fußnote in `anthrazit-mid` hätte auf dem neuen Grund
