@@ -138,7 +138,7 @@ export type Content = {
       /** Work experience: listed first, but not a credential (kept out of JSON-LD). */
       experience: { title: string; note: string };
       /** `inTraining`: not yet awarded, so not claimed as held in JSON-LD. */
-      items: { title: string; issuer: string; note: string; inTraining?: boolean }[];
+      items: { title: string; issuer: string; note?: string; inTraining?: boolean }[];
     };
   };
   projects: {
@@ -381,6 +381,10 @@ const de: Content = {
           inTraining: true,
           issuer: "Akademie der Ordnung",
           note: "Zertifizierte Ausbildung in professioneller Ordnungsbegleitung — Methodik, Kundenprozess und praktische Umsetzung.",
+        },
+        {
+          title: "Gepr. ArbeitsplatzExpertin",
+          issuer: "Mensch & Büro-Akademie",
         },
         {
           title: "Laufende Fortbildung",
@@ -626,6 +630,10 @@ const en: Content = {
           inTraining: true,
           issuer: "Akademie der Ordnung",
           note: "Certified training in professional organizing — methodology, client process and hands-on implementation.",
+        },
+        {
+          title: "Certified Workplace Expert",
+          issuer: "Mensch & Büro-Akademie",
         },
         {
           title: "Continuing education",

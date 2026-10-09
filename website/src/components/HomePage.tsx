@@ -221,7 +221,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
                   <div key={item.title}>
                     <dt className="font-bold">{item.title}</dt>
                     <dd className="mt-1 text-sage-dark">{item.issuer}</dd>
-                    <dd className="small mt-1 text-anthrazit-mid">{item.note}</dd>
+                    {item.note && <dd className="small mt-1 text-anthrazit-mid">{item.note}</dd>}
                   </div>
                 ))}
               </dl>
