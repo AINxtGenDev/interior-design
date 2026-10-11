@@ -187,12 +187,12 @@ Scene 5 (8.4–9.7s): gehalten.
 - src: compositions/frames/05-der-ablauf.html
 - duration: 10.4s
 - transition_in: crossfade
-- scene: Drei Stationen entlang der Linie — Raumcheck, Konzept, Umsetzung
+- scene: Alle vier Schritte auf einer Seite (seit 2026-10-11) — Raumcheck, Konzept & Angebot, Umsetzung, Nachbetreuung; untereinander an einer senkrechten Salbei-Linie, Schritt für Schritt eingeblendet, am Ende alle vier gemeinsam
 - voiceover: "Wir starten mit einem Raumcheck. Sie bekommen ein Konzept mit Fixpreis. Dann arbeiten wir Bereich für Bereich, in Ihrem Tempo."
 - type: how_it_works
 - persuasion: Risk reduction — ein klarer Ablauf nimmt die Angst vor dem ersten Termin
 - beat: ablauf
-- blueprint: spatial-pan-stations (reproduce)
+- blueprint: vertical step list (vorher spatial-pan-stations)
 - asset_candidates: none
 - asset_rationale: Typografie und Haarlinien-Stationen; ein Bild würde von der Struktur ablenken
 - handoff_in: sage Haarlinie vertikal, x=540px, y=560–1360px, opacity 1, ruht

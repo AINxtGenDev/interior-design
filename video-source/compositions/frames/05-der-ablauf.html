@@ -13,48 +13,44 @@
         #root { position:absolute; inset:0; overflow:hidden; }
         #f5-bg { position:absolute; inset:0; background:#f3eee8; }
 
-        /* The camera rig: three stations laid out on one long path, panned laterally. */
-        #f5-rig { position:absolute; left:0; top:0; width:3240px; height:1920px; }
+        /* All four steps on one page (2026-10-11): a centred list, left-aligned inside,
+           with the sage hairline running down beside the numbers as the path. */
+        #f5-wrap {
+          position:absolute; inset:0;
+          display:flex; align-items:center; justify-content:center;
+        }
+        #f5-list { position:relative; width:max-content; padding-left:56px; }
 
         #f5-path {
-          position:absolute; left:0; top:1120px;
-          width:3240px; height:1px; background:#8fa37a;
-          transform-origin:left center;
+          position:absolute; left:0; top:8px; bottom:8px;
+          width:2px; background:#8fa37a;
+          transform-origin:center top;
         }
 
-        .f5-station { position:absolute; top:700px; width:800px; }
-        #f5-st1 { left:140px; }
-        #f5-st2 { left:1220px; }
-        #f5-st3 { left:2300px; }
+        .f5-step { position:relative; opacity:0; }
+        .f5-step + .f5-step { margin-top:72px; }
+        .f5-step::before {
+          content:""; position:absolute; left:-63px; top:22px;
+          width:16px; height:16px; border-radius:50%; background:#8fa37a;
+        }
 
         .f5-num {
           display:block;
           font-family:"Montserrat", Arial, sans-serif;
-          font-weight:400; font-size:64px; line-height:1; color:#8fa37a;
-          margin:0 0 22px;
+          font-weight:400; font-size:60px; line-height:1; color:#7e8f6b;
+          margin:0 0 16px;
         }
         .f5-title {
           display:block;
           font-family:"Manrope", system-ui, sans-serif;
-          font-weight:700; font-size:58px; line-height:1.15; color:#333338;
-          margin:0 0 24px;
+          font-weight:700; font-size:64px; line-height:1.15; color:#333338;
+          margin:0 0 12px;
         }
         .f5-desc {
           display:block;
           font-family:"Manrope", system-ui, sans-serif;
-          font-weight:400; font-size:34px; line-height:1.5; color:#57575e;
-          max-width:720px;
+          font-weight:500; font-size:40px; line-height:1.4; color:#57575e;
         }
-        .f5-inner { opacity:0; }
-
-        /* Tick marks where each station meets the path. */
-        .f5-tick {
-          position:absolute; top:1108px;
-          width:1px; height:25px; background:#8fa37a;
-        }
-        #f5-tick1 { left:140px; }
-        #f5-tick2 { left:1220px; }
-        #f5-tick3 { left:2300px; }
       </style>
 
       <div
@@ -66,33 +62,32 @@
       >
         <div id="f5-bg"></div>
 
-        <div id="f5-rig" data-layout-allow-overflow>
-          <div id="f5-path"></div>
-          <div class="f5-tick" id="f5-tick1"></div>
-          <div class="f5-tick" id="f5-tick2"></div>
-          <div class="f5-tick" id="f5-tick3"></div>
+        <div id="f5-wrap">
+          <div id="f5-list">
+            <div id="f5-path"></div>
 
-          <div class="f5-station" id="f5-st1">
-            <div class="f5-inner" id="f5-in1">
+            <div class="f5-step" id="f5-st1">
               <span class="f5-num">01</span>
               <span class="f5-title">Raumcheck</span>
               <span class="f5-desc">60 bis 90 Minuten, vor Ort oder online.</span>
             </div>
-          </div>
 
-          <div class="f5-station" id="f5-st2">
-            <div class="f5-inner" id="f5-in2">
+            <div class="f5-step" id="f5-st2">
               <span class="f5-num">02</span>
               <span class="f5-title">Konzept &amp; Angebot</span>
               <span class="f5-desc">Umfang, Reihenfolge, Fixpreis.</span>
             </div>
-          </div>
 
-          <div class="f5-station" id="f5-st3">
-            <div class="f5-inner" id="f5-in3">
+            <div class="f5-step" id="f5-st3">
               <span class="f5-num">03</span>
               <span class="f5-title">Umsetzung</span>
               <span class="f5-desc">Ihr Tempo, Ihre Kriterien.</span>
+            </div>
+
+            <div class="f5-step" id="f5-st4">
+              <span class="f5-num">04</span>
+              <span class="f5-title">Nachbetreuung</span>
+              <span class="f5-desc">Ein Check-in-Termin nach einigen Wochen.</span>
             </div>
           </div>
         </div>
@@ -103,20 +98,17 @@
           window.__timelines = window.__timelines || {};
           const tl = gsap.timeline({ paused: true });
 
-          // The inherited hairline lays back down as the path the stations sit on.
-          tl.fromTo("#f5-path", { scaleX: 0 }, { scaleX: 1, duration: 0.9, ease: "power2.out" }, 0.0);
+          // Voice (line 5, measured 2026-10-11): 0.38 "Raumcheck", 2.69 "Konzept mit Fixpreis",
+          // 5.59 "Bereich für Bereich", 8.11 "in Ihrem Tempo", ends 9.07.
+          // The path draws down the whole list while the steps arrive one by one.
+          tl.fromTo("#f5-path", { scaleY: 0 }, { scaleY: 1, duration: 8.6, ease: "none" }, 0.0);
 
-          tl.fromTo("#f5-in1", { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "power2.out" }, 0.80);
+          tl.fromTo("#f5-st1", { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" }, 0.30);
+          tl.fromTo("#f5-st2", { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" }, 2.60);
+          tl.fromTo("#f5-st3", { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" }, 5.50);
+          tl.fromTo("#f5-st4", { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" }, 8.30);
 
-          // Lateral pan to station 02 on "Konzept mit Fixpreis".
-          tl.fromTo("#f5-rig", { x: 0 }, { x: -1080, duration: 1.1, ease: "power2.out" }, 3.20);
-          tl.fromTo("#f5-in2", { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "power2.out" }, 3.90);
-
-          // Pan to station 03 on "Bereich für Bereich".
-          tl.to("#f5-rig", { x: -2160, duration: 1.1, ease: "power2.out" }, 6.00);
-          tl.fromTo("#f5-in3", { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "power2.out" }, 6.70);
-
-          // 7.4s → 10.4s held on station 03; the path runs on out of frame.
+          // 8.9s → 10.4s all four steps held together.
           window.__timelines["05-der-ablauf"] = tl;
         })();
       </script>

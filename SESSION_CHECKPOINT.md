@@ -2,7 +2,7 @@
 
 ## Meta
 
-- Datum: 2026-10-11 (Workspace-Mailbox office@ in Arbeit, siehe eigener Abschnitt; Website: QR + Footer-Logo am Handy hochformat zentriert, Stand `06ce95a` live)
+- Datum: 2026-10-11 (Workspace-Mailbox office@ in Arbeit, siehe eigener Abschnitt; Website: QR + Footer-Logo am Handy zentriert; **Video Frame 5: alle 4 Schritte auf einer Seite**, siehe Abschnitt)
 - Repository: `AINxtGenDev/interior-design` (public)
 - Arbeitskopie: `/home/nuc8/05_development/55_laulau/78_plessl-website`
   (**verschoben am 2026-08-16** — vorher `/home/nuc8/05_development/78_plessl-website`)
@@ -38,6 +38,21 @@
   Nächste Sitzung (2026-10-11): Website-Inhalte bearbeiten (Nutzer gibt Aufträge).
   **2026-10-12 ab ~09:30 (Nutzer):** Workspace-Anmeldung office@ im Chrome-Gastfenster (Schritte im Abschnitt „Geschäfts-Mailbox"),
   dann Screenshot des `google-site-verification=…`-Codes an Claude → DNS in konsoleH (vorher Rückfrage).
+
+## Video Frame 5: alle vier Schritte 01–04 auf einer Seite (2026-10-11, Nutzerauftrag per Screenshot `~/Pictures/Screenshots/000-laulau-video.png`) — **COMMITTET, Deploy ausstehend**
+
+- Vorher: Kamerafahrt über 3 Stationen (01–03 je einzeln), 04 fehlte. Jetzt: eine Seite, Liste zentriert (innen linksbündig),
+  senkrechte Salbei-Linie mit Punkten: 01 Raumcheck · 02 Konzept & Angebot · 03 Umsetzung · **04 Nachbetreuung „Ein Check-in-Termin
+  nach einigen Wochen."** (Text wie Website). Schrift größer (Nummer 60 / Titel 64 / Text 40 px), Nummern `#7e8f6b` (Kontrast-Check AA).
+- Einblendung auf die VO-Sätze (gemessen): 01 bei 0,3 s, 02 bei 2,6, 03 bei 5,5, 04 bei 8,3 → ab 8,9 s alle vier bis 10,4 s (Szenenende 48,2 s).
+  Ton, VTT, Länge (58,2 s), Poster unverändert. Block x 106–965, y 425–1500 (Mitte 962).
+- Videoprojekt `94bfa9e`: Frame 5, STORYBOARD, MD5-Wächter. Render `-q standard --crf 26`, Videospur-MD5 `c12ad9a4…`, −14,5 LUFS, 4,8 MB.
+  0–37,7 s bit-identisch zum alten Film (PSNR inf), Endkarte PSNR ≥ 49,9 dB (Encoderrauschen).
+- Website: `vorstellung.mp4` neu, `video-source/` (Frame 5, STORYBOARD) gespiegelt, `VIDEO_UPLOAD_DATE` → 2026-10-11.
+- Getestet lokal (Range-Server, chrome-devtools, 393×852): Dauer 58,2, Bild bei 47,5 s zeigt alle 4 Schritte lesbar, Abspielen/Seeken ok,
+  kein Überlauf, Konsole nur bekannter „Lazy-loaded images"-Hinweis. tsc/eslint/build grün.
+- Hinweis: alle vier stehen nur ~1,5 s gemeinsam (Szene endet mit dem VO); länger ginge nur mit Verschieben von Endkarte + Ton.
+- Rollback: `git revert <Website-Commit>` bzw. `git revert 94bfa9e` (Projekt).
 
 ## Handy hochformat: vCard-QR und Footer-Logo zentriert (2026-10-11, Nutzerauftrag per 2 Handy-Screenshots) — **LIVE** (`06ce95a`, Deploy `38122714775` success; live `/`, `/en/`, `/impressum/` 200 mit neuen Klassen)
 
