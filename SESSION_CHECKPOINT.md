@@ -57,6 +57,10 @@
   selbst merged. Deploy läuft nur bei Push auf `main` (`deploy.yml`) → Push von `seo` ändert die Live-Seite nicht.
   1. H3+M7: Open Graph je Seite über `src/content/og.ts` (`openGraphFor`), Legal-Seiten `og:url` = Canonical, `follow: true`, `og:locale:alternate`.
      Geprüft: 6/6 Seiten og:url == Canonical, twitter:title == title; sichtbarer Text + Alt-Texte aller 7 Seiten identisch zu vorher.
+  2. M5(a): Header-Logo `fetchPriority="low"` + `loading="eager"` (Prop `priority` → `eager`, `BrandLogo.tsx`/`SiteHeader.tsx`) → kein
+     automatischer Logo-Preload mehr. Lighthouse mobil lokal (http-server ohne gzip, je 3 Läufe, Median): `/` 5188 → 5105 ms, `/en/` 5182 → 5036 ms;
+     Wasserfall: Hero startet vor dem Logo (Logo jetzt Low). Lokale Absolutwerte nicht mit live (3,1 s, gzip) vergleichbar.
+     M5(b) kleinere Logo-Datei bewusst zurückgestellt (Logo bremst den Hero nicht mehr; würde Build-Pipeline ändern).
 - Offen: Wortlaut Titel (Claudia), GBP-Kategorie/Adresse.
 
 ## Video-Stimme: ruhig, souverän, vertrauenswürdig (2026-10-11, Nutzerauftrag, 2. Fassung) — **LIVE** (`e283d57`, Deploy `38132940667` success; live MP4 + VTT SHA-256 = lokal)

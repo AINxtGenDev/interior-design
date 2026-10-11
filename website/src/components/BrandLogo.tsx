@@ -18,15 +18,20 @@ import logo960 from "@/assets/logo-960.webp";
  *
  * `sizes` is the rendered CSS width — the browser multiplies by the device
  * pixel ratio itself.
+ *
+ * `eager` (header logo, above the fold) loads at once but at low fetch
+ * priority: React's server renderer preloads every non-lazy <img> outside a
+ * <picture> unless it is fetchPriority="low", and that preload made the logo
+ * compete with the hero image, the page's LCP element.
  */
 export default function BrandLogo({
   className,
   sizes,
-  priority = false,
+  eager = false,
 }: {
   className?: string;
   sizes: string;
-  priority?: boolean;
+  eager?: boolean;
 }) {
   return (
     // eslint-disable-next-line @next/next/no-img-element -- see above
@@ -38,8 +43,8 @@ export default function BrandLogo({
       height={logo480.height}
       alt=""
       decoding="async"
-      fetchPriority={priority ? "high" : undefined}
-      loading={priority ? "eager" : "lazy"}
+      fetchPriority={eager ? "low" : undefined}
+      loading={eager ? "eager" : "lazy"}
       className={`block w-auto ${className ?? ""}`}
     />
   );

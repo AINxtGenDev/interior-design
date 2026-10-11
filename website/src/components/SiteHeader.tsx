@@ -86,7 +86,7 @@ export default function SiteHeader({
           >
             {/* 48 px tall on phones, 56 px from 1024 px: the wordmark is
                 ~29 % of the logo's height, so this keeps it at 14–16 px. */}
-            <BrandLogo priority sizes="(min-width: 1024px) 105px, 90px" className="h-12 lg:h-14" />
+            <BrandLogo eager sizes="(min-width: 1024px) 105px, 90px" className="h-12 lg:h-14" />
           </a>
 
           <SiteNav
