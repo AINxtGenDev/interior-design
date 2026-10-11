@@ -39,7 +39,7 @@
   **2026-10-12 ab ~09:30 (Nutzer):** Workspace-Anmeldung office@ im Chrome-Gastfenster (Schritte im Abschnitt „Geschäfts-Mailbox"),
   dann Screenshot des `google-site-verification=…`-Codes an Claude → DNS in konsoleH (vorher Rückfrage).
 
-## Video Frame 5: alle vier Schritte 01–04 auf einer Seite (2026-10-11, Nutzerauftrag per Screenshot `~/Pictures/Screenshots/000-laulau-video.png`) — **COMMITTET, Deploy ausstehend**
+## Video Frame 5: alle vier Schritte 01–04 auf einer Seite (2026-10-11, Nutzerauftrag per Screenshot `~/Pictures/Screenshots/000-laulau-video.png`) — **LIVE** (`1b2327b`, Deploy `38123977701` success; live MP4 SHA-256 = lokal `f2a979ae…`, uploadDate 2026-10-11)
 
 - Vorher: Kamerafahrt über 3 Stationen (01–03 je einzeln), 04 fehlte. Jetzt: eine Seite, Liste zentriert (innen linksbündig),
   senkrechte Salbei-Linie mit Punkten: 01 Raumcheck · 02 Konzept & Angebot · 03 Umsetzung · **04 Nachbetreuung „Ein Check-in-Termin
@@ -52,7 +52,7 @@
 - Getestet lokal (Range-Server, chrome-devtools, 393×852): Dauer 58,2, Bild bei 47,5 s zeigt alle 4 Schritte lesbar, Abspielen/Seeken ok,
   kein Überlauf, Konsole nur bekannter „Lazy-loaded images"-Hinweis. tsc/eslint/build grün.
 - Hinweis: alle vier stehen nur ~1,5 s gemeinsam (Szene endet mit dem VO); länger ginge nur mit Verschieben von Endkarte + Ton.
-- Rollback: `git revert <Website-Commit>` bzw. `git revert 94bfa9e` (Projekt).
+- Rollback: `git revert 1b2327b` (Website) bzw. `git revert 94bfa9e` (Projekt).
 
 ## Handy hochformat: vCard-QR und Footer-Logo zentriert (2026-10-11, Nutzerauftrag per 2 Handy-Screenshots) — **LIVE** (`06ce95a`, Deploy `38122714775` success; live `/`, `/en/`, `/impressum/` 200 mit neuen Klassen)
 
