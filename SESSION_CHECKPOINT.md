@@ -2,7 +2,7 @@
 
 ## Meta
 
-- Datum: 2026-10-11 (Workspace-Mailbox office@ in Arbeit, siehe eigener Abschnitt; Website: QR + Footer-Logo am Handy zentriert; **Video Frame 5: alle 4 Schritte auf einer Seite**, siehe Abschnitt)
+- Datum: 2026-10-11 (Workspace-Mailbox office@ in Arbeit, siehe eigener Abschnitt; Website: QR + Footer-Logo am Handy zentriert; **Video Frame 5: alle 4 Schritte auf einer Seite**; **Video-Stimme klarer und lebendiger**, siehe Abschnitte)
 - Repository: `AINxtGenDev/interior-design` (public)
 - Arbeitskopie: `/home/nuc8/05_development/55_laulau/78_plessl-website`
   (**verschoben am 2026-08-16** — vorher `/home/nuc8/05_development/78_plessl-website`)
@@ -38,6 +38,23 @@
   Nächste Sitzung (2026-10-11): Website-Inhalte bearbeiten (Nutzer gibt Aufträge).
   **2026-10-12 ab ~09:30 (Nutzer):** Workspace-Anmeldung office@ im Chrome-Gastfenster (Schritte im Abschnitt „Geschäfts-Mailbox"),
   dann Screenshot des `google-site-verification=…`-Codes an Claude → DNS in konsoleH (vorher Rückfrage).
+
+## Video-Stimme: klarer, lebendiger, mit Freude (2026-10-11, Nutzerauftrag) — **COMMITTET, Deploy ausstehend**
+
+- Befund (gemessen): Klon-Takes basslastig (80–300 Hz ≈ 2 dB über Claudias Originalaufnahme, Mitten 2 dB darunter → „dumpf");
+  alter Stilprompt „calm, unhurried, sentences fall" + Claudias eigene Referenz sehr flach (Tonhöhe p10–p90 ≈ 5–7 Halbtöne).
+- Neu: Zeilen 1–5 + 7 je 4 Takes mit Claudias Klonstimme (Key gültig bis ~2026-10-15), Stilprompt hell/warm/lächelnd/begeistert,
+  Betonung + wechselndes Tempo (`voice/video-lines/2026-10-11/styles.json`). Auswahl: Whisper 0 Abweichungen, Cue-Passung,
+  Tonhöhenbewegung (neu ≈ 10–13 Halbtöne) und Grundton ≤ ~200 Hz (Takes mit 225–235 Hz verworfen — klingen sonst nicht mehr nach ihr).
+  Gewählt Takes 2/2/1/4/3/2. `voice/align_words.py` legt Schlüsselwörter nur über Pausen auf die bestehenden Animations-Cues
+  (alle Abweichungen −0,33…+0,10 s); danach EQ (HP 80, −3 dB @ 200 Hz, +3 dB @ 3,5 kHz, Shelf +2 dB @ 7 kHz) + loudnorm −16 LUFS.
+  Spektralschwerpunkt ~290 → ~390–440 Hz.
+- **Bild unverändert** (Videospur-MD5 `c12ad9a4…`, Mix-Skripte kopieren die Spur): `vo-timeline.wav`, `bed.mp3` (−34,4 LUFS), beide Mixe
+  −14,5 LUFS; Untertitel (8 Cues) auf neue Zeiten. Projekt `61f1505`.
+- Getestet: Whisper über den fertigen Film inkl. Musik **0 Abweichungen**; lokal (chrome-devtools) Dauer 58,2, 8 Cues geladen, Ton dekodiert,
+  Abspielen/Seeken ok, Konsole nur bekannter Hinweis. tsc/eslint/build grün.
+- **Claudia soll abhören** (Freigabe Stimme/Ton). Alternativ-Takes in `voice/video-lines/2026-10-11/` (Audio nicht im Git).
+- Rollback: `git revert <Website-Commit>` bzw. `git revert 61f1505` (Projekt).
 
 ## Video Frame 5: alle vier Schritte 01–04 auf einer Seite (2026-10-11, Nutzerauftrag per Screenshot `~/Pictures/Screenshots/000-laulau-video.png`) — **LIVE** (`1b2327b`, Deploy `38123977701` success; live MP4 SHA-256 = lokal `f2a979ae…`, uploadDate 2026-10-11)
 
