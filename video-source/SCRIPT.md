@@ -4,14 +4,15 @@
 Bis dahin Sulafat (Gemini TTS, `gemini-2.5-flash-preview-tts`), warm, weiblich, ruhig.
 **Voice settings:** Stilprompt pro Zeile; Modell liefert 24 kHz PCM mono. Die Pausen jeder Zeile sind
 nachträglich auf die Animations-Cues der Frames gelegt (siehe README, „Voiceover").
-**Voice direction (seit 2026-10-11, Nutzerauftrag „klarer, lebendiger, mit Freude"):** Hell, warm, mit hörbarem
-Lächeln und echter Begeisterung, aber authentisch, kein Werbeton. Natürliche Betonung der Schlüsselwörter,
-wechselndes Tempo, deutliche Artikulation. Zeile 1 verständnisvoll-lebendig statt klagend. Stilprompts:
-`voice/video-lines/2026-10-11/styles.json`; je 4 Takes, gewählt nach Whisper (0 Abweichungen), Cue-Passung
-(`voice/align_words.py`, Bericht `aligned/report.txt`) und Tonhöhenbewegung (`voice/analyze_takes.py`).
-Takes 1/2/3/4/5/7 = 2/2/1/4/3/2. Danach Klarheits-EQ (HP 80 Hz, −3 dB @ 200 Hz, +3 dB @ 3,5 kHz,
-High-Shelf +2 dB @ 7 kHz) und loudnorm −16 LUFS / −1 dBTP, 48 kHz.
-_Bis 2026-10-10:_ warm und unaufgeregt, langsam, Sätze fallen am Ende ab — wirkte laut Nutzer dumpf und monoton.
+**Voice direction (seit 2026-10-11, zweite Fassung; Nutzerauftrag):** Zielgruppe älter, wohlhabend, gebildet —
+ruhig, souverän, vertrauenswürdig. Klare Artikulation, angenehmes, gemessenes Tempo mit echten Pausen, warm und
+natürlich; Fachkompetenz und Überzeugung mit leiser Sicherheit, nie überschwänglich, nie werblich, nie belehrend.
+Stilprompts: `voice/video-lines/2026-10-11-calm/styles.json`; je 4 Takes, gewählt nach Whisper (0 Abweichungen),
+Cue-Passung (`TAKES=2026-10-11-calm uv run voice/align_words.py`, Bericht `aligned/report.txt`), Grundton nahe
+Claudias eigenem (~157 Hz) und mäßiger Tonhöhenbewegung (p10–p90 ≈ 5–8 Halbtöne). Takes 1/2/3/4/5/7 = 2/2/1/4/4/4.
+Danach EQ (HP 80 Hz, −3 dB @ 200 Hz, +2 dB @ 3,5 kHz, High-Shelf +1 dB @ 7 kHz) und loudnorm −16 LUFS / −1 dBTP, 48 kHz;
+Klangschwerpunkt damit wie Claudias Originalaufnahme.
+_Verworfen am selben Tag:_ hell/begeistert (`2026-10-11/`) — laut Nutzer zu energisch. _Bis 2026-10-10:_ ruhig, aber dumpf und monoton.
 
 **Warum diese Stimme:** Kokoro kann kein Deutsch, und im HeyGen-Starfish-Katalog dieses
 Accounts gibt es keine deutsche Stimme (20 Stimmen: 18 Englisch, 1 Spanisch, 1 Polnisch).

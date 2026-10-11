@@ -2,7 +2,7 @@
 
 ## Meta
 
-- Datum: 2026-10-11 (Workspace-Mailbox office@ in Arbeit, siehe eigener Abschnitt; Website: QR + Footer-Logo am Handy zentriert; **Video Frame 5: alle 4 Schritte auf einer Seite**; **Video-Stimme klarer und lebendiger**, siehe Abschnitte)
+- Datum: 2026-10-11 (Workspace-Mailbox office@ in Arbeit, siehe eigener Abschnitt; Website: QR + Footer-Logo am Handy zentriert; **Video Frame 5: alle 4 Schritte auf einer Seite**; **Video-Stimme ruhig, souverän, vertrauenswürdig** (ersetzt die lebendige Fassung vom selben Tag), siehe Abschnitte)
 - Repository: `AINxtGenDev/interior-design` (public)
 - Arbeitskopie: `/home/nuc8/05_development/55_laulau/78_plessl-website`
   (**verschoben am 2026-08-16** — vorher `/home/nuc8/05_development/78_plessl-website`)
@@ -39,7 +39,22 @@
   **2026-10-12 ab ~09:30 (Nutzer):** Workspace-Anmeldung office@ im Chrome-Gastfenster (Schritte im Abschnitt „Geschäfts-Mailbox"),
   dann Screenshot des `google-site-verification=…`-Codes an Claude → DNS in konsoleH (vorher Rückfrage).
 
-## Video-Stimme: klarer, lebendiger, mit Freude (2026-10-11, Nutzerauftrag) — **LIVE** (`478a36b`, Deploy `38128148326` success; live MP4 + VTT SHA-256 = lokal)
+## Video-Stimme: ruhig, souverän, vertrauenswürdig (2026-10-11, Nutzerauftrag, 2. Fassung) — **COMMITTET, Deploy ausstehend**
+
+- Nutzer: lebendige Fassung zu energisch; Zielgruppe **älter, wohlhabend, gebildet** → ruhig, sicher, klar artikuliert, gemessenes Tempo,
+  warm-natürlich, leise Kompetenz statt Begeisterung, nicht werblich/belehrend.
+- Zeilen 1–5 + 7 je 4 neue Takes (Stilprompts `voice/video-lines/2026-10-11-calm/styles.json`). Auswahl: Whisper 0 Abweichungen, Cue-Passung,
+  Grundton nahe Claudias eigenem (~157 Hz; gewählt 155–163 Hz), mäßige Tonhöhenbewegung p10–p90 ≈ 5–8 Halbtöne (alt 5–7 dumpf,
+  lebendig 10–13). Takes 2/2/1/4/4/4; Cue-Abweichungen −0,45…+0,10 s. EQ sanfter (HP 80, −3 dB @ 200 Hz, **+2** dB @ 3,5 kHz,
+  Shelf **+1** dB @ 7 kHz) → Klangschwerpunkt 340 Hz = Claudias Originalaufnahme (339 Hz); loudnorm −16 LUFS.
+- Bild unverändert (Videospur-MD5 `c12ad9a4…`); `vo-timeline.wav`, `bed.mp3` (−33,4 LUFS), Mixe −14,4/−14,5 LUFS, Untertitel (8 Cues) neu.
+  Projekt `60b8672`. `align_words.py` liest den Take-Ordner jetzt aus `TAKES=…`.
+- Getestet: Whisper über fertigen Film inkl. Musik **0 Abweichungen**; lokal Dauer 58,2, 8 Cues, Ton dekodiert, Abspielen/Seeken ok,
+  Konsole nur bekannter Hinweis; tsc/eslint/build grün.
+- **Claudia soll abhören.** Alternativ-Takes in `voice/video-lines/2026-10-11-calm/` (Audio nicht im Git); Voice-Key bis ~2026-10-15.
+- Rollback: `git revert <Website-Commit>` bzw. `git revert 60b8672` (Projekt; zurück zur lebendigen Fassung).
+
+## Video-Stimme: klarer, lebendiger, mit Freude — ERSETZT durch ruhige Fassung (oben); Fassung war (2026-10-11, Nutzerauftrag) — **LIVE** (`478a36b`, Deploy `38128148326` success; live MP4 + VTT SHA-256 = lokal)
 
 - Befund (gemessen): Klon-Takes basslastig (80–300 Hz ≈ 2 dB über Claudias Originalaufnahme, Mitten 2 dB darunter → „dumpf");
   alter Stilprompt „calm, unhurried, sentences fall" + Claudias eigene Referenz sehr flach (Tonhöhe p10–p90 ≈ 5–7 Halbtöne).
