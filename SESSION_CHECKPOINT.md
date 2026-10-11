@@ -39,7 +39,7 @@
   **2026-10-12 ab ~09:30 (Nutzer):** Workspace-Anmeldung office@ im Chrome-Gastfenster (Schritte im Abschnitt „Geschäfts-Mailbox"),
   dann Screenshot des `google-site-verification=…`-Codes an Claude → DNS in konsoleH (vorher Rückfrage).
 
-## Video-Stimme: ruhig, souverän, vertrauenswürdig (2026-10-11, Nutzerauftrag, 2. Fassung) — **COMMITTET, Deploy ausstehend**
+## Video-Stimme: ruhig, souverän, vertrauenswürdig (2026-10-11, Nutzerauftrag, 2. Fassung) — **LIVE** (`e283d57`, Deploy `38132940667` success; live MP4 + VTT SHA-256 = lokal)
 
 - Nutzer: lebendige Fassung zu energisch; Zielgruppe **älter, wohlhabend, gebildet** → ruhig, sicher, klar artikuliert, gemessenes Tempo,
   warm-natürlich, leise Kompetenz statt Begeisterung, nicht werblich/belehrend.
@@ -52,9 +52,9 @@
 - Getestet: Whisper über fertigen Film inkl. Musik **0 Abweichungen**; lokal Dauer 58,2, 8 Cues, Ton dekodiert, Abspielen/Seeken ok,
   Konsole nur bekannter Hinweis; tsc/eslint/build grün.
 - **Claudia soll abhören.** Alternativ-Takes in `voice/video-lines/2026-10-11-calm/` (Audio nicht im Git); Voice-Key bis ~2026-10-15.
-- Rollback: `git revert <Website-Commit>` bzw. `git revert 60b8672` (Projekt; zurück zur lebendigen Fassung).
+- Rollback: `git revert e283d57` (Website) bzw. `git revert 60b8672` (Projekt; zurück zur lebendigen Fassung).
 
-## Video-Stimme: klarer, lebendiger, mit Freude — ERSETZT durch ruhige Fassung (oben); Fassung war (2026-10-11, Nutzerauftrag) — **LIVE** (`478a36b`, Deploy `38128148326` success; live MP4 + VTT SHA-256 = lokal)
+## Video-Stimme: klarer, lebendiger, mit Freude — ERSETZT durch ruhige Fassung (oben) (2026-10-11, Nutzerauftrag) — war LIVE (`478a36b`, Deploy `38128148326` success; live MP4 + VTT SHA-256 = lokal)
 
 - Befund (gemessen): Klon-Takes basslastig (80–300 Hz ≈ 2 dB über Claudias Originalaufnahme, Mitten 2 dB darunter → „dumpf");
   alter Stilprompt „calm, unhurried, sentences fall" + Claudias eigene Referenz sehr flach (Tonhöhe p10–p90 ≈ 5–7 Halbtöne).
