@@ -77,6 +77,12 @@
   Übersprungen: O5 dsb-Link (Host von hier nicht erreichbar, sichtbarer Linktext „www.dsb.gv.at"), M6/M8 Bilder (Build-Pipeline/QR-Test am Handy nötig).
   **Merge durch den Nutzer:** `git switch main && git merge --ff-only seo && git push` → Deploy → live prüfen (curl og:url/404/sitemap),
   danach Rich Results Test für `/` und `/en/`, Sitemap in GSC erneut einreichen. Rollback nach Merge: `git revert` der 5 Commits `827d919..a52ee7e`.
+- **Test mit chrome-devtools MCP (2026-10-11, Branch `seo`, frischer Build, http-server :5050):** 6 Seiten Head-Tags korrekt (og:url = Canonical,
+  twitter = Titel, `index, follow`, og:locale:alternate, hreflang Startseiten unverändert, WebSite alternateName, kein Logo-Preload); 404 → Status 404,
+  de-AT, noindex, Links `/` + `/en/`; Sitemap valide, 6× lastmod, kein changefreq. 393 px: Menü auf/zu, Sprachlink `/en/`, Video spielt + springt
+  (40,8/58,2 s), Logo low/eager geladen, LCP = Hero (140 ms ungedrosselt), keine kaputten Bilder, kein Überlauf. 1440 px EN: Angebots-Dropdown ok.
+  Konsole `/`, `/datenschutz/`, `/en/legal/`: keine Fehler/Warnungen. **Pixelvergleich `/` 393 px lokal vs. live:** gleiche Höhe (14181 px), einzige
+  Abweichung 64×6 px = Video-Pufferbalken → visuell identisch.
 - Noch offen aus dem Plan: H1/H2 Titel/Descriptions (Freigabe Claudia), K2 Google Unternehmensprofil, H4 Bing/Apple, H5 Bewertungen, M4 Verzeichnisse,
   M6 Bilder, M8 KI-Bild-IPTC, GSC-Sitemapstatus „Couldn't fetch" in einigen Tagen nachsehen.
 - Offen: Wortlaut Titel (Claudia), GBP-Kategorie/Adresse.
