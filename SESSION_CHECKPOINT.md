@@ -2,7 +2,7 @@
 
 ## Meta
 
-- Datum: 2026-10-09 abends (alles gepusht und live, inkl. Poster-Text über dem Play-Button `3fba4f3`)
+- Datum: 2026-10-11 (Workspace-Mailbox office@ in Arbeit, siehe eigener Abschnitt; Website unverändert, Stand `3fba4f3` live)
 - Repository: `AINxtGenDev/interior-design` (public)
 - Arbeitskopie: `/home/nuc8/05_development/55_laulau/78_plessl-website`
   (**verschoben am 2026-08-16** — vorher `/home/nuc8/05_development/78_plessl-website`)
@@ -35,6 +35,21 @@
   geänderte Frames nach `video-source/` spiegeln. Lokal Video prüfen nur mit Range-Server
   (`npx http-server@14.1.1 -p 5000 -s` in `website/out`; `python -m http.server` kann nicht seeken) und `?cb=` gegen Cache.
 - Nächste Schritte: offene Punkte oben mit Claudia klären; Video-Takes abhören lassen (Key bis ~2026-10-15).
+
+## Geschäfts-Mailbox office@claudiaplessl.at (Google Workspace) — 2026-10-11, **IN ARBEIT**
+
+- Ziel (Nutzer): eigenes, **getrenntes** Workspace-Konto `office@claudiaplessl.at`; `claudia.plessl@gmail.com` bleibt privat und unabhängig.
+  **Nicht** den „Custom email"-Weg im Gmail-Konto nutzen (würde das Gmail-Konto umwandeln).
+- Erledigt: Business-Standard-Testabo am Gmail-Konto (Kunden-ID C03zbx2sy, war Jahresvertrag) erst auf Flexibel umgestellt, dann
+  **gekündigt** (2026-10-11 ~09:30, „organization's account is deleted"; Gmail laut Google unberührt, Posteingang geprüft). Es hielt eine
+  halbe Einrichtung `office@claudiaplessl.at` → Domain bei Google „bereits verwendet".
+- Google: Freigabe nach Entfernen bis zu **24 h** → frühestens **2026-10-12 ~09:30** neu versuchen.
+- Neuanmeldung **nur im Chrome-Gastfenster durch den Nutzer** (`https://workspace.google.com/business/signup/welcome?hl=de`);
+  Automations-Chrome (chrome-devtools) scheitert beim letzten Schritt bzw. bei Google-Login. Daten: „Claudia Plessl", 1 MA, Österreich,
+  Kontakt claudia.plessl@gmail.com, bestehende Domain, Nutzername `office`, Business Starter, Flexibel.
+- Falls weiter „bereits verwendet": Seite „Diese Domain gehört Ihnen" → „Support kontaktieren" (Formular, Antwort ≤ 48 h).
+- DNS danach (Hetzner konsoleH, NS your-server.de). Ist-Stand 2026-10-11 (= Rollback): **kein MX**, TXT `v=spf1 -all`.
+  Ziel: Google-Bestätigungs-TXT, MX `smtp.google.com`, SPF `v=spf1 include:_spf.google.com -all`, DKIM (in Admin erzeugen), DMARC.
 
 ## Video-Poster: Text über den Play-Button gehoben (2026-10-09, Nutzerauftrag per Handy-Screenshot) — **LIVE** (`3fba4f3`, Deploy `37974814824` success; live Poster SHA-256 = lokal `70335b7d…`)
 
