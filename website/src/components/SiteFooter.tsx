@@ -21,7 +21,7 @@ export default function SiteFooter({
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-[auto_1fr] md:gap-16 md:py-16 lg:px-8">
         {/* 96 px tall: the largest placement, where the descriptor line of
             the logo is still legible (~9 px cap height). */}
-        <BrandLogo sizes="180px" className="h-24" />
+        <BrandLogo sizes="180px" className="h-24 justify-self-center md:justify-self-start" />
 
         <div className="small space-y-2">
           <p>

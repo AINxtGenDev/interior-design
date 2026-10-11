@@ -39,6 +39,16 @@
   **2026-10-12 ab ~09:30 (Nutzer):** Workspace-Anmeldung office@ im Chrome-Gastfenster (Schritte im Abschnitt „Geschäfts-Mailbox"),
   dann Screenshot des `google-site-verification=…`-Codes an Claude → DNS in konsoleH (vorher Rückfrage).
 
+## Handy hochformat: vCard-QR und Footer-Logo zentriert (2026-10-11, Nutzerauftrag per 2 Handy-Screenshots) — **gepusht, LIVE-Prüfung siehe unten**
+
+- Unter 768 px (`md`) jetzt zentriert: QR im Kontakt (`HomePage.tsx`: Figure `self-stretch text-center`, Bild `mx-auto block`,
+  Bildunterschrift ebenfalls zentriert) und Logo im Footer (`SiteFooter.tsx`: `justify-self-center`). Ab `md` (Querformat-Handy 852 px,
+  Tablet, Desktop) unverändert linksbündig — laut Nutzer dort ok. Footer gilt auf allen Seiten (auch Impressum/Datenschutz/AGB).
+  Footer-Text darunter bleibt linksbündig.
+- Geprüft lokal (`out/`, chrome-devtools): tsc/eslint/build grün; 6 Routen 200; DE+EN bei 320/393/600/767 px QR und Logo links=rechts
+  (±1 px), 768 px und 852×393 quer weiterhin links bei 24 px; kein Überlauf; Konsole nur bekannter Hinweis „Lazy-loaded images".
+- Rollback: `git revert <commit>`.
+
 ## Geschäfts-Mailbox office@claudiaplessl.at (Google Workspace) — 2026-10-11, **IN ARBEIT**
 
 - Ziel (Nutzer): eigenes, **getrenntes** Workspace-Konto `office@claudiaplessl.at`; `claudia.plessl@gmail.com` bleibt privat und unabhängig.

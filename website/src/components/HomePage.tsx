@@ -362,7 +362,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
                 {/* vCard QR (85 modules, error correction H, logo inside). The
                     SVG brings its own white quiet zone. 288 px (fits a 320 px
                     phone) so both test decoders read it from a 1x screenshot. */}
-                <figure className="mt-6">
+                <figure className="mt-6 self-stretch text-center md:self-auto md:text-left">
                   {/* eslint-disable-next-line @next/next/no-img-element -- static SVG from public/ */}
                   <img
                     src={`${ASSET_PREFIX}/claudia-plessl-vcard-logo-cp.svg`}
@@ -371,7 +371,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
                     alt={c.contact.qrAlt}
                     loading="lazy"
                     decoding="async"
-                    className="size-72 rounded"
+                    className="mx-auto block size-72 rounded md:mx-0"
                   />
                   <figcaption className="small mt-3 text-sage-light">{c.contact.qrCaption}</figcaption>
                 </figure>
