@@ -22,27 +22,23 @@ const HOME_ALTERNATES = {
   },
 };
 
+/*
+ * lastModified = the date the page's visible content last changed, kept by
+ * hand. Not the build time: every deploy would then claim a change, and
+ * Google stops trusting lastmod that is always "now". Update the date when
+ * a page's text, images or video change. changeFrequency and priority are
+ * left out — Google ignores both.
+ */
+const HOME_UPDATED = "2026-10-11";
+const LEGAL_UPDATED = "2026-10-09";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
-    {
-      url: absoluteUrl(),
-      changeFrequency: "monthly",
-      priority: 1,
-      alternates: HOME_ALTERNATES,
-    },
-    {
-      url: absoluteUrl("en/"),
-      changeFrequency: "monthly",
-      priority: 0.9,
-      alternates: HOME_ALTERNATES,
-    },
-    { url: absoluteUrl("impressum/"), changeFrequency: "yearly", priority: 0.3 },
-    {
-      url: absoluteUrl("datenschutz/"),
-      changeFrequency: "yearly",
-      priority: 0.3,
-    },
-    { url: absoluteUrl("agb/"), changeFrequency: "yearly", priority: 0.3 },
-    { url: absoluteUrl("en/legal/"), changeFrequency: "yearly", priority: 0.3 },
+    { url: absoluteUrl(), lastModified: HOME_UPDATED, alternates: HOME_ALTERNATES },
+    { url: absoluteUrl("en/"), lastModified: HOME_UPDATED, alternates: HOME_ALTERNATES },
+    { url: absoluteUrl("impressum/"), lastModified: LEGAL_UPDATED },
+    { url: absoluteUrl("datenschutz/"), lastModified: LEGAL_UPDATED },
+    { url: absoluteUrl("agb/"), lastModified: LEGAL_UPDATED },
+    { url: absoluteUrl("en/legal/"), lastModified: LEGAL_UPDATED },
   ];
 }

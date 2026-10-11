@@ -65,6 +65,8 @@
      Deutsch, `lang="de-AT"`, Titel „Seite nicht gefunden | …", `noindex` (von Next), Header/Footer der Seite, Links `/` und `/en/`.
      Geprüft lokal: Status 404, 393 px + 1440 px Screenshot ok, kein Überlauf, keine kaputten Bilder, Menü öffnet; Konsole: nur 4 Font-Preload-Warnungen
      (Preloads werden zur Laufzeit ergänzt, Schriften laden korrekt — kosmetisch) + bekannter Lazy-Image-Hinweis (Footer-Logo, auch auf Impressum).
+  4. M2: Sitemap mit festem `lastmod` (Startseiten `HOME_UPDATED` 2026-10-11, Legal `LEGAL_UPDATED` 2026-10-09, aus `git log main`),
+     `changefreq`/`priority` entfernt. **Bei sichtbaren Inhaltsänderungen das Datum in `src/app/sitemap.ts` nachziehen.** XML valide, 6/6 lastmod.
 - Offen: Wortlaut Titel (Claudia), GBP-Kategorie/Adresse.
 
 ## Video-Stimme: ruhig, souverän, vertrauenswürdig (2026-10-11, Nutzerauftrag, 2. Fassung) — **LIVE** (`e283d57`, Deploy `38132940667` success; live MP4 + VTT SHA-256 = lokal)
