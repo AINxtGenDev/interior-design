@@ -2,7 +2,7 @@
 
 ## Meta
 
-- Datum: 2026-10-11 (Workspace-Mailbox office@ in Arbeit, siehe eigener Abschnitt; Website unverändert, Stand `3fba4f3` live)
+- Datum: 2026-10-11 (Workspace-Mailbox office@ in Arbeit, siehe eigener Abschnitt; Website: QR + Footer-Logo am Handy hochformat zentriert, Stand `06ce95a` live)
 - Repository: `AINxtGenDev/interior-design` (public)
 - Arbeitskopie: `/home/nuc8/05_development/55_laulau/78_plessl-website`
   (**verschoben am 2026-08-16** — vorher `/home/nuc8/05_development/78_plessl-website`)
