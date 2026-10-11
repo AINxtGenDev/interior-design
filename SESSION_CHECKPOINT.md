@@ -39,6 +39,16 @@
   **2026-10-12 ab ~09:30 (Nutzer):** Workspace-Anmeldung office@ im Chrome-Gastfenster (Schritte im Abschnitt „Geschäfts-Mailbox"),
   dann Screenshot des `google-site-verification=…`-Codes an Claude → DNS in konsoleH (vorher Rückfrage).
 
+## SEO-Plan (2026-10-11, Nutzerauftrag) — **nur Plan, nichts umgesetzt**
+
+- `seo-plan.md` (Repo-Root, committet auf Nutzerauftrag 2026-10-11). Version 3.1: Code-Audit + Live-Audit
+  (Lighthouse mobil `/` Perf 94, `/en/` 89, LCP sim. 3,1/3,8 s; A11y/BP/SEO 100) + kritischer Reviewer in 3 Runden (6/10 → 8/10 → 9/10; letzte Must-Fixes eingearbeitet, v3.1).
+- Kernaussagen: Technik solide, kein kritischer Indexierungsfehler. P0 = Search Console (DNS-TXT, mit Workspace-TXT bündeln) + Google
+  Unternehmensprofil (Servicegebiet, Adresse ausblenden). P1 = Titel/Descriptions mit Leistungsbegriffen, OG der Legal-Seiten, Bing/Apple Business, Bewertungsprozess.
+  P2 = 404 via `global-not-found.tsx`, Sitemap lastmod, JSON-LD-Ergänzungen, LCP (Logo `fetchPriority="low"`), Bilder, KI-Bild-IPTC im Build-Skript.
+- 2026-10-11 Nutzer: „commit … go ahead", konsoleH per browser-skill freigegeben → Umsetzung läuft: GSC-TXT, dann Code-Maßnahmen ohne Claudia-Freigabe (H3, M7, M5a, M1, M2, M3 teilweise). Titel/Descriptions (H1/H2) warten weiter auf Claudia.
+- Offen: Wortlaut Titel (Claudia), GBP-Kategorie/Adresse.
+
 ## Video-Stimme: ruhig, souverän, vertrauenswürdig (2026-10-11, Nutzerauftrag, 2. Fassung) — **LIVE** (`e283d57`, Deploy `38132940667` success; live MP4 + VTT SHA-256 = lokal)
 
 - Nutzer: lebendige Fassung zu energisch; Zielgruppe **älter, wohlhabend, gebildet** → ruhig, sicher, klar artikuliert, gemessenes Tempo,
