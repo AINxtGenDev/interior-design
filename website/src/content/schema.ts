@@ -20,6 +20,7 @@
  *    An invented identifier is worse than a missing one.
  */
 
+import portrait1045 from "@/assets/portrait-1045.webp";
 import {
   CONTACT,
   absoluteUrl,
@@ -38,9 +39,10 @@ const VAT_INCLUDED = false;
 
 /**
  * Publication date of the intro film, from the commit that added the current
- * render (`git log -1 -- public/video/vorstellung.mp4`), not from today.
+ * render (`git log -1 --format=%cI -- public/video/vorstellung.mp4`), not from
+ * today. With time and zone: Google reads a bare date in its own timezone.
  */
-const VIDEO_UPLOAD_DATE = "2026-10-11";
+const VIDEO_UPLOAD_DATE = "2026-10-11T12:42:55+02:00";
 
 /** Measured with ffprobe on `public/video/vorstellung.mp4`: 58.2 s. */
 const VIDEO_DURATION = "PT58S";
@@ -146,6 +148,8 @@ export function buildHomeGraph(locale: Locale): JsonLdNode[] {
     familyName: "Plessl",
     // Her own first paragraph already says what she does, in both languages.
     description: c.about.body[0],
+    // The portrait shown in "Über mich".
+    image: absoluteUrl(portrait1045.src),
     worksFor: { "@id": businessId },
     knowsLanguage: ["de-AT", "en"],
     /*
@@ -241,6 +245,8 @@ export function buildHomeGraph(locale: Locale): JsonLdNode[] {
     "@id": websiteId,
     url: home,
     name: CONTACT.businessName,
+    // The wordmark in the logo; Google's site-name feature reads alternateName.
+    alternateName: "Claudia Plessl",
     description: c.meta.description,
     inLanguage: lang,
     publisher: { "@id": businessId },
