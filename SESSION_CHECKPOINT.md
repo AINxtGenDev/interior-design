@@ -61,6 +61,10 @@
      automatischer Logo-Preload mehr. Lighthouse mobil lokal (http-server ohne gzip, je 3 Läufe, Median): `/` 5188 → 5105 ms, `/en/` 5182 → 5036 ms;
      Wasserfall: Hero startet vor dem Logo (Logo jetzt Low). Lokale Absolutwerte nicht mit live (3,1 s, gzip) vergleichbar.
      M5(b) kleinere Logo-Datei bewusst zurückgestellt (Logo bremst den Hero nicht mehr; würde Build-Pipeline ändern).
+  3. M1: eigene 404 `src/app/global-not-found.tsx` + `experimental.globalNotFound: true` (`next.config.ts`; nötig wegen zwei Root-Layouts).
+     Deutsch, `lang="de-AT"`, Titel „Seite nicht gefunden | …", `noindex` (von Next), Header/Footer der Seite, Links `/` und `/en/`.
+     Geprüft lokal: Status 404, 393 px + 1440 px Screenshot ok, kein Überlauf, keine kaputten Bilder, Menü öffnet; Konsole: nur 4 Font-Preload-Warnungen
+     (Preloads werden zur Laufzeit ergänzt, Schriften laden korrekt — kosmetisch) + bekannter Lazy-Image-Hinweis (Footer-Logo, auch auf Impressum).
 - Offen: Wortlaut Titel (Claudia), GBP-Kategorie/Adresse.
 
 ## Video-Stimme: ruhig, souverän, vertrauenswürdig (2026-10-11, Nutzerauftrag, 2. Fassung) — **LIVE** (`e283d57`, Deploy `38132940667` success; live MP4 + VTT SHA-256 = lokal)

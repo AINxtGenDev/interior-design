@@ -11,6 +11,11 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  experimental: {
+    // Two root layouts ((de), (en)) leave no layout for app/not-found.tsx;
+    // app/global-not-found.tsx renders the 404 on its own.
+    globalNotFound: true,
+  },
   env: {
     // next/image and next/link get basePath automatically; plain attribute
     // strings (a <video src>, a <track src>) do not. Expose it so those can
