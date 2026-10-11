@@ -1,13 +1,18 @@
 import type { Metadata } from "next";
 import LegalShell, { LegalSection } from "@/components/LegalShell";
 import { CONTACT } from "@/content/site";
+import { openGraphFor } from "@/content/og";
+
+const title = "Datenschutzerklärung | Mag. Claudia Plessl — Raum & Ordnung";
+const description =
+  "Informationen zur Verarbeitung personenbezogener Daten gemäß DSGVO.";
 
 export const metadata: Metadata = {
-  title: "Datenschutzerklärung | Mag. Claudia Plessl — Raum & Ordnung",
-  description:
-    "Informationen zur Verarbeitung personenbezogener Daten gemäß DSGVO.",
-  robots: { index: true, follow: false },
+  title,
+  description,
+  robots: { index: true, follow: true },
   alternates: { canonical: "/datenschutz/" },
+  openGraph: openGraphFor("de", "datenschutz/", title, description),
 };
 
 const linkClass =

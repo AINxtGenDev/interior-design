@@ -47,6 +47,16 @@
   Unternehmensprofil (Servicegebiet, Adresse ausblenden). P1 = Titel/Descriptions mit Leistungsbegriffen, OG der Legal-Seiten, Bing/Apple Business, Bewertungsprozess.
   P2 = 404 via `global-not-found.tsx`, Sitemap lastmod, JSON-LD-Ergänzungen, LCP (Logo `fetchPriority="low"`), Bilder, KI-Bild-IPTC im Build-Skript.
 - 2026-10-11 Nutzer: „commit … go ahead", konsoleH per browser-skill freigegeben → Umsetzung läuft: GSC-TXT, dann Code-Maßnahmen ohne Claudia-Freigabe (H3, M7, M5a, M1, M2, M3 teilweise). Titel/Descriptions (H1/H2) warten weiter auf Claudia.
+- **K1 erledigt (2026-10-11):** Search Console Domain-Property `sc-domain:claudiaplessl.at` im Konto **werner.plessl@gmail.com**
+  (Claudia/office@ später als Inhaber ergänzen). DNS über konsoleH → leitet weiter auf Hetzner Console (Projekt 16318609, Zone 1634133):
+  neuer TXT `@` `"google-site-verification=G_GRhszN8cDdIsNU6qrj6inV2viC7sxAqxJHOuNtFUE"` (Kommentar „Google Search Console (SEO, 2026-10-11)"),
+  16 → 17 Records; auf allen 3 NS per dig bestätigt; **nicht löschen** (sonst Verifizierung weg). Rollback: nur diesen TXT löschen.
+  „Ownership verified". Sitemap eingereicht („submitted successfully", Status zunächst „Couldn't fetch" — Datei für Googlebot-UA 200/valid/6 URLs; später erneut prüfen).
+  **Befund:** `/` und `/en/` „URL is unknown to Google" → für beide „Indexierung beantragt".
+- **Branch `seo` (Nutzerauftrag 2026-10-11):** alle SEO-Website-Änderungen nur auf `seo`; `main`/live bleibt unverändert, bis der Nutzer
+  selbst merged. Deploy läuft nur bei Push auf `main` (`deploy.yml`) → Push von `seo` ändert die Live-Seite nicht.
+  1. H3+M7: Open Graph je Seite über `src/content/og.ts` (`openGraphFor`), Legal-Seiten `og:url` = Canonical, `follow: true`, `og:locale:alternate`.
+     Geprüft: 6/6 Seiten og:url == Canonical, twitter:title == title; sichtbarer Text + Alt-Texte aller 7 Seiten identisch zu vorher.
 - Offen: Wortlaut Titel (Claudia), GBP-Kategorie/Adresse.
 
 ## Video-Stimme: ruhig, souverän, vertrauenswürdig (2026-10-11, Nutzerauftrag, 2. Fassung) — **LIVE** (`e283d57`, Deploy `38132940667` success; live MP4 + VTT SHA-256 = lokal)

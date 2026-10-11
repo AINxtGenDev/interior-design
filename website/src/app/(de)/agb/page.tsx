@@ -2,13 +2,18 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import LegalShell, { LegalSection } from "@/components/LegalShell";
 import { CONTACT } from "@/content/site";
+import { openGraphFor } from "@/content/og";
+
+const title = "Allgemeine Geschäftsbedingungen | Mag. Claudia Plessl — Raum & Ordnung";
+const description =
+  "Allgemeine Geschäftsbedingungen für Ordnungscoaching, Innenraumgestaltung sowie Workshops und Trainings.";
 
 export const metadata: Metadata = {
-  title: "Allgemeine Geschäftsbedingungen | Mag. Claudia Plessl — Raum & Ordnung",
-  description:
-    "Allgemeine Geschäftsbedingungen für Ordnungscoaching, Innenraumgestaltung sowie Workshops und Trainings.",
-  robots: { index: true, follow: false },
+  title,
+  description,
+  robots: { index: true, follow: true },
   alternates: { canonical: "/agb/" },
+  openGraph: openGraphFor("de", "agb/", title, description),
 };
 
 const linkClass =

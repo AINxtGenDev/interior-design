@@ -2,13 +2,18 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import LegalShell, { LegalSection } from "@/components/LegalShell";
 import { CONTACT } from "@/content/site";
+import { openGraphFor } from "@/content/og";
+
+const title = "Legal information | Mag. Claudia Plessl — Raum & Ordnung";
+const description =
+  "Imprint, privacy notice and terms and conditions in summary. The binding versions are the German originals.";
 
 export const metadata: Metadata = {
-  title: "Legal information | Mag. Claudia Plessl — Raum & Ordnung",
-  description:
-    "Imprint, privacy notice and terms and conditions in summary. The binding versions are the German originals.",
-  robots: { index: true, follow: false },
+  title,
+  description,
+  robots: { index: true, follow: true },
   alternates: { canonical: "/en/legal/" },
+  openGraph: openGraphFor("en", "en/legal/", title, description),
 };
 
 const linkClass =

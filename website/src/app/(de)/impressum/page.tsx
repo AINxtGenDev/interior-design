@@ -1,13 +1,18 @@
 import type { Metadata } from "next";
 import LegalShell, { LegalSection } from "@/components/LegalShell";
 import { CONTACT } from "@/content/site";
+import { openGraphFor } from "@/content/og";
+
+const title = "Impressum | Mag. Claudia Plessl — Raum & Ordnung";
+const description =
+  "Impressum und Offenlegung gemäß § 5 E-Commerce-Gesetz und § 25 Mediengesetz.";
 
 export const metadata: Metadata = {
-  title: "Impressum | Mag. Claudia Plessl — Raum & Ordnung",
-  description:
-    "Impressum und Offenlegung gemäß § 5 E-Commerce-Gesetz und § 25 Mediengesetz.",
-  robots: { index: true, follow: false },
+  title,
+  description,
+  robots: { index: true, follow: true },
   alternates: { canonical: "/impressum/" },
+  openGraph: openGraphFor("de", "impressum/", title, description),
 };
 
 export default function Impressum() {

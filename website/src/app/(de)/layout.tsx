@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import "../globals.css";
 import { fontVariables } from "../fonts";
-import { CONTACT, CONTENT, SITE_URL } from "@/content/site";
+import { CONTENT, SITE_URL } from "@/content/site";
+import { openGraphFor } from "@/content/og";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -11,18 +12,7 @@ export const metadata: Metadata = {
     canonical: "/",
     languages: { de: "/", en: "/en/", "x-default": "/" },
   },
-  openGraph: {
-    type: "website",
-    locale: "de_AT",
-    url: SITE_URL,
-    siteName: CONTACT.businessName,
-    title: CONTENT.de.meta.title,
-    description: CONTENT.de.meta.description,
-    // Eigene Karte je Sprache: der Beschreiber unten auf dem Bild ist Pixel,
-    // keine Uebersetzung zur Laufzeit. Vorher lag hier eine englische Zeile
-    // unter einer deutschen Headline.
-    images: [{ url: "/og-image-de.jpg", width: 1200, height: 630 }],
-  },
+  openGraph: openGraphFor("de", "", CONTENT.de.meta.title, CONTENT.de.meta.description),
   robots: { index: true, follow: true },
 };
 
