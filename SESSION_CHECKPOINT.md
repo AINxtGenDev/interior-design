@@ -39,7 +39,7 @@
   **2026-10-12 ab ~09:30 (Nutzer):** Workspace-Anmeldung office@ im Chrome-Gastfenster (Schritte im Abschnitt „Geschäfts-Mailbox"),
   dann Screenshot des `google-site-verification=…`-Codes an Claude → DNS in konsoleH (vorher Rückfrage).
 
-## SEO-Plan (2026-10-11, Nutzerauftrag) — **nur Plan, nichts umgesetzt**
+## SEO-Plan (2026-10-11, Nutzerauftrag) — **Search Console live; Website-Änderungen auf Branch `seo`, NICHT live**
 
 - `seo-plan.md` (Repo-Root, committet auf Nutzerauftrag 2026-10-11). Version 3.1: Code-Audit + Live-Audit
   (Lighthouse mobil `/` Perf 94, `/en/` 89, LCP sim. 3,1/3,8 s; A11y/BP/SEO 100) + kritischer Reviewer in 3 Runden (6/10 → 8/10 → 9/10; letzte Must-Fixes eingearbeitet, v3.1).
@@ -71,6 +71,14 @@
      VideoObject `uploadDate` mit Zeit/Zone aus Commit `e283d57` (`2026-10-11T12:42:55+02:00`). JSON parsebar, Bild-URL existiert im Build.
      **Bewusst nicht:** `geo` (keine verifizierten Koordinaten), `dateModified` bleibt Monat (ISO-gültig, spiegelt sichtbares „Stand: Oktober 2026"),
      `sameAs` erst mit GBP-/WKO-URL, `jobTitle` (Ausbildung „i.A."). Rich Results Test erst nach Merge (braucht öffentliche URL).
+  **Abschlussprüfung Branch `seo` (lokal, 2026-10-11):** 7 Seiten bei 393 px: kein Überlauf, keine kaputten Bilder, je 1 h1, og:url == Canonical;
+  sichtbarer Text aller Seiten identisch zu `main`. Lighthouse mobil: A11y/BP/SEO 100 auf `/`, `/en/`, `/impressum/`; Perf lokal 81 (wie vorher, lokaler Server
+  ohne gzip). bfcache-Hinweis nur lokal (http-server `no-store`; live `max-age=600`). Konsole: nur bekannter Lazy-Image-Hinweis (auch auf `main`).
+  Übersprungen: O5 dsb-Link (Host von hier nicht erreichbar, sichtbarer Linktext „www.dsb.gv.at"), M6/M8 Bilder (Build-Pipeline/QR-Test am Handy nötig).
+  **Merge durch den Nutzer:** `git switch main && git merge --ff-only seo && git push` → Deploy → live prüfen (curl og:url/404/sitemap),
+  danach Rich Results Test für `/` und `/en/`, Sitemap in GSC erneut einreichen. Rollback nach Merge: `git revert` der 5 Commits `827d919..a52ee7e`.
+- Noch offen aus dem Plan: H1/H2 Titel/Descriptions (Freigabe Claudia), K2 Google Unternehmensprofil, H4 Bing/Apple, H5 Bewertungen, M4 Verzeichnisse,
+  M6 Bilder, M8 KI-Bild-IPTC, GSC-Sitemapstatus „Couldn't fetch" in einigen Tagen nachsehen.
 - Offen: Wortlaut Titel (Claudia), GBP-Kategorie/Adresse.
 
 ## Video-Stimme: ruhig, souverän, vertrauenswürdig (2026-10-11, Nutzerauftrag, 2. Fassung) — **LIVE** (`e283d57`, Deploy `38132940667` success; live MP4 + VTT SHA-256 = lokal)
