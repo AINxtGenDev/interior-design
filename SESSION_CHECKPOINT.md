@@ -39,7 +39,7 @@
   **2026-10-12 ab ~09:30 (Nutzer):** Workspace-Anmeldung office@ im Chrome-Gastfenster (Schritte im Abschnitt „Geschäfts-Mailbox"),
   dann Screenshot des `google-site-verification=…`-Codes an Claude → DNS in konsoleH (vorher Rückfrage).
 
-## Video-Stimme: klarer, lebendiger, mit Freude (2026-10-11, Nutzerauftrag) — **COMMITTET, Deploy ausstehend**
+## Video-Stimme: klarer, lebendiger, mit Freude (2026-10-11, Nutzerauftrag) — **LIVE** (`478a36b`, Deploy `38128148326` success; live MP4 + VTT SHA-256 = lokal)
 
 - Befund (gemessen): Klon-Takes basslastig (80–300 Hz ≈ 2 dB über Claudias Originalaufnahme, Mitten 2 dB darunter → „dumpf");
   alter Stilprompt „calm, unhurried, sentences fall" + Claudias eigene Referenz sehr flach (Tonhöhe p10–p90 ≈ 5–7 Halbtöne).
@@ -54,7 +54,7 @@
 - Getestet: Whisper über den fertigen Film inkl. Musik **0 Abweichungen**; lokal (chrome-devtools) Dauer 58,2, 8 Cues geladen, Ton dekodiert,
   Abspielen/Seeken ok, Konsole nur bekannter Hinweis. tsc/eslint/build grün.
 - **Claudia soll abhören** (Freigabe Stimme/Ton). Alternativ-Takes in `voice/video-lines/2026-10-11/` (Audio nicht im Git).
-- Rollback: `git revert <Website-Commit>` bzw. `git revert 61f1505` (Projekt).
+- Rollback: `git revert 478a36b` (Website) bzw. `git revert 61f1505` (Projekt).
 
 ## Video Frame 5: alle vier Schritte 01–04 auf einer Seite (2026-10-11, Nutzerauftrag per Screenshot `~/Pictures/Screenshots/000-laulau-video.png`) — **LIVE** (`1b2327b`, Deploy `38123977701` success; live MP4 SHA-256 = lokal `f2a979ae…`, uploadDate 2026-10-11)
 
