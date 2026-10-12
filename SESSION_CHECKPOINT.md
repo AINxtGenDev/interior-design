@@ -87,7 +87,9 @@
   Live per curl: alle 6 Seiten + sitemap.xml + robots.txt → 200; `/gibtsnicht/` → 404 mit Titel „Seite nicht gefunden…" und `noindex`;
   `/impressum/` og:url = eigene URL, `index, follow`; Startseite WebSite alternateName „Claudia Plessl", kein Logo-Preload; Sitemap 6× lastmod.
   Rollback: `git revert --no-edit 827d919^..a52ee7e && git push` (nur Website-Commits; Checkpoint-Commits egal).
-- Nächste Schritte: Rich Results Test für `/` und `/en/`; Sitemap in GSC erneut einreichen und Status „Couldn't fetch" prüfen.
+- **Rich Results Test (2026-10-12, Browser, live):** `/` und `/en/` je „3 valid items detected" — Local business, Organisation, Video je 1 gültig,
+  keine Fehler/Warnungen in den Detailansichten. (WebSite/Person zeigt das Tool nicht an, da keine Rich-Result-Typen.)
+- Nächste Schritte: Sitemap in GSC erneut einreichen und Status „Couldn't fetch" prüfen.
 - Noch offen aus dem Plan: H1/H2 Titel/Descriptions (Freigabe Claudia), K2 Google Unternehmensprofil, H4 Bing/Apple, H5 Bewertungen, M4 Verzeichnisse,
   M6 Bilder, M8 KI-Bild-IPTC, GSC-Sitemapstatus „Couldn't fetch" in einigen Tagen nachsehen.
 - Offen: Wortlaut Titel (Claudia), GBP-Kategorie/Adresse.
