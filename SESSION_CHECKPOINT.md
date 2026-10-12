@@ -39,7 +39,7 @@
   **2026-10-13 ab ~15:30 (Nutzer):** Workspace-Anmeldung office@ erneut im Chrome-Gastfenster (Abschnitt „Geschäfts-Mailbox"),
   dann Screenshot des `google-site-verification=…`-Codes an Claude → DNS in konsoleH (vorher Rückfrage).
 
-## Über mich: neues Porträt (2026-10-12, Nutzerauftrag) — Status siehe Zeile darunter
+## Über mich: neues Porträt (2026-10-12, Nutzerauftrag) — **LIVE** (`15abf8b`, Deploy `38259988044` success; live `/` + `/en/` portrait-1275 200, Bytes = lokal)
 
 - Quelle `Foto Homepage final über mich.png` (1275×1234, fast quadratisch; vorher `Portrait Homepage.png` 1045×1207 hochkant) — jetzt committet.
   `brand/build_web_assets.py`: `build_portrait()` liest die neue Datei, kein 4-px-Randschnitt mehr (Ränder sauber geprüft);
