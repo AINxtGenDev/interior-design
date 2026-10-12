@@ -165,6 +165,16 @@
 - Falls weiter „bereits verwendet": Seite „Diese Domain gehört Ihnen" → „Support kontaktieren" (Formular, Antwort ≤ 48 h).
 - DNS danach (Hetzner konsoleH, NS your-server.de). Ist-Stand 2026-10-11 (= Rollback): **kein MX**, TXT `v=spf1 -all`.
   Ziel: Google-Bestätigungs-TXT, MX `smtp.google.com`, SPF `v=spf1 include:_spf.google.com -all`, DKIM (in Admin erzeugen), DMARC.
+- **Befund 2026-10-12 (bsk, nur gelesen):** am Gmail-Konto claudia.plessl@gmail.com existiert ein **neues** Business-Standard-Testabo
+  (Kunden-ID **C00xfmaow**, **Jahresvertrag** monatl. Zahlung, 1 Lizenz, **Bezahlung ab 2026-10-26**), ohne Domain/eigene Adresse
+  (Admin zeigt „Create your custom email address"). = genau der unerwünschte Gmail-Weg. DNS unverändert: kein MX, kein Workspace-TXT.
+  Vor 2026-10-26 entscheiden: kündigen (Nutzer) oder bewusst nutzen.
+  Nutzer 2026-10-12: Gast-Anmeldung **noch nicht** gemacht → C00xfmaow stammt nicht daraus (Herkunft unklar).
+  Herkunft: Nutzer-Screenshot 15:13 zeigt `workspace.google.com/signup/upgrade/…` im normalen Chrome = Gmail-Upgrade-Weg.
+  **Nutzer wählte 2026-10-12 Option 1 (getrenntes Konto).** C00xfmaow per bsk erst auf **Flexibel** umgestellt (Kündigungsdialog
+  warnte: Jahresvertrag = Restbetrag fällig), dann **gekündigt** (wirksam 2026-10-12); Admin → Abos zeigt „No subscriptions".
+- **Nächster Schritt (Nutzer):** Chrome-**Gastfenster** → Workspace-Anmeldung (Daten oben) → Screenshot des `google-site-verification=…`-Codes.
+  Falls Domain „bereits verwendet": bis zu 24 h warten bzw. Support.
 
 ## Video-Poster: Text über den Play-Button gehoben (2026-10-09, Nutzerauftrag per Handy-Screenshot) — **LIVE** (`3fba4f3`, Deploy `37974814824` success; live Poster SHA-256 = lokal `70335b7d…`)
 
