@@ -418,7 +418,7 @@ const de: Content = {
     items: [
       {
         q: "Was kostet der Einstieg?",
-        a: `Der Raumcheck dauert 60 bis 90 Minuten und kostet ${dePackages[0].price}. Danach erhalten Sie einen konkreten Vorschlag mit Umfang, Reihenfolge und Fixpreis — Sie entscheiden erst dann, ob und wie es weitergeht.`,
+        a: `Der Raumcheck dauert 60 bis 90 Minuten und kostet ${dePackages[0].price}. Danach erhalten Sie ein transparentes Angebot mit klar definierten Leistungen, einem nachvollziehbaren Ablauf und den entsprechenden Kosten — Sie entscheiden erst dann, ob und wie es weitergeht.`,
       },
       {
         q: "Wo sind Sie tätig?",
@@ -664,7 +664,7 @@ const en: Content = {
     items: [
       {
         q: "What does it cost to get started?",
-        a: `The space check takes 60 to 90 minutes and costs ${enPackages[0].price}. Afterwards you receive a concrete proposal with scope, sequence and a fixed price — only then do you decide whether and how to continue.`,
+        a: `The space check takes 60 to 90 minutes and costs ${enPackages[0].price}. Afterwards you receive a transparent quote with clearly defined services, a comprehensible sequence and the corresponding costs — only then do you decide whether and how to continue.`,
       },
       {
         q: "Where do you work?",
