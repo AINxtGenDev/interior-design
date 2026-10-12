@@ -55,7 +55,7 @@ export default function SiteFooter({
           <p>{"Claudia Plessl — Interior Design • Professional Organizing".replace(/ • /g, "\u00a0• ")}</p>
           <p>{content.footer.values.replace(/ • /g, "\u00a0• ")}</p>
         </div>
-        <p className="pb-4 text-center text-xs text-anthrazit-mid">Version 1.6 12.10.2026</p>
+        <p className="pb-4 text-center text-xs text-anthrazit-mid">Version 1.7 12.10.2026</p>
       </div>
     </footer>
   );

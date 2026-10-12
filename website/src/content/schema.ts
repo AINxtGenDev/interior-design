@@ -20,7 +20,7 @@
  *    An invented identifier is worse than a missing one.
  */
 
-import portrait1275 from "@/assets/portrait-1275.webp";
+import portrait1147 from "@/assets/portrait-1147.webp";
 import {
   CONTACT,
   absoluteUrl,
@@ -149,7 +149,7 @@ export function buildHomeGraph(locale: Locale): JsonLdNode[] {
     // Her own first paragraph already says what she does, in both languages.
     description: c.about.body[0],
     // The portrait shown in "Über mich".
-    image: absoluteUrl(portrait1275.src),
+    image: absoluteUrl(portrait1147.src),
     worksFor: { "@id": businessId },
     knowsLanguage: ["de-AT", "en"],
     /*

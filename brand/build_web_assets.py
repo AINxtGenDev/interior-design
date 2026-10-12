@@ -10,7 +10,7 @@ Outputs:
     website/src/assets/logo-{480,960}.webp            trimmed logo, lossless
     website/src/assets/hero-{full,phone}-{w}.webp      title image, desktop + phone
     website/src/assets/hero-en-{full,phone}-{w}.webp   same, headline set in English
-    website/src/assets/portrait-{w}.webp               Über mich, from "Foto Homepage final über mich.png"
+    website/src/assets/portrait-{w}.webp               Über mich, from "Foto Homepage über mich.png"
     website/src/assets/projects-{640,1254}.webp        Projekte collage (German page)
     website/src/assets/projects-{living,order}-610.webp its two photos (English page)
     website/src/app/{favicon.ico,icon.png,apple-icon.png}
@@ -169,7 +169,7 @@ def build_hero(hero: Image.Image, phone: Image.Image, prefix: str = "hero") -> N
 
 
 def build_portrait(portrait: Image.Image) -> None:
-    """Über mich portrait (photo shoot, 2026-10-12). Clean edges, no crop."""
+    """Über mich portrait (photo shoot, 2026-10-12, second pick). Clean edges, no crop."""
     save_webp(portrait, "portrait", (480, 10_000))
 
 
@@ -277,7 +277,7 @@ def main() -> None:
     build_hero(hero, phone)
     hero_en = english_headline(hero)
     build_hero(hero_en, english_headline(phone, **PHONE_HEADLINE), prefix="hero-en")
-    build_portrait(Image.open(ROOT / "Foto Homepage final über mich.png").convert("RGB"))
+    build_portrait(Image.open(ROOT / "Foto Homepage über mich.png").convert("RGB"))
     build_projects(Image.open(ROOT / "Bild Projekte.png").convert("RGB"))
     build_icons(logo)
     build_og(logo, {"de": hero, "en": hero_en})
