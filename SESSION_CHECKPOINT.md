@@ -2,7 +2,7 @@
 
 ## Meta
 
-- Datum: 2026-10-12 (**Qualifikation: WIFI Wien Lehrgang Innenraumgestaltung ergänzt, „Zahlreiche umgesetzte Projekte“ entfernt**; **„Angebot anfragen“ auch unter „Pakete & Preise“, Footer „Version 1.5 12.10.2026“**; **Button „Angebot anfragen“ am Ende von „Mein Angebot“ (mailto), Footer „Version 1.4 12.10.2026“**; **Button „Kostenloses Erstgespräch vereinbaren“ unter dem Video (mailto), Footer „Version 1.3 12.10.2026“**; **Video-Bildunterschrift entfernt, Footer „Version 1.2 12.10.2026“**; **Über-mich-Porträt neu** (`Foto Homepage final über mich.png`), siehe eigener Abschnitt; **Video Frame 3 neues Porträt + Footer „Version 1.1 12.10.2026“**, siehe eigener Abschnitt; **SEO-Branch `seo` nach `main` gemerged und LIVE**, siehe Abschnitt SEO-Plan; Workspace-Mailbox office@ in Arbeit, siehe eigener Abschnitt; Website: QR + Footer-Logo am Handy zentriert; **Video Frame 5: alle 4 Schritte auf einer Seite**; **Video-Stimme ruhig, souverän, vertrauenswürdig** (ersetzt die lebendige Fassung vom selben Tag), siehe Abschnitte)
+- Datum: 2026-10-12 (**Footer „Version 1.6 12.10.2026“, Handout-Qualifikation an Website angeglichen**; **Qualifikation: WIFI Wien Lehrgang Innenraumgestaltung ergänzt, „Zahlreiche umgesetzte Projekte“ entfernt**; **„Angebot anfragen“ auch unter „Pakete & Preise“, Footer „Version 1.5 12.10.2026“**; **Button „Angebot anfragen“ am Ende von „Mein Angebot“ (mailto), Footer „Version 1.4 12.10.2026“**; **Button „Kostenloses Erstgespräch vereinbaren“ unter dem Video (mailto), Footer „Version 1.3 12.10.2026“**; **Video-Bildunterschrift entfernt, Footer „Version 1.2 12.10.2026“**; **Über-mich-Porträt neu** (`Foto Homepage final über mich.png`), siehe eigener Abschnitt; **Video Frame 3 neues Porträt + Footer „Version 1.1 12.10.2026“**, siehe eigener Abschnitt; **SEO-Branch `seo` nach `main` gemerged und LIVE**, siehe Abschnitt SEO-Plan; Workspace-Mailbox office@ in Arbeit, siehe eigener Abschnitt; Website: QR + Footer-Logo am Handy zentriert; **Video Frame 5: alle 4 Schritte auf einer Seite**; **Video-Stimme ruhig, souverän, vertrauenswürdig** (ersetzt die lebendige Fassung vom selben Tag), siehe Abschnitte)
 - Repository: `AINxtGenDev/interior-design` (public)
 - Arbeitskopie: `/home/nuc8/05_development/55_laulau/78_plessl-website`
   (**verschoben am 2026-08-16** — vorher `/home/nuc8/05_development/78_plessl-website`)
@@ -39,6 +39,19 @@
   **2026-10-13 ab ~15:30 (Nutzer):** Workspace-Anmeldung office@ erneut im Chrome-Gastfenster (Abschnitt „Geschäfts-Mailbox"),
   dann Screenshot des `google-site-verification=…`-Codes an Claude → DNS in konsoleH (vorher Rückfrage).
 
+## Version 1.6 + Handout-Qualifikation (2026-10-12, Nutzerauftrag) — Status siehe Zeile darunter
+
+- Footer „Version 1.5" → **„Version 1.6 12.10.2026"**.
+- Handout (`handout/claudia-plessl-uebersicht.html`, nur lokal, nicht deployt): erste Qualifikationskarte wie Website —
+  `p.issuer` „Wirtschaftsförderungsinstitut der Wirtschaftskammer Wien" + „Lehrgang Innenraumgestaltung"; „Zahlreiche umgesetzte Projekte." entfernt.
+  Sonst nichts Veraltetes im Handout gefunden (keine Bilder, keine Versionszeile).
+- Geprüft lokal: Handout 393 px (3 Karten korrekt, kein Überlauf); Website Version 1.6 auf `/`, `/en/`, `/impressum/`, keine Konsolenmeldungen.
+- **Deploy-Stau:** Deploy `38263113336` (`eb75207`, WIFI-Qualifikation) hängt seit 14:28 UTC im Job `deploy` auf „waiting"
+  (Environment `github-pages` ohne Reviewer/Wait-Timer); gleichzeitig GitHub-Incident „Actions, Pull Requests and Issues" (investigating, 14:37 UTC).
+  Live zeigt noch die alte Karte. Nächster erfolgreicher Deploy bringt alles mit. Falls nach Incident-Ende weiter hängend:
+  `gh run cancel <id>` + `gh run rerun <id>` bzw. neuen Lauf über `workflow_dispatch` (falls konfiguriert).
+- Rollback: `git revert` des Commits.
+
 ## Qualifikation: WIFI Wien ergänzt (2026-10-12, Nutzerauftrag per Screenshot) — Status siehe Zeile darunter
 
 - Karte „Über 10 Jahre Erfahrung in der Innenraumgestaltung": neu Institution „Wirtschaftsförderungsinstitut der Wirtschaftskammer Wien"
@@ -46,7 +59,7 @@
   EN: gleiche Institution (Eigenname), „Interior design course"; „Numerous completed projects." entfernt.
   Technisch: `credentials.experience` hat jetzt `issuer` (Typ + DE/EN), `HomePage.tsx` reicht das Objekt direkt durch.
   JSON-LD unverändert (Erfahrungs-Karte bleibt bewusst außerhalb von `hasCredential`). Version bleibt 1.5 (nicht beauftragt).
-- **Offen:** Handout (`handout/claudia-plessl-uebersicht.html`, nur lokal) enthält noch „Zahlreiche umgesetzte Projekte." — nicht geändert.
+- Handout: im Folgeauftrag angeglichen (siehe Abschnitt Version 1.6).
 - Geprüft lokal: DE 1440 px (3 Karten nebeneinander, Text korrekt), EN 393 px; kein Überlauf, keine Konsolenmeldungen.
 - Rollback: `git revert` des Commits.
 
