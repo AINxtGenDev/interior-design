@@ -2,7 +2,7 @@
 
 ## Meta
 
-- Datum: 2026-10-12 (**SEO-Branch `seo` nach `main` gemerged und LIVE**, siehe Abschnitt SEO-Plan; Workspace-Mailbox office@ in Arbeit, siehe eigener Abschnitt; Website: QR + Footer-Logo am Handy zentriert; **Video Frame 5: alle 4 Schritte auf einer Seite**; **Video-Stimme ruhig, souverän, vertrauenswürdig** (ersetzt die lebendige Fassung vom selben Tag), siehe Abschnitte)
+- Datum: 2026-10-12 (**Video Frame 3 neues Porträt + Footer „Version 1.1 12.10.2026“**, siehe eigener Abschnitt; **SEO-Branch `seo` nach `main` gemerged und LIVE**, siehe Abschnitt SEO-Plan; Workspace-Mailbox office@ in Arbeit, siehe eigener Abschnitt; Website: QR + Footer-Logo am Handy zentriert; **Video Frame 5: alle 4 Schritte auf einer Seite**; **Video-Stimme ruhig, souverän, vertrauenswürdig** (ersetzt die lebendige Fassung vom selben Tag), siehe Abschnitte)
 - Repository: `AINxtGenDev/interior-design` (public)
 - Arbeitskopie: `/home/nuc8/05_development/55_laulau/78_plessl-website`
   (**verschoben am 2026-08-16** — vorher `/home/nuc8/05_development/78_plessl-website`)
@@ -38,6 +38,20 @@
   Nächste Sitzung (2026-10-11): Website-Inhalte bearbeiten (Nutzer gibt Aufträge).
   **2026-10-13 ab ~15:30 (Nutzer):** Workspace-Anmeldung office@ erneut im Chrome-Gastfenster (Abschnitt „Geschäfts-Mailbox"),
   dann Screenshot des `google-site-verification=…`-Codes an Claude → DNS in konsoleH (vorher Rückfrage).
+
+## Video Frame 3 neues Porträt + Footer-Version (2026-10-12, Nutzerauftrag) — Status siehe Zeile darunter
+
+- Auftrag: Porträt im Video (Screenshot 0:15, Frame 3) durch `Foto Homepage final Video.png` (1131×1391) ersetzen; dazu unten
+  klein „Version 1.1 12.10.2026" — Rückfrage: **Website-Footer, alle Seiten** (nicht im Video).
+- Videoprojekt (`plessl-projekt` `d07ce5e`): nur `assets/portrait-claudia.webp` getauscht (WebP q88, `object-fit: cover` im
+  bestehenden 700×808,5-Rahmen, Layout unverändert). `npm run check` ok; Snapshots 13,2/16/18,8 s geprüft. Render 58,2 s;
+  0–12,4 s und 19,1–58 s PSNR ∞ zum alten Film (pixelgleich). Videospur-MD5 neu `4ab24088…` (Wächter in beiden Skripten),
+  −14,4 LUFS. `vorstellung.mp4` SHA-256 `dc65f55b…`. Frame-HTML unverändert → `video-source/` nichts zu spiegeln.
+  Poster bleibt „Video Start.png"; JSON-LD `uploadDate` nicht geändert.
+- Website: `SiteFooter.tsx` letzte Zeile `text-xs text-anthrazit-mid`, zentriert, DE/EN gleich; `HOME_UPDATED` → 2026-10-12.
+  Geprüft lokal (http-server -s, 393 px): Video 58,2 s, Frame bei 17,5 s zeigt neues Porträt + Logo; Footer-Zeile 12 px,
+  auf allen 6 Seiten im Build; kein Überlauf, keine kaputten Bilder, keine Konsolenfehler/-warnungen.
+- Rollback: `git revert` des Website-Commits bzw. `git revert d07ce5e` (Projekt).
 
 ## SEO-Plan (2026-10-11, Nutzerauftrag) — **LIVE seit 2026-10-12** (`main` fast-forward `b7edeaa..a7c24fb`, Deploy `38251948753` success)
 

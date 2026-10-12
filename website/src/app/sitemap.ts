@@ -29,7 +29,7 @@ const HOME_ALTERNATES = {
  * a page's text, images or video change. changeFrequency and priority are
  * left out — Google ignores both.
  */
-const HOME_UPDATED = "2026-10-11";
+const HOME_UPDATED = "2026-10-12";
 const LEGAL_UPDATED = "2026-10-09";
 
 export default function sitemap(): MetadataRoute.Sitemap {
