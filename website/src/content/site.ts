@@ -449,7 +449,7 @@ const de: Content = {
   claim: { text: "Enjoy your home", sub: "Schöne Räume. Klarer Alltag." },
   contact: {
     heading: "Reden wir über Ihren Raum",
-    lead: "Erzählen Sie mir kurz, worum es geht. Sie bekommen innerhalb von zwei Werktagen eine Antwort und eine ehrliche Einschätzung — auch dann, wenn ich nicht die Richtige für Ihr Anliegen bin.",
+    lead: "Erzählen Sie mir kurz, worum es geht. Sie bekommen innerhalb von zwei Werktagen eine Antwort.",
     emailLabel: "E-Mail",
     phoneLabel: "Telefon",
     addressLabel: "Anschrift",
@@ -695,7 +695,7 @@ const en: Content = {
   claim: { text: "Enjoy your home", sub: "Beautiful spaces. A clearer day." },
   contact: {
     heading: "Let's talk about your space",
-    lead: "Tell me briefly what it is about. You will get a reply and an honest assessment within two working days — including when I am not the right person for your situation.",
+    lead: "Tell me briefly what it is about. You will get a reply within two working days.",
     emailLabel: "Email",
     phoneLabel: "Phone",
     addressLabel: "Address",

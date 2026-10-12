@@ -2,7 +2,7 @@
 
 ## Meta
 
-- Datum: 2026-10-12 (**Footer „Version 1.6 12.10.2026“, Handout-Qualifikation an Website angeglichen**; **Qualifikation: WIFI Wien Lehrgang Innenraumgestaltung ergänzt, „Zahlreiche umgesetzte Projekte“ entfernt**; **„Angebot anfragen“ auch unter „Pakete & Preise“, Footer „Version 1.5 12.10.2026“**; **Button „Angebot anfragen“ am Ende von „Mein Angebot“ (mailto), Footer „Version 1.4 12.10.2026“**; **Button „Kostenloses Erstgespräch vereinbaren“ unter dem Video (mailto), Footer „Version 1.3 12.10.2026“**; **Video-Bildunterschrift entfernt, Footer „Version 1.2 12.10.2026“**; **Über-mich-Porträt neu** (`Foto Homepage final über mich.png`), siehe eigener Abschnitt; **Video Frame 3 neues Porträt + Footer „Version 1.1 12.10.2026“**, siehe eigener Abschnitt; **SEO-Branch `seo` nach `main` gemerged und LIVE**, siehe Abschnitt SEO-Plan; Workspace-Mailbox office@ in Arbeit, siehe eigener Abschnitt; Website: QR + Footer-Logo am Handy zentriert; **Video Frame 5: alle 4 Schritte auf einer Seite**; **Video-Stimme ruhig, souverän, vertrauenswürdig** (ersetzt die lebendige Fassung vom selben Tag), siehe Abschnitte)
+- Datum: 2026-10-12 (**Kontakt-Einleitung gekürzt**; **Footer „Version 1.6 12.10.2026“, Handout-Qualifikation an Website angeglichen**; **Qualifikation: WIFI Wien Lehrgang Innenraumgestaltung ergänzt, „Zahlreiche umgesetzte Projekte“ entfernt**; **„Angebot anfragen“ auch unter „Pakete & Preise“, Footer „Version 1.5 12.10.2026“**; **Button „Angebot anfragen“ am Ende von „Mein Angebot“ (mailto), Footer „Version 1.4 12.10.2026“**; **Button „Kostenloses Erstgespräch vereinbaren“ unter dem Video (mailto), Footer „Version 1.3 12.10.2026“**; **Video-Bildunterschrift entfernt, Footer „Version 1.2 12.10.2026“**; **Über-mich-Porträt neu** (`Foto Homepage final über mich.png`), siehe eigener Abschnitt; **Video Frame 3 neues Porträt + Footer „Version 1.1 12.10.2026“**, siehe eigener Abschnitt; **SEO-Branch `seo` nach `main` gemerged und LIVE**, siehe Abschnitt SEO-Plan; Workspace-Mailbox office@ in Arbeit, siehe eigener Abschnitt; Website: QR + Footer-Logo am Handy zentriert; **Video Frame 5: alle 4 Schritte auf einer Seite**; **Video-Stimme ruhig, souverän, vertrauenswürdig** (ersetzt die lebendige Fassung vom selben Tag), siehe Abschnitte)
 - Repository: `AINxtGenDev/interior-design` (public)
 - Arbeitskopie: `/home/nuc8/05_development/55_laulau/78_plessl-website`
   (**verschoben am 2026-08-16** — vorher `/home/nuc8/05_development/78_plessl-website`)
@@ -38,6 +38,14 @@
   Nächste Sitzung (2026-10-11): Website-Inhalte bearbeiten (Nutzer gibt Aufträge).
   **2026-10-13 ab ~15:30 (Nutzer):** Workspace-Anmeldung office@ erneut im Chrome-Gastfenster (Abschnitt „Geschäfts-Mailbox"),
   dann Screenshot des `google-site-verification=…`-Codes an Claude → DNS in konsoleH (vorher Rückfrage).
+
+## Kontakt-Einleitung gekürzt (2026-10-12, Nutzerauftrag per Screenshot)
+
+- „Reden wir über Ihren Raum" (`contact.lead`): DE jetzt „Erzählen Sie mir kurz, worum es geht. Sie bekommen innerhalb von zwei Werktagen eine Antwort."
+  EN sinngemäß angeglichen: „Tell me briefly what it is about. You will get a reply within two working days."
+  FAQ-Antwort zur Antwortzeit (mit „ehrliche Einschätzung …") bewusst unverändert. Version bleibt 1.6 (nicht beauftragt).
+- Geprüft: tsc, eslint, Build sauber; neuer Text je 1× in `out/index.html` und `out/en/index.html`.
+- Rollback: `git revert` des Commits.
 
 ## Version 1.6 + Handout-Qualifikation (2026-10-12, Nutzerauftrag) — **LIVE** (`3c5c39c`, Deploy `38264616963` success; live `/` + `/en/`: Version 1.6, WIFI-Karte, alter Satz weg)
 
