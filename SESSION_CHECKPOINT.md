@@ -44,7 +44,7 @@
 - `process.lead` + alle vier Schritte (Raumcheck, Konzept & Angebot, Umsetzung, Nachbetreuung) wortgetreu nach Vorlage des Nutzers; Titel unverändert.
   Zeilenumbrüche der Vorlage (Schritt 02 und 04) als `\n` im Text, `HomePage.tsx` rendert sie mit `whitespace-pre-line`.
   EN sinngemäß übersetzt (inkl. „No package you do not need!").
-- ~~FAQ „Was kostet der Einstieg?" versprach noch „Fixpreis"~~ — erledigt (Folgeauftrag): DE/EN-Antwort nutzt jetzt dieselbe Formulierung wie Schritt 02 („transparentes Angebot mit klar definierten Leistungen, einem nachvollziehbaren Ablauf und den entsprechenden Kosten"); FAQ-JSON-LD folgt automatisch. Build: kein „Fixpreis"/„a fixed price" mehr.
+- ~~FAQ „Was kostet der Einstieg?" versprach noch „Fixpreis"~~ — erledigt (Folgeauftrag): DE/EN-Antwort nutzt jetzt dieselbe Formulierung wie Schritt 02 („transparentes Angebot mit klar definierten Leistungen, einem nachvollziehbaren Ablauf und den entsprechenden Kosten"); FAQ-JSON-LD folgt automatisch. Build: kein „Fixpreis"/„a fixed price" mehr. **LIVE** (`e5d03c2`, Deploy `38291392863` success).
   Offen: `packages.lead` sagt weiter „Der Endpreis wird nach dem Raumcheck fix vereinbart" — inhaltlich verträglich, nicht angefasst.
   Ausrufezeichen „…nicht brauchen!" laut Vorlage übernommen (sonst ruhiger Ton der Seite).
 - Version bleibt 1.7 (nicht beauftragt).
