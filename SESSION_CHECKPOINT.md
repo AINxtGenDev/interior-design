@@ -39,7 +39,7 @@
   **2026-10-13 ab ~15:30 (Nutzer):** Workspace-Anmeldung office@ erneut im Chrome-Gastfenster (Abschnitt „Geschäfts-Mailbox"),
   dann Screenshot des `google-site-verification=…`-Codes an Claude → DNS in konsoleH (vorher Rückfrage).
 
-## Video Frame 3 neues Porträt + Footer-Version (2026-10-12, Nutzerauftrag) — Status siehe Zeile darunter
+## Video Frame 3 neues Porträt + Footer-Version (2026-10-12, Nutzerauftrag) — **LIVE** (`76feef3`, Deploy `38259140075` success; live MP4 SHA-256 = lokal `dc65f55b…`, Footer-Zeile auf /, /en/, /impressum/, Sitemap 2× 2026-10-12)
 
 - Auftrag: Porträt im Video (Screenshot 0:15, Frame 3) durch `Foto Homepage final Video.png` (1131×1391) ersetzen; dazu unten
   klein „Version 1.1 12.10.2026" — Rückfrage: **Website-Footer, alle Seiten** (nicht im Video).
