@@ -9,7 +9,7 @@ import projects1254 from "@/assets/projects-1254.webp";
 import projectsLiving from "@/assets/projects-living-610.webp";
 import projectsOrder from "@/assets/projects-order-610.webp";
 import portrait480 from "@/assets/portrait-480.webp";
-import portrait1045 from "@/assets/portrait-1045.webp";
+import portrait1275 from "@/assets/portrait-1275.webp";
 import { ASSET_PREFIX, CONTACT, getContent, type Locale } from "@/content/site";
 import { buildHomeGraph } from "@/content/schema";
 import SiteHeader, { SECTION_IDS } from "./SiteHeader";
@@ -193,10 +193,10 @@ export default function HomePage({ locale }: { locale: Locale }) {
             {/* eslint-disable-next-line @next/next/no-img-element -- srcset; see BrandLogo */}
             <img
               src={portrait480.src}
-              srcSet={`${portrait480.src} 480w, ${portrait1045.src} 1045w`}
+              srcSet={`${portrait480.src} 480w, ${portrait1275.src} 1275w`}
               sizes="(min-width: 1024px) 400px, (min-width: 640px) 360px, 100vw"
-              width={portrait1045.width}
-              height={portrait1045.height}
+              width={portrait1275.width}
+              height={portrait1275.height}
               alt={c.about.portraitAlt}
               loading="lazy"
               decoding="async"

@@ -357,7 +357,7 @@ const de: Content = {
       "Deshalb beginne ich bei der Struktur und nicht beim Katalog. Erst wenn klar ist, was bleibt, welche Wege der Alltag nimmt und wo etwas hakt, lohnt sich die Frage nach Farbe, Material und Einrichtung. Diese Reihenfolge spart Geld und hält länger.",
       "Und weil die besten Lösungen die sind, die ohne mich weiterlaufen, gebe ich das Handwerk in Workshops weiter — für alle, die das lieber selbst können möchten.",
     ],
-    portraitAlt: "Porträt von Claudia Plessl: kurze dunkle Haare, runde Brille, weißes Shirt, vor einer salbeigrünen Wand",
+    portraitAlt: "Porträt von Claudia Plessl: kurze dunkle Haare, weißer Pullover, dunkelblaue Jacke über der Schulter, vor einer hellgrauen Wand",
     principlesHeading: "Worauf Sie sich verlassen können",
     principles: [
       "Diskretion — was ich in Ihrer Wohnung sehe, bleibt dort.",
@@ -597,7 +597,7 @@ const en: Content = {
       "That is why I start with structure rather than with a catalogue. Only once it is clear what stays, how daily life moves through the space and where things get stuck is it worth asking about colour, material and furnishing. That order of operations saves money and lasts longer.",
       "And because the best solutions are the ones that keep working without me, I pass the craft on in workshops — for anyone who would rather do it themselves.",
     ],
-    portraitAlt: "Portrait of Claudia Plessl: short dark hair, round glasses, white top, in front of a sage-green wall",
+    portraitAlt: "Portrait of Claudia Plessl: short dark hair, white jumper, navy jacket over her shoulder, in front of a light grey wall",
     principlesHeading: "What you can rely on",
     principles: [
       "Discretion — what I see in your home stays there.",

@@ -31,7 +31,7 @@ from `/en/`.
 The palette and type are derived from the brand cover image; the hero and
 detail photography are crops of that same asset, so the site ships no
 third-party imagery. The one real photograph is Claudia's portrait in
-*Über mich* (`Portrait Homepage.png`, taken from the 2026-10-08 change deck).
+*Über mich* (`Foto Homepage final über mich.png`, photo shoot, 2026-10-12).
 
 ### Open Graph cards
 
@@ -82,7 +82,7 @@ uv run --with pillow --with numpy --with opencv-python-headless \
 | `src/assets/hero-full-*.webp` | Titelbild | the full frame, tablet and desktop |
 | `src/assets/hero-phone-*.webp` | Titelbild Handy.png | phone version (change deck slide 2), edges trimmed |
 | `src/assets/hero-en-{full,phone}-*.webp` | both Titelbild files | same, headline painted in English |
-| `src/assets/portrait-*.webp` | Portrait Homepage.png | Über mich |
+| `src/assets/portrait-*.webp` | Foto Homepage final über mich.png | Über mich |
 | `favicon.ico`, `icon.png`, `apple-icon.png`, `public/icons/*` | Logo2.png | CP monogram only (rows above 640) |
 
 - **The logo is a plain `<img srcset>`** (`BrandLogo.tsx`), not `next/image`:
