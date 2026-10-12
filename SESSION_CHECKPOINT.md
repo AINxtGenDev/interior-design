@@ -2,7 +2,7 @@
 
 ## Meta
 
-- Datum: 2026-10-12 (**Über-mich-Foto erneut getauscht, Version 1.7**; **Kontakt-Einleitung gekürzt**; **Footer „Version 1.6 12.10.2026“, Handout-Qualifikation an Website angeglichen**; **Qualifikation: WIFI Wien Lehrgang Innenraumgestaltung ergänzt, „Zahlreiche umgesetzte Projekte“ entfernt**; **„Angebot anfragen“ auch unter „Pakete & Preise“, Footer „Version 1.5 12.10.2026“**; **Button „Angebot anfragen“ am Ende von „Mein Angebot“ (mailto), Footer „Version 1.4 12.10.2026“**; **Button „Kostenloses Erstgespräch vereinbaren“ unter dem Video (mailto), Footer „Version 1.3 12.10.2026“**; **Video-Bildunterschrift entfernt, Footer „Version 1.2 12.10.2026“**; **Über-mich-Porträt neu** (`Foto Homepage final über mich.png`), siehe eigener Abschnitt; **Video Frame 3 neues Porträt + Footer „Version 1.1 12.10.2026“**, siehe eigener Abschnitt; **SEO-Branch `seo` nach `main` gemerged und LIVE**, siehe Abschnitt SEO-Plan; Workspace-Mailbox office@ in Arbeit, siehe eigener Abschnitt; Website: QR + Footer-Logo am Handy zentriert; **Video Frame 5: alle 4 Schritte auf einer Seite**; **Video-Stimme ruhig, souverän, vertrauenswürdig** (ersetzt die lebendige Fassung vom selben Tag), siehe Abschnitte)
+- Datum: 2026-10-12 (**„So arbeiten wir zusammen“ neu getextet**; **Über-mich-Foto erneut getauscht, Version 1.7**; **Kontakt-Einleitung gekürzt**; **Footer „Version 1.6 12.10.2026“, Handout-Qualifikation an Website angeglichen**; **Qualifikation: WIFI Wien Lehrgang Innenraumgestaltung ergänzt, „Zahlreiche umgesetzte Projekte“ entfernt**; **„Angebot anfragen“ auch unter „Pakete & Preise“, Footer „Version 1.5 12.10.2026“**; **Button „Angebot anfragen“ am Ende von „Mein Angebot“ (mailto), Footer „Version 1.4 12.10.2026“**; **Button „Kostenloses Erstgespräch vereinbaren“ unter dem Video (mailto), Footer „Version 1.3 12.10.2026“**; **Video-Bildunterschrift entfernt, Footer „Version 1.2 12.10.2026“**; **Über-mich-Porträt neu** (`Foto Homepage final über mich.png`), siehe eigener Abschnitt; **Video Frame 3 neues Porträt + Footer „Version 1.1 12.10.2026“**, siehe eigener Abschnitt; **SEO-Branch `seo` nach `main` gemerged und LIVE**, siehe Abschnitt SEO-Plan; Workspace-Mailbox office@ in Arbeit, siehe eigener Abschnitt; Website: QR + Footer-Logo am Handy zentriert; **Video Frame 5: alle 4 Schritte auf einer Seite**; **Video-Stimme ruhig, souverän, vertrauenswürdig** (ersetzt die lebendige Fassung vom selben Tag), siehe Abschnitte)
 - Repository: `AINxtGenDev/interior-design` (public)
 - Arbeitskopie: `/home/nuc8/05_development/55_laulau/78_plessl-website`
   (**verschoben am 2026-08-16** — vorher `/home/nuc8/05_development/78_plessl-website`)
@@ -38,6 +38,18 @@
   Nächste Sitzung (2026-10-11): Website-Inhalte bearbeiten (Nutzer gibt Aufträge).
   **2026-10-13 ab ~15:30 (Nutzer):** Workspace-Anmeldung office@ erneut im Chrome-Gastfenster (Abschnitt „Geschäfts-Mailbox"),
   dann Screenshot des `google-site-verification=…`-Codes an Claude → DNS in konsoleH (vorher Rückfrage).
+
+## „So arbeiten wir zusammen" neu getextet (2026-10-12, Nutzerauftrag per Screenshot)
+
+- `process.lead` + alle vier Schritte (Raumcheck, Konzept & Angebot, Umsetzung, Nachbetreuung) wortgetreu nach Vorlage des Nutzers; Titel unverändert.
+  Zeilenumbrüche der Vorlage (Schritt 02 und 04) als `\n` im Text, `HomePage.tsx` rendert sie mit `whitespace-pre-line`.
+  EN sinngemäß übersetzt (inkl. „No package you do not need!").
+- **Mit Claudia klären:** Schritt 02 nennt keinen „Fixpreis" mehr, die FAQ-Antwort zum Raumcheck verspricht weiterhin „Vorschlag mit Umfang, Reihenfolge und Fixpreis" — bewusst nicht angefasst.
+  Ausrufezeichen „…nicht brauchen!" laut Vorlage übernommen (sonst ruhiger Ton der Seite).
+- Version bleibt 1.7 (nicht beauftragt).
+- Geprüft lokal: tsc, eslint, Build sauber; 1440 px (2 Spalten, Umbrüche korrekt) und 393 px (kein Überlauf).
+- Lehre: Testserver nie per `pkill -f`/`pgrep -f` mit dem Muster in derselben Befehlszeile stoppen — trifft die eigene Shell (Exit 144). PID per `ps`/`awk` holen.
+- Rollback: `git revert` des Commits.
 
 ## Über-mich-Foto erneut getauscht + Version 1.7 (2026-10-12, Nutzerauftrag) — **LIVE** (`f635bff`, Deploy `38290385677` success; live `/` + `/en/`: portrait-1147, Version 1.7)
 

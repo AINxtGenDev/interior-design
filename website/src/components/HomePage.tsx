@@ -127,7 +127,8 @@ export default function HomePage({ locale }: { locale: Locale }) {
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="h3 mt-4">{s.title}</h3>
-                <p className="mt-3 max-w-[34rem]">{s.body}</p>
+                {/* "\n" in the copy starts a new line. */}
+                <p className="mt-3 max-w-[34rem] whitespace-pre-line">{s.body}</p>
               </li>
             ))}
           </ol>

@@ -336,23 +336,23 @@ const de: Content = {
   },
   process: {
     heading: "So arbeiten wir zusammen",
-    lead: "Ein klarer Ablauf, damit Sie von Anfang an wissen, worauf Sie sich einlassen.",
+    lead: "Ein klarer Ablauf, damit Sie von Anfang an wissen, worauf Sie sich einlassen. Von der ersten Idee bis zu einem Ergebnis, das zu Ihnen und Ihrem Leben passt.",
     items: [
       {
         title: "Raumcheck",
-        body: "60 bis 90 Minuten vor Ort oder online. Wir sehen uns gemeinsam an, was funktioniert und was nicht — und Sie bekommen eine ehrliche Einschätzung, welche Schritte wirklich nötig sind.",
+        body: "60 bis 90 Minuten vor Ort oder online. Wir nehmen uns Zeit für Ihre Wünsche, Bedürfnisse und Herausforderungen. Gemeinsam betrachten wir die bestehende Situation, erkennen Potenziale und besprechen erste Möglichkeiten für mehr Ordnung, Funktionalität und Wohnqualität.",
       },
       {
         title: "Konzept & Angebot",
-        body: "Sie erhalten einen konkreten Vorschlag mit Umfang, Reihenfolge und Fixpreis. Kein Paket, das Sie nicht brauchen.",
+        body: "Auf Basis unseres Gesprächs entwickle ich einen individuellen Vorschlag, der auf Ihre Wünsche und Ziele abgestimmt ist.\nSie erhalten ein transparentes Angebot mit klar definierten Leistungen, einem nachvollziehbaren Ablauf und den entsprechenden Kosten. Kein Paket, das Sie nicht brauchen!",
       },
       {
         title: "Umsetzung",
-        body: "Wir arbeiten Bereich für Bereich. Entschieden wird gemeinsam, geräumt und gestaltet wird zu zweit — Ihr Tempo, Ihre Kriterien.",
+        body: "Schritt für Schritt setzen wir die vereinbarten Maßnahmen um. Ob neue Raumgestaltung, durchdachte Ordnungssysteme oder die Kombination aus beidem. Wir schaffen Lösungen, die ästhetisch überzeugen und Ihren Alltag erleichtern. Dabei stehen Ihre Vorstellungen und Ihr persönliches Tempo im Mittelpunkt.",
       },
       {
         title: "Nachbetreuung",
-        body: "Ein Check-in-Termin nach einigen Wochen. Ordnung, die nach drei Monaten noch steht, ist die einzige, die zählt.",
+        body: "Auch nach der Umsetzung bin ich gerne für Sie da.\nBei einem gemeinsamen Check-in besprechen wir, wie sich die neuen Lösungen im Alltag bewähren und ob noch Anpassungen sinnvoll sind. Damit Sie sich langfristig in Ihren Räumen wohlfühlen.",
       },
     ],
   },
@@ -584,23 +584,23 @@ const en: Content = {
   },
   process: {
     heading: "How we work together",
-    lead: "A clear sequence, so you know from the outset what you are signing up for.",
+    lead: "A clear sequence, so you know from the outset what you are signing up for. From the first idea to a result that suits you and the way you live.",
     items: [
       {
         title: "Space check",
-        body: "60 to 90 minutes on site or online. We look together at what works and what does not — and you get an honest assessment of which steps are genuinely needed.",
+        body: "60 to 90 minutes on site or online. We take time for your wishes, needs and challenges. Together we look at the current situation, recognise its potential and discuss first options for more order, functionality and quality of living.",
       },
       {
         title: "Concept & quote",
-        body: "You receive a concrete proposal with scope, sequence and a fixed price. No package you do not need.",
+        body: "Based on our conversation, I develop an individual proposal tailored to your wishes and goals.\nYou receive a transparent quote with clearly defined services, a comprehensible sequence and the corresponding costs. No package you do not need!",
       },
       {
         title: "Implementation",
-        body: "We work area by area. Decisions are made together, clearing and designing happen side by side — your pace, your criteria.",
+        body: "Step by step, we carry out the agreed measures. Whether a new interior design, well-thought-out storage systems or a combination of both. We create solutions that are aesthetically convincing and make your everyday life easier. Your ideas and your personal pace are at the centre throughout.",
       },
       {
         title: "Follow-up",
-        body: "A check-in appointment a few weeks later. The only order that counts is the one still standing after three months.",
+        body: "I am happy to be there for you after the implementation, too.\nIn a joint check-in we discuss how the new solutions are working in everyday life and whether any adjustments make sense. So that you feel at home in your rooms for the long term.",
       },
     ],
   },
