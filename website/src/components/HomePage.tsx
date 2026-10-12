@@ -102,6 +102,17 @@ export default function HomePage({ locale }: { locale: Locale }) {
             </h3>
             <p className="mt-4">{c.services.workshops.lead}</p>
           </article>
+
+          <div className="mx-auto mt-10 w-full max-w-[360px]">
+            <a
+              href={`mailto:${CONTACT.email}?subject=${encodeURIComponent(
+                c.services.ctaSubject,
+              )}&body=${encodeURIComponent(c.services.ctaBody)}`}
+              className="btn btn-primary w-full"
+            >
+              {c.services.ctaLabel}
+            </a>
+          </div>
         </Section>
 
         {/* ─────────── Ablauf ─────────── */}

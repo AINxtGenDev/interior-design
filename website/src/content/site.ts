@@ -121,6 +121,10 @@ export type Content = {
     moreLabel: string;
     /** "Coming soon": no price and no bullet list until they are offered. */
     workshops: Pick<Service, "id" | "title" | "lead">;
+    /** Button closing the section; opens a pre-filled email (mailto). */
+    ctaLabel: string;
+    ctaSubject: string;
+    ctaBody: string;
   };
   process: { heading: string; lead: string; items: Step[] };
   packages: {
@@ -325,6 +329,10 @@ const de: Content = {
       title: "Workshops & Training",
       lead: "Werden in Kürze angeboten.",
     },
+    ctaLabel: "Angebot anfragen",
+    ctaSubject: "Anfrage Angebot",
+    ctaBody:
+      "Guten Tag Frau Plessl,\n\nich möchte gerne ein Angebot anfragen.\n\nWelche Leistung interessiert mich?\n\nUm welche Räume geht es?\n\nWo befindet sich das Objekt?\n\nMit freundlichen Grüßen\n",
   },
   process: {
     heading: "So arbeiten wir zusammen",
@@ -568,6 +576,10 @@ const en: Content = {
       title: "Workshops & Training",
       lead: "Coming soon.",
     },
+    ctaLabel: "Request a quote",
+    ctaSubject: "Quote request",
+    ctaBody:
+      "Dear Ms Plessl,\n\nI would like to request a quote.\n\nWhich service am I interested in?\n\nWhich rooms are involved?\n\nWhere is the property located?\n\nKind regards\n",
   },
   process: {
     heading: "How we work together",

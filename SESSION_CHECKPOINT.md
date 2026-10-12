@@ -2,7 +2,7 @@
 
 ## Meta
 
-- Datum: 2026-10-12 (**Button „Kostenloses Erstgespräch vereinbaren“ unter dem Video (mailto), Footer „Version 1.3 12.10.2026“**; **Video-Bildunterschrift entfernt, Footer „Version 1.2 12.10.2026“**; **Über-mich-Porträt neu** (`Foto Homepage final über mich.png`), siehe eigener Abschnitt; **Video Frame 3 neues Porträt + Footer „Version 1.1 12.10.2026“**, siehe eigener Abschnitt; **SEO-Branch `seo` nach `main` gemerged und LIVE**, siehe Abschnitt SEO-Plan; Workspace-Mailbox office@ in Arbeit, siehe eigener Abschnitt; Website: QR + Footer-Logo am Handy zentriert; **Video Frame 5: alle 4 Schritte auf einer Seite**; **Video-Stimme ruhig, souverän, vertrauenswürdig** (ersetzt die lebendige Fassung vom selben Tag), siehe Abschnitte)
+- Datum: 2026-10-12 (**Button „Angebot anfragen“ am Ende von „Mein Angebot“ (mailto), Footer „Version 1.4 12.10.2026“**; **Button „Kostenloses Erstgespräch vereinbaren“ unter dem Video (mailto), Footer „Version 1.3 12.10.2026“**; **Video-Bildunterschrift entfernt, Footer „Version 1.2 12.10.2026“**; **Über-mich-Porträt neu** (`Foto Homepage final über mich.png`), siehe eigener Abschnitt; **Video Frame 3 neues Porträt + Footer „Version 1.1 12.10.2026“**, siehe eigener Abschnitt; **SEO-Branch `seo` nach `main` gemerged und LIVE**, siehe Abschnitt SEO-Plan; Workspace-Mailbox office@ in Arbeit, siehe eigener Abschnitt; Website: QR + Footer-Logo am Handy zentriert; **Video Frame 5: alle 4 Schritte auf einer Seite**; **Video-Stimme ruhig, souverän, vertrauenswürdig** (ersetzt die lebendige Fassung vom selben Tag), siehe Abschnitte)
 - Repository: `AINxtGenDev/interior-design` (public)
 - Arbeitskopie: `/home/nuc8/05_development/55_laulau/78_plessl-website`
   (**verschoben am 2026-08-16** — vorher `/home/nuc8/05_development/78_plessl-website`)
@@ -38,6 +38,17 @@
   Nächste Sitzung (2026-10-11): Website-Inhalte bearbeiten (Nutzer gibt Aufträge).
   **2026-10-13 ab ~15:30 (Nutzer):** Workspace-Anmeldung office@ erneut im Chrome-Gastfenster (Abschnitt „Geschäfts-Mailbox"),
   dann Screenshot des `google-site-verification=…`-Codes an Claude → DNS in konsoleH (vorher Rückfrage).
+
+## Button „Angebot anfragen" + Version 1.4 (2026-10-12, Nutzerauftrag per Screenshot) — Status siehe Zeile darunter
+
+- Ort (aus dem Screenshot abgeleitet): Abschluss des Abschnitts „Mein Angebot", zentriert unter der Box „Workshops & Training"
+  (`HomePage.tsx`, mt-10, max 360 px, `btn btn-primary w-full`) — gleiche Optik wie der Erstgespräch-Button unter dem Video.
+- `mailto:` an `CONTACT.email`; Texte in `site.ts` `services.ctaLabel/ctaSubject/ctaBody`, im Stil der Raumcheck-Mail (Fragen zum Ausfüllen):
+  DE „Angebot anfragen" / Betreff „Anfrage Angebot" / Leistung, Räume, Ort; EN „Request a quote" / „Quote request".
+- Footer „Version 1.3" → **„Version 1.4 12.10.2026"**.
+- Geprüft lokal: DE 1440 px (360×48, zentriert, 40 px unter der Workshops-Box), EN 393 px (360×48 = Boxbreite); mailto dekodiert korrekt DE+EN;
+  je 1 Link, kein Überlauf, keine Konsolenmeldungen; Version 1.4 DE/EN.
+- Rollback: `git revert` des Commits.
 
 ## CTA-Button unter dem Video + Version 1.3 (2026-10-12, Nutzerauftrag) — **LIVE** (`097c968`, Deploy `38261214977` success; live `/` + `/en/`: Button-mailto + Version 1.3)
 
