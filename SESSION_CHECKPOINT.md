@@ -39,7 +39,7 @@
   **2026-10-13 ab ~15:30 (Nutzer):** Workspace-Anmeldung office@ erneut im Chrome-Gastfenster (Abschnitt „Geschäfts-Mailbox"),
   dann Screenshot des `google-site-verification=…`-Codes an Claude → DNS in konsoleH (vorher Rückfrage).
 
-## CTA-Button unter dem Video + Version 1.3 (2026-10-12, Nutzerauftrag) — Status siehe Zeile darunter
+## CTA-Button unter dem Video + Version 1.3 (2026-10-12, Nutzerauftrag) — **LIVE** (`097c968`, Deploy `38261214977` success; live `/` + `/en/`: Button-mailto + Version 1.3)
 
 - `IntroVideo.tsx`: zentrierter `btn btn-primary` direkt unter dem Video (mt-8), gleiche Breite wie das Video
   (`max-w-[min(360px,calc(70svh*9/16))]`, Button `w-full`) → am Handy 336 px bündig mit dem Video, Label bricht dort zweizeilig um.
