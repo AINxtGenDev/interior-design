@@ -39,7 +39,7 @@
   **2026-10-13 ab ~15:30 (Nutzer):** Workspace-Anmeldung office@ erneut im Chrome-Gastfenster (Abschnitt „Geschäfts-Mailbox"),
   dann Screenshot des `google-site-verification=…`-Codes an Claude → DNS in konsoleH (vorher Rückfrage).
 
-## Button „Angebot anfragen" + Version 1.4 (2026-10-12, Nutzerauftrag per Screenshot) — Status siehe Zeile darunter
+## Button „Angebot anfragen" + Version 1.4 (2026-10-12, Nutzerauftrag per Screenshot) — **LIVE** (`898908f`, Deploy `38261988006` success; live `/` + `/en/`: Button-mailto + Version 1.4)
 
 - Ort (aus dem Screenshot abgeleitet): Abschluss des Abschnitts „Mein Angebot", zentriert unter der Box „Workshops & Training"
   (`HomePage.tsx`, mt-10, max 360 px, `btn btn-primary w-full`) — gleiche Optik wie der Erstgespräch-Button unter dem Video.
