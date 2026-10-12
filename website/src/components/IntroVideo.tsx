@@ -57,10 +57,6 @@ export default function IntroVideo({
               {content.video.unsupported}
             </video>
           </div>
-
-          <figcaption className="mt-5 text-center">
-            <span className="small block font-bold">{content.video.caption}</span>
-          </figcaption>
         </figure>
 
         {locale === "en" && (

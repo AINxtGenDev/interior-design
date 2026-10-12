@@ -2,7 +2,7 @@
 
 ## Meta
 
-- Datum: 2026-10-12 (**Über-mich-Porträt neu** (`Foto Homepage final über mich.png`), siehe eigener Abschnitt; **Video Frame 3 neues Porträt + Footer „Version 1.1 12.10.2026“**, siehe eigener Abschnitt; **SEO-Branch `seo` nach `main` gemerged und LIVE**, siehe Abschnitt SEO-Plan; Workspace-Mailbox office@ in Arbeit, siehe eigener Abschnitt; Website: QR + Footer-Logo am Handy zentriert; **Video Frame 5: alle 4 Schritte auf einer Seite**; **Video-Stimme ruhig, souverän, vertrauenswürdig** (ersetzt die lebendige Fassung vom selben Tag), siehe Abschnitte)
+- Datum: 2026-10-12 (**Video-Bildunterschrift entfernt, Footer „Version 1.2 12.10.2026“**; **Über-mich-Porträt neu** (`Foto Homepage final über mich.png`), siehe eigener Abschnitt; **Video Frame 3 neues Porträt + Footer „Version 1.1 12.10.2026“**, siehe eigener Abschnitt; **SEO-Branch `seo` nach `main` gemerged und LIVE**, siehe Abschnitt SEO-Plan; Workspace-Mailbox office@ in Arbeit, siehe eigener Abschnitt; Website: QR + Footer-Logo am Handy zentriert; **Video Frame 5: alle 4 Schritte auf einer Seite**; **Video-Stimme ruhig, souverän, vertrauenswürdig** (ersetzt die lebendige Fassung vom selben Tag), siehe Abschnitte)
 - Repository: `AINxtGenDev/interior-design` (public)
 - Arbeitskopie: `/home/nuc8/05_development/55_laulau/78_plessl-website`
   (**verschoben am 2026-08-16** — vorher `/home/nuc8/05_development/78_plessl-website`)
@@ -38,6 +38,15 @@
   Nächste Sitzung (2026-10-11): Website-Inhalte bearbeiten (Nutzer gibt Aufträge).
   **2026-10-13 ab ~15:30 (Nutzer):** Workspace-Anmeldung office@ erneut im Chrome-Gastfenster (Abschnitt „Geschäfts-Mailbox"),
   dann Screenshot des `google-site-verification=…`-Codes an Claude → DNS in konsoleH (vorher Rückfrage).
+
+## Video-Bildunterschrift entfernt, Version 1.2 (2026-10-12, Nutzerauftrag per Screenshot) — Status siehe Zeile darunter
+
+- `figcaption` „Vorstellungsvideo" unter dem Video entfernt (`IntroVideo.tsx`); EN „Introduction" ebenso (gleiche Komponente);
+  Feld `video.caption` aus `site.ts` (Typ + DE/EN) gelöscht. Footer-KI-Hinweis („…Stimme im Vorstellungsvideo…") bleibt.
+  JSON-LD VideoObject `caption` (= VTT-Untertitel) unverändert.
+- Footer: „Version 1.1 12.10.2026" → **„Version 1.2 12.10.2026"** (`SiteFooter.tsx`, fester Text — bei jedem Release von Hand anpassen).
+- Geprüft lokal (1440 px + 393 px): keine figcaption, Version 1.2 im Footer DE/EN, kein Überlauf, keine Konsolenmeldungen.
+- Rollback: `git revert` des Commits.
 
 ## Über mich: neues Porträt (2026-10-12, Nutzerauftrag) — **LIVE** (`15abf8b`, Deploy `38259988044` success; live `/` + `/en/` portrait-1275 200, Bytes = lokal)
 

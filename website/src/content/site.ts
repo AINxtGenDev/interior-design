@@ -106,8 +106,6 @@ export type Content = {
   video: {
     heading: string;
     lead: string;
-    /** The AI-voice disclosure lives in `footer.imageNotice`. */
-    caption: string;
     unsupported: string;
     captionsLabel: string;
   };
@@ -255,7 +253,6 @@ const de: Content = {
   video: {
     heading: "In einer Minute erklärt",
     lead: "Wie aus Ordnung und Gestaltung ein Raum wird, der zu Ihrem Alltag passt.",
-    caption: "Vorstellungsvideo",
     unsupported: "Ihr Browser kann dieses Video nicht abspielen.",
     captionsLabel: "Deutsch",
   },
@@ -495,7 +492,6 @@ const en: Content = {
   video: {
     heading: "Explained in a minute",
     lead: "How order and design combine into a room that fits the way you actually live.",
-    caption: "Introduction",
     unsupported: "Your browser cannot play this video.",
     captionsLabel: "German",
   },
