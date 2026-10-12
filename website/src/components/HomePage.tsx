@@ -245,7 +245,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
             <span aria-hidden="true" className="rule mt-4" />
             <dl aria-labelledby="qualifications-heading" className="mt-8 grid gap-6 md:grid-cols-3">
               {[
-                { title: c.about.credentials.experience.title, note: c.about.credentials.experience.note },
+                c.about.credentials.experience,
                 ...c.about.credentials.items,
               ].map((item, i) => (
                 <div

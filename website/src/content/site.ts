@@ -143,7 +143,7 @@ export type Content = {
     credentials: {
       heading: string;
       /** Work experience: listed first, but not a credential (kept out of JSON-LD). */
-      experience: { title: string; note: string };
+      experience: { title: string; issuer: string; note: string };
       /** `inTraining`: not yet awarded, so not claimed as held in JSON-LD. */
       items: { title: string; issuer: string; note?: string; inTraining?: boolean }[];
     };
@@ -382,7 +382,8 @@ const de: Content = {
       heading: "Qualifikation",
       experience: {
         title: "Über 10 Jahre Erfahrung in der Innenraumgestaltung",
-        note: "Zahlreiche umgesetzte Projekte.",
+        issuer: "Wirtschaftsförderungsinstitut der Wirtschaftskammer Wien",
+        note: "Lehrgang Innenraumgestaltung",
       },
       items: [
         {
@@ -629,7 +630,8 @@ const en: Content = {
       heading: "Qualifications",
       experience: {
         title: "Over 10 years of experience in interior design",
-        note: "Numerous completed projects.",
+        issuer: "Wirtschaftsförderungsinstitut der Wirtschaftskammer Wien",
+        note: "Interior design course",
       },
       items: [
         {

@@ -2,7 +2,7 @@
 
 ## Meta
 
-- Datum: 2026-10-12 (**„Angebot anfragen“ auch unter „Pakete & Preise“, Footer „Version 1.5 12.10.2026“**; **Button „Angebot anfragen“ am Ende von „Mein Angebot“ (mailto), Footer „Version 1.4 12.10.2026“**; **Button „Kostenloses Erstgespräch vereinbaren“ unter dem Video (mailto), Footer „Version 1.3 12.10.2026“**; **Video-Bildunterschrift entfernt, Footer „Version 1.2 12.10.2026“**; **Über-mich-Porträt neu** (`Foto Homepage final über mich.png`), siehe eigener Abschnitt; **Video Frame 3 neues Porträt + Footer „Version 1.1 12.10.2026“**, siehe eigener Abschnitt; **SEO-Branch `seo` nach `main` gemerged und LIVE**, siehe Abschnitt SEO-Plan; Workspace-Mailbox office@ in Arbeit, siehe eigener Abschnitt; Website: QR + Footer-Logo am Handy zentriert; **Video Frame 5: alle 4 Schritte auf einer Seite**; **Video-Stimme ruhig, souverän, vertrauenswürdig** (ersetzt die lebendige Fassung vom selben Tag), siehe Abschnitte)
+- Datum: 2026-10-12 (**Qualifikation: WIFI Wien Lehrgang Innenraumgestaltung ergänzt, „Zahlreiche umgesetzte Projekte“ entfernt**; **„Angebot anfragen“ auch unter „Pakete & Preise“, Footer „Version 1.5 12.10.2026“**; **Button „Angebot anfragen“ am Ende von „Mein Angebot“ (mailto), Footer „Version 1.4 12.10.2026“**; **Button „Kostenloses Erstgespräch vereinbaren“ unter dem Video (mailto), Footer „Version 1.3 12.10.2026“**; **Video-Bildunterschrift entfernt, Footer „Version 1.2 12.10.2026“**; **Über-mich-Porträt neu** (`Foto Homepage final über mich.png`), siehe eigener Abschnitt; **Video Frame 3 neues Porträt + Footer „Version 1.1 12.10.2026“**, siehe eigener Abschnitt; **SEO-Branch `seo` nach `main` gemerged und LIVE**, siehe Abschnitt SEO-Plan; Workspace-Mailbox office@ in Arbeit, siehe eigener Abschnitt; Website: QR + Footer-Logo am Handy zentriert; **Video Frame 5: alle 4 Schritte auf einer Seite**; **Video-Stimme ruhig, souverän, vertrauenswürdig** (ersetzt die lebendige Fassung vom selben Tag), siehe Abschnitte)
 - Repository: `AINxtGenDev/interior-design` (public)
 - Arbeitskopie: `/home/nuc8/05_development/55_laulau/78_plessl-website`
   (**verschoben am 2026-08-16** — vorher `/home/nuc8/05_development/78_plessl-website`)
@@ -20,7 +20,7 @@
     „Mensch & Büro-Akademie".
   - EN-Projekte-Collage (DE-Collage hat Texte eingebrannt; EN zeigt flache Live-Text-Kacheln).
   - Rosa Linie/Kartenränder in Pakete & Preise auch grau? (bewusst nicht geändert)
-  - ~~Workshops „in Kürze" vs. Preise~~ (erledigt: Preis + Paket entfernt); „Zahlreiche umgesetzte Projekte" vs. Projekte-Text;
+  - ~~Workshops „in Kürze" vs. Preise~~ (erledigt: Preis + Paket entfernt); ~~„Zahlreiche umgesetzte Projekte" vs. Projekte-Text~~ (erledigt 2026-10-12: Satz entfernt);
     ~~Video sagt noch „Zertifizierter Ordnungscoach"~~ (erledigt: Szene 6 gestrichen); ~~Handout veraltet~~ (erledigt 2026-10-09).
   - Re-Design-Text bestätigen; Firmenwortlaut „Raum & Ordnung" vs. Logo-Unterzeile; rechtliche
     Platzhalter: keine mehr — Impressum, Datenschutz und AGB vollständig (2026-10-09).
@@ -38,6 +38,17 @@
   Nächste Sitzung (2026-10-11): Website-Inhalte bearbeiten (Nutzer gibt Aufträge).
   **2026-10-13 ab ~15:30 (Nutzer):** Workspace-Anmeldung office@ erneut im Chrome-Gastfenster (Abschnitt „Geschäfts-Mailbox"),
   dann Screenshot des `google-site-verification=…`-Codes an Claude → DNS in konsoleH (vorher Rückfrage).
+
+## Qualifikation: WIFI Wien ergänzt (2026-10-12, Nutzerauftrag per Screenshot) — Status siehe Zeile darunter
+
+- Karte „Über 10 Jahre Erfahrung in der Innenraumgestaltung": neu Institution „Wirtschaftsförderungsinstitut der Wirtschaftskammer Wien"
+  (grün, wie bei den anderen Karten) + Zeile „Lehrgang Innenraumgestaltung"; „Zahlreiche umgesetzte Projekte." entfernt.
+  EN: gleiche Institution (Eigenname), „Interior design course"; „Numerous completed projects." entfernt.
+  Technisch: `credentials.experience` hat jetzt `issuer` (Typ + DE/EN), `HomePage.tsx` reicht das Objekt direkt durch.
+  JSON-LD unverändert (Erfahrungs-Karte bleibt bewusst außerhalb von `hasCredential`). Version bleibt 1.5 (nicht beauftragt).
+- **Offen:** Handout (`handout/claudia-plessl-uebersicht.html`, nur lokal) enthält noch „Zahlreiche umgesetzte Projekte." — nicht geändert.
+- Geprüft lokal: DE 1440 px (3 Karten nebeneinander, Text korrekt), EN 393 px; kein Überlauf, keine Konsolenmeldungen.
+- Rollback: `git revert` des Commits.
 
 ## „Angebot anfragen" auch unter Pakete & Preise + Version 1.5 (2026-10-12, Nutzerauftrag per Screenshot) — **LIVE** (`04d3fdf`, Deploy `38262483325` success; live `/` + `/en/`: 2 Angebots-Links + Version 1.5)
 
