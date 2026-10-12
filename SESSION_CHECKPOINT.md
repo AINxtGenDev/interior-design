@@ -39,7 +39,7 @@
   **2026-10-13 ab ~15:30 (Nutzer):** Workspace-Anmeldung office@ erneut im Chrome-Gastfenster (Abschnitt „Geschäfts-Mailbox"),
   dann Screenshot des `google-site-verification=…`-Codes an Claude → DNS in konsoleH (vorher Rückfrage).
 
-## Version 1.6 + Handout-Qualifikation (2026-10-12, Nutzerauftrag) — Status siehe Zeile darunter
+## Version 1.6 + Handout-Qualifikation (2026-10-12, Nutzerauftrag) — **LIVE** (`3c5c39c`, Deploy `38264616963` success; live `/` + `/en/`: Version 1.6, WIFI-Karte, alter Satz weg)
 
 - Footer „Version 1.5" → **„Version 1.6 12.10.2026"**.
 - Handout (`handout/claudia-plessl-uebersicht.html`, nur lokal, nicht deployt): erste Qualifikationskarte wie Website —
@@ -50,9 +50,11 @@
   (Environment `github-pages` ohne Reviewer/Wait-Timer); gleichzeitig GitHub-Incident „Actions, Pull Requests and Issues" (investigating, 14:37 UTC).
   Live zeigt noch die alte Karte. Nächster erfolgreicher Deploy bringt alles mit. Falls nach Incident-Ende weiter hängend:
   `gh run cancel <id>` + `gh run rerun <id>` bzw. neuen Lauf über `workflow_dispatch` (falls konfiguriert).
+- **Stau gelöst 18:1x UTC:** Hängenden Lauf `38263113336` auf Anweisung des Nutzers abgebrochen (Incident noch offen); danach lief `38264616963` in ~1 min durch.
+  Lehre: hängt `deploy` auf „waiting" ohne Reviewer/Timer → `gh run cancel <id>`, der wartende Nachfolger startet sofort.
 - Rollback: `git revert` des Commits.
 
-## Qualifikation: WIFI Wien ergänzt (2026-10-12, Nutzerauftrag per Screenshot) — Status siehe Zeile darunter
+## Qualifikation: WIFI Wien ergänzt (2026-10-12, Nutzerauftrag per Screenshot) — **LIVE** (`eb75207`, mit Deploy `38264616963` ausgeliefert)
 
 - Karte „Über 10 Jahre Erfahrung in der Innenraumgestaltung": neu Institution „Wirtschaftsförderungsinstitut der Wirtschaftskammer Wien"
   (grün, wie bei den anderen Karten) + Zeile „Lehrgang Innenraumgestaltung"; „Zahlreiche umgesetzte Projekte." entfernt.
