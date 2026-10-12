@@ -2,7 +2,7 @@
 
 ## Meta
 
-- Datum: 2026-10-11 (Workspace-Mailbox office@ in Arbeit, siehe eigener Abschnitt; Website: QR + Footer-Logo am Handy zentriert; **Video Frame 5: alle 4 Schritte auf einer Seite**; **Video-Stimme ruhig, souverän, vertrauenswürdig** (ersetzt die lebendige Fassung vom selben Tag), siehe Abschnitte)
+- Datum: 2026-10-12 (**SEO-Branch `seo` nach `main` gemerged und LIVE**, siehe Abschnitt SEO-Plan; Workspace-Mailbox office@ in Arbeit, siehe eigener Abschnitt; Website: QR + Footer-Logo am Handy zentriert; **Video Frame 5: alle 4 Schritte auf einer Seite**; **Video-Stimme ruhig, souverän, vertrauenswürdig** (ersetzt die lebendige Fassung vom selben Tag), siehe Abschnitte)
 - Repository: `AINxtGenDev/interior-design` (public)
 - Arbeitskopie: `/home/nuc8/05_development/55_laulau/78_plessl-website`
   (**verschoben am 2026-08-16** — vorher `/home/nuc8/05_development/78_plessl-website`)
@@ -39,7 +39,7 @@
   **2026-10-12 ab ~09:30 (Nutzer):** Workspace-Anmeldung office@ im Chrome-Gastfenster (Schritte im Abschnitt „Geschäfts-Mailbox"),
   dann Screenshot des `google-site-verification=…`-Codes an Claude → DNS in konsoleH (vorher Rückfrage).
 
-## SEO-Plan (2026-10-11, Nutzerauftrag) — **Search Console live; Website-Änderungen auf Branch `seo`, NICHT live**
+## SEO-Plan (2026-10-11, Nutzerauftrag) — **LIVE seit 2026-10-12** (`main` fast-forward `b7edeaa..a7c24fb`, Deploy `38251948753` success)
 
 - `seo-plan.md` (Repo-Root, committet auf Nutzerauftrag 2026-10-11). Version 3.1: Code-Audit + Live-Audit
   (Lighthouse mobil `/` Perf 94, `/en/` 89, LCP sim. 3,1/3,8 s; A11y/BP/SEO 100) + kritischer Reviewer in 3 Runden (6/10 → 8/10 → 9/10; letzte Must-Fixes eingearbeitet, v3.1).
@@ -83,6 +83,11 @@
   (40,8/58,2 s), Logo low/eager geladen, LCP = Hero (140 ms ungedrosselt), keine kaputten Bilder, kein Überlauf. 1440 px EN: Angebots-Dropdown ok.
   Konsole `/`, `/datenschutz/`, `/en/legal/`: keine Fehler/Warnungen. **Pixelvergleich `/` 393 px lokal vs. live:** gleiche Höhe (14181 px), einzige
   Abweichung 64×6 px = Video-Pufferbalken → visuell identisch.
+- **Merge + Live-Prüfung (2026-10-12, Nutzerauftrag):** `main` per `--ff-only` auf `seo` (`a7c24fb`) gebracht, gepusht, Deploy `38251948753` success.
+  Live per curl: alle 6 Seiten + sitemap.xml + robots.txt → 200; `/gibtsnicht/` → 404 mit Titel „Seite nicht gefunden…" und `noindex`;
+  `/impressum/` og:url = eigene URL, `index, follow`; Startseite WebSite alternateName „Claudia Plessl", kein Logo-Preload; Sitemap 6× lastmod.
+  Rollback: `git revert --no-edit 827d919^..a52ee7e && git push` (nur Website-Commits; Checkpoint-Commits egal).
+- Nächste Schritte: Rich Results Test für `/` und `/en/`; Sitemap in GSC erneut einreichen und Status „Couldn't fetch" prüfen.
 - Noch offen aus dem Plan: H1/H2 Titel/Descriptions (Freigabe Claudia), K2 Google Unternehmensprofil, H4 Bing/Apple, H5 Bewertungen, M4 Verzeichnisse,
   M6 Bilder, M8 KI-Bild-IPTC, GSC-Sitemapstatus „Couldn't fetch" in einigen Tagen nachsehen.
 - Offen: Wortlaut Titel (Claudia), GBP-Kategorie/Adresse.
