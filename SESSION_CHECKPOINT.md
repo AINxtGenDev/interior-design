@@ -39,7 +39,7 @@
   **2026-10-13 ab ~15:30 (Nutzer):** Workspace-Anmeldung office@ erneut im Chrome-Gastfenster (Abschnitt „Geschäfts-Mailbox"),
   dann Screenshot des `google-site-verification=…`-Codes an Claude → DNS in konsoleH (vorher Rückfrage).
 
-## Video-Bildunterschrift entfernt, Version 1.2 (2026-10-12, Nutzerauftrag per Screenshot) — Status siehe Zeile darunter
+## Video-Bildunterschrift entfernt, Version 1.2 (2026-10-12, Nutzerauftrag per Screenshot) — **LIVE** (`5597931`, Deploy `38260342744` success; live `/` + `/en/`: Version 1.2, keine figcaption)
 
 - `figcaption` „Vorstellungsvideo" unter dem Video entfernt (`IntroVideo.tsx`); EN „Introduction" ebenso (gleiche Komponente);
   Feld `video.caption` aus `site.ts` (Typ + DE/EN) gelöscht. Footer-KI-Hinweis („…Stimme im Vorstellungsvideo…") bleibt.
