@@ -39,7 +39,7 @@
   **2026-10-13 ab ~15:30 (Nutzer):** Workspace-Anmeldung office@ erneut im Chrome-Gastfenster (Abschnitt „Geschäfts-Mailbox"),
   dann Screenshot des `google-site-verification=…`-Codes an Claude → DNS in konsoleH (vorher Rückfrage).
 
-## „So arbeiten wir zusammen" neu getextet (2026-10-12, Nutzerauftrag per Screenshot)
+## „So arbeiten wir zusammen" neu getextet (2026-10-12, Nutzerauftrag per Screenshot) — **LIVE** (`cb6d867`, Deploy `38290994541` success)
 
 - `process.lead` + alle vier Schritte (Raumcheck, Konzept & Angebot, Umsetzung, Nachbetreuung) wortgetreu nach Vorlage des Nutzers; Titel unverändert.
   Zeilenumbrüche der Vorlage (Schritt 02 und 04) als `\n` im Text, `HomePage.tsx` rendert sie mit `whitespace-pre-line`.
