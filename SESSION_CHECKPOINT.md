@@ -39,7 +39,7 @@
   **2026-10-13 ab ~15:30 (Nutzer):** Workspace-Anmeldung office@ erneut im Chrome-Gastfenster (Abschnitt „Geschäfts-Mailbox"),
   dann Screenshot des `google-site-verification=…`-Codes an Claude → DNS in konsoleH (vorher Rückfrage).
 
-## Über-mich-Foto erneut getauscht + Version 1.7 (2026-10-12, Nutzerauftrag)
+## Über-mich-Foto erneut getauscht + Version 1.7 (2026-10-12, Nutzerauftrag) — **LIVE** (`f635bff`, Deploy `38290385677` success; live `/` + `/en/`: portrait-1147, Version 1.7)
 
 - Quelle jetzt `Foto Homepage über mich.png` (1147×1372, hochformatig; vorher `Foto Homepage final über mich.png` 1275×1234).
   `brand/build_web_assets.py` (`main()` + Docstring) und `README.md` zeigen auf die neue Datei; nur `build_portrait` ausgeführt.
@@ -49,7 +49,7 @@
 - Geprüft lokal: tsc, eslint, Build sauber; 393 px (360×431, Seitenverhältnis korrekt, kein Überlauf) und 1440 px (410×490) — Foto vollständig, nicht verzerrt.
 - Rollback: `git revert` des Commits.
 
-## Kontakt-Einleitung gekürzt (2026-10-12, Nutzerauftrag per Screenshot)
+## Kontakt-Einleitung gekürzt (2026-10-12, Nutzerauftrag per Screenshot) — **LIVE** (`0b0b337`, Deploy `38289951412` success)
 
 - „Reden wir über Ihren Raum" (`contact.lead`): DE jetzt „Erzählen Sie mir kurz, worum es geht. Sie bekommen innerhalb von zwei Werktagen eine Antwort."
   EN sinngemäß angeglichen: „Tell me briefly what it is about. You will get a reply within two working days."
