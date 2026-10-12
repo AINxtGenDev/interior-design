@@ -39,7 +39,7 @@
   **2026-10-13 ab ~15:30 (Nutzer):** Workspace-Anmeldung office@ erneut im Chrome-Gastfenster (Abschnitt „Geschäfts-Mailbox"),
   dann Screenshot des `google-site-verification=…`-Codes an Claude → DNS in konsoleH (vorher Rückfrage).
 
-## „Angebot anfragen" auch unter Pakete & Preise + Version 1.5 (2026-10-12, Nutzerauftrag per Screenshot) — Status siehe Zeile darunter
+## „Angebot anfragen" auch unter Pakete & Preise + Version 1.5 (2026-10-12, Nutzerauftrag per Screenshot) — **LIVE** (`04d3fdf`, Deploy `38262483325` success; live `/` + `/en/`: 2 Angebots-Links + Version 1.5)
 
 - Zweiter, identischer Button im Abschnitt `#pakete`, zentriert unter dem Netto-/Kleinunternehmer-Hinweis (mt-10, max 360 px).
   Gleicher Text und dieselbe Mail wie der Button unter „Mein Angebot" — mailto jetzt einmal als `quoteMailto` in `HomePage.tsx`, beide Buttons nutzen ihn.
