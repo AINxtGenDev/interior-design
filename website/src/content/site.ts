@@ -108,6 +108,10 @@ export type Content = {
     lead: string;
     unsupported: string;
     captionsLabel: string;
+    /** Button below the film; opens a pre-filled email (mailto). */
+    ctaLabel: string;
+    ctaSubject: string;
+    ctaBody: string;
   };
   services: {
     heading: string;
@@ -255,6 +259,10 @@ const de: Content = {
     lead: "Wie aus Ordnung und Gestaltung ein Raum wird, der zu Ihrem Alltag passt.",
     unsupported: "Ihr Browser kann dieses Video nicht abspielen.",
     captionsLabel: "Deutsch",
+    ctaLabel: "Kostenloses Erstgespräch vereinbaren",
+    ctaSubject: "Anfrage für ein kostenloses Erstgespräch",
+    ctaBody:
+      "Guten Tag Frau Plessl,\n\nich interessiere mich für ein kostenloses Erstgespräch und möchte gerne einen Termin vereinbaren.\n\nBitte kontaktieren Sie mich, um einen passenden Zeitpunkt abzustimmen.\n\nMit freundlichen Grüßen\n",
   },
   services: {
     heading: "Mein Angebot",
@@ -494,6 +502,10 @@ const en: Content = {
     lead: "How order and design combine into a room that fits the way you actually live.",
     unsupported: "Your browser cannot play this video.",
     captionsLabel: "German",
+    ctaLabel: "Schedule a Free Initial Consultation",
+    ctaSubject: "Request for a Free Initial Consultation",
+    ctaBody:
+      "Dear Ms Plessl,\n\nI am interested in a free initial consultation and would like to arrange an appointment.\n\nPlease contact me to coordinate a suitable time.\n\nKind regards\n",
   },
   services: {
     heading: "My services",

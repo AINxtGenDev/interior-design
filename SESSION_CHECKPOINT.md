@@ -2,7 +2,7 @@
 
 ## Meta
 
-- Datum: 2026-10-12 (**Video-Bildunterschrift entfernt, Footer „Version 1.2 12.10.2026“**; **Über-mich-Porträt neu** (`Foto Homepage final über mich.png`), siehe eigener Abschnitt; **Video Frame 3 neues Porträt + Footer „Version 1.1 12.10.2026“**, siehe eigener Abschnitt; **SEO-Branch `seo` nach `main` gemerged und LIVE**, siehe Abschnitt SEO-Plan; Workspace-Mailbox office@ in Arbeit, siehe eigener Abschnitt; Website: QR + Footer-Logo am Handy zentriert; **Video Frame 5: alle 4 Schritte auf einer Seite**; **Video-Stimme ruhig, souverän, vertrauenswürdig** (ersetzt die lebendige Fassung vom selben Tag), siehe Abschnitte)
+- Datum: 2026-10-12 (**Button „Kostenloses Erstgespräch vereinbaren“ unter dem Video (mailto), Footer „Version 1.3 12.10.2026“**; **Video-Bildunterschrift entfernt, Footer „Version 1.2 12.10.2026“**; **Über-mich-Porträt neu** (`Foto Homepage final über mich.png`), siehe eigener Abschnitt; **Video Frame 3 neues Porträt + Footer „Version 1.1 12.10.2026“**, siehe eigener Abschnitt; **SEO-Branch `seo` nach `main` gemerged und LIVE**, siehe Abschnitt SEO-Plan; Workspace-Mailbox office@ in Arbeit, siehe eigener Abschnitt; Website: QR + Footer-Logo am Handy zentriert; **Video Frame 5: alle 4 Schritte auf einer Seite**; **Video-Stimme ruhig, souverän, vertrauenswürdig** (ersetzt die lebendige Fassung vom selben Tag), siehe Abschnitte)
 - Repository: `AINxtGenDev/interior-design` (public)
 - Arbeitskopie: `/home/nuc8/05_development/55_laulau/78_plessl-website`
   (**verschoben am 2026-08-16** — vorher `/home/nuc8/05_development/78_plessl-website`)
@@ -38,6 +38,20 @@
   Nächste Sitzung (2026-10-11): Website-Inhalte bearbeiten (Nutzer gibt Aufträge).
   **2026-10-13 ab ~15:30 (Nutzer):** Workspace-Anmeldung office@ erneut im Chrome-Gastfenster (Abschnitt „Geschäfts-Mailbox"),
   dann Screenshot des `google-site-verification=…`-Codes an Claude → DNS in konsoleH (vorher Rückfrage).
+
+## CTA-Button unter dem Video + Version 1.3 (2026-10-12, Nutzerauftrag) — Status siehe Zeile darunter
+
+- `IntroVideo.tsx`: zentrierter `btn btn-primary` direkt unter dem Video (mt-8), gleiche Breite wie das Video
+  (`max-w-[min(360px,calc(70svh*9/16))]`, Button `w-full`) → am Handy 336 px bündig mit dem Video, Label bricht dort zweizeilig um.
+  `mailto:` an `CONTACT.email` (**claudiaplessl@gmail.com** — office@ noch nicht eingerichtet; später umstellen), Betreff/Text per `encodeURIComponent`.
+- Texte in `site.ts` (`video.ctaLabel/ctaSubject/ctaBody`):
+  DE „Kostenloses Erstgespräch vereinbaren" / Betreff „Anfrage für ein kostenloses Erstgespräch" / Anrede „Guten Tag Frau Plessl," (wie die bestehende Raumcheck-Mail);
+  EN wörtlich aus dem Auftrag „Schedule a Free Initial Consultation" / „Request for a Free Initial Consultation" / Anrede „Dear Ms Plessl,".
+- **Mit Claudia klären:** „kostenloses Erstgespräch" ist ein neues Angebot — Website nennt sonst nur den Raumcheck „ab EUR 110"; Umfang/Dauer des Gratis-Gesprächs nirgends beschrieben.
+- Footer „Version 1.2" → **„Version 1.3 12.10.2026"**.
+- Geprüft lokal: DE 393 px (Button 336×62 = Videobreite, zentriert, Abstand 32 px), EN 1440 px (355×48 = Videobreite);
+  mailto dekodiert: Empfänger/Betreff/Text korrekt DE+EN; kein Überlauf, keine Konsolenmeldungen; Version 1.3 DE/EN.
+- Rollback: `git revert` des Commits.
 
 ## Video-Bildunterschrift entfernt, Version 1.2 (2026-10-12, Nutzerauftrag per Screenshot) — **LIVE** (`5597931`, Deploy `38260342744` success; live `/` + `/en/`: Version 1.2, keine figcaption)
 

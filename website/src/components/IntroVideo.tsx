@@ -1,4 +1,4 @@
-import { ASSET_PREFIX, type Content, type Locale } from "@/content/site";
+import { ASSET_PREFIX, CONTACT, type Content, type Locale } from "@/content/site";
 
 /**
  * Self-hosted introduction film.
@@ -19,6 +19,9 @@ export default function IntroVideo({
   const src = `${ASSET_PREFIX}/video/vorstellung.mp4`;
   const poster = `${ASSET_PREFIX}/video/vorstellung-poster.jpg`;
   const captions = `${ASSET_PREFIX}/video/vorstellung-de.vtt`;
+  const mailto = `mailto:${CONTACT.email}?subject=${encodeURIComponent(
+    content.video.ctaSubject,
+  )}&body=${encodeURIComponent(content.video.ctaBody)}`;
 
   return (
     <section aria-labelledby="video-heading" className="bg-sage-light">
@@ -56,6 +59,13 @@ export default function IntroVideo({
               />
               {content.video.unsupported}
             </video>
+          </div>
+
+          {/* Same width as the film above, so the two read as one block. */}
+          <div className="mx-auto mt-8 w-full max-w-[min(360px,calc(70svh*9/16))]">
+            <a href={mailto} className="btn btn-primary w-full">
+              {content.video.ctaLabel}
+            </a>
           </div>
         </figure>
 
