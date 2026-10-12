@@ -33,6 +33,9 @@ export default function HomePage({ locale }: { locale: Locale }) {
   const mailto = `mailto:${CONTACT.email}?subject=${encodeURIComponent(
     c.contact.mailSubject,
   )}&body=${encodeURIComponent(c.contact.mailBody)}`;
+  const quoteMailto = `mailto:${CONTACT.email}?subject=${encodeURIComponent(
+    c.services.ctaSubject,
+  )}&body=${encodeURIComponent(c.services.ctaBody)}`;
 
   return (
     <>
@@ -104,12 +107,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
           </article>
 
           <div className="mx-auto mt-10 w-full max-w-[360px]">
-            <a
-              href={`mailto:${CONTACT.email}?subject=${encodeURIComponent(
-                c.services.ctaSubject,
-              )}&body=${encodeURIComponent(c.services.ctaBody)}`}
-              className="btn btn-primary w-full"
-            >
+            <a href={quoteMailto} className="btn btn-primary w-full">
               {c.services.ctaLabel}
             </a>
           </div>
@@ -193,6 +191,12 @@ export default function HomePage({ locale }: { locale: Locale }) {
 
           {/* anthrazit-mid is 4.26:1 on anthrazit-light; small text needs 4.5:1. */}
           <p className="small mt-6 max-w-[40rem] text-anthrazit-dark">{c.packages.note}</p>
+
+          <div className="mx-auto mt-10 w-full max-w-[360px]">
+            <a href={quoteMailto} className="btn btn-primary w-full">
+              {c.services.ctaLabel}
+            </a>
+          </div>
         </Section>
 
         {/* ─────────── Über mich ─────────── */}

@@ -2,7 +2,7 @@
 
 ## Meta
 
-- Datum: 2026-10-12 (**Button „Angebot anfragen“ am Ende von „Mein Angebot“ (mailto), Footer „Version 1.4 12.10.2026“**; **Button „Kostenloses Erstgespräch vereinbaren“ unter dem Video (mailto), Footer „Version 1.3 12.10.2026“**; **Video-Bildunterschrift entfernt, Footer „Version 1.2 12.10.2026“**; **Über-mich-Porträt neu** (`Foto Homepage final über mich.png`), siehe eigener Abschnitt; **Video Frame 3 neues Porträt + Footer „Version 1.1 12.10.2026“**, siehe eigener Abschnitt; **SEO-Branch `seo` nach `main` gemerged und LIVE**, siehe Abschnitt SEO-Plan; Workspace-Mailbox office@ in Arbeit, siehe eigener Abschnitt; Website: QR + Footer-Logo am Handy zentriert; **Video Frame 5: alle 4 Schritte auf einer Seite**; **Video-Stimme ruhig, souverän, vertrauenswürdig** (ersetzt die lebendige Fassung vom selben Tag), siehe Abschnitte)
+- Datum: 2026-10-12 (**„Angebot anfragen“ auch unter „Pakete & Preise“, Footer „Version 1.5 12.10.2026“**; **Button „Angebot anfragen“ am Ende von „Mein Angebot“ (mailto), Footer „Version 1.4 12.10.2026“**; **Button „Kostenloses Erstgespräch vereinbaren“ unter dem Video (mailto), Footer „Version 1.3 12.10.2026“**; **Video-Bildunterschrift entfernt, Footer „Version 1.2 12.10.2026“**; **Über-mich-Porträt neu** (`Foto Homepage final über mich.png`), siehe eigener Abschnitt; **Video Frame 3 neues Porträt + Footer „Version 1.1 12.10.2026“**, siehe eigener Abschnitt; **SEO-Branch `seo` nach `main` gemerged und LIVE**, siehe Abschnitt SEO-Plan; Workspace-Mailbox office@ in Arbeit, siehe eigener Abschnitt; Website: QR + Footer-Logo am Handy zentriert; **Video Frame 5: alle 4 Schritte auf einer Seite**; **Video-Stimme ruhig, souverän, vertrauenswürdig** (ersetzt die lebendige Fassung vom selben Tag), siehe Abschnitte)
 - Repository: `AINxtGenDev/interior-design` (public)
 - Arbeitskopie: `/home/nuc8/05_development/55_laulau/78_plessl-website`
   (**verschoben am 2026-08-16** — vorher `/home/nuc8/05_development/78_plessl-website`)
@@ -38,6 +38,15 @@
   Nächste Sitzung (2026-10-11): Website-Inhalte bearbeiten (Nutzer gibt Aufträge).
   **2026-10-13 ab ~15:30 (Nutzer):** Workspace-Anmeldung office@ erneut im Chrome-Gastfenster (Abschnitt „Geschäfts-Mailbox"),
   dann Screenshot des `google-site-verification=…`-Codes an Claude → DNS in konsoleH (vorher Rückfrage).
+
+## „Angebot anfragen" auch unter Pakete & Preise + Version 1.5 (2026-10-12, Nutzerauftrag per Screenshot) — Status siehe Zeile darunter
+
+- Zweiter, identischer Button im Abschnitt `#pakete`, zentriert unter dem Netto-/Kleinunternehmer-Hinweis (mt-10, max 360 px).
+  Gleicher Text und dieselbe Mail wie der Button unter „Mein Angebot" — mailto jetzt einmal als `quoteMailto` in `HomePage.tsx`, beide Buttons nutzen ihn.
+- Footer „Version 1.4" → **„Version 1.5 12.10.2026"**.
+- Geprüft lokal: DE 1440 px (2 Links, gleiche href, Button 360×48 zentriert in `#pakete`), EN 393 px (360×48, „Request a quote");
+  kein Überlauf, keine Konsolenmeldungen; Version 1.5 DE/EN. (Erster `npm run build` lief ohne sichtbare Ausgabe ins Leere, zweiter sauber — Ursache nicht geklärt.)
+- Rollback: `git revert` des Commits.
 
 ## Button „Angebot anfragen" + Version 1.4 (2026-10-12, Nutzerauftrag per Screenshot) — **LIVE** (`898908f`, Deploy `38261988006` success; live `/` + `/en/`: Button-mailto + Version 1.4)
 
