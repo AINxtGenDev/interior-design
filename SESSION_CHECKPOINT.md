@@ -36,7 +36,7 @@
   (`npx http-server@14.1.1 -p 5000 -s` in `website/out`; `python -m http.server` kann nicht seeken) und `?cb=` gegen Cache.
 - Nächste Schritte: offene Punkte oben mit Claudia klären; Video-Takes abhören lassen (Key bis ~2026-10-15).
   Nächste Sitzung (2026-10-11): Website-Inhalte bearbeiten (Nutzer gibt Aufträge).
-  **2026-10-12 ab ~09:30 (Nutzer):** Workspace-Anmeldung office@ im Chrome-Gastfenster (Schritte im Abschnitt „Geschäfts-Mailbox"),
+  **2026-10-13 ab ~15:30 (Nutzer):** Workspace-Anmeldung office@ erneut im Chrome-Gastfenster (Abschnitt „Geschäfts-Mailbox"),
   dann Screenshot des `google-site-verification=…`-Codes an Claude → DNS in konsoleH (vorher Rückfrage).
 
 ## SEO-Plan (2026-10-11, Nutzerauftrag) — **LIVE seit 2026-10-12** (`main` fast-forward `b7edeaa..a7c24fb`, Deploy `38251948753` success)
@@ -173,8 +173,12 @@
   Herkunft: Nutzer-Screenshot 15:13 zeigt `workspace.google.com/signup/upgrade/…` im normalen Chrome = Gmail-Upgrade-Weg.
   **Nutzer wählte 2026-10-12 Option 1 (getrenntes Konto).** C00xfmaow per bsk erst auf **Flexibel** umgestellt (Kündigungsdialog
   warnte: Jahresvertrag = Restbetrag fällig), dann **gekündigt** (wirksam 2026-10-12); Admin → Abos zeigt „No subscriptions".
-- **Nächster Schritt (Nutzer):** Chrome-**Gastfenster** → Workspace-Anmeldung (Daten oben) → Screenshot des `google-site-verification=…`-Codes.
-  Falls Domain „bereits verwendet": bis zu 24 h warten bzw. Support.
+- 2026-10-12 ~15:24 Gastfenster-Anmeldung (Nutzer): wieder „Diese Domain gehört Ihnen" (`/business/signup/reclaimdomain`).
+  Vermutung (nicht verifiziert): Domain war im Gmail-Upgrade C00xfmaow eingetragen (Tab „Domain bestätigen…"), Kündigung ~15:20 → 24-h-Sperre.
+- **Nächster Schritt (Nutzer, 2026-10-13 ab ~15:30):** Gastfenster → `https://workspace.google.com/business/signup/welcome?hl=de` → Daten oben
+  → Screenshot des `google-site-verification=…`-Codes an Claude → DNS in konsoleH (Diff zeigen, Rückfrage vor Speichern).
+  Wieder gesperrt → „Support kontaktieren" (Text: Testabos am Gmail-Konto 2026-10-11/12 gekündigt, Domain für neues Konto freigeben).
+  Auf der Sperrseite **nicht** „Anmelden"/„Domain entfernen"/„Passwort zurücksetzen" klicken.
 
 ## Video-Poster: Text über den Play-Button gehoben (2026-10-09, Nutzerauftrag per Handy-Screenshot) — **LIVE** (`3fba4f3`, Deploy `37974814824` success; live Poster SHA-256 = lokal `70335b7d…`)
 
