@@ -8,3 +8,13 @@ out/
 
 # Client change decks (source material, not website content)
 *.pptx
+
+# Local-only source/test images in the repo root (not website content)
+/Logo_kurz.png
+/Video Ordnung Gestaltung.png
+/Video Start.png
+/Video Start_landscape.png
+/Foto Homepage final Video.png
+
+# Python bytecode
+__pycache__/

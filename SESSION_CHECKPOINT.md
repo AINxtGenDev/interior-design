@@ -27,6 +27,7 @@
 - Ungetrackt im Repo-Root, **bewusst nicht committen** (Nutzer 2026-10-09): `Logo_kurz.png` = Initialen des Nutzers („my initials");
   `Video Ordnung Gestaltung.png` = nur zum Testen.
   `Video Start.png` → Quelle des Video-Posters (2026-10-09); `Video Start_landscape.png` unbenutzt (Video ist 9:16). Beide nicht committet.
+  **2026-10-13:** Diese Bilder plus `Foto Homepage final Video.png` und `brand/__pycache__/*.pyc` waren versehentlich in `19ca69c` (seo) committet → per `git rm --cached` entfernt, in `.gitignore` eingetragen, Dateien lokal behalten. In der Historie von `19ca69c` bleiben sie öffentlich sichtbar (kein Force-Push, Nutzerentscheidung).
 - Arbeitsweise: Änderung → `tsc`/`eslint`/`npm run build` → lokal `out/` auf Port 5000 im Browser prüfen →
   Commit + Push → Deploy abwarten → Live per curl prüfen → Checkpoint „LIVE" nachtragen.
   Video-Änderungen: Frame in `79_plessl-video/…/compositions/frames/` → `npm run check` → `hyperframes@0.8.2 snapshot`
