@@ -2,7 +2,7 @@
 
 ## Meta
 
-- Datum: 2026-10-12 (**FAQ „Was kostet der Einstieg?“ an Schritt 02 angeglichen**; **„So arbeiten wir zusammen“ neu getextet**; **Über-mich-Foto erneut getauscht, Version 1.7**; **Kontakt-Einleitung gekürzt**; **Footer „Version 1.6 12.10.2026“, Handout-Qualifikation an Website angeglichen**; **Qualifikation: WIFI Wien Lehrgang Innenraumgestaltung ergänzt, „Zahlreiche umgesetzte Projekte“ entfernt**; **„Angebot anfragen“ auch unter „Pakete & Preise“, Footer „Version 1.5 12.10.2026“**; **Button „Angebot anfragen“ am Ende von „Mein Angebot“ (mailto), Footer „Version 1.4 12.10.2026“**; **Button „Kostenloses Erstgespräch vereinbaren“ unter dem Video (mailto), Footer „Version 1.3 12.10.2026“**; **Video-Bildunterschrift entfernt, Footer „Version 1.2 12.10.2026“**; **Über-mich-Porträt neu** (`Foto Homepage final über mich.png`), siehe eigener Abschnitt; **Video Frame 3 neues Porträt + Footer „Version 1.1 12.10.2026“**, siehe eigener Abschnitt; **SEO-Branch `seo` nach `main` gemerged und LIVE**, siehe Abschnitt SEO-Plan; Workspace-Mailbox office@ in Arbeit, siehe eigener Abschnitt; Website: QR + Footer-Logo am Handy zentriert; **Video Frame 5: alle 4 Schritte auf einer Seite**; **Video-Stimme ruhig, souverän, vertrauenswürdig** (ersetzt die lebendige Fassung vom selben Tag), siehe Abschnitte)
+- Datum: 2026-10-13 (Workspace Starter Flexibel aktiviert; Google-Supportfall **76454656**, Registrierung blockiert; nächster Versuch **20.10.2026 nach 21:00 Europe/Vienna**; Website-Stand unverändert vom 12.10.; **FAQ „Was kostet der Einstieg?“ an Schritt 02 angeglichen**; **„So arbeiten wir zusammen“ neu getextet**; **Über-mich-Foto erneut getauscht, Version 1.7**; **Kontakt-Einleitung gekürzt**; **Footer „Version 1.6 12.10.2026“, Handout-Qualifikation an Website angeglichen**; **Qualifikation: WIFI Wien Lehrgang Innenraumgestaltung ergänzt, „Zahlreiche umgesetzte Projekte“ entfernt**; **„Angebot anfragen“ auch unter „Pakete & Preise“, Footer „Version 1.5 12.10.2026“**; **Button „Angebot anfragen“ am Ende von „Mein Angebot“ (mailto), Footer „Version 1.4 12.10.2026“**; **Button „Kostenloses Erstgespräch vereinbaren“ unter dem Video (mailto), Footer „Version 1.3 12.10.2026“**; **Video-Bildunterschrift entfernt, Footer „Version 1.2 12.10.2026“**; **Über-mich-Porträt neu** (`Foto Homepage final über mich.png`), siehe eigener Abschnitt; **Video Frame 3 neues Porträt + Footer „Version 1.1 12.10.2026“**, siehe eigener Abschnitt; **SEO-Branch `seo` nach `main` gemerged und LIVE**, siehe Abschnitt SEO-Plan; Workspace-Mailbox office@ in Arbeit, siehe eigener Abschnitt; Website: QR + Footer-Logo am Handy zentriert; **Video Frame 5: alle 4 Schritte auf einer Seite**; **Video-Stimme ruhig, souverän, vertrauenswürdig** (ersetzt die lebendige Fassung vom selben Tag), siehe Abschnitte)
 - Repository: `AINxtGenDev/interior-design` (public)
 - Arbeitskopie: `/home/nuc8/05_development/55_laulau/78_plessl-website`
   (**verschoben am 2026-08-16** — vorher `/home/nuc8/05_development/78_plessl-website`)
@@ -36,8 +36,9 @@
   (`npx http-server@14.1.1 -p 5000 -s` in `website/out`; `python -m http.server` kann nicht seeken) und `?cb=` gegen Cache.
 - Nächste Schritte: offene Punkte oben mit Claudia klären; Video-Takes abhören lassen (Key bis ~2026-10-15).
   Nächste Sitzung (2026-10-11): Website-Inhalte bearbeiten (Nutzer gibt Aufträge).
-  **2026-10-13 ab ~15:30 (Nutzer):** Workspace-Anmeldung office@ erneut im Chrome-Gastfenster (Abschnitt „Geschäfts-Mailbox"),
-  dann Screenshot des `google-site-verification=…`-Codes an Claude → DNS in konsoleH (vorher Rückfrage).
+  **Workspace-Fortsetzung:** Bis **20.10.2026 nach 21:00 Europe/Vienna** keine weiteren Domainregistrierungs-/Verifikationsversuche.
+  Danach im bestehenden Gmail-basierten Workspace-Konto die Custom-Email-Einrichtung fortsetzen; bei erneutem Fehler Supportfall **76454656** eskalieren.
+  **Ab 27.10.2026 kostenpflichtig:** Starter Flexibel, 1 Nutzer, 8,10 €/Monat zzgl. anwendbarer Steuern. Vorher Status prüfen.
 
 ## „So arbeiten wir zusammen" neu getextet (2026-10-12, Nutzerauftrag per Screenshot) — **LIVE** (`cb6d867`, Deploy `38290994541` success)
 
@@ -276,34 +277,53 @@
   (±1 px), 768 px und 852×393 quer weiterhin links bei 24 px; kein Überlauf; Konsole nur bekannter Hinweis „Lazy-loaded images".
 - Rollback: `git revert 06ce95a`.
 
-## Geschäfts-Mailbox office@claudiaplessl.at (Google Workspace) — 2026-10-11, **IN ARBEIT**
+## Geschäfts-Mailbox office@claudiaplessl.at (Google Workspace) — Stand 2026-10-13, **BLOCKIERT BIS SUPPORT-WARTEFRIST**
 
-- Ziel (Nutzer): eigenes, **getrenntes** Workspace-Konto `office@claudiaplessl.at`; `claudia.plessl@gmail.com` bleibt privat und unabhängig.
-  **Nicht** den „Custom email"-Weg im Gmail-Konto nutzen (würde das Gmail-Konto umwandeln).
-- Erledigt: Business-Standard-Testabo am Gmail-Konto (Kunden-ID C03zbx2sy, war Jahresvertrag) erst auf Flexibel umgestellt, dann
-  **gekündigt** (2026-10-11 ~09:30, „organization's account is deleted"; Gmail laut Google unberührt, Posteingang geprüft). Es hielt eine
-  halbe Einrichtung `office@claudiaplessl.at` → Domain bei Google „bereits verwendet".
-- Google: Freigabe nach Entfernen bis zu **24 h** → frühestens **2026-10-12 ~09:30** neu versuchen.
-- Neuanmeldung **nur im Chrome-Gastfenster durch den Nutzer** (`https://workspace.google.com/business/signup/welcome?hl=de`);
-  Automations-Chrome (chrome-devtools) scheitert beim letzten Schritt bzw. bei Google-Login. Daten: „Claudia Plessl", 1 MA, Österreich,
-  Kontakt claudia.plessl@gmail.com, bestehende Domain, Nutzername `office`, Business Starter, Flexibel.
-- Falls weiter „bereits verwendet": Seite „Diese Domain gehört Ihnen" → „Support kontaktieren" (Formular, Antwort ≤ 48 h).
-- DNS danach (Hetzner konsoleH, NS your-server.de). Ist-Stand 2026-10-11 (= Rollback): **kein MX**, TXT `v=spf1 -all`.
-  Ziel: Google-Bestätigungs-TXT, MX `smtp.google.com`, SPF `v=spf1 include:_spf.google.com -all`, DKIM (in Admin erzeugen), DMARC.
-- **Befund 2026-10-12 (bsk, nur gelesen):** am Gmail-Konto claudia.plessl@gmail.com existiert ein **neues** Business-Standard-Testabo
-  (Kunden-ID **C00xfmaow**, **Jahresvertrag** monatl. Zahlung, 1 Lizenz, **Bezahlung ab 2026-10-26**), ohne Domain/eigene Adresse
-  (Admin zeigt „Create your custom email address"). = genau der unerwünschte Gmail-Weg. DNS unverändert: kein MX, kein Workspace-TXT.
-  Vor 2026-10-26 entscheiden: kündigen (Nutzer) oder bewusst nutzen.
-  Nutzer 2026-10-12: Gast-Anmeldung **noch nicht** gemacht → C00xfmaow stammt nicht daraus (Herkunft unklar).
-  Herkunft: Nutzer-Screenshot 15:13 zeigt `workspace.google.com/signup/upgrade/…` im normalen Chrome = Gmail-Upgrade-Weg.
-  **Nutzer wählte 2026-10-12 Option 1 (getrenntes Konto).** C00xfmaow per bsk erst auf **Flexibel** umgestellt (Kündigungsdialog
-  warnte: Jahresvertrag = Restbetrag fällig), dann **gekündigt** (wirksam 2026-10-12); Admin → Abos zeigt „No subscriptions".
-- 2026-10-12 ~15:24 Gastfenster-Anmeldung (Nutzer): wieder „Diese Domain gehört Ihnen" (`/business/signup/reclaimdomain`).
-  Vermutung (nicht verifiziert): Domain war im Gmail-Upgrade C00xfmaow eingetragen (Tab „Domain bestätigen…"), Kündigung ~15:20 → 24-h-Sperre.
-- **Nächster Schritt (Nutzer, 2026-10-13 ab ~15:30):** Gastfenster → `https://workspace.google.com/business/signup/welcome?hl=de` → Daten oben
-  → Screenshot des `google-site-verification=…`-Codes an Claude → DNS in konsoleH (Diff zeigen, Rückfrage vor Speichern).
-  Wieder gesperrt → „Support kontaktieren" (Text: Testabos am Gmail-Konto 2026-10-11/12 gekündigt, Domain für neues Konto freigeben).
-  Auf der Sperrseite **nicht** „Anmelden"/„Domain entfernen"/„Passwort zurücksetzen" klicken.
+### Aktueller Auftrag und bestätigter Zustand
+
+- **Nutzerentscheidung 13.10.2026:** `claudia.plessl@gmail.com` und `office@claudiaplessl.at` sollen **im selben bestehenden Konto und Gmail-Postfach** verwendet werden. Die frühere Vorgabe eines getrennten Workspace-Kontos ist überholt. Upgrade ausdrücklich beauftragt; vorhandenes Hauptkonto und alle Daten erhalten.
+- **Google Workspace Business Starter aktiv**, 1 zugewiesene Lizenz, **Flexible plan**, 8,10 €/Nutzer/Monat **zzgl. anwendbarer Steuern**. Testzeitraum endet / kostenpflichtiger Dienst beginnt **27.10.2026**. Anfänglich angelegter Jahresvertrag wurde im Testzeitraum auf Flexibel umgestellt; Bestellbestätigung und Aboseite anschließend geprüft. Keine Jahresbindung mehr.
+- Admin-Konsole ist unter `claudia.plessl@gmail.com` zugänglich. **`office@claudiaplessl.at` noch nicht eingerichtet**, Domain noch nicht Workspace-verifiziert. Kein erfolgreicher Empfangs-/Versandtest der Geschäftsadresse.
+- Google One nur gelesen, nicht geändert: bestehender **Basic-100-GB-Vertrag, 19,99 €/Jahr** weiterhin sichtbar. Nach Starter-Aktivierung **25,06 GB von 130 GB** angezeigt (vorher 25,06/100 GB). Dies ist der Zustand **vor Domainverifikation**; danach effektiven Speicher und Dienstverfügbarkeit erneut prüfen.
+- Bestehende E-Mails/Dateien/Photos weder gelöscht noch verschoben; keine Google-One-Kündigung, keine Mail-DNS-Änderung. Website-Kontaktadresse bleibt Gmail bis zur erfolgreichen Mailaktivierung.
+
+### Google-Block und Supportfall 76454656
+
+- Separates Signup erreichte zunächst die Nutzernamenseite, später wieder „Der ausgewählte Domainname ist nicht mehr verfügbar“. Dies war **kein Nachweis einer Domainfreigabe**. Login `office@claudiaplessl.at` meldete „Couldn’t find this account“.
+- Offizielles Domain-Recovery-Formular meldete: **„Domain claudiaplessl.at wird derzeit von einem anderen Administrator übernommen“**. Claim-Inhaber und tatsächliche Ursache ungeklärt; kein Nachweis eines fremden Zugriffs.
+- Gmail-basiertes Custom-Email-Setup akzeptiert Domain und `office`, endet aber mit **„Ihre Anmeldung kann nicht abgeschlossen werden“ / „Sorry, we can't complete your signup“** und Hinweis auf Anti-Spam-Registrierungsprüfung. Für den Support erneut reproduziert; kein Nachweis für Malware oder Spam des Nutzers.
+- Nutzer sendete den vorbereiteten Supporttext selbst und autorisierte anschließend ausdrücklich die weitere Supportkommunikation durch Codex (**„done - now do it for me“**). Menschlicher Agent **Arpit**, verbunden am 13.10. um 20:19 Europe/Vienna; **Fallnummer 76454656** erhalten.
+- **Arpits Anweisung:** Sieben Tage ab Datum/Uhrzeit des **letzten Domainverifikationsversuchs** warten. Wenn der Fehler danach fortbesteht, erneut Support kontaktieren; spezialisiertes Team soll helfen. Keine sofortige Freigabe oder heutige Eskalation zugesagt; **keine garantierte Entsperrung**.
+- Letzte Fehlerreproduktion am **13.10.2026 ca. 20:25 Europe/Vienna**. Konservativer nächster Versuch: **20.10.2026 nach 21:00 Europe/Vienna**. Bis dahin **keine weiteren Registrierungs-/Verifikationsversuche**.
+- Abschlussnachricht mit Bitte um Fallzusammenfassung per E-Mail an bestehende Gmail-Adresse erfolgreich gesendet; **E-Mail-Versand/Empfang noch nicht bestätigt**.
+- Supporttab nach Gespräch zurückgegeben und BrowserSkill-Sitzung `mvbc` **beendet**. Kein aktiver Automationslauf. Bei Fortsetzung neue Sitzung starten und Tabs erneut auflisten; alte Sitzungs- und Elementreferenzen nicht wiederverwenden.
+
+### DNS bei Hetzner — geprüft, unverändert
+
+- Einstieg: `https://konsoleh.hetzner.com/?domain_number=D1010820626` → DNS → Bearbeiten öffnet **Hetzner Console**, Zone `claudiaplessl.at`, 17 Records.
+- Alle drei autoritativen Nameserver (`ns1.your-server.de`, `ns.second-ns.com`, `ns3.second-ns.de`) geprüft: **kein MX**, Apex-SPF **`v=spf1 -all`**; DMARC **`v=DMARC1; p=reject`**. Apex-Google-TXT stammt aus Search Console und bleibt erhalten.
+- Website-A/AAAA, `www`-CNAME, GitHub-Pages- und Search-Console-Verifikationen erhalten. Nicht zurücksetzen, keine Nameserveränderung.
+- Nach erfolgreichem Workspace-Setup: kontoabhängigen Google-Verifikations-TXT hinzufügen; MX **Priorität 1, `smtp.google.com.`**; bestehenden SPF **ersetzen**, nicht zweiten SPF hinzufügen (Google-Empfehlung **`v=spf1 include:_spf.google.com ~all`**); DKIM in Admin erzeugen und veröffentlichen; DMARC-Rollout prüfen. Vor Änderung vollständigen Ist-Stand sichern und DNS-Diff zeigen.
+- DNS-Einträge allein lösen den vor Ausgabe des Workspace-Verifikationswerts auftretenden Google-Registrierungsblock nicht nachweislich. Deshalb heute keine DNS-Änderung.
+
+### Fortsetzung nach Ablauf der Wartefrist
+
+1. Ab **20.10.2026 nach 21:00 Europe/Vienna** im **bestehenden Gmail-basierten Konto** Custom-Email-Setup für `office@claudiaplessl.at` fortsetzen; kein neues Gmail-Upgrade/Testabo und kein separates Konto anlegen.
+2. Bei erneutem Block Fall **76454656** nennen, Spezialistenteam anfordern und bisherigen Domain-Recovery-/Anti-Spam-Fehler schildern; Gmail und Daten erhalten. **Vor 27.10.2026** Abostatus/Kostenbeginn prüfen; Kündigung oder weitere Käufe nicht ohne Nutzerauftrag.
+3. Wenn Google den Verifikationswert ausgibt: DNS sichern, Diff prüfen, Domain bestätigen und Mail-DNS konfigurieren; Website-Records erhalten.
+4. Gmail aktivieren, DKIM starten, Authentifizierung prüfen; Empfang und Versand für **beide Adressen** testen. Bestehende Gmail-Absenderoption und Daten/Storage nach Verifikation prüfen. Website-E-Mail erst nach erfolgreicher Prüfung umstellen, falls beauftragt.
+
+### Browser-Erkenntnisse und Belege
+
+- Support öffnet als separates **user**-Fenster; mit `bsk tab list --scope all` finden und nach BrowserSkill-Bestätigung ausleihen. Die frühere Aussage „kein Popup“ war unvollständig.
+- Live-Chat-Quill-Editor: `fill` verliert Fokus bzw. äußeres `CONNECT-QUILL-INPUT` ist nicht editierbar. Inneres `contenteditable` mit frischer Ref fokussieren; **native `bsk press`-Zeichen**, `Space` für Leerzeichen, Text vor „Send message“ prüfen. Bei Scriptsteuerung nur nach erfolgreichem Fokus weiter tippen.
+- Screenshot `/tmp/plessl-workspace-signup-error.png` visuell geprüft, ohne private Inhalte. Upload scheiterte: **`cdp_failed -32000 Not allowed`**, `set_file_input_failed`, Effekt `unknown`; fehlender Chrome-Dateizugriff für BrowserSkill. **Nicht als geliefert behandeln**, keine Wiederholung oder Backendwechsel zur Umgehung. Agent erhielt stattdessen den Fehlertext. `/tmp`-Datei kann später fehlen.
+- Quellen: [Google: Gmail-basiertes Konto mit Domain verifizieren](https://knowledge.workspace.google.com/admin/domains/verify-your-domain-to-unlock-features-for-gmail-accounts), [MX konfigurieren](https://knowledge.workspace.google.com/admin/domains/set-up-mx-records-for-google-workspace), [SPF konfigurieren](https://knowledge.workspace.google.com/admin/security/set-up-spf), [Zahlungsplan wechseln](https://knowledge.workspace.google.com/admin/billing/manage-your-payment-plan-and-renewal). Sieben-Tage-Frist stammt **aus dem Live-Supportfall 76454656**, nicht aus diesen allgemeinen Dokumentationen.
+
+### Historie 11.–12.10.2026 — überholter Ansatz
+
+- Zunächst getrenntes Workspace-Konto gewünscht. Gmail-basierte Business-Standard-Testabos **C03zbx2sy** (11.10.) und **C00xfmaow** (12.10.) jeweils erst auf Flexibel umgestellt, dann gekündigt; Gmail blieb erhalten.
+- Gastfenster-Signup am 12.10. erneut an Domainsperre gescheitert. Die frühere Annahme einer 24-Stunden-Freigabe und der Gastfenster-Auftrag für 13.10. sind durch den oben beschriebenen Supportbefund und die neue Kontoentscheidung überholt.
 
 ## Video-Poster: Text über den Play-Button gehoben (2026-10-09, Nutzerauftrag per Handy-Screenshot) — **LIVE** (`3fba4f3`, Deploy `37974814824` success; live Poster SHA-256 = lokal `70335b7d…`)
 
