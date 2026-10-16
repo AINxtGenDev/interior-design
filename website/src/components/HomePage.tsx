@@ -116,6 +116,25 @@ export default function HomePage({ locale }: { locale: Locale }) {
           </div>
         </Section>
 
+        {/* ─────────── Preise (Homepage Änderungen 16.10.26, slides 11–12: the table is gone) ─────────── */}
+        <Section id={SECTION_IDS.packages} heading={c.packages.heading} tone="anthrazit">
+          <div className="mt-6 max-w-[40rem] space-y-4">
+            {c.packages.body.map((p) => (
+              <p key={p.slice(0, 40)}>{p}</p>
+            ))}
+            <p className="font-bold">{c.packages.closing}</p>
+          </div>
+
+          {/* anthrazit-mid is 4.26:1 on anthrazit-light; small text needs 4.5:1. */}
+          <p className="small mt-6 max-w-[40rem] text-anthrazit-dark italic">{c.packages.note}</p>
+
+          <div className="mx-auto mt-10 w-full max-w-[360px]">
+            <a href={quoteMailto} className="btn btn-primary w-full">
+              {c.services.ctaLabel}
+            </a>
+          </div>
+        </Section>
+
         {/* ─────────── Ablauf ─────────── */}
         <Section id={SECTION_IDS.process} heading={c.process.heading} lead={c.process.lead}>
           {/* Two columns at most: four were ~28 characters per line. */}
@@ -135,25 +154,6 @@ export default function HomePage({ locale }: { locale: Locale }) {
               </li>
             ))}
           </ol>
-        </Section>
-
-        {/* ─────────── Preise (Homepage Änderungen 16.10.26, slides 11–12: the table is gone) ─────────── */}
-        <Section id={SECTION_IDS.packages} heading={c.packages.heading} tone="anthrazit">
-          <div className="mt-6 max-w-[40rem] space-y-4">
-            {c.packages.body.map((p) => (
-              <p key={p.slice(0, 40)}>{p}</p>
-            ))}
-            <p className="font-bold">{c.packages.closing}</p>
-          </div>
-
-          {/* anthrazit-mid is 4.26:1 on anthrazit-light; small text needs 4.5:1. */}
-          <p className="small mt-6 max-w-[40rem] text-anthrazit-dark italic">{c.packages.note}</p>
-
-          <div className="mx-auto mt-10 w-full max-w-[360px]">
-            <a href={quoteMailto} className="btn btn-primary w-full">
-              {c.services.ctaLabel}
-            </a>
-          </div>
         </Section>
 
         {/* ─────────── Über mich ─────────── */}

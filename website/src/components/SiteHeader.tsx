@@ -51,8 +51,8 @@ export default function SiteHeader({
       // Not in slide 4, but without them prices and workshops were
       // unreachable from the menu. Shown below a divider.
       more: [
-        { label: n.process, href: at(SECTION_IDS.process) },
         { label: n.packages, href: at(SECTION_IDS.packages) },
+        { label: n.process, href: at(SECTION_IDS.process) },
         { label: n.workshops, href: at(content.services.workshops.id) },
       ],
     },
