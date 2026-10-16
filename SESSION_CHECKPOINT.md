@@ -41,7 +41,7 @@
   Danach im bestehenden Gmail-basierten Workspace-Konto die Custom-Email-Einrichtung fortsetzen; bei erneutem Fehler Supportfall **76454656** eskalieren.
   **Ab 27.10.2026 kostenpflichtig:** Starter Flexibel, 1 Nutzer, 8,10 €/Monat zzgl. anwendbarer Steuern. Vorher Status prüfen.
 
-## Preis-Abschnitt nach oben verschoben (2026-10-16, Nutzerauftrag per Screenshots 10-18-00/10-18-36) — **IN ARBEIT (Deploy)**
+## Preis-Abschnitt nach oben verschoben (2026-10-16, Nutzerauftrag per Screenshots 10-18-00/10-18-36) — **LIVE** (`c8d3496`, Deploy `38873091679` success; live Reihenfolge leistungen → pakete → ablauf)
 
 - `#pakete` („Transparente Preise. Individuelle Lösungen.") direkt unter „Mein Angebot" (vor „So arbeiten wir zusammen"); Menü-Reihenfolge unter „Mein Angebot" angeglichen (Pakete & Preise vor Ablauf).
 - Hinweis: Jetzt folgen zwei gleiche Buttons „Angebot anfragen" kurz hintereinander (Ende „Mein Angebot" + Ende Preis-Abschnitt) — evtl. einen entfernen (mit Nutzer klären).
