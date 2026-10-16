@@ -41,7 +41,7 @@
   Danach im bestehenden Gmail-basierten Workspace-Konto die Custom-Email-Einrichtung fortsetzen; bei erneutem Fehler Supportfall **76454656** eskalieren.
   **Ab 27.10.2026 kostenpflichtig:** Starter Flexibel, 1 Nutzer, 8,10 €/Monat zzgl. anwendbarer Steuern. Vorher Status prüfen.
 
-## Preistabelle ersetzt + FAQ angepasst (2026-10-16, Nutzerauftrag per Screenshots 10-08-15/10-08-48/10-09-38 = Deck Folien 11, 12, 14) — **IN ARBEIT (Deploy)**
+## Preistabelle ersetzt + FAQ angepasst (2026-10-16, Nutzerauftrag per Screenshots 10-08-15/10-08-48/10-09-38 = Deck Folien 11, 12, 14) — **LIVE** (`62f8d9a`, Deploy `38872138952` success; live `/` + `/en/`: keine Tabelle, neuer Text, FAQ neu, priceRange 480–960)
 
 - **Tabelle „Pakete & Preise" entfernt** (Folie 12). Abschnitt `#pakete` jetzt: Überschrift „Transparente Preise. Individuelle Lösungen.", 3 Absätze, Schlusssatz **fett**, Steuer-/Fahrtkosten-Hinweis *kursiv* (Folie 11, wortgetreu aus .pptx), Button „Angebot anfragen" bleibt.
   `packages.lead`/`tableHeads` entfernt, neu `body[]`/`closing`; `note` neu. EN übersetzt.
