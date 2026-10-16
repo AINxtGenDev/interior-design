@@ -41,7 +41,7 @@
   Danach im bestehenden Gmail-basierten Workspace-Konto die Custom-Email-Einrichtung fortsetzen; bei erneutem Fehler Supportfall **76454656** eskalieren.
   **Ab 27.10.2026 kostenpflichtig:** Starter Flexibel, 1 Nutzer, 8,10 €/Monat zzgl. anwendbarer Steuern. Vorher Status prüfen.
 
-## KI-Video-Siegel oben rechts im Video (2026-10-16, Nutzerauftrag; Deck Folie 3: Kennzeichnung schon im Vorschaubild sichtbar) — **IN ARBEIT (Deploy)**
+## KI-Video-Siegel oben rechts im Video (2026-10-16, Nutzerauftrag; Deck Folie 3: Kennzeichnung schon im Vorschaubild sichtbar) — **LIVE** (`550976b`, Deploy `38870877311` success; live `/` + `/en/`: Video-Siegel vorhanden, WebP 200)
 
 - `KI-generiertes Video-Siegel.png` (1254×1254 **RGB, weißer Hintergrund**, kein Alpha; jetzt committet) → `build_ai_badge(…, "ai-video-badge")`:
   Scheibe über den grünen Ring gefunden (`SEAL_RING_MAX = 200`), Kreis-Alphaschnitt → `ai-video-badge-{128,192}.webp`. Bild-Siegel-Ausgabe dabei byte-identisch geblieben.
