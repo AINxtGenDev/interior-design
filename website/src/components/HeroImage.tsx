@@ -17,6 +17,8 @@ import enFull1440 from "@/assets/hero-en-full-1440.webp";
 import enFull1947 from "@/assets/hero-en-full-1947.webp";
 import enPhone480 from "@/assets/hero-en-phone-480.webp";
 import enPhone633 from "@/assets/hero-en-phone-633.webp";
+import aiBadge128 from "@/assets/ai-badge-128.webp";
+import aiBadge192 from "@/assets/ai-badge-192.webp";
 import type { Content, Locale } from "@/content/site";
 
 type Img = { src: string; width: number; height: number };
@@ -46,6 +48,9 @@ const largest = (imgs: Img[]) => imgs[imgs.length - 1];
  *
  * Both carry width/height, so the box is reserved before load (no layout
  * shift); the browser downloads only the one that matches.
+ *
+ * The "KI-generiert" seal sits in the bottom-right corner (Homepage
+ * Änderungen 16.10.26, slide 2); hovering it shows the explanation.
  */
 export default function HeroImage({
   content,
@@ -57,25 +62,39 @@ export default function HeroImage({
   const set = SETS[locale];
 
   return (
-    <picture className="mx-auto block max-w-[1947px]">
-      <source
-        media={FULL_FROM}
-        srcSet={srcSet(set.full)}
-        sizes="min(100vw, 1947px)"
-        width={largest(set.full).width}
-        height={largest(set.full).height}
-      />
+    <div className="relative mx-auto max-w-[1947px]">
+      <picture className="block">
+        <source
+          media={FULL_FROM}
+          srcSet={srcSet(set.full)}
+          sizes="min(100vw, 1947px)"
+          width={largest(set.full).width}
+          height={largest(set.full).height}
+        />
+        <img
+          src={set.phone[0].src}
+          srcSet={srcSet(set.phone)}
+          sizes="100vw"
+          width={largest(set.phone).width}
+          height={largest(set.phone).height}
+          alt={content.hero.imageAlt}
+          fetchPriority="high"
+          decoding="async"
+          className="block h-auto w-full"
+        />
+      </picture>
+      {/* eslint-disable-next-line @next/next/no-img-element -- srcset; see BrandLogo */}
       <img
-        src={set.phone[0].src}
-        srcSet={srcSet(set.phone)}
-        sizes="100vw"
-        width={largest(set.phone).width}
-        height={largest(set.phone).height}
-        alt={content.hero.imageAlt}
-        fetchPriority="high"
+        src={aiBadge128.src}
+        srcSet={`${aiBadge128.src} 128w, ${aiBadge192.src} 192w`}
+        sizes="(min-width: 64rem) 96px, (min-width: 48rem) 80px, 64px"
+        width={aiBadge128.width}
+        height={aiBadge128.height}
+        alt={content.hero.aiNotice}
+        title={content.hero.aiNotice}
         decoding="async"
-        className="block h-auto w-full"
+        className="absolute right-2 bottom-2 h-auto w-16 md:right-3 md:bottom-3 md:w-20 lg:w-24"
       />
-    </picture>
+    </div>
   );
 }

@@ -41,6 +41,18 @@
   Danach im bestehenden Gmail-basierten Workspace-Konto die Custom-Email-Einrichtung fortsetzen; bei erneutem Fehler Supportfall **76454656** eskalieren.
   **Ab 27.10.2026 kostenpflichtig:** Starter Flexibel, 1 Nutzer, 8,10 €/Monat zzgl. anwendbarer Steuern. Vorher Status prüfen.
 
+## KI-Siegel auf dem Titelbild (2026-10-16, Nutzerauftrag, Änderungsdeck „Homepage Änderngen_161026.pptx" Folie 2/13) — **IN ARBEIT (Deploy)**
+
+- `KI-generiertes Bild – Minimalistisches Siegel.png` (jetzt committet, Quelle wie die anderen Bilder) → `brand/build_web_assets.py` `build_ai_badge()`:
+  auf die Scheibe beschnitten, sauberer Kreis-Alphaschnitt (grüner Rand-Saum der Quelle entfernt) → `ai-badge-{128,192}.webp`.
+- `HeroImage.tsx`: Bild in `relative`-Wrapper, Siegel `absolute` rechts unten (8 px Abstand, 64 px; ab 768 px 12 px/80 px; ab 1024 px 96 px).
+  Tooltip = natives `title`, gleicher Text als `alt`; Text in `site.ts` `hero.aiNotice` (DE „Dieses Bild wurde mithilfe künstlicher Intelligenz erstellt.", EN „This image was created using artificial intelligence.").
+- Hinweis: Das Siegel selbst ist deutsch beschriftet („KI-GENERIERT") — auch auf `/en/`. Kleingedruckter Text im Siegel ist bei 64–96 px nicht lesbar (nur Symbol + „KI-GENERIERT").
+  Desktop: Siegel überdeckt das rechte Ende des Buchrückens „BEAUTIFUL FUNCTIONAL SPACES". Am Handy (kein Hover) erscheint der Tooltip nicht — Footer-Hinweis zu KI-Bildern bleibt.
+- Video-Kennzeichnung im Vorschaubild (Folie 3) ist **nicht** Teil dieses Auftrags. Version bleibt 1.7 (nicht beauftragt).
+- Geprüft lokal (browser-skill/bsk): tsc, eslint, Build sauber; 1505 px Siegel 96 px, 12 px vom Rand; 430 px DE+EN 64 px, 8 px, kein Überlauf, Bild geladen; `title` DE/EN korrekt; keine Konsolenfehler der Seite.
+- Rollback: `git revert` des Commits.
+
 ## „So arbeiten wir zusammen" neu getextet (2026-10-12, Nutzerauftrag per Screenshot) — **LIVE** (`cb6d867`, Deploy `38290994541` success)
 
 - `process.lead` + alle vier Schritte (Raumcheck, Konzept & Angebot, Umsetzung, Nachbetreuung) wortgetreu nach Vorlage des Nutzers; Titel unverändert.

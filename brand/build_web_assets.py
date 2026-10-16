@@ -5,11 +5,14 @@ Inputs (repo root, supplied by the client):
     Titelbild Homepage.png  1947x808 RGB, homepage title image
     Titelbild Handy.png     637x1063, phone version of it (change deck 8.10.26, slide 2)
     Bild Projekte.png       1254x1254, Projekte collage with the German tiles (2026-10-09)
+    KI-generiertes Bild – Minimalistisches Siegel.png
+                            1285x1224 RGBA, "KI-generiert" seal (change deck 16.10.26)
 
 Outputs:
     website/src/assets/logo-{480,960}.webp            trimmed logo, lossless
     website/src/assets/hero-{full,phone}-{w}.webp      title image, desktop + phone
     website/src/assets/hero-en-{full,phone}-{w}.webp   same, headline set in English
+    website/src/assets/ai-badge-{128,192}.webp         KI seal for the title image corner
     website/src/assets/portrait-{w}.webp               Über mich, from "Foto Homepage über mich.png"
     website/src/assets/projects-{640,1254}.webp        Projekte collage (German page)
     website/src/assets/projects-{living,order}-610.webp its two photos (English page)
@@ -27,7 +30,7 @@ Re-running is idempotent.
 from pathlib import Path
 
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageDraw
 
 ROOT = Path(__file__).resolve().parent.parent
 ASSETS = ROOT / "website/src/assets"
@@ -168,6 +171,27 @@ def build_hero(hero: Image.Image, phone: Image.Image, prefix: str = "hero") -> N
     save_webp(phone, f"{prefix}-phone", (480, phone.width))
 
 
+def build_ai_badge(seal: Image.Image) -> None:
+    """The "KI-generiert" seal, shown in the title image's bottom-right corner.
+
+    The source disc sits in a transparent margin with a faint green fringe
+    outside the ring; trim to the disc and cut it with a clean anti-aliased
+    circle so the fringe never shows on the photo.
+    """
+    disc = trim(seal, pad=0)
+    ss = 4
+    mask = Image.new("L", (disc.width * ss, disc.height * ss), 0)
+    ImageDraw.Draw(mask).ellipse((0, 0, mask.width - 1, mask.height - 1), fill=255)
+    mask = mask.resize(disc.size, Image.LANCZOS)
+    alpha = np.minimum(np.array(disc.getchannel("A")), np.array(mask))
+    disc.putalpha(Image.fromarray(alpha))
+    for w in (128, 192):
+        out = resize_w(disc, w)
+        path = ASSETS / f"ai-badge-{w}.webp"
+        out.save(path, "WEBP", quality=90, method=6)
+        print(f"  {path.relative_to(ROOT)} {out.size} {path.stat().st_size // 1024} KB")
+
+
 def build_portrait(portrait: Image.Image) -> None:
     """Über mich portrait (photo shoot, 2026-10-12, second pick). Clean edges, no crop."""
     save_webp(portrait, "portrait", (480, 10_000))
@@ -277,6 +301,7 @@ def main() -> None:
     build_hero(hero, phone)
     hero_en = english_headline(hero)
     build_hero(hero_en, english_headline(phone, **PHONE_HEADLINE), prefix="hero-en")
+    build_ai_badge(Image.open(ROOT / "KI-generiertes Bild – Minimalistisches Siegel.png").convert("RGBA"))
     build_portrait(Image.open(ROOT / "Foto Homepage über mich.png").convert("RGB"))
     build_projects(Image.open(ROOT / "Bild Projekte.png").convert("RGB"))
     build_icons(logo)
