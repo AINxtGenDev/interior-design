@@ -132,10 +132,12 @@ export type Content = {
   process: { heading: string; lead: string; items: Step[] };
   packages: {
     heading: string;
-    lead: string;
+    body: string[];
+    /** Set in bold after the body. */
+    closing: string;
+    /** The service cards' prices; also the JSON-LD offer catalogue. No longer shown as a table. */
     items: Package[];
     note: string;
-    tableHeads: { name: string; scope: string; audience: string; price: string };
   };
   about: {
     heading: string;
@@ -205,26 +207,22 @@ export const LANG_ALTERNATES: Record<string, string> = {
 };
 
 /*
- * Price lists live outside the content objects so the FAQ can quote them —
- * a price typed twice is a price that will one day disagree with itself.
+ * Price lists live outside the content objects so the service cards can quote
+ * them — a price typed twice is a price that will one day disagree with itself.
  */
 const dePackages: Package[] = [
-  { name: "Raumcheck", scope: "60–90 Minuten Analyse von Ordnung und Gestaltung", audience: "Privat & Betrieb", price: "ab EUR 110" },
   { name: "Ordnungspaket", scope: "Ein klar abgegrenzter Bereich, z. B. Küche, Schlafzimmer oder Homeoffice", audience: "Privat", price: "ab EUR 480" },
   { name: "Re-Design-Beratung", scope: "Neue Wirkung mit vorhandenen Möbeln, Textilien und Accessoires", audience: "Privat", price: "ab EUR 480" },
   { name: "Gestaltungsberatung", scope: "Farb-, Material- und Einrichtungsberatung für einen Raum", audience: "Privat", price: "ab EUR 480" },
   { name: "Ordnung & Stil", scope: "Decluttering und anschließende Gestaltung eines Raums", audience: "Privat", price: "ab EUR 800" },
-  { name: "Intensivbegleitung", scope: "Mehrere Termine für Organisation und Gestaltung inklusive Nachbetreuung", audience: "Privat", price: "ab EUR 690" },
   { name: "B2B-Kompakt", scope: "Analyse, Bürogestaltung und Teamworkshop im Paket", audience: "Betrieb", price: "ab EUR 960" },
 ];
 
 const enPackages: Package[] = [
-  { name: "Space check", scope: "60–90 minute assessment of order and design", audience: "Private & business", price: "from EUR 110" },
   { name: "Organizing package", scope: "One clearly defined area, e.g. kitchen, bedroom or home office", audience: "Private", price: "from EUR 480" },
   { name: "Re-design consultation", scope: "A new look with your existing furniture, textiles and accessories", audience: "Private", price: "from EUR 480" },
   { name: "Design consultation", scope: "Colour, material and furnishing advice for one room", audience: "Private", price: "from EUR 480" },
   { name: "Order & style", scope: "Decluttering followed by the design of one room", audience: "Private", price: "from EUR 800" },
-  { name: "Intensive support", scope: "Several appointments for organising and design, including follow-up", audience: "Private", price: "from EUR 690" },
   { name: "Business compact", scope: "Assessment, office design and team workshop bundled", audience: "Business", price: "from EUR 960" },
 ];
 
@@ -279,7 +277,7 @@ const de: Content = {
     items: [
       {
         id: "raumgestaltung",
-        price: `${dePackages[3].name} ${dePackages[3].price}`,
+        price: `${dePackages[2].name} ${dePackages[2].price}`,
         title: "Raumgestaltung",
         lead: "Individuelle Beratung und stimmige Einrichtungskonzepte, die Ästhetik und Persönlichkeit verbinden — damit aus einem Raum ein Zuhause wird, in dem Sie sich rundum wohlfühlen.",
         points: [
@@ -292,7 +290,7 @@ const de: Content = {
       },
       {
         id: "ordnungscoaching",
-        price: `${dePackages[1].name} ${dePackages[1].price}`,
+        price: `${dePackages[0].name} ${dePackages[0].price}`,
         title: "Ordnungscoaching",
         lead: "Professionelle Unterstützung beim Reduzieren, Sortieren und Strukturieren. Gemeinsam schaffen wir individuelle Ordnungssysteme, die zu Ihren Gewohnheiten passen und langfristig funktionieren.",
         points: [
@@ -305,7 +303,7 @@ const de: Content = {
       },
       {
         id: "raumgestaltung-und-ordnung",
-        price: `${dePackages[4].name} ${dePackages[4].price}`,
+        price: `${dePackages[3].name} ${dePackages[3].price}`,
         title: "Raumgestaltung plus Ordnungscoaching",
         lead: "Die Verbindung aus professioneller Organisation und individueller Raumgestaltung. Von der ersten Bestandsaufnahme über das Aussortieren bis zur gestalterischen Aufwertung erhalten Sie alles aus einer Hand.",
         points: [
@@ -318,7 +316,7 @@ const de: Content = {
       },
       {
         id: "re-design",
-        price: `${dePackages[2].name} ${dePackages[2].price}`,
+        price: `${dePackages[1].name} ${dePackages[1].price}`,
         title: "Re-Design",
         lead: "Manchmal braucht es keine neuen Möbel, sondern einen neuen Blick auf das Vorhandene. Durch gezieltes Umstellen, Kombinieren und Ergänzen entsteht ein frisches Raumgefühl — ohne alles neu kaufen zu müssen.",
         points: [
@@ -331,7 +329,7 @@ const de: Content = {
       },
       {
         id: "b2b-kompakt",
-        price: `${dePackages[6].name} ${dePackages[6].price}`,
+        price: `${dePackages[4].name} ${dePackages[4].price}`,
         title: "B2B-Kompakt – Bürogestaltung & Organisation",
         lead: "Ein durchdachtes Arbeitsumfeld schafft Übersicht, unterstützt effiziente Abläufe und fördert konzentriertes Arbeiten. Ich verbinde funktionale Bürogestaltung mit professioneller Organisation — abgestimmt auf Ihr Unternehmen und Ihr Team.",
         points: [
@@ -376,11 +374,15 @@ const de: Content = {
     ],
   },
   packages: {
-    heading: "Pakete & Preise",
-    lead: "Transparente Einstiegspreise. Der Endpreis wird nach dem Raumcheck fix vereinbart — abhängig von Umfang, Anfahrt und Materialeinsatz.",
-    tableHeads: { name: "Paket", scope: "Inhalt", audience: "Für", price: "Preis" },
+    heading: "Transparente Preise. Individuelle Lösungen.",
+    body: [
+      "Jeder Raum und jede Lebenssituation ist anders. Deshalb orientieren sich meine Leistungen an Ihren persönlichen Wünschen, den räumlichen Gegebenheiten und dem gewünschten Ergebnis.",
+      "Die angegebenen Einstiegspreise bieten Ihnen eine erste Orientierung. Ich kalkuliere alle Projekte individuell nach Umfang und Aufwand.",
+      "Nach einem gemeinsamen Gespräch erhalten Sie ein transparentes Angebot mit klar beschriebenen Leistungen und Kosten.",
+    ],
+    closing: "So wissen Sie bereits vor Projektbeginn, womit Sie rechnen können.",
     items: dePackages,
-    note: "Alle Preise verstehen sich netto. Als Kleinunternehmerin wird derzeit keine Umsatzsteuer ausgewiesen. Fahrtkosten außerhalb des Kerngebiets werden gesondert vereinbart.",
+    note: "Alle Preise sind Endpreise ohne gesonderten Umsatzsteuerausweis aufgrund der Kleinunternehmerregelung. Fahrtkosten außerhalb des vereinbarten Einzugsgebiets sowie Material und Einkäufe werden gesondert vereinbart.",
   },
   about: {
     heading: "Über mich",
@@ -437,7 +439,7 @@ const de: Content = {
     items: [
       {
         q: "Was kostet der Einstieg?",
-        a: `Der Raumcheck dauert 60 bis 90 Minuten und kostet ${dePackages[0].price}. Danach erhalten Sie ein transparentes Angebot mit klar definierten Leistungen, einem nachvollziehbaren Ablauf und den entsprechenden Kosten — Sie entscheiden erst dann, ob und wie es weitergeht.`,
+        a: "Die angegebenen Einstiegspreise bieten Ihnen eine erste Orientierung. Ich kalkuliere alle Projekte individuell nach Umfang und Aufwand.\nNach einem kostenlosen Erstgespräch erhalten Sie ein transparentes Angebot mit klar beschriebenen Leistungen und Kosten.",
       },
       {
         q: "Wo sind Sie tätig?",
@@ -445,7 +447,7 @@ const de: Content = {
       },
       {
         q: "Geht das auch online?",
-        a: "Ja. Der Raumcheck ist auch online möglich, und eine Raumanalyse funktioniert ebenso per Grundriss und Fotos.",
+        a: "Ja, die Raumanalyse erfolgt dabei anhand von Grundrissen und Fotos.\nAuch Ordnungscoaching kann online stattfinden. Sie erhalten individuelle Beratung, konkrete Anleitungen und praktische Tipps zur Umsetzung. Voraussetzung ist, dass Sie die besprochenen Maßnahmen eigenständig umsetzen möchten.",
       },
       {
         q: "Muss ich mich von vielen Dingen trennen?",
@@ -543,7 +545,7 @@ const en: Content = {
     items: [
       {
         id: "raumgestaltung",
-        price: `${enPackages[3].name} ${enPackages[3].price}`,
+        price: `${enPackages[2].name} ${enPackages[2].price}`,
         title: "Interior design",
         lead: "Personal advice and coherent furnishing concepts that bring aesthetics and personality together — so that a room becomes a home where you feel completely at ease.",
         points: [
@@ -556,7 +558,7 @@ const en: Content = {
       },
       {
         id: "ordnungscoaching",
-        price: `${enPackages[1].name} ${enPackages[1].price}`,
+        price: `${enPackages[0].name} ${enPackages[0].price}`,
         title: "Professional organizing",
         lead: "Professional support in reducing, sorting and structuring. Together we create individual systems that suit your habits and work in the long term.",
         points: [
@@ -569,7 +571,7 @@ const en: Content = {
       },
       {
         id: "raumgestaltung-und-ordnung",
-        price: `${enPackages[4].name} ${enPackages[4].price}`,
+        price: `${enPackages[3].name} ${enPackages[3].price}`,
         title: "Interior design plus organizing",
         lead: "Professional organising combined with individual interior design. From the first inventory through sorting out to the design upgrade, everything comes from a single source.",
         points: [
@@ -582,7 +584,7 @@ const en: Content = {
       },
       {
         id: "re-design",
-        price: `${enPackages[2].name} ${enPackages[2].price}`,
+        price: `${enPackages[1].name} ${enPackages[1].price}`,
         title: "Re-design",
         lead: "Sometimes it takes not new furniture but a fresh look at what is already there. Thoughtful rearranging, combining and adding creates a new feel for the room — without buying everything new.",
         points: [
@@ -595,7 +597,7 @@ const en: Content = {
       },
       {
         id: "b2b-kompakt",
-        price: `${enPackages[6].name} ${enPackages[6].price}`,
+        price: `${enPackages[4].name} ${enPackages[4].price}`,
         title: "Business compact – office design & organisation",
         lead: "A well-planned working environment creates clarity, supports efficient processes and encourages focused work. I combine functional office design with professional organisation — tailored to your company and your team.",
         points: [
@@ -640,11 +642,15 @@ const en: Content = {
     ],
   },
   packages: {
-    heading: "Packages & pricing",
-    lead: "Transparent entry prices. The final price is agreed after the space check — depending on scope, travel and materials.",
-    tableHeads: { name: "Package", scope: "Scope", audience: "For", price: "Price" },
+    heading: "Transparent prices. Individual solutions.",
+    body: [
+      "Every room and every life situation is different. That is why my services are guided by your personal wishes, the conditions of the space and the result you want.",
+      "The entry prices give you a first orientation. I calculate every project individually according to scope and effort.",
+      "After a conversation together, you receive a transparent quote with clearly described services and costs.",
+    ],
+    closing: "So you know what to expect before the project begins.",
     items: enPackages,
-    note: "All prices are net. Under the Austrian small-business scheme no VAT is currently charged. Travel outside the core region is agreed separately.",
+    note: "All prices are final prices with no VAT shown separately, under the Austrian small-business scheme. Travel costs outside the agreed area, as well as materials and purchases, are agreed separately.",
   },
   about: {
     heading: "About me",
@@ -699,7 +705,7 @@ const en: Content = {
     items: [
       {
         q: "What does it cost to get started?",
-        a: `The space check takes 60 to 90 minutes and costs ${enPackages[0].price}. Afterwards you receive a transparent quote with clearly defined services, a comprehensible sequence and the corresponding costs — only then do you decide whether and how to continue.`,
+        a: "The entry prices give you a first orientation. I calculate every project individually according to scope and effort.\nAfter a free initial consultation, you receive a transparent quote with clearly described services and costs.",
       },
       {
         q: "Where do you work?",
@@ -707,7 +713,7 @@ const en: Content = {
       },
       {
         q: "Can we work online?",
-        a: "Yes. The space check is also available online, and a room analysis works just as well from a floor plan and photos.",
+        a: "Yes, the room analysis is then based on floor plans and photos.\nProfessional organizing can also take place online. You receive individual advice, concrete guidance and practical tips for putting it into practice. The prerequisite is that you want to carry out the agreed measures yourself.",
       },
       {
         q: "Will I have to part with a lot of things?",

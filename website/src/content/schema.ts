@@ -50,7 +50,7 @@ const VIDEO_DURATION = "PT58S";
 type JsonLdNode = Record<string, unknown>;
 
 /**
- * "ab EUR 110" / "from EUR 110" → 110.
+ * "ab EUR 480" / "from EUR 480" → 480.
  *
  * The number is the only run of digits in either locale's string. Throwing
  * rather than defaulting means a malformed price fails `next build` instead of
@@ -106,6 +106,8 @@ export function buildHomeGraph(locale: Locale): JsonLdNode[] {
     (_, i) => `${home}#service-${i + 1}`,
   );
 
+  const prices = c.packages.items.map((p) => minPriceOf(p.price, p.name));
+
   const business: JsonLdNode = {
     "@type": "ProfessionalService",
     "@id": businessId,
@@ -133,7 +135,7 @@ export function buildHomeGraph(locale: Locale): JsonLdNode[] {
     founder: { "@id": personId },
     employee: { "@id": personId },
     currenciesAccepted: "EUR",
-    priceRange: "EUR 110–690",
+    priceRange: `EUR ${Math.min(...prices)}–${Math.max(...prices)}`,
     availableLanguage: ["de-AT", "en"],
     knowsAbout: allServices.map((s) => s.title),
     hasOfferCatalog: { "@id": catalogId },
@@ -192,15 +194,15 @@ export function buildHomeGraph(locale: Locale): JsonLdNode[] {
   }));
 
   /*
-   * The seven priced packages. Every price on the site is a floor ("ab EUR
-   * 110"), so it is a `minPrice` — a bare `price` would assert a fixed fee the
+   * The five priced packages. Every price on the site is a floor ("ab EUR
+   * 480"), so it is a `minPrice` — a bare `price` would assert a fixed fee the
    * business does not offer.
    */
   const catalog: JsonLdNode = {
     "@type": "OfferCatalog",
     "@id": catalogId,
     name: c.packages.heading,
-    description: c.packages.lead,
+    description: c.packages.body.join(" "),
     itemListElement: c.packages.items.map((p, i) => ({
       "@type": "Offer",
       "@id": `${home}#offer-${i + 1}`,

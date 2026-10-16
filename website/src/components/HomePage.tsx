@@ -137,64 +137,17 @@ export default function HomePage({ locale }: { locale: Locale }) {
           </ol>
         </Section>
 
-        {/* ─────────── Pakete & Preise ─────────── */}
-        <Section id={SECTION_IDS.packages} heading={c.packages.heading} lead={c.packages.lead} tone="anthrazit">
-          {/* Cards on phones, a table from 768 px up. */}
-          <ul className="mt-10 grid gap-4 md:hidden">
-            {c.packages.items.map((p) => (
-              <li key={p.name} className="rounded border border-blush-soft bg-white p-5">
-                <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                  <h3 className="text-lg font-bold">{p.name}</h3>
-                  <p className="font-bold whitespace-nowrap text-sage-dark">{p.price}</p>
-                </div>
-                <p className="mt-2">{p.scope}</p>
-                <p className="small mt-2 text-anthrazit-mid">
-                  {c.packages.tableHeads.audience}: {p.audience}
-                </p>
-              </li>
+        {/* ─────────── Preise (Homepage Änderungen 16.10.26, slides 11–12: the table is gone) ─────────── */}
+        <Section id={SECTION_IDS.packages} heading={c.packages.heading} tone="anthrazit">
+          <div className="mt-6 max-w-[40rem] space-y-4">
+            {c.packages.body.map((p) => (
+              <p key={p.slice(0, 40)}>{p}</p>
             ))}
-          </ul>
-
-          <div className="mt-12 hidden overflow-x-auto rounded border border-blush-soft bg-white md:block">
-            <table className="w-full border-collapse text-left">
-              <caption className="sr-only">{c.packages.heading}</caption>
-              <thead>
-                <tr className="border-b-2 border-blush-soft">
-                  {[
-                    c.packages.tableHeads.name,
-                    c.packages.tableHeads.scope,
-                    c.packages.tableHeads.audience,
-                    c.packages.tableHeads.price,
-                  ].map((h, i) => (
-                    <th
-                      key={h}
-                      scope="col"
-                      className={`eyebrow px-5 py-4 text-anthrazit-mid ${i === 3 ? "text-right" : ""}`}
-                    >
-                      {h}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {c.packages.items.map((p) => (
-                  <tr key={p.name} className="border-b border-anthrazit-light align-top last:border-b-0">
-                    <th scope="row" className="px-5 py-4 font-bold">
-                      {p.name}
-                    </th>
-                    <td className="px-5 py-4">{p.scope}</td>
-                    <td className="px-5 py-4 lg:whitespace-nowrap">{p.audience}</td>
-                    <td className="px-5 py-4 text-right font-bold whitespace-nowrap text-sage-dark">
-                      {p.price}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <p className="font-bold">{c.packages.closing}</p>
           </div>
 
           {/* anthrazit-mid is 4.26:1 on anthrazit-light; small text needs 4.5:1. */}
-          <p className="small mt-6 max-w-[40rem] text-anthrazit-dark">{c.packages.note}</p>
+          <p className="small mt-6 max-w-[40rem] text-anthrazit-dark italic">{c.packages.note}</p>
 
           <div className="mx-auto mt-10 w-full max-w-[360px]">
             <a href={quoteMailto} className="btn btn-primary w-full">
@@ -345,7 +298,8 @@ export default function HomePage({ locale }: { locale: Locale }) {
                     <path d="M12 5v14M5 12h14" stroke="currentColor" strokeWidth="2" />
                   </svg>
                 </summary>
-                <p className="max-w-[40rem] pr-10 pb-6">{f.a}</p>
+                {/* "\n" in the copy starts a new line. */}
+                <p className="max-w-[40rem] pr-10 pb-6 whitespace-pre-line">{f.a}</p>
               </details>
             ))}
           </div>
@@ -467,7 +421,7 @@ function Section({
   );
 }
 
-/** Entry price at the foot of a service card, linking to the full list. */
+/** Entry price at the foot of a service card, linking to the pricing notes. */
 function PriceHint({ text }: { text: string }) {
   return (
     <p className="mt-auto pt-6">

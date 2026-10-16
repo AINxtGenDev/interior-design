@@ -2,7 +2,7 @@
 
 ## Meta
 
-- Datum: 2026-10-16 (**KI-Siegel rechts unten im Titelbild mit Tooltip, auf halbe Größe verkleinert, **auch auf der Projekte-Collage**, **Video-Siegel oben rechts im Video**, LIVE**; **„Mein Angebot" neu (Folien 5–10), neue Preise, Karte 05 B2B + 06 Workshops**; Workspace Starter Flexibel aktiviert; Google-Supportfall **76454656**, Registrierung blockiert; nächster Versuch **20.10.2026 nach 21:00 Europe/Vienna**; Website-Stand unverändert vom 12.10.; **FAQ „Was kostet der Einstieg?“ an Schritt 02 angeglichen**; **„So arbeiten wir zusammen“ neu getextet**; **Über-mich-Foto erneut getauscht, Version 1.7**; **Kontakt-Einleitung gekürzt**; **Footer „Version 1.6 12.10.2026“, Handout-Qualifikation an Website angeglichen**; **Qualifikation: WIFI Wien Lehrgang Innenraumgestaltung ergänzt, „Zahlreiche umgesetzte Projekte“ entfernt**; **„Angebot anfragen“ auch unter „Pakete & Preise“, Footer „Version 1.5 12.10.2026“**; **Button „Angebot anfragen“ am Ende von „Mein Angebot“ (mailto), Footer „Version 1.4 12.10.2026“**; **Button „Kostenloses Erstgespräch vereinbaren“ unter dem Video (mailto), Footer „Version 1.3 12.10.2026“**; **Video-Bildunterschrift entfernt, Footer „Version 1.2 12.10.2026“**; **Über-mich-Porträt neu** (`Foto Homepage final über mich.png`), siehe eigener Abschnitt; **Video Frame 3 neues Porträt + Footer „Version 1.1 12.10.2026“**, siehe eigener Abschnitt; **SEO-Branch `seo` nach `main` gemerged und LIVE**, siehe Abschnitt SEO-Plan; Workspace-Mailbox office@ in Arbeit, siehe eigener Abschnitt; Website: QR + Footer-Logo am Handy zentriert; **Video Frame 5: alle 4 Schritte auf einer Seite**; **Video-Stimme ruhig, souverän, vertrauenswürdig** (ersetzt die lebendige Fassung vom selben Tag), siehe Abschnitte)
+- Datum: 2026-10-16 (**KI-Siegel rechts unten im Titelbild mit Tooltip, auf halbe Größe verkleinert, **auch auf der Projekte-Collage**, **Video-Siegel oben rechts im Video**, LIVE**; **„Mein Angebot" neu (Folien 5–10), neue Preise, Karte 05 B2B + 06 Workshops**; **Preistabelle ersetzt durch Preistext, FAQ (Folie 14) neu**; Workspace Starter Flexibel aktiviert; Google-Supportfall **76454656**, Registrierung blockiert; nächster Versuch **20.10.2026 nach 21:00 Europe/Vienna**; Website-Stand unverändert vom 12.10.; **FAQ „Was kostet der Einstieg?“ an Schritt 02 angeglichen**; **„So arbeiten wir zusammen“ neu getextet**; **Über-mich-Foto erneut getauscht, Version 1.7**; **Kontakt-Einleitung gekürzt**; **Footer „Version 1.6 12.10.2026“, Handout-Qualifikation an Website angeglichen**; **Qualifikation: WIFI Wien Lehrgang Innenraumgestaltung ergänzt, „Zahlreiche umgesetzte Projekte“ entfernt**; **„Angebot anfragen“ auch unter „Pakete & Preise“, Footer „Version 1.5 12.10.2026“**; **Button „Angebot anfragen“ am Ende von „Mein Angebot“ (mailto), Footer „Version 1.4 12.10.2026“**; **Button „Kostenloses Erstgespräch vereinbaren“ unter dem Video (mailto), Footer „Version 1.3 12.10.2026“**; **Video-Bildunterschrift entfernt, Footer „Version 1.2 12.10.2026“**; **Über-mich-Porträt neu** (`Foto Homepage final über mich.png`), siehe eigener Abschnitt; **Video Frame 3 neues Porträt + Footer „Version 1.1 12.10.2026“**, siehe eigener Abschnitt; **SEO-Branch `seo` nach `main` gemerged und LIVE**, siehe Abschnitt SEO-Plan; Workspace-Mailbox office@ in Arbeit, siehe eigener Abschnitt; Website: QR + Footer-Logo am Handy zentriert; **Video Frame 5: alle 4 Schritte auf einer Seite**; **Video-Stimme ruhig, souverän, vertrauenswürdig** (ersetzt die lebendige Fassung vom selben Tag), siehe Abschnitte)
 - Repository: `AINxtGenDev/interior-design` (public)
 - Arbeitskopie: `/home/nuc8/05_development/55_laulau/78_plessl-website`
   (**verschoben am 2026-08-16** — vorher `/home/nuc8/05_development/78_plessl-website`)
@@ -41,7 +41,22 @@
   Danach im bestehenden Gmail-basierten Workspace-Konto die Custom-Email-Einrichtung fortsetzen; bei erneutem Fehler Supportfall **76454656** eskalieren.
   **Ab 27.10.2026 kostenpflichtig:** Starter Flexibel, 1 Nutzer, 8,10 €/Monat zzgl. anwendbarer Steuern. Vorher Status prüfen.
 
-## „Mein Angebot" neu getextet, 5. Karte B2B, Workshops als 06 (2026-10-16, Nutzerauftrag per Screenshots 10-02-55 … 10-06-18 = Deck Folien 5–10) — **IN ARBEIT (Deploy)**
+## Preistabelle ersetzt + FAQ angepasst (2026-10-16, Nutzerauftrag per Screenshots 10-08-15/10-08-48/10-09-38 = Deck Folien 11, 12, 14) — **IN ARBEIT (Deploy)**
+
+- **Tabelle „Pakete & Preise" entfernt** (Folie 12). Abschnitt `#pakete` jetzt: Überschrift „Transparente Preise. Individuelle Lösungen.", 3 Absätze, Schlusssatz **fett**, Steuer-/Fahrtkosten-Hinweis *kursiv* (Folie 11, wortgetreu aus .pptx), Button „Angebot anfragen" bleibt.
+  `packages.lead`/`tableHeads` entfernt, neu `body[]`/`closing`; `note` neu. EN übersetzt.
+- **FAQ** (Folie 14, wortgetreu): „Was kostet der Einstieg?" und „Geht das auch online?" neu, je zwei Zeilen (`\n`, FAQ-Antworten jetzt `whitespace-pre-line`). „Wo sind Sie tätig?" unverändert. EN übersetzt.
+- Paketliste bleibt als Datenquelle (Kartenpreise + JSON-LD `OfferCatalog`), aber nur noch was sichtbar ist:
+  **Intensivbegleitung (690) und Raumcheck (110) entfernt** — beide stehen nirgends mehr auf der Seite (Raumcheck-Preis stand nur in der alten FAQ-Antwort). Indizes in `site.ts` angepasst.
+  JSON-LD `priceRange` war hart „EUR 110–690" → wird jetzt aus der Liste berechnet: **EUR 480–960**.
+- **Offen / mit Claudia klären:** Menüpunkt heißt weiter „Pakete & Preise" (Abschnitt hat keine Pakete-Tabelle mehr) — umbenennen?
+  FAQ „Wo sind Sie tätig?" + AGB sagen „Kerngebiet", neuer Hinweis „vereinbartes Einzugsgebiet". Prozess-Schritt 01 „Raumcheck" nennt keinen Preis mehr — ist der Raumcheck noch kostenpflichtig?
+  Neue FAQ-Antwort sagt „kostenloses Erstgespräch", Preistext „gemeinsames Gespräch" (beides laut Deck).
+- Geprüft lokal (bsk): tsc, eslint, Build sauber; keine „EUR 110"/„690"/„netto"/Tabelle im Output; Kartenpreise korrekt DE+EN; JSON-LD parsebar;
+  1505 px DE+EN: Abschnitt fett/kursiv korrekt, FAQ-Antworten mit Zeilenumbruch; 430 px DE+EN kein Überlauf; keine Seiten-Konsolenfehler.
+- Rollback: `git revert` des Commits.
+
+## „Mein Angebot" neu getextet, 5. Karte B2B, Workshops als 06 (2026-10-16, Nutzerauftrag per Screenshots 10-02-55 … 10-06-18 = Deck Folien 5–10) — **LIVE** (`9fb0c94`, Deploy `38871687801` success)
 
 - Texte (Lead + Punkte) wortgetreu aus der .pptx (nicht abgetippt), `site.ts` DE; EN sinngemäß neu übersetzt.
   Gedankenstriche in Leads auf Website-Stil „ — " vereinheitlicht (Deck hat bei 04/05 „–"); Kartentitel 05 mit „–" wie im Deck.
@@ -51,7 +66,7 @@
 - **Workshops & Training jetzt Karte 06** im selben Raster (2×3), ohne Liste/Preis; alte Box „Außerdem" + `moreLabel` entfernt.
 - **Offen / mit Claudia klären:**
   - **Intensivbegleitung ab EUR 690** (Tabelle) ist jetzt *billiger* als Ordnung & Stil 800 — im Deck nicht mehr vorhanden; nicht angefasst.
-  - Folie 11 (neuer Preistext) + Folie 12 („Diesen Teil bitte LÖSCHEN" = Tabelle „Pakete & Preise") noch nicht umgesetzt.
+  - ~~Folie 11/12~~ erledigt, siehe Abschnitt oben.
   - Handout (`handout/…`, nur lokal) hat noch alte Preise und „Ordnungs-Startpaket".
   - Karte 06 ist am Desktop so hoch wie Karte 05 (viel Leerraum, gleiche Zeilenhöhe im Raster) — bewusst so gelassen.
 - Geprüft lokal (bsk): tsc, eslint, Build sauber; keine alten Preise/„Startpaket"/„Außerdem" im Output; JSON-LD parsebar, minPrice neu;
