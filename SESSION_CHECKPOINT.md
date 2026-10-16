@@ -2,7 +2,7 @@
 
 ## Meta
 
-- Datum: 2026-10-16 (**KI-Siegel rechts unten im Titelbild mit Tooltip, auf halbe Größe verkleinert, **auch auf der Projekte-Collage**, **Video-Siegel oben rechts im Video**, LIVE**; Workspace Starter Flexibel aktiviert; Google-Supportfall **76454656**, Registrierung blockiert; nächster Versuch **20.10.2026 nach 21:00 Europe/Vienna**; Website-Stand unverändert vom 12.10.; **FAQ „Was kostet der Einstieg?“ an Schritt 02 angeglichen**; **„So arbeiten wir zusammen“ neu getextet**; **Über-mich-Foto erneut getauscht, Version 1.7**; **Kontakt-Einleitung gekürzt**; **Footer „Version 1.6 12.10.2026“, Handout-Qualifikation an Website angeglichen**; **Qualifikation: WIFI Wien Lehrgang Innenraumgestaltung ergänzt, „Zahlreiche umgesetzte Projekte“ entfernt**; **„Angebot anfragen“ auch unter „Pakete & Preise“, Footer „Version 1.5 12.10.2026“**; **Button „Angebot anfragen“ am Ende von „Mein Angebot“ (mailto), Footer „Version 1.4 12.10.2026“**; **Button „Kostenloses Erstgespräch vereinbaren“ unter dem Video (mailto), Footer „Version 1.3 12.10.2026“**; **Video-Bildunterschrift entfernt, Footer „Version 1.2 12.10.2026“**; **Über-mich-Porträt neu** (`Foto Homepage final über mich.png`), siehe eigener Abschnitt; **Video Frame 3 neues Porträt + Footer „Version 1.1 12.10.2026“**, siehe eigener Abschnitt; **SEO-Branch `seo` nach `main` gemerged und LIVE**, siehe Abschnitt SEO-Plan; Workspace-Mailbox office@ in Arbeit, siehe eigener Abschnitt; Website: QR + Footer-Logo am Handy zentriert; **Video Frame 5: alle 4 Schritte auf einer Seite**; **Video-Stimme ruhig, souverän, vertrauenswürdig** (ersetzt die lebendige Fassung vom selben Tag), siehe Abschnitte)
+- Datum: 2026-10-16 (**KI-Siegel rechts unten im Titelbild mit Tooltip, auf halbe Größe verkleinert, **auch auf der Projekte-Collage**, **Video-Siegel oben rechts im Video**, LIVE**; **„Mein Angebot" neu (Folien 5–10), neue Preise, Karte 05 B2B + 06 Workshops**; Workspace Starter Flexibel aktiviert; Google-Supportfall **76454656**, Registrierung blockiert; nächster Versuch **20.10.2026 nach 21:00 Europe/Vienna**; Website-Stand unverändert vom 12.10.; **FAQ „Was kostet der Einstieg?“ an Schritt 02 angeglichen**; **„So arbeiten wir zusammen“ neu getextet**; **Über-mich-Foto erneut getauscht, Version 1.7**; **Kontakt-Einleitung gekürzt**; **Footer „Version 1.6 12.10.2026“, Handout-Qualifikation an Website angeglichen**; **Qualifikation: WIFI Wien Lehrgang Innenraumgestaltung ergänzt, „Zahlreiche umgesetzte Projekte“ entfernt**; **„Angebot anfragen“ auch unter „Pakete & Preise“, Footer „Version 1.5 12.10.2026“**; **Button „Angebot anfragen“ am Ende von „Mein Angebot“ (mailto), Footer „Version 1.4 12.10.2026“**; **Button „Kostenloses Erstgespräch vereinbaren“ unter dem Video (mailto), Footer „Version 1.3 12.10.2026“**; **Video-Bildunterschrift entfernt, Footer „Version 1.2 12.10.2026“**; **Über-mich-Porträt neu** (`Foto Homepage final über mich.png`), siehe eigener Abschnitt; **Video Frame 3 neues Porträt + Footer „Version 1.1 12.10.2026“**, siehe eigener Abschnitt; **SEO-Branch `seo` nach `main` gemerged und LIVE**, siehe Abschnitt SEO-Plan; Workspace-Mailbox office@ in Arbeit, siehe eigener Abschnitt; Website: QR + Footer-Logo am Handy zentriert; **Video Frame 5: alle 4 Schritte auf einer Seite**; **Video-Stimme ruhig, souverän, vertrauenswürdig** (ersetzt die lebendige Fassung vom selben Tag), siehe Abschnitte)
 - Repository: `AINxtGenDev/interior-design` (public)
 - Arbeitskopie: `/home/nuc8/05_development/55_laulau/78_plessl-website`
   (**verschoben am 2026-08-16** — vorher `/home/nuc8/05_development/78_plessl-website`)
@@ -40,6 +40,23 @@
   **Workspace-Fortsetzung:** Bis **20.10.2026 nach 21:00 Europe/Vienna** keine weiteren Domainregistrierungs-/Verifikationsversuche.
   Danach im bestehenden Gmail-basierten Workspace-Konto die Custom-Email-Einrichtung fortsetzen; bei erneutem Fehler Supportfall **76454656** eskalieren.
   **Ab 27.10.2026 kostenpflichtig:** Starter Flexibel, 1 Nutzer, 8,10 €/Monat zzgl. anwendbarer Steuern. Vorher Status prüfen.
+
+## „Mein Angebot" neu getextet, 5. Karte B2B, Workshops als 06 (2026-10-16, Nutzerauftrag per Screenshots 10-02-55 … 10-06-18 = Deck Folien 5–10) — **IN ARBEIT (Deploy)**
+
+- Texte (Lead + Punkte) wortgetreu aus der .pptx (nicht abgetippt), `site.ts` DE; EN sinngemäß neu übersetzt.
+  Gedankenstriche in Leads auf Website-Stil „ — " vereinheitlicht (Deck hat bei 04/05 „–"); Kartentitel 05 mit „–" wie im Deck.
+- Preise über die Paketliste (Karten, Tabelle „Pakete & Preise" und JSON-LD-`OfferCatalog` folgen automatisch):
+  Gestaltungsberatung 320→**480**, Ordnungs-Startpaket 220 → **Ordnungspaket 480** (EN „Organizing package"), Re-Design-Beratung 280→**480**, Ordnung & Stil 480→**800**, B2B-Kompakt 690→**960**. Raumcheck 110 unverändert.
+- Neue Karte **05 „B2B-Kompakt – Bürogestaltung & Organisation"** (`id="b2b-kompakt"`, Preis aus `dePackages[6]`); erscheint automatisch im Menü „Mein Angebot" und als Service im JSON-LD.
+- **Workshops & Training jetzt Karte 06** im selben Raster (2×3), ohne Liste/Preis; alte Box „Außerdem" + `moreLabel` entfernt.
+- **Offen / mit Claudia klären:**
+  - **Intensivbegleitung ab EUR 690** (Tabelle) ist jetzt *billiger* als Ordnung & Stil 800 — im Deck nicht mehr vorhanden; nicht angefasst.
+  - Folie 11 (neuer Preistext) + Folie 12 („Diesen Teil bitte LÖSCHEN" = Tabelle „Pakete & Preise") noch nicht umgesetzt.
+  - Handout (`handout/…`, nur lokal) hat noch alte Preise und „Ordnungs-Startpaket".
+  - Karte 06 ist am Desktop so hoch wie Karte 05 (viel Leerraum, gleiche Zeilenhöhe im Raster) — bewusst so gelassen.
+- Geprüft lokal (bsk): tsc, eslint, Build sauber; keine alten Preise/„Startpaket"/„Außerdem" im Output; JSON-LD parsebar, minPrice neu;
+  1505 px DE+EN: 6 Karten 2×3, 5 Punkte je Karte 01–05, Menü mit B2B; 430 px DE+EN: 6 Karten einspaltig, kein Überlauf; keine Seiten-Konsolenfehler.
+- Rollback: `git revert` des Commits.
 
 ## KI-Video-Siegel oben rechts im Video (2026-10-16, Nutzerauftrag; Deck Folie 3: Kennzeichnung schon im Vorschaubild sichtbar) — **LIVE** (`550976b`, Deploy `38870877311` success; live `/` + `/en/`: Video-Siegel vorhanden, WebP 200)
 

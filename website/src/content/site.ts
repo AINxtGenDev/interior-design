@@ -59,7 +59,7 @@ export const CONTACT = {
 } as const;
 
 type Service = {
-  /** In-page anchor; the four offers are also the "Mein Angebot" submenu. */
+  /** In-page anchor; the offers are also the "Mein Angebot" submenu. */
   id: string;
   title: string;
   lead: string;
@@ -120,9 +120,8 @@ export type Content = {
   services: {
     heading: string;
     lead: string;
-    /** The four offers of slide 4, in its order. */
+    /** The five offers (change deck 16.10.26, slides 5–9), in its order. */
     items: Service[];
-    moreLabel: string;
     /** "Coming soon": no price and no bullet list until they are offered. */
     workshops: Pick<Service, "id" | "title" | "lead">;
     /** Button closing the section; opens a pre-filled email (mailto). */
@@ -211,22 +210,22 @@ export const LANG_ALTERNATES: Record<string, string> = {
  */
 const dePackages: Package[] = [
   { name: "Raumcheck", scope: "60–90 Minuten Analyse von Ordnung und Gestaltung", audience: "Privat & Betrieb", price: "ab EUR 110" },
-  { name: "Ordnungs-Startpaket", scope: "Ein klar abgegrenzter Bereich, z. B. Küche, Schlafzimmer oder Homeoffice", audience: "Privat", price: "ab EUR 220" },
-  { name: "Re-Design-Beratung", scope: "Neue Wirkung mit vorhandenen Möbeln, Textilien und Accessoires", audience: "Privat", price: "ab EUR 280" },
-  { name: "Gestaltungsberatung", scope: "Farb-, Material- und Einrichtungsberatung für einen Raum", audience: "Privat", price: "ab EUR 320" },
-  { name: "Ordnung & Stil", scope: "Decluttering und anschließende Gestaltung eines Raums", audience: "Privat", price: "ab EUR 480" },
+  { name: "Ordnungspaket", scope: "Ein klar abgegrenzter Bereich, z. B. Küche, Schlafzimmer oder Homeoffice", audience: "Privat", price: "ab EUR 480" },
+  { name: "Re-Design-Beratung", scope: "Neue Wirkung mit vorhandenen Möbeln, Textilien und Accessoires", audience: "Privat", price: "ab EUR 480" },
+  { name: "Gestaltungsberatung", scope: "Farb-, Material- und Einrichtungsberatung für einen Raum", audience: "Privat", price: "ab EUR 480" },
+  { name: "Ordnung & Stil", scope: "Decluttering und anschließende Gestaltung eines Raums", audience: "Privat", price: "ab EUR 800" },
   { name: "Intensivbegleitung", scope: "Mehrere Termine für Organisation und Gestaltung inklusive Nachbetreuung", audience: "Privat", price: "ab EUR 690" },
-  { name: "B2B-Kompakt", scope: "Analyse, Bürogestaltung und Teamworkshop im Paket", audience: "Betrieb", price: "ab EUR 690" },
+  { name: "B2B-Kompakt", scope: "Analyse, Bürogestaltung und Teamworkshop im Paket", audience: "Betrieb", price: "ab EUR 960" },
 ];
 
 const enPackages: Package[] = [
   { name: "Space check", scope: "60–90 minute assessment of order and design", audience: "Private & business", price: "from EUR 110" },
-  { name: "Organizing starter", scope: "One clearly defined area, e.g. kitchen, bedroom or home office", audience: "Private", price: "from EUR 220" },
-  { name: "Re-design consultation", scope: "A new look with your existing furniture, textiles and accessories", audience: "Private", price: "from EUR 280" },
-  { name: "Design consultation", scope: "Colour, material and furnishing advice for one room", audience: "Private", price: "from EUR 320" },
-  { name: "Order & style", scope: "Decluttering followed by the design of one room", audience: "Private", price: "from EUR 480" },
+  { name: "Organizing package", scope: "One clearly defined area, e.g. kitchen, bedroom or home office", audience: "Private", price: "from EUR 480" },
+  { name: "Re-design consultation", scope: "A new look with your existing furniture, textiles and accessories", audience: "Private", price: "from EUR 480" },
+  { name: "Design consultation", scope: "Colour, material and furnishing advice for one room", audience: "Private", price: "from EUR 480" },
+  { name: "Order & style", scope: "Decluttering followed by the design of one room", audience: "Private", price: "from EUR 800" },
   { name: "Intensive support", scope: "Several appointments for organising and design, including follow-up", audience: "Private", price: "from EUR 690" },
-  { name: "Business compact", scope: "Assessment, office design and team workshop bundled", audience: "Business", price: "from EUR 690" },
+  { name: "Business compact", scope: "Assessment, office design and team workshop bundled", audience: "Business", price: "from EUR 960" },
 ];
 
 const de: Content = {
@@ -284,52 +283,66 @@ const de: Content = {
         title: "Raumgestaltung",
         lead: "Individuelle Beratung und stimmige Einrichtungskonzepte, die Ästhetik und Persönlichkeit verbinden — damit aus einem Raum ein Zuhause wird, in dem Sie sich rundum wohlfühlen.",
         points: [
-          "Raumanalyse vor Ort oder per Grundriss und Fotos",
-          "Erstellung eines Einrichtungskonzepts",
-          "Farb- und Materialberatung",
-          "Arbeitsplatz- und Homeoffice-Gestaltung",
+          "Raumanalyse vor Ort oder anhand von Grundrissen und Fotos",
+          "Individuelle Farb-, Material- und Einrichtungskonzepte",
+          "Empfehlungen zur Möblierung und Raumaufteilung",
+          "Gestaltung von Wohnräumen und Homeoffice",
+          "Konkrete Maßnahmen für die Umsetzung",
         ],
       },
       {
         id: "ordnungscoaching",
         price: `${dePackages[1].name} ${dePackages[1].price}`,
         title: "Ordnungscoaching",
-        lead: "Professionelle Unterstützung beim Reduzieren, Sortieren und Strukturieren — bis ein Ordnungssystem entsteht, das zu Ihrem Alltag passt und ohne mich weiterläuft.",
+        lead: "Professionelle Unterstützung beim Reduzieren, Sortieren und Strukturieren. Gemeinsam schaffen wir individuelle Ordnungssysteme, die zu Ihren Gewohnheiten passen und langfristig funktionieren.",
         points: [
-          "Erstanalyse vor Ort oder online",
-          "Decluttering und Neuordnung einzelner Bereiche",
-          "Papier- und Dokumentenorganisation",
-          "Homeoffice- und Kleinbüro-Organisation",
-          "Umzug, Downsizing und Haushaltsverkleinerung",
-          "Nachbetreuung über Check-in-Termine",
+          "Analyse bestehender Räume und Abläufe",
+          "Gemeinsames Aussortieren und Neuorganisieren",
+          "Individuelle und alltagstaugliche Ordnungssysteme",
+          "Papier-, Dokumenten- und Homeoffice-Organisation",
+          "Unterstützung bei Umzug und Downsizing",
         ],
       },
       {
         id: "raumgestaltung-und-ordnung",
         price: `${dePackages[4].name} ${dePackages[4].price}`,
         title: "Raumgestaltung plus Ordnungscoaching",
-        lead: "Ordnung und Gestaltung in einem Ablauf, mit einer Ansprechpartnerin — vom ersten Sortieren bis zum fertig eingerichteten Raum.",
+        lead: "Die Verbindung aus professioneller Organisation und individueller Raumgestaltung. Von der ersten Bestandsaufnahme über das Aussortieren bis zur gestalterischen Aufwertung erhalten Sie alles aus einer Hand.",
         points: [
-          "Decluttering und anschließende Gestaltung eines Raums",
-          "Mehrere Termine für Organisation und Gestaltung",
-          "Begleitung bei Umzug und Neueinrichtung",
-          "Nachbetreuung inklusive",
+          "Analyse von Raum, Einrichtung und Ordnungsbedarf",
+          "Gemeinsames Aussortieren und Neuorganisieren",
+          "Entwicklung passender Aufbewahrungs- und Gestaltungslösungen",
+          "Harmonische Verbindung von Funktion und Ästhetik",
+          "Begleitung bei der Umsetzung und auf Wunsch Nachbetreuung",
         ],
       },
       {
         id: "re-design",
         price: `${dePackages[2].name} ${dePackages[2].price}`,
         title: "Re-Design",
-        lead: "Neue Wirkung mit dem, was schon da ist: Vorhandene Möbel, Textilien und Accessoires werden neu arrangiert — ergänzt wird nur, was wirklich fehlt.",
+        lead: "Manchmal braucht es keine neuen Möbel, sondern einen neuen Blick auf das Vorhandene. Durch gezieltes Umstellen, Kombinieren und Ergänzen entsteht ein frisches Raumgefühl — ohne alles neu kaufen zu müssen.",
         points: [
+          "Analyse der vorhandenen Einrichtung",
           "Planung für das Umstellen und Neuarrangieren vorhandener Möbel",
-          "Gezielte Farb- und Materialakzente",
+          "Gezielte Farb-, Textil- und Materialakzente",
           "Einkaufsliste nur für das, was wirklich fehlt",
           "Styling für Verkauf oder Vermietung",
         ],
       },
+      {
+        id: "b2b-kompakt",
+        price: `${dePackages[6].name} ${dePackages[6].price}`,
+        title: "B2B-Kompakt – Bürogestaltung & Organisation",
+        lead: "Ein durchdachtes Arbeitsumfeld schafft Übersicht, unterstützt effiziente Abläufe und fördert konzentriertes Arbeiten. Ich verbinde funktionale Bürogestaltung mit professioneller Organisation — abgestimmt auf Ihr Unternehmen und Ihr Team.",
+        points: [
+          "Analyse von Arbeitsplätzen, Raumaufteilung und Abläufen",
+          "Optimierung von Büroorganisation und Stauraum",
+          "Empfehlungen zu Ergonomie, Einrichtung und Gestaltung",
+          "Entwicklung praxistauglicher Ordnungssysteme",
+          "Team-Workshops für nachhaltige Ordnung und effiziente Arbeitsweisen",
+        ],
+      },
     ],
-    moreLabel: "Außerdem",
     workshops: {
       id: "workshops",
       title: "Workshops & Training",
@@ -534,52 +547,66 @@ const en: Content = {
         title: "Interior design",
         lead: "Personal advice and coherent furnishing concepts that bring aesthetics and personality together — so that a room becomes a home where you feel completely at ease.",
         points: [
-          "Room analysis on site, or from a floor plan and photos",
-          "Drawing up a furnishing concept",
-          "Colour and material consulting",
-          "Workspace and home office design",
+          "Room analysis on site, or from floor plans and photos",
+          "Individual colour, material and furnishing concepts",
+          "Recommendations on furniture and room layout",
+          "Design of living spaces and home offices",
+          "Concrete steps for putting it into practice",
         ],
       },
       {
         id: "ordnungscoaching",
         price: `${enPackages[1].name} ${enPackages[1].price}`,
         title: "Professional organizing",
-        lead: "Professional support in reducing, sorting and structuring — until you have a system that fits your daily life and keeps working without me.",
+        lead: "Professional support in reducing, sorting and structuring. Together we create individual systems that suit your habits and work in the long term.",
         points: [
-          "Initial assessment on site or online",
-          "Decluttering and reorganising individual areas",
-          "Paperwork and document organisation",
-          "Home office and small office organisation",
-          "Moving, downsizing and household reduction",
-          "Follow-up check-in appointments",
+          "Analysis of existing rooms and routines",
+          "Sorting out and reorganising together",
+          "Individual systems that work in everyday life",
+          "Paper, document and home office organisation",
+          "Support with moving and downsizing",
         ],
       },
       {
         id: "raumgestaltung-und-ordnung",
         price: `${enPackages[4].name} ${enPackages[4].price}`,
         title: "Interior design plus organizing",
-        lead: "Organising and design in one process, with one person — from the first sort-out to the finished room.",
+        lead: "Professional organising combined with individual interior design. From the first inventory through sorting out to the design upgrade, everything comes from a single source.",
         points: [
-          "Decluttering followed by the design of one room",
-          "Several appointments for organising and design",
-          "Support with moving and refurnishing",
-          "Follow-up included",
+          "Analysis of room, furnishings and organising needs",
+          "Sorting out and reorganising together",
+          "Developing suitable storage and design solutions",
+          "A harmonious balance of function and aesthetics",
+          "Support during implementation and follow-up on request",
         ],
       },
       {
         id: "re-design",
         price: `${enPackages[2].name} ${enPackages[2].price}`,
         title: "Re-design",
-        lead: "A new look with what you already own: existing furniture, textiles and accessories are rearranged — only what is genuinely missing gets added.",
+        lead: "Sometimes it takes not new furniture but a fresh look at what is already there. Thoughtful rearranging, combining and adding creates a new feel for the room — without buying everything new.",
         points: [
+          "Analysis of the existing furnishings",
           "Planning how to move and rearrange the furniture you already have",
-          "Targeted colour and material accents",
+          "Targeted colour, textile and material accents",
           "A shopping list only for what is really missing",
           "Styling for sale or rental",
         ],
       },
+      {
+        id: "b2b-kompakt",
+        price: `${enPackages[6].name} ${enPackages[6].price}`,
+        title: "Business compact – office design & organisation",
+        lead: "A well-planned working environment creates clarity, supports efficient processes and encourages focused work. I combine functional office design with professional organisation — tailored to your company and your team.",
+        points: [
+          "Analysis of workstations, room layout and processes",
+          "Optimising office organisation and storage",
+          "Recommendations on ergonomics, furnishing and design",
+          "Developing practical organising systems",
+          "Team workshops for lasting order and efficient ways of working",
+        ],
+      },
     ],
-    moreLabel: "Also",
     workshops: {
       id: "workshops",
       title: "Workshops & Training",

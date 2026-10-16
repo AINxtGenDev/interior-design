@@ -93,19 +93,21 @@ export default function HomePage({ locale }: { locale: Locale }) {
                 <PriceHint text={s.price} />
               </article>
             ))}
+            {/* Workshops close the grid as 06 (slide 10): no list, no price yet. */}
+            <article
+              id={c.services.workshops.id}
+              aria-labelledby="workshops-title"
+              className="rounded border border-anthrazit-light border-t-4 border-t-blush-mid bg-white p-6 sm:p-8"
+            >
+              <p className="eyebrow text-sage-dark">
+                {String(c.services.items.length + 1).padStart(2, "0")}
+              </p>
+              <h3 id="workshops-title" className="h3 mt-2">
+                {c.services.workshops.title}
+              </h3>
+              <p className="mt-4">{c.services.workshops.lead}</p>
+            </article>
           </div>
-
-          <article
-            id={c.services.workshops.id}
-            aria-labelledby="workshops-title"
-            className="mt-6 rounded bg-sage-light p-6 sm:p-8"
-          >
-            <p className="eyebrow text-sage-dark">{c.services.moreLabel}</p>
-            <h3 id="workshops-title" className="h3 mt-2">
-              {c.services.workshops.title}
-            </h3>
-            <p className="mt-4">{c.services.workshops.lead}</p>
-          </article>
 
           <div className="mx-auto mt-10 w-full max-w-[360px]">
             <a href={quoteMailto} className="btn btn-primary w-full">

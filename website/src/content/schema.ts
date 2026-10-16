@@ -97,7 +97,7 @@ export function buildHomeGraph(locale: Locale): JsonLdNode[] {
   const videoId = `${home}#video`;
   const catalogId = `${home}#packages`;
 
-  // The four offers of the "Mein Angebot" menu plus the workshops.
+  // The five offers of the "Mein Angebot" menu plus the workshops.
   const allServices: { title: string; lead: string; points?: string[] }[] = [
     ...c.services.items,
     c.services.workshops,
