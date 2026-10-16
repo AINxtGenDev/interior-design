@@ -93,6 +93,8 @@ export type Content = {
     skip: string;
   };
   langSwitch: { label: string };
+  /** Tooltip and alt text of the "KI-generiert" seal on AI-made images. */
+  aiNotice: string;
   hero: {
     title: string;
     /** The slogan painted into the title image of each language. Feeds the
@@ -102,8 +104,6 @@ export type Content = {
     ctaPrimary: string;
     ctaSecondary: string;
     imageAlt: string;
-    /** Tooltip and alt text of the "KI-generiert" seal on the title image. */
-    aiNotice: string;
   };
   video: {
     heading: string;
@@ -251,6 +251,7 @@ const de: Content = {
     skip: "Zum Inhalt springen",
   },
   langSwitch: { label: "Sprache wählen" },
+  aiNotice: "Dieses Bild wurde mithilfe künstlicher Intelligenz erstellt.",
   hero: {
     title: "Raumgestaltung und Ordnungscoaching aus einer Hand",
     tagline: "Schöne Räume.\nKlarer Alltag.",
@@ -259,7 +260,6 @@ const de: Content = {
     ctaSecondary: "Angebot ansehen",
     imageAlt:
       "Schöne Räume. Klarer Alltag. Interior Design · Professional Organizing — Schriftzug auf heller Wand zwischen einem Wohnbereich mit Sofa und Olivenbaum und einem beleuchteten Regal mit beschrifteten Boxen und Kleiderstange",
-    aiNotice: "Dieses Bild wurde mithilfe künstlicher Intelligenz erstellt.",
   },
   video: {
     heading: "In einer Minute erklärt",
@@ -500,6 +500,7 @@ const en: Content = {
     skip: "Skip to content",
   },
   langSwitch: { label: "Choose language" },
+  aiNotice: "This image was created using artificial intelligence.",
   hero: {
     title: "Interior design and professional organizing from a single source",
     tagline: "Beautiful spaces.\nA clearer day.",
@@ -508,7 +509,6 @@ const en: Content = {
     ctaSecondary: "See my services",
     imageAlt:
       "Beautiful spaces. A clearer day. Interior Design · Professional Organizing — lettering on a light wall between a living area with a sofa and olive tree and a lit shelf with labelled boxes and a clothes rail",
-    aiNotice: "This image was created using artificial intelligence.",
   },
   video: {
     heading: "Explained in a minute",

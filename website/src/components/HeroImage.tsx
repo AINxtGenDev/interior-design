@@ -17,8 +17,7 @@ import enFull1440 from "@/assets/hero-en-full-1440.webp";
 import enFull1947 from "@/assets/hero-en-full-1947.webp";
 import enPhone480 from "@/assets/hero-en-phone-480.webp";
 import enPhone633 from "@/assets/hero-en-phone-633.webp";
-import aiBadge128 from "@/assets/ai-badge-128.webp";
-import aiBadge192 from "@/assets/ai-badge-192.webp";
+import AiBadge from "./AiBadge";
 import type { Content, Locale } from "@/content/site";
 
 type Img = { src: string; width: number; height: number };
@@ -49,8 +48,7 @@ const largest = (imgs: Img[]) => imgs[imgs.length - 1];
  * Both carry width/height, so the box is reserved before load (no layout
  * shift); the browser downloads only the one that matches.
  *
- * The "KI-generiert" seal sits in the bottom-right corner (Homepage
- * Änderungen 16.10.26, slide 2); hovering it shows the explanation.
+ * The "KI-generiert" seal sits in the bottom-right corner (see AiBadge).
  */
 export default function HeroImage({
   content,
@@ -83,18 +81,7 @@ export default function HeroImage({
           className="block h-auto w-full"
         />
       </picture>
-      {/* eslint-disable-next-line @next/next/no-img-element -- srcset; see BrandLogo */}
-      <img
-        src={aiBadge128.src}
-        srcSet={`${aiBadge128.src} 128w, ${aiBadge192.src} 192w`}
-        sizes="(min-width: 64rem) 48px, (min-width: 48rem) 40px, 32px"
-        width={aiBadge128.width}
-        height={aiBadge128.height}
-        alt={content.hero.aiNotice}
-        title={content.hero.aiNotice}
-        decoding="async"
-        className="absolute right-2 bottom-2 h-auto w-8 md:right-3 md:bottom-3 md:w-10 lg:w-12"
-      />
+      <AiBadge label={content.aiNotice} />
     </div>
   );
 }

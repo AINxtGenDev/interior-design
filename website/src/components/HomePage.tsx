@@ -14,6 +14,7 @@ import { ASSET_PREFIX, CONTACT, getContent, type Locale } from "@/content/site";
 import { buildHomeGraph } from "@/content/schema";
 import SiteHeader, { SECTION_IDS } from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
+import AiBadge from "./AiBadge";
 import HeroImage from "./HeroImage";
 import IntroVideo from "./IntroVideo";
 import JsonLd from "./JsonLd";
@@ -281,20 +282,23 @@ export default function HomePage({ locale }: { locale: Locale }) {
                 shows the client's collage ("Bild Projekte.png"), whose tiles
                 are baked in; English rebuilds it with live-text tiles. */}
             {c.projects.collageAlt ? (
-              // eslint-disable-next-line @next/next/no-img-element -- srcset; see BrandLogo
-              <img
-                src={projects640.src}
-                srcSet={`${projects640.src} 640w, ${projects1254.src} 1254w`}
-                sizes="(min-width: 1024px) 620px, 100vw"
-                width={projects1254.width}
-                height={projects1254.height}
-                alt={c.projects.collageAlt}
-                loading="lazy"
-                decoding="async"
-                className="h-auto w-full"
-              />
+              <div className="relative">
+                {/* eslint-disable-next-line @next/next/no-img-element -- srcset; see BrandLogo */}
+                <img
+                  src={projects640.src}
+                  srcSet={`${projects640.src} 640w, ${projects1254.src} 1254w`}
+                  sizes="(min-width: 1024px) 620px, 100vw"
+                  width={projects1254.width}
+                  height={projects1254.height}
+                  alt={c.projects.collageAlt}
+                  loading="lazy"
+                  decoding="async"
+                  className="block h-auto w-full"
+                />
+                <AiBadge label={c.aiNotice} lazy />
+              </div>
             ) : (
-              <div>
+              <div className="relative">
                 <div className="grid grid-cols-2 gap-3 sm:gap-4">
                   <p className="flex aspect-square items-end bg-sage-dark p-4 font-[family-name:var(--font-accent)] text-[clamp(1rem,0.85rem+0.8vw,1.5rem)] leading-snug text-white sm:p-6">
                     {c.projects.tiles[0]}
@@ -318,6 +322,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
                     <span aria-hidden="true" className="rule mt-3 w-10 bg-anthrazit-dark" />
                   </p>
                 </div>
+                <AiBadge label={c.aiNotice} lazy />
               </div>
             )}
           </div>
