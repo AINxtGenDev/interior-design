@@ -41,7 +41,7 @@
   Danach im bestehenden Gmail-basierten Workspace-Konto die Custom-Email-Einrichtung fortsetzen; bei erneutem Fehler Supportfall **76454656** eskalieren.
   **Ab 27.10.2026 kostenpflichtig:** Starter Flexibel, 1 Nutzer, 8,10 €/Monat zzgl. anwendbarer Steuern. Vorher Status prüfen.
 
-## KI-Siegel auch auf der Projekte-Collage (2026-10-16, Nutzerauftrag per Screenshot 09-55-15) — **IN ARBEIT (Deploy)**
+## KI-Siegel auch auf der Projekte-Collage (2026-10-16, Nutzerauftrag per Screenshot 09-55-15) — **LIVE** (`9f27de5`, Deploy `38870460552` success; live `/` + `/en/`: je 2 Siegel)
 
 - Siegel als eigene Komponente `website/src/components/AiBadge.tsx` (Größe/Position wie im Titelbild: 32/40/48 px, 8/12 px Rand), genutzt in `HeroImage.tsx` und `HomePage.tsx` (Projekte).
   Text von `hero.aiNotice` nach oben auf `aiNotice` (Content-Wurzel) verschoben.
