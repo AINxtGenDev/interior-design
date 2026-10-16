@@ -7,12 +7,15 @@ Inputs (repo root, supplied by the client):
     Bild Projekte.png       1254x1254, Projekte collage with the German tiles (2026-10-09)
     KI-generiertes Bild – Minimalistisches Siegel.png
                             1285x1224 RGBA, "KI-generiert" seal (change deck 16.10.26)
+    KI-generiertes Video-Siegel.png
+                            1254x1254 RGB on white, the same seal for the video
 
 Outputs:
     website/src/assets/logo-{480,960}.webp            trimmed logo, lossless
     website/src/assets/hero-{full,phone}-{w}.webp      title image, desktop + phone
     website/src/assets/hero-en-{full,phone}-{w}.webp   same, headline set in English
     website/src/assets/ai-badge-{128,192}.webp         KI seal for the title image corner
+    website/src/assets/ai-video-badge-{128,192}.webp   KI seal for the video corner
     website/src/assets/portrait-{w}.webp               Über mich, from "Foto Homepage über mich.png"
     website/src/assets/projects-{640,1254}.webp        Projekte collage (German page)
     website/src/assets/projects-{living,order}-610.webp its two photos (English page)
@@ -171,14 +174,23 @@ def build_hero(hero: Image.Image, phone: Image.Image, prefix: str = "hero") -> N
     save_webp(phone, f"{prefix}-phone", (480, phone.width))
 
 
-def build_ai_badge(seal: Image.Image) -> None:
-    """The "KI-generiert" seal, shown in the title image's bottom-right corner.
+# The video seal has no alpha: a white square around the disc. Its ring is
+# the only thing darker than this on the edge, so it gives the disc's box.
+SEAL_RING_MAX = 200
 
-    The source disc sits in a transparent margin with a faint green fringe
-    outside the ring; trim to the disc and cut it with a clean anti-aliased
-    circle so the fringe never shows on the photo.
+
+def build_ai_badge(seal: Image.Image, name: str = "ai-badge") -> None:
+    """A "KI-generiert" seal, shown in a corner of an AI-made image or video.
+
+    The image seal's disc sits in a transparent margin with a faint green
+    fringe outside the ring; the video seal sits on white. Either way, cut to
+    the disc with a clean anti-aliased circle so nothing around it shows.
     """
-    disc = trim(seal, pad=0)
+    if seal.mode == "RGBA":
+        disc = trim(seal, pad=0)
+    else:
+        ys, xs = np.where(np.array(seal.convert("L")) < SEAL_RING_MAX)
+        disc = seal.crop((xs.min(), ys.min(), xs.max() + 1, ys.max() + 1)).convert("RGBA")
     ss = 4
     mask = Image.new("L", (disc.width * ss, disc.height * ss), 0)
     ImageDraw.Draw(mask).ellipse((0, 0, mask.width - 1, mask.height - 1), fill=255)
@@ -187,7 +199,7 @@ def build_ai_badge(seal: Image.Image) -> None:
     disc.putalpha(Image.fromarray(alpha))
     for w in (128, 192):
         out = resize_w(disc, w)
-        path = ASSETS / f"ai-badge-{w}.webp"
+        path = ASSETS / f"{name}-{w}.webp"
         out.save(path, "WEBP", quality=90, method=6)
         print(f"  {path.relative_to(ROOT)} {out.size} {path.stat().st_size // 1024} KB")
 
@@ -302,6 +314,7 @@ def main() -> None:
     hero_en = english_headline(hero)
     build_hero(hero_en, english_headline(phone, **PHONE_HEADLINE), prefix="hero-en")
     build_ai_badge(Image.open(ROOT / "KI-generiertes Bild – Minimalistisches Siegel.png").convert("RGBA"))
+    build_ai_badge(Image.open(ROOT / "KI-generiertes Video-Siegel.png").convert("RGB"), "ai-video-badge")
     build_portrait(Image.open(ROOT / "Foto Homepage über mich.png").convert("RGB"))
     build_projects(Image.open(ROOT / "Bild Projekte.png").convert("RGB"))
     build_icons(logo)

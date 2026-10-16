@@ -95,6 +95,8 @@ export type Content = {
   langSwitch: { label: string };
   /** Tooltip and alt text of the "KI-generiert" seal on AI-made images. */
   aiNotice: string;
+  /** The same for the seal on the introduction film. */
+  aiVideoNotice: string;
   hero: {
     title: string;
     /** The slogan painted into the title image of each language. Feeds the
@@ -252,6 +254,7 @@ const de: Content = {
   },
   langSwitch: { label: "Sprache wählen" },
   aiNotice: "Dieses Bild wurde mithilfe künstlicher Intelligenz erstellt.",
+  aiVideoNotice: "Dieses Video wurde mithilfe künstlicher Intelligenz erstellt.",
   hero: {
     title: "Raumgestaltung und Ordnungscoaching aus einer Hand",
     tagline: "Schöne Räume.\nKlarer Alltag.",
@@ -501,6 +504,7 @@ const en: Content = {
   },
   langSwitch: { label: "Choose language" },
   aiNotice: "This image was created using artificial intelligence.",
+  aiVideoNotice: "This video was created using artificial intelligence.",
   hero: {
     title: "Interior design and professional organizing from a single source",
     tagline: "Beautiful spaces.\nA clearer day.",

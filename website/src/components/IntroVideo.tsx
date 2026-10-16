@@ -1,3 +1,4 @@
+import AiBadge from "./AiBadge";
 import { ASSET_PREFIX, CONTACT, type Content, type Locale } from "@/content/site";
 
 /**
@@ -36,7 +37,7 @@ export default function IntroVideo({
           {/* 9:16 source — constrained on desktop so it never dominates the page. */}
           {/* Never taller than 70 % of the viewport, so the controls stay
               in view on short phones. */}
-          <div className="mx-auto w-full max-w-[min(360px,calc(70svh*9/16))]">
+          <div className="relative mx-auto w-full max-w-[min(360px,calc(70svh*9/16))]">
             <video
               className="block h-auto w-full rounded border border-sage-soft bg-anthrazit-dark"
               controls
@@ -59,6 +60,7 @@ export default function IntroVideo({
               />
               {content.video.unsupported}
             </video>
+            <AiBadge label={content.aiVideoNotice} kind="video" lazy />
           </div>
 
           {/* Same width as the film above, so the two read as one block. */}
