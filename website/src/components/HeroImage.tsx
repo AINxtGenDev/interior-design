@@ -87,13 +87,13 @@ export default function HeroImage({
       <img
         src={aiBadge128.src}
         srcSet={`${aiBadge128.src} 128w, ${aiBadge192.src} 192w`}
-        sizes="(min-width: 64rem) 96px, (min-width: 48rem) 80px, 64px"
+        sizes="(min-width: 64rem) 48px, (min-width: 48rem) 40px, 32px"
         width={aiBadge128.width}
         height={aiBadge128.height}
         alt={content.hero.aiNotice}
         title={content.hero.aiNotice}
         decoding="async"
-        className="absolute right-2 bottom-2 h-auto w-16 md:right-3 md:bottom-3 md:w-20 lg:w-24"
+        className="absolute right-2 bottom-2 h-auto w-8 md:right-3 md:bottom-3 md:w-10 lg:w-12"
       />
     </div>
   );

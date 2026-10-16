@@ -41,6 +41,13 @@
   Danach im bestehenden Gmail-basierten Workspace-Konto die Custom-Email-Einrichtung fortsetzen; bei erneutem Fehler Supportfall **76454656** eskalieren.
   **Ab 27.10.2026 kostenpflichtig:** Starter Flexibel, 1 Nutzer, 8,10 €/Monat zzgl. anwendbarer Steuern. Vorher Status prüfen.
 
+## KI-Siegel halbiert (2026-10-16, Nutzerauftrag per Screenshot 09-50-41) — **IN ARBEIT**
+
+- Siegel auf halbe Größe: 32 px (Handy), 40 px ab 768 px, 48 px ab 1024 px (vorher 64/80/96). Randabstände (8/12 px) unverändert. `sizes` angepasst.
+- Geprüft lokal (bsk): 1505 px → 48 px, 12 px Rand, Buchrücken „BEAUTIFUL FUNCTIONAL SPACES" jetzt frei; 430 px EN → 32 px, 8 px, kein Überlauf; Bild geladen, `title` korrekt.
+  „KI-GENERIERT" im Siegel bei dieser Größe kaum noch lesbar (Symbol bleibt erkennbar).
+- Rollback: `git revert` des Commits.
+
 ## KI-Siegel auf dem Titelbild (2026-10-16, Nutzerauftrag, Änderungsdeck „Homepage Änderngen_161026.pptx" Folie 2/13) — **LIVE** (`a977c0c`, Deploy `38868422846` success; live `/` + `/en/`: title-Text korrekt, beide Siegel-WebPs 200)
 
 - `KI-generiertes Bild – Minimalistisches Siegel.png` (jetzt committet, Quelle wie die anderen Bilder) → `brand/build_web_assets.py` `build_ai_badge()`:
