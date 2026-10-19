@@ -41,7 +41,7 @@
   Danach im bestehenden Gmail-basierten Workspace-Konto die Custom-Email-Einrichtung fortsetzen; bei erneutem Fehler Supportfall **76454656** eskalieren.
   **Ab 27.10.2026 kostenpflichtig:** Starter Flexibel, 1 Nutzer, 8,10 €/Monat zzgl. anwendbarer Steuern. Vorher Status prüfen.
 
-## vCard-QR antippbar + Invertier-Feedback (2026-10-19, Nutzerauftrag)
+## vCard-QR antippbar + Invertier-Feedback (2026-10-19, Nutzerauftrag) — **LIVE** (`03a48bf`, Deploy `39313808283` success; live `.vcf` 200 `text/x-vcard`, byte-gleich; `/` + `/en/` mit Link)
 
 - QR im Kontakt ist jetzt ein Link auf `public/claudia-plessl.vcf` (neue Komponente `VCardQr.tsx`, Client). Inhalt **byte-gleich** mit dem dekodierten QR (vCard 3.0, CRLF, UTF-8). Am Handy: iOS zeigt „Kontakt hinzufügen", Android importiert die Datei.
 - Jedes Tippen/Klicken invertiert den QR kurz (Web Animations API, `filter: invert(1)` 240 ms, dann zurück, gesamt 400 ms).
