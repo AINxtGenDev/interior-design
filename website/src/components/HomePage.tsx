@@ -10,9 +10,10 @@ import projectsLiving from "@/assets/projects-living-610.webp";
 import projectsOrder from "@/assets/projects-order-610.webp";
 import portrait480 from "@/assets/portrait-480.webp";
 import portrait1147 from "@/assets/portrait-1147.webp";
-import { ASSET_PREFIX, CONTACT, getContent, type Locale } from "@/content/site";
+import { CONTACT, getContent, type Locale } from "@/content/site";
 import { buildHomeGraph } from "@/content/schema";
 import SiteHeader, { SECTION_IDS } from "./SiteHeader";
+import VCardQr from "./VCardQr";
 import SiteFooter from "./SiteFooter";
 import AiBadge from "./AiBadge";
 import HeroImage from "./HeroImage";
@@ -338,18 +339,10 @@ export default function HomePage({ locale }: { locale: Locale }) {
                 </a>
                 {/* vCard QR (85 modules, error correction H, logo inside). The
                     SVG brings its own white quiet zone. 288 px (fits a 320 px
-                    phone) so both test decoders read it from a 1x screenshot. */}
+                    phone) so both test decoders read it from a 1x screenshot.
+                    Tappable: see VCardQr. */}
                 <figure className="mt-6 self-stretch text-center md:self-auto md:text-left">
-                  {/* eslint-disable-next-line @next/next/no-img-element -- static SVG from public/ */}
-                  <img
-                    src={`${ASSET_PREFIX}/claudia-plessl-vcard-logo-cp.svg`}
-                    width={288}
-                    height={288}
-                    alt={c.contact.qrAlt}
-                    loading="lazy"
-                    decoding="async"
-                    className="mx-auto block size-72 rounded md:mx-0"
-                  />
+                  <VCardQr alt={c.contact.qrAlt} />
                   <figcaption className="small mt-3 text-sage-light">{c.contact.qrCaption}</figcaption>
                 </figure>
               </div>
