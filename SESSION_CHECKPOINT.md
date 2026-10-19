@@ -48,7 +48,7 @@
 - Alt-Text + Bildunterschrift DE/EN um „antippen" ergänzt.
 - Geprüft lokal (bsk, iPhone-14-Emulation 390 px): Klick lädt `.vcf` = Datei in `public/`; Filter bei 50/200 ms `invert(1)`, bei 600 ms `none`; invertierter Zustand im Screenshot sichtbar; DE+EN kein Überlauf, keine Konsolenfehler; tsc/eslint/build sauber. Lokaler Server liefert `text/x-vcard`.
 - **Nicht geprüft:** echtes iPhone/Android-Gerät (Adressbuch-Dialog) — bitte am Handy testen.
-- Footer danach auf **„Version 1.8 19.10.2026"** (Nutzerauftrag), `SiteFooter.tsx`.
+- Footer danach auf **„Version 1.8 19.10.2026"** (Nutzerauftrag), `SiteFooter.tsx` — **LIVE** (`41c15f6`, Deploy `39314278403` success; live `/`, `/en/`, `/impressum/` zeigen 1.8).
 - Rollback: `git revert` des Commits.
 
 ## Preis-Abschnitt nach oben verschoben (2026-10-16, Nutzerauftrag per Screenshots 10-18-00/10-18-36) — **LIVE** (`c8d3496`, Deploy `38873091679` success; live Reihenfolge leistungen → pakete → ablauf)
