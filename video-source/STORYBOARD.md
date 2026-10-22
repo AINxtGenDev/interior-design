@@ -276,7 +276,7 @@ deep sage. Darunter klein in Inter: „Endpreis nach dem Raumcheck".
 Scene 3 (3.4–5.6s): auf „Wien und Niederösterreich" setzt darunter in Jost tracked sage
 **WIEN · NIEDERÖSTERREICH**.
 Scene 4 (5.6–7.6s): auf „Schreiben Sie mir." setzt über dem Rahmen das CP-Monogramm klein,
-darunter **claudia.plessl@gmail.com** in Inter ink und die URL
+darunter **office@claudiaplessl.at** in Inter ink und die URL
 **ainxtgendev.github.io/interior-design** in Jost sage, kleiner.
 Scene 5 (7.6–10.0s): gehalten, komplett still. Kein Push-in. Der Film endet ruhig, damit die
 Kontaktzeile lesbar stehen bleibt.
