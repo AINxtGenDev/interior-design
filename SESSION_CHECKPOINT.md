@@ -41,7 +41,7 @@
   Danach im bestehenden Gmail-basierten Workspace-Konto die Custom-Email-Einrichtung fortsetzen; bei erneutem Fehler Supportfall **76454656** eskalieren.
   **Ab 27.10.2026 kostenpflichtig:** Starter Flexibel, 1 Nutzer, 8,10 €/Monat zzgl. anwendbarer Steuern. Vorher Status prüfen.
 
-## Kontaktadresse + vCard-QR → office@claudiaplessl.at (2026-10-22, Nutzerauftrag) — **LIVE** (`94857b1`, Deploy `39811867441` success)
+## Kontaktadresse + vCard-QR → office@claudiaplessl.at (2026-10-22, Nutzerauftrag) — **LIVE** (`94857b1`, Deploy `39811867441` success) · Video Frame 7 LIVE (`5f01c80`, Deploy `39814275191` success, live MP4 = lokal `1fa9bd7b…`)
 
 - `CONTACT.email` in `website/src/content/site.ts` → `office@claudiaplessl.at` (alle mailto-Buttons, Kontakt, Impressum, Datenschutz, AGB, EN-Legal, JSON-LD).
 - `public/claudia-plessl.vcf`: nur EMAIL-Zeile geändert (CRLF erhalten).
