@@ -395,7 +395,7 @@
 - **Test 2026-10-22 18:02 (Nutzer + geprüft):** Gmail → office@ angekommen; Antwort office@ → claudia.plessl@gmail.com „Original anzeigen“: **SPF PASS (209.85.220.41), DKIM PASS (d=claudiaplessl.at, s=google), DMARC PASS (p=REJECT)**, zugestellt nach 12 s. DNS auf 3 NS + 8.8.8.8 + 1.1.1.1: MX, 1× SPF, DKIM, DMARC korrekt.
 - **2026-10-22 Altes Abo gekündigt (Nutzerauftrag):** Admin (claudia.plessl@gmail.com) → Billing → Business Starter (Flexibel, Trial) → Cancel subscription, wirksam 22.10.2026 → „subscription is canceled and your organization’s account is deleted“. Danach: Billing „No subscriptions“; Gmail-Posteingang claudia.plessl@gmail.com lädt normal. Google One 100 GB unverändert. Kein Rückweg außer neuem Abo.
 - Website-Kontaktadresse umgestellt 2026-10-22 (siehe eigener Abschnitt).
-- **Nächste Schritte:** Sachin/Fall 76454656 ggf. Erfolg melden; Gmail-Adresse nirgends mehr (Website, QR, Handout, Video).
+- **Abschluss 2026-10-22 (Nutzer bestätigt):** Website, QR, Handout und Video mit office@ — „alles funktioniert". Optional: Sachin/Fall 76454656 Erfolg melden; QR am iPhone scannen.
 
 ### 2026-10-20 07:51 — Fortsetzung bewusst verschoben
 
