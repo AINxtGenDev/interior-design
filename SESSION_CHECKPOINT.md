@@ -41,7 +41,7 @@
   Danach im bestehenden Gmail-basierten Workspace-Konto die Custom-Email-Einrichtung fortsetzen; bei erneutem Fehler Supportfall **76454656** eskalieren.
   **Ab 27.10.2026 kostenpflichtig:** Starter Flexibel, 1 Nutzer, 8,10 €/Monat zzgl. anwendbarer Steuern. Vorher Status prüfen.
 
-## Bild-KI-Siegel verkleinert (2026-10-25, Nutzerauftrag per Screenshots 08-34-51/08-35-22)
+## Bild-KI-Siegel verkleinert (2026-10-25, Nutzerauftrag per Screenshots 08-34-51/08-35-22) — **LIVE** (`8ac252a`, Deploy `40173452845` success; live `/` + `/en/` keine alte Größe mehr)
 
 - Titelbild-Siegel zu groß → alle Siegel einheitlich 24/28/32 px (vorher Bild 32/40/48). Projekte-Collage mitgezogen, weil sie bewusst gleich groß wie das Titelbild war.
 - Geprüft lokal (chrome-devtools): tsc/eslint/build sauber; 1500 px: alle 3 Siegel 32 px, 12 px Rand, geladen; 390 px DE+EN: 24 px, kein Überlauf.
