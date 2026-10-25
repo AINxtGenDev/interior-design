@@ -41,7 +41,7 @@
   Danach im bestehenden Gmail-basierten Workspace-Konto die Custom-Email-Einrichtung fortsetzen; bei erneutem Fehler Supportfall **76454656** eskalieren.
   **Ab 27.10.2026 kostenpflichtig:** Starter Flexibel, 1 Nutzer, 8,10 €/Monat zzgl. anwendbarer Steuern. Vorher Status prüfen.
 
-## Video-KI-Siegel kleiner, nur am Filmanfang (2026-10-25, Nutzerauftrag per Screenshots 08-25-24/08-26-01)
+## Video-KI-Siegel kleiner, nur am Filmanfang (2026-10-25, Nutzerauftrag per Screenshots 08-25-24/08-26-01) — **LIVE** (`68c20ec`, Deploy `40173014560` success; live `/` + `/en/` neue Größen)
 
 - Video-Siegel jetzt 24/28/32 px (vorher 32/40/48); Bild-Siegel (Titelbild, Projekte) unverändert.
 - Sichtbar auf dem Poster und in den ersten **3 s** der Wiedergabe, dann Ausblenden (500 ms); Zurückspulen an den Anfang zeigt es wieder.
