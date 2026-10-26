@@ -46,7 +46,7 @@
 - Fundort: Browser-Tab-Titel = `CONTACT.businessName` (`website/src/content/site.ts`), plus Titel Impressum/Datenschutz/AGB/EN-Legal, Manifest `short_name`, JSON-LD `alternateName`.
 - Alle 7 Stellen ersetzt. Neuer Wortlaut: `Mag. Claudia Plessl — Interior Design • Professional Organizing`.
 - Geprüft: tsc/eslint/build sauber; lokal `out/` im Browser: Titel neu, kein „Raum & Ordnung“, keine Konsolenfehler, kein Überlauf.
-- Offen: Manifest `short_name` ist jetzt lang (Home-Screen-Icon kürzt ab) — ggf. mit Claudia kürzer wählen. Handout (`handout/…html`) und `README.md` enthalten noch „Raum & Ordnung“ (nicht Teil der Website, nicht geändert).
+- Nachtrag (Nutzerauftrag): Manifest `short_name` auf **„Claudia Plessl“** gekürzt (Home-Screen-Icon); Handout (Titel + Fußzeile, nur lokal, nicht deployt) und `README.md` ebenfalls auf neuen Wortlaut. Geprüft: build sauber, Manifest `short_name` = „Claudia Plessl“; Handout im Browser kein „Raum & Ordnung“, kein Überlauf. Kein „Raum & Ordnung“ mehr in Website, Handout, README.
 - Rollback: `git revert 8dba82f`.
 
 ## Bild-KI-Siegel verkleinert (2026-10-25, Nutzerauftrag per Screenshots 08-34-51/08-35-22) — **LIVE** (`8ac252a`, Deploy `40173452845` success; live `/` + `/en/` keine alte Größe mehr)

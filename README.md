@@ -1,4 +1,4 @@
-# Mag. Claudia Plessl — Raum & Ordnung
+# Mag. Claudia Plessl — Interior Design • Professional Organizing
 
 Business website for **Mag. Claudia Plessl**, Interior Designerin and
 Ordnungscoach (certification in progress) in Vienna and Lower Austria.
