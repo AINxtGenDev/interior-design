@@ -47,7 +47,7 @@ export const CONTACT = {
    * string in both locales, because a Firmenwortlaut is not translated.
    */
   name: "Mag. Claudia Plessl",
-  businessName: "Mag. Claudia Plessl — Raum & Ordnung",
+  businessName: "Mag. Claudia Plessl — Interior Design • Professional Organizing",
   street: "Ährengasse 6",
   postalCode: "3424",
   city: "Wolfpassing",

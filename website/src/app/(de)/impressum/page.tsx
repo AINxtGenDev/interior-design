@@ -3,7 +3,7 @@ import LegalShell, { LegalSection } from "@/components/LegalShell";
 import { CONTACT } from "@/content/site";
 import { openGraphFor } from "@/content/og";
 
-const title = "Impressum | Mag. Claudia Plessl — Raum & Ordnung";
+const title = "Impressum | Mag. Claudia Plessl — Interior Design • Professional Organizing";
 const description =
   "Impressum und Offenlegung gemäß § 5 E-Commerce-Gesetz und § 25 Mediengesetz.";
 

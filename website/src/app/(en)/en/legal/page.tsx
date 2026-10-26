@@ -4,7 +4,7 @@ import LegalShell, { LegalSection } from "@/components/LegalShell";
 import { CONTACT } from "@/content/site";
 import { openGraphFor } from "@/content/og";
 
-const title = "Legal information | Mag. Claudia Plessl — Raum & Ordnung";
+const title = "Legal information | Mag. Claudia Plessl — Interior Design • Professional Organizing";
 const description =
   "Imprint, privacy notice and terms and conditions in summary. The binding versions are the German originals.";
 

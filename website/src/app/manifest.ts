@@ -24,7 +24,7 @@ export const dynamic = "force-static";
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: CONTACT.businessName,
-    short_name: "Raum & Ordnung",
+    short_name: "Interior Design • Professional Organizing",
     description:
       "Ordnungscoaching, Innenraumgestaltung und Workshops in Wien und Niederösterreich.",
     lang: "de-AT",

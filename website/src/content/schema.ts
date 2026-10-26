@@ -112,7 +112,7 @@ export function buildHomeGraph(locale: Locale): JsonLdNode[] {
     "@type": "ProfessionalService",
     "@id": businessId,
     name: CONTACT.businessName,
-    alternateName: "Raum & Ordnung",
+    alternateName: "Interior Design • Professional Organizing",
     // The Einzelunternehmen is the natural person; the brand is the trading name.
     legalName: CONTACT.name,
     description: c.meta.description,

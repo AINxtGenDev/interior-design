@@ -3,7 +3,7 @@ import LegalShell, { LegalSection } from "@/components/LegalShell";
 import { CONTACT } from "@/content/site";
 import { openGraphFor } from "@/content/og";
 
-const title = "Datenschutzerklärung | Mag. Claudia Plessl — Raum & Ordnung";
+const title = "Datenschutzerklärung | Mag. Claudia Plessl — Interior Design • Professional Organizing";
 const description =
   "Informationen zur Verarbeitung personenbezogener Daten gemäß DSGVO.";
 
