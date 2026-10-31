@@ -418,7 +418,7 @@
 
 - Anlass: Google-Mail vom 30.10. „Verknüpfen Sie claudiaplessl.at mit Gmail, bevor Ihr Testzeitraum abläuft“ (Standard-Onboarding-Mail; Gmail/MX ist längst aktiv, `dig MX` = `1 smtp.google.com.`).
 - Admin-Konsole als office@claudiaplessl.at (Nutzer hat sich im Agent-Fenster angemeldet) → Abrechnung → Abos: **Business Starter, Aktiv seit 21.10.2026, Flexible plan, 8,10 €/Nutzer/Monat, 1 Lizenz — noch TESTZEITRAUM: „Der Dienst wird in 3 Tagen kostenpflichtig“ (≈ 03.11.2026), nächster Abrechnungstermin 01.12.2026. Keine Zahlungsmethode hinterlegt** (Button „Zahlungsmethode hinzufügen“).
-- Offen: **Zahlungsmethode vor ~03.11.2026 durch Nutzerin hinterlegen** (Admin → Abrechnung → Abos → Business Starter → „Zahlungsmethode hinzufügen“), sonst droht Sperre von office@.
+- Korrektur (Screenshot Nutzer 08:16): Zahlungskonto 6010-1622-6760-6554 hat **primäre Zahlungsmethode Visa ••••5965 (gültig bis 11/28)** — Zahlung ist eingerichtet. Ablauf: gratis bis ≈03.11., danach kostenpflichtig, erste Abbuchung zum Abrechnungstermin **01.12.2026** (ca. 8,10 € zzgl. Steuern, anteilig für November). Nichts zu tun.
 
 ### 2026-10-21 — Neues separates Workspace-Konto, Domain verifiziert, Gmail + DKIM aktiv
 
