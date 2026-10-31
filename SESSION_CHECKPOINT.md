@@ -414,6 +414,12 @@
 
 ## Geschäfts-Mailbox office@claudiaplessl.at (Google Workspace) — Stand 2026-10-22, **LÄUFT — Empfang/Versand getestet, SPF/DKIM/DMARC PASS**
 
+### 2026-10-31 — Abo-Status geprüft (nur gelesen, nichts geändert)
+
+- Anlass: Google-Mail vom 30.10. „Verknüpfen Sie claudiaplessl.at mit Gmail, bevor Ihr Testzeitraum abläuft“ (Standard-Onboarding-Mail; Gmail/MX ist längst aktiv, `dig MX` = `1 smtp.google.com.`).
+- Admin-Konsole als office@claudiaplessl.at (Nutzer hat sich im Agent-Fenster angemeldet) → Abrechnung → Abos: **Business Starter, Aktiv seit 21.10.2026, Flexible plan, 8,10 €/Nutzer/Monat, 1 Lizenz — noch TESTZEITRAUM: „Der Dienst wird in 3 Tagen kostenpflichtig“ (≈ 03.11.2026), nächster Abrechnungstermin 01.12.2026. Keine Zahlungsmethode hinterlegt** (Button „Zahlungsmethode hinzufügen“).
+- Offen: **Zahlungsmethode vor ~03.11.2026 durch Nutzerin hinterlegen** (Admin → Abrechnung → Abos → Business Starter → „Zahlungsmethode hinzufügen“), sonst droht Sperre von office@.
+
 ### 2026-10-21 — Neues separates Workspace-Konto, Domain verifiziert, Gmail + DKIM aktiv
 
 - 07:27 Retry im Gmail-basierten Konto → erneut „Sorry, we can't complete your signup“ (Screenshot nur im Scratchpad).
