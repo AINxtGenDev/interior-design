@@ -41,7 +41,7 @@
   Danach im bestehenden Gmail-basierten Workspace-Konto die Custom-Email-Einrichtung fortsetzen; bei erneutem Fehler Supportfall **76454656** eskalieren.
   **Ab 27.10.2026 kostenpflichtig:** Starter Flexibel, 1 Nutzer, 8,10 €/Monat zzgl. anwendbarer Steuern. Vorher Status prüfen.
 
-## Video Frame 7: Moodboard = neue Projekte-Collage + Version 2.3 (2026-11-01, Nutzerauftrag „use also for the video … this textstyle too“, Style-Guide-Screenshot) — committet, Live-Prüfung folgt
+## Video Frame 7: Moodboard = neue Projekte-Collage + Version 2.3 (2026-11-01, Nutzerauftrag „use also for the video … this textstyle too“, Style-Guide-Screenshot) — **LIVE** (`548a292`, Deploy `41311001433` success; live `/` + `/en/` Version 2.3, `vorstellung.mp4` MD5 `cd68337b…` = lokal)
 
 - Befund: Video nutzt Manrope (Headlines/Text) und Montserrat (Akzente) bereits überall gemäß Style Guide; einzige Abweichung war
   `assets/moodboard.webp` in Frame 7 (alte Collage: dünne Montserrat-Kacheln, Blush-Kachel). Ersetzt durch
