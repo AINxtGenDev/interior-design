@@ -2,7 +2,8 @@
 
 Inputs (repo root, supplied by the client):
     Logo2.png               1325x1187 RGBA, primary logo with real alpha
-    Titelbild Homepage.png  1947x808 RGB, homepage title image
+    Titelbild_Homepage_final.png
+                            1947x808 RGB, homepage title image (2026-11-01)
     Titelbild Handy.png     637x1063, phone version of it (change deck 8.10.26, slide 2)
     Bild Projekte.png       1254x1254, Projekte collage with the German tiles (2026-10-09)
     KI-generiertes Bild – Minimalistisches Siegel.png
@@ -24,7 +25,8 @@ Outputs:
     website/public/og-image-{de,en}.jpg                 Open Graph cards
 
 Run from the repo root (OpenCV is only needed for the English hero; its
-headline font is brand/fonts/PlayfairDisplay[wght].ttf, SIL OFL):
+headline fonts are brand/fonts/HankenGrotesk[wght].ttf for the title image and
+brand/fonts/PlayfairDisplay[wght].ttf for the phone picture, both SIL OFL):
     uv run --with pillow --with numpy --with opencv-python-headless \
         python brand/build_web_assets.py
 Re-running is idempotent.
@@ -78,39 +80,47 @@ def build_logo(logo: Image.Image) -> None:
         print(f"  {path.relative_to(ROOT)} {out.size} {path.stat().st_size // 1024} KB")
 
 
-# The headline painted on the wall, measured on the source image: two lines
-# of capitals, cap height 36 px, cap tops at y = 304 / 364, each line centred
-# on its own axis, colour #3B4538. The face was identified by measurement:
-# of 20 OFL serifs, only Playfair Display Medium fits the original word
-# widths at natural spacing (+0.4 px) with the same amount of ink. Re-setting
-# the German lines with these values gives 406/412 px against 409/409.
-HEADLINE_FONT = ROOT / "brand/fonts/PlayfairDisplay[wght].ttf"
-HEADLINE_WEIGHT = 500
-HEADLINE_CAP = 36
-HEADLINE_TOPS = (304, 364)
-HEADLINE_AXES = (928, 932)
-HEADLINE_COLOR = (59, 69, 56)
-HEADLINE_TRACK = 0.4
+# The headline painted on the wall of "Titelbild_Homepage_final.png"
+# (2026-11-01), measured on the source image: two lines of bold capitals,
+# cap height 41 px, cap tops at y = 297 / 358, each line centred on its own
+# axis, colour #44483C (median of the stroke cores). The picture is
+# AI-generated, so no real face fits exactly; of 22 OFL sans faces Hanken
+# Grotesk ExtraBold comes closest in shape (G, R, M) and, at -0.5 px
+# tracking, re-sets the German lines at 453/449 px against 450/452.
 HEADLINE_EN = ("BEAUTIFUL SPACES.", "A CLEARER DAY.")
+HERO_HEADLINE = dict(
+    box=(280, 408, 690, 1190),
+    font=ROOT / "brand/fonts/HankenGrotesk[wght].ttf",
+    weight=800,
+    cap=41,
+    tops=(297, 358),
+    axes=(936.5, 940.5),
+    color=(68, 72, 60),
+    track=-0.5,
+)
 
 
 # The phone version (slide 2, "Handy") is a separate picture composed by the
 # client — living room, slogan, wardrobe stacked — not a crop of the title
 # image. The source has a light 4 px strip on its left edge and a 1 px line
-# on top; PHONE_CROP cuts both. Its headline is the same face at 30/36 of the
-# size: cap height 30 px, cap tops at y = 491 / 541, centred on x = 320
-# (measured on the cropped picture).
+# on top; PHONE_CROP cuts both. Its headline is still the earlier serif one:
+# Playfair Display Medium (of 20 OFL serifs the only fit, identified on the
+# previous title image), cap height 30 px, cap tops at y = 491 / 541,
+# centred on x = 320 (measured on the cropped picture), colour #3B4538.
 PHONE_CROP = (4, 1, 637, 1063)
-PHONE_HEADLINE = dict(box=(475, 579, 116, 526), cap=30, tops=(491, 541), axes=(320, 320))
+PHONE_HEADLINE = dict(
+    box=(475, 579, 116, 526),
+    font=ROOT / "brand/fonts/PlayfairDisplay[wght].ttf",
+    weight=500,
+    cap=30,
+    tops=(491, 541),
+    axes=(320, 320),
+    color=(59, 69, 56),
+    track=0.4 * 30 / 36,
+)
 
 
-def english_headline(
-    hero: Image.Image,
-    box=(288, 408, 630, 1240),
-    cap=HEADLINE_CAP,
-    tops=HEADLINE_TOPS,
-    axes=HEADLINE_AXES,
-) -> Image.Image:
+def english_headline(hero: Image.Image, box, font, weight, cap, tops, axes, color, track) -> Image.Image:
     """The German headline, replaced by the English one in the same face.
 
     Only the two headline lines are removed (glyph strokes against a
@@ -134,11 +144,11 @@ def english_headline(
     out = Image.fromarray(cv2.cvtColor(clean, cv2.COLOR_BGR2RGB)).convert("RGBA")
 
     ss = 4  # supersampling for clean antialiasing
-    track = HEADLINE_TRACK * cap / HEADLINE_CAP
+    font_path = font
     size = 20.0
     while True:
-        font = ImageFont.truetype(str(HEADLINE_FONT), int(size * ss))
-        font.set_variation_by_axes([HEADLINE_WEIGHT])
+        font = ImageFont.truetype(str(font_path), int(size * ss))
+        font.set_variation_by_axes([weight])
         cap_box = font.getbbox("H")
         if cap_box[3] - cap_box[1] >= cap * ss:
             break
@@ -154,7 +164,7 @@ def english_headline(
             x += font.getlength(ch) + track * ss
         layer = layer.resize((layer.width // ss, layer.height // ss), Image.LANCZOS)
         xs = np.where((np.array(layer) > 40).any(0))[0]
-        ink = Image.new("RGBA", layer.size, (*HEADLINE_COLOR, 255))
+        ink = Image.new("RGBA", layer.size, (*color, 255))
         ink.putalpha(layer)
         out.alpha_composite(ink, (round(axis - (xs.min() + xs.max()) / 2), top - cap))
     return out.convert("RGB")
@@ -307,11 +317,11 @@ def build_og(logo: Image.Image, heroes: dict) -> None:
 
 def main() -> None:
     logo = Image.open(ROOT / "Logo2.png").convert("RGBA")
-    hero = Image.open(ROOT / "Titelbild Homepage.png").convert("RGB")
+    hero = Image.open(ROOT / "Titelbild_Homepage_final.png").convert("RGB")
     phone = Image.open(ROOT / "Titelbild Handy.png").convert("RGB").crop(PHONE_CROP)
     build_logo(logo)
     build_hero(hero, phone)
-    hero_en = english_headline(hero)
+    hero_en = english_headline(hero, **HERO_HEADLINE)
     build_hero(hero_en, english_headline(phone, **PHONE_HEADLINE), prefix="hero-en")
     build_ai_badge(Image.open(ROOT / "KI-generiertes Bild – Minimalistisches Siegel.png").convert("RGBA"))
     build_ai_badge(Image.open(ROOT / "KI-generiertes Video-Siegel.png").convert("RGB"), "ai-video-badge")
