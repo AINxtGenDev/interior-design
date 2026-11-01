@@ -357,7 +357,7 @@ const de: Content = {
     items: [
       {
         title: "Raumcheck",
-        body: "60 bis 90 Minuten vor Ort oder online. Wir nehmen uns Zeit für Ihre Wünsche, Bedürfnisse und Herausforderungen. Gemeinsam betrachten wir die bestehende Situation, erkennen Potenziale und besprechen erste Möglichkeiten für mehr Ordnung, Funktionalität und Wohnqualität.",
+        body: "60 bis 90 Minuten vor Ort oder online. Ich nehme mir Zeit für Ihre Wünsche, Bedürfnisse und Herausforderungen. Gemeinsam betrachten wir die bestehende Situation, erkennen Potenziale und besprechen erste Möglichkeiten für mehr Ordnung, Funktionalität und Wohnqualität.",
       },
       {
         title: "Konzept & Angebot",
@@ -625,7 +625,7 @@ const en: Content = {
     items: [
       {
         title: "Space check",
-        body: "60 to 90 minutes on site or online. We take time for your wishes, needs and challenges. Together we look at the current situation, recognise its potential and discuss first options for more order, functionality and quality of living.",
+        body: "60 to 90 minutes on site or online. I take time for your wishes, needs and challenges. Together we look at the current situation, recognise its potential and discuss first options for more order, functionality and quality of living.",
       },
       {
         title: "Concept & quote",
