@@ -389,7 +389,7 @@ const de: Content = {
     body: [
       "Ich bin Claudia Plessl und arbeite als Interior Designerin und Ordnungscoach in Wien und Niederösterreich. Interessant an dieser Arbeit ist für mich der Punkt, an dem beides zusammenfällt. Ein Raum wird nicht schön, weil neue Möbel darin stehen, sondern weil er endlich zu dem passt, was darin tatsächlich passiert.",
       "Deshalb beginne ich bei der Struktur und nicht beim Katalog. Erst wenn klar ist, was bleibt, welche Wege der Alltag nimmt und wo etwas hakt, lohnt sich die Frage nach Farbe, Material und Einrichtung. Diese Reihenfolge spart Geld und hält länger.",
-      "Und weil die besten Lösungen die sind, die ohne mich weiterlaufen, gebe ich das Handwerk in Workshops weiter — für alle, die das lieber selbst können möchten.",
+      "In meinen Workshops lernen Sie, wie Sie selbst Ordnung schaffen, passende Systeme entwickeln und dauerhaft mehr Leichtigkeit in Ihren Alltag bringen.",
     ],
     portraitAlt: "Porträt von Claudia Plessl: kurze dunkle Haare, weißer Pullover, dunkelblaue Jacke über der Schulter, vor einer hellgrauen Wand",
     principlesHeading: "Worauf Sie sich verlassen können",
@@ -657,7 +657,7 @@ const en: Content = {
     body: [
       "I am Claudia Plessl and I work as an interior designer and professional organizer in Vienna and Lower Austria. What interests me about this work is the point where the two meet: a room does not become beautiful because new furniture arrives, but because it finally fits what actually happens in it.",
       "That is why I start with structure rather than with a catalogue. Only once it is clear what stays, how daily life moves through the space and where things get stuck is it worth asking about colour, material and furnishing. That order of operations saves money and lasts longer.",
-      "And because the best solutions are the ones that keep working without me, I pass the craft on in workshops — for anyone who would rather do it themselves.",
+      "In my workshops you learn how to create order yourself, develop systems that suit you and bring lasting ease into your everyday life.",
     ],
     portraitAlt: "Portrait of Claudia Plessl: short dark hair, white jumper, navy jacket over her shoulder, in front of a light grey wall",
     principlesHeading: "What you can rely on",
