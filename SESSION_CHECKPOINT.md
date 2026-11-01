@@ -41,7 +41,7 @@
   Danach im bestehenden Gmail-basierten Workspace-Konto die Custom-Email-Einrichtung fortsetzen; bei erneutem Fehler Supportfall **76454656** eskalieren.
   **Ab 27.10.2026 kostenpflichtig:** Starter Flexibel, 1 Nutzer, 8,10 €/Monat zzgl. anwendbarer Steuern. Vorher Status prüfen.
 
-## Über mich, Absatz 1 (2026-11-01, Nutzerauftrag per Screenshot 12-58-23)
+## Über mich, Absatz 1 (2026-11-01, Nutzerauftrag per Screenshot 12-58-23) — **LIVE** (`8f34d12`, Deploy `41304400680` success; live alter Text 0×)
 
 - `site.ts` about DE: „Was mich an dieser Arbeit interessiert, ist der Punkt, an dem beides zusammenfällt: Ein Raum …“ → **„Interessant an dieser Arbeit ist für mich der Punkt, an dem beides zusammenfällt. Ein Raum …“** (Punkt statt Doppelpunkt, wie vom Nutzer geschrieben). JSON-LD Person-Beschreibung übernimmt das automatisch.
 - EN unverändert (sagt bereits dasselbe); Handout enthält diesen Absatz nicht.
