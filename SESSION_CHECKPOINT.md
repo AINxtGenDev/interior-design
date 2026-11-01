@@ -51,7 +51,7 @@
 - **Branches:** `seo` und `main` deckungsgleich; jede Änderung per Fast-Forward nach `main` → Deploy.
 - **Nächste Schritte:** weitere Textaufträge des Nutzers; offene Punkte unter „Offen — mit Claudia klären“ (Meta) unverändert offen; EN-Formulierungen ggf. von Claudia gegenlesen lassen.
 
-## „ich entscheide nicht über Ihren Besitz“ (2026-11-01, Nutzerauftrag per Screenshots 13-07-34/13-08-17)
+## „ich entscheide nicht über Ihren Besitz“ (2026-11-01, Nutzerauftrag per Screenshots 13-07-34/13-08-17) — **LIVE** (`661bd2d`, Deploy `41305114247` success; live „entscheide nichts“ 0×)
 
 - `site.ts` DE: „nichts“ → **„nicht“** im Grundsatz „Ihre Kriterien — ich entscheide nicht über Ihren Besitz.“ und gleichlautend in der FAQ-Antwort „Muss ich mich von vielen Dingen trennen?“ (Konsistenz). EN und Handout nicht betroffen.
 - Geprüft: tsc/eslint/build sauber; lokal 393 px beide Stellen neu (FAQ aufgeklappt geprüft), alter Text 0×, kein Überlauf, keine Konsolenfehler. Footer bleibt Version 1.9.
