@@ -41,7 +41,7 @@
   Danach im bestehenden Gmail-basierten Workspace-Konto die Custom-Email-Einrichtung fortsetzen; bei erneutem Fehler Supportfall **76454656** eskalieren.
   **Ab 27.10.2026 kostenpflichtig:** Starter Flexibel, 1 Nutzer, 8,10 €/Monat zzgl. anwendbarer Steuern. Vorher Status prüfen.
 
-## Karte 03 „Raumgestaltung plus Ordnungscoaching“, Punkt 3 (2026-11-01, Nutzerauftrag per Screenshots 12-33-04/12-34-11)
+## Karte 03 „Raumgestaltung plus Ordnungscoaching“, Punkt 3 (2026-11-01, Nutzerauftrag per Screenshots 12-33-04/12-34-11) — **LIVE** (`8a93b01`, Deploy `41302565417` success; live `/` + `/en/` neuer Text, alter Text 0×)
 
 - `website/src/content/site.ts`: „Entwicklung passender …“ → **„Präsentation passender Aufbewahrungs- und Gestaltungslösungen“**; EN analog „Developing …“ → „Presenting suitable storage and design solutions“.
 - Geprüft: tsc/eslint/build sauber; lokal 393 px: Karte 03 zeigt neuen Text, kein Überlauf, keine kaputten Bilder, keine Konsolenfehler.
