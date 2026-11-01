@@ -387,7 +387,7 @@ const de: Content = {
   about: {
     heading: "Über mich",
     body: [
-      "Ich bin Claudia Plessl und arbeite als Interior Designerin und Ordnungscoach in Wien und Niederösterreich. Was mich an dieser Arbeit interessiert, ist der Punkt, an dem beides zusammenfällt: Ein Raum wird nicht schön, weil neue Möbel darin stehen, sondern weil er endlich zu dem passt, was darin tatsächlich passiert.",
+      "Ich bin Claudia Plessl und arbeite als Interior Designerin und Ordnungscoach in Wien und Niederösterreich. Interessant an dieser Arbeit ist für mich der Punkt, an dem beides zusammenfällt. Ein Raum wird nicht schön, weil neue Möbel darin stehen, sondern weil er endlich zu dem passt, was darin tatsächlich passiert.",
       "Deshalb beginne ich bei der Struktur und nicht beim Katalog. Erst wenn klar ist, was bleibt, welche Wege der Alltag nimmt und wo etwas hakt, lohnt sich die Frage nach Farbe, Material und Einrichtung. Diese Reihenfolge spart Geld und hält länger.",
       "Und weil die besten Lösungen die sind, die ohne mich weiterlaufen, gebe ich das Handwerk in Workshops weiter — für alle, die das lieber selbst können möchten.",
     ],
