@@ -41,7 +41,7 @@
   Danach im bestehenden Gmail-basierten Workspace-Konto die Custom-Email-Einrichtung fortsetzen; bei erneutem Fehler Supportfall **76454656** eskalieren.
   **Ab 27.10.2026 kostenpflichtig:** Starter Flexibel, 1 Nutzer, 8,10 €/Monat zzgl. anwendbarer Steuern. Vorher Status prüfen.
 
-## Neues Titelbild + Version 2.0 (2026-11-01, Nutzerauftrag) — committet, Merge nach `main` + Live-Prüfung folgen
+## Neues Titelbild + Version 2.0 (2026-11-01, Nutzerauftrag) — **LIVE** (`6aceb17`, `seo` → `main` fast-forward, Deploy `41307606394` success; live `/` + `/en/`: Version 2.0, `hero-full-1947.70386ac4` + `hero-en-full-1947.a38d0140` = 200)
 
 - Quelle: `Titelbild_Homepage_final.png` (1947×808, gleiche Szene, aber Headline jetzt fette Grotesk statt Playfair).
   `brand/build_web_assets.py` liest jetzt diese Datei; `Titelbild Homepage.png` bleibt als altes Original liegen.
