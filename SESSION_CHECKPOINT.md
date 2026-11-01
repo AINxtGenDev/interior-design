@@ -41,7 +41,7 @@
   Danach im bestehenden Gmail-basierten Workspace-Konto die Custom-Email-Einrichtung fortsetzen; bei erneutem Fehler Supportfall **76454656** eskalieren.
   **Ab 27.10.2026 kostenpflichtig:** Starter Flexibel, 1 Nutzer, 8,10 €/Monat zzgl. anwendbarer Steuern. Vorher Status prüfen.
 
-## Schritt 01 „Raumcheck“: „Ich nehme mir Zeit …“ (2026-11-01, Nutzerauftrag per Screenshot 12-50-15)
+## Schritt 01 „Raumcheck“: „Ich nehme mir Zeit …“ (2026-11-01, Nutzerauftrag per Screenshot 12-50-15) — **LIVE** (`e5faf25`, Deploy `41303882237` success; live alter Text 0×)
 
 - `site.ts` process DE + Handout: „Wir nehmen uns Zeit“ → **„Ich nehme mir Zeit“**; EN „We take time“ → „I take time“. Rest des Absatzes unverändert.
 - Geprüft: tsc/eslint/build sauber; lokal 393 px neuer Text, kein Überlauf, keine Konsolenfehler. Footer bleibt Version 1.9.
