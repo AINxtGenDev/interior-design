@@ -107,6 +107,12 @@
   dd {
     text-wrap: pretty;
   }
+
+  /* Video subtitles: style guide "Manrope Regular — Untertitel". */
+  video::cue {
+    font-family: var(--font-body);
+    font-weight: 400;
+  }
 }
 
 /* ─── Type scale ─── */

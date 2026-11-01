@@ -2,8 +2,9 @@
    clones <template> contents, so every frame file inlines this block itself.
    Kept here so a change can be applied consistently across all seven frames. */
 
-/* CI fonts (CI.pptx slide 6): Manrope for headlines and text, Montserrat for
-   accents — the latin subsets from the website build. Frame 3 needs none. */
+/* CI fonts (STYLE GUIDE, "TYPOGRAFIE") — only three styles: Manrope Bold (700)
+   for headlines, Manrope Regular (400) for text and subtitles, Montserrat
+   Regular (400) for accents — the latin subsets from the website build. Frame 3 needs none. */
 @font-face {
   font-family: "Manrope";
   src: url("assets/fonts/Manrope-var.woff2") format("woff2");

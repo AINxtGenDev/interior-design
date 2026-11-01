@@ -65,7 +65,7 @@ with rounded strokes. No price shown as a final price — always "ab". No Englis
 
 > **Stand 2026-10-09 (überholt die Angaben oben):** Bild `Schank unordentlich.png` →
 > `assets/schrank-unaufgeraeumt.webp`. Zeilen 1–2 **über** dem Bild, Zeile 3 **unter** dem Bild,
-> alles zentriert (Flex-Block auf Bildmitte 540/960), Manrope 500. Die Haarlinie zieht **nicht
+> alles zentriert (Flex-Block auf Bildmitte 540/960), Manrope 400 (Regular, Style Guide). Die Haarlinie zieht **nicht
 > mehr in Frame 1** (das Bild deckt y=1180), sondern zu Beginn von Frame 2 (0,45 s); handoff_out
 > von Frame 1 ist damit „keine Linie", Frame 2 → 3 unverändert.
 
