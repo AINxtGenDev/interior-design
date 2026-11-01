@@ -382,7 +382,7 @@ const de: Content = {
     ],
     closing: "So wissen Sie bereits vor Projektbeginn, womit Sie rechnen können.",
     items: dePackages,
-    note: "Alle Preise sind Endpreise ohne gesonderten Umsatzsteuerausweis aufgrund der Kleinunternehmerregelung. Fahrtkosten außerhalb des vereinbarten Einzugsgebiets sowie Material und Einkäufe werden gesondert vereinbart.",
+    note: "Alle Preise sind aufgrund der Kleinunternehmerregelung Endpreise ohne gesonderten Umsatzsteuerausweis. Fahrtkosten außerhalb des vereinbarten Einzugsgebiets sowie Material und Einkäufe werden gesondert vereinbart.",
   },
   about: {
     heading: "Über mich",
