@@ -369,7 +369,7 @@ const de: Content = {
       },
       {
         title: "Nachbetreuung",
-        body: "Auch nach der Umsetzung bin ich gerne für Sie da.\nBei einem gemeinsamen Check-in besprechen wir, wie sich die neuen Lösungen im Alltag bewähren und ob noch Anpassungen sinnvoll sind. Damit Sie sich langfristig in Ihren Räumen wohlfühlen.",
+        body: "Auch nach der Umsetzung bin ich gerne für Sie da.\nBei einem gemeinsamen Check-in besprechen wir, wie sich die neuen Lösungen im Alltag bewähren und ob noch Anpassungen erforderlich sind. Damit Sie sich langfristig in Ihren Räumen wohlfühlen.",
       },
     ],
   },
@@ -637,7 +637,7 @@ const en: Content = {
       },
       {
         title: "Follow-up",
-        body: "I am happy to be there for you after the implementation, too.\nIn a joint check-in we discuss how the new solutions are working in everyday life and whether any adjustments make sense. So that you feel at home in your rooms for the long term.",
+        body: "I am happy to be there for you after the implementation, too.\nIn a joint check-in we discuss how the new solutions are working in everyday life and whether any adjustments are needed. So that you feel at home in your rooms for the long term.",
       },
     ],
   },
