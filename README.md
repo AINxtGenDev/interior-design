@@ -68,7 +68,7 @@ accents**, never for running text. The one tone that is not in the deck,
 
 ### Logo and title image
 
-`Logo2.png` and `Titelbild Homepage.png` (repo root) are the sources. Every web
+`Logo2.png` and `Titelbild_Homepage_final.png` (repo root) are the sources. Every web
 derivative is built by **`brand/build_web_assets.py`**:
 
 ```bash
@@ -79,9 +79,9 @@ uv run --with pillow --with numpy --with opencv-python-headless \
 | Output | From | Notes |
 |---|---|---|
 | `src/assets/logo-{480,960}.webp` | Logo2.png | trimmed to the mark, lossless, with alpha |
-| `src/assets/hero-full-*.webp` | Titelbild | the full frame, tablet and desktop |
+| `src/assets/hero-full-*.webp` | Titelbild_Homepage_final.png | the full frame, tablet and desktop |
 | `src/assets/hero-phone-*.webp` | Titelbild Handy.png | phone version (change deck slide 2), edges trimmed |
-| `src/assets/hero-en-{full,phone}-*.webp` | both Titelbild files | same, headline painted in English |
+| `src/assets/hero-en-{full,phone}-*.webp` | both Titelbild files | same, headline set in English |
 | `src/assets/portrait-*.webp` | Foto Homepage über mich.png | Über mich |
 | `favicon.ico`, `icon.png`, `apple-icon.png`, `public/icons/*` | Logo2.png | CP monogram only (rows above 640) |
 
@@ -96,16 +96,16 @@ uv run --with pillow --with numpy --with opencv-python-headless \
   starts just below the first screen — the client's choice. There is no
   height cap any more, so on a 1366×768 laptop the H1 also sits below the
   fold — accepted for the full image.
-- **English page:** only the two German headline lines are removed
-  (glyph-stroke mask + inpaint) and "BEAUTIFUL SPACES. / A CLEARER DAY." is
-  painted in their place by `english_headline()` — same face, size, colour and
-  axis, so both languages look and scale identically. The rule and the
-  "INTERIOR DESIGN • PROFESSIONAL ORGANIZING" line stay original pixels.
-  The face was **identified by measurement**: of 20 OFL serifs, only
-  **Playfair Display Medium** fits the original word widths at natural
-  spacing with the same amount of ink; re-setting the German lines with it
-  gives 406/412 px against the original 409/409. Font and licence:
-  `brand/fonts/PlayfairDisplay[wght].ttf`, `PlayfairDisplay-OFL.txt`.
+- **Headline in Manrope Bold everywhere** (style guide, "TYPOGRAFIE";
+  client request 2026-11-01): on both pictures and in both languages the
+  client's lettering is removed (glyph-stroke mask + inpaint) and the two
+  lines are painted again by `set_headline()` — German "SCHÖNE RÄUME. /
+  KLARER ALLTAG.", English "BEAUTIFUL SPACES. / A CLEARER DAY." — in the same
+  face, colour and position, so desktop, tablet and phone look alike. The
+  rule and the "INTERIOR DESIGN • PROFESSIONAL ORGANIZING" line stay original
+  pixels. Font and licence: `brand/fonts/Manrope[wght].ttf`,
+  `Manrope-OFL.txt`. (`PlayfairDisplay*` there is the face of the earlier
+  title image, no longer used.)
 - The previous round seal (`brand/logo-optimized/`) and its 24-second rotation
   are retired. A rotating wordmark is unreadable for half of every turn.
 
@@ -134,7 +134,7 @@ new logo on 2026-10-02.)
 ├── brand/
 │   ├── build_web_assets.py        → builds logo, hero crops, icons and OG cards from Logo2.png / Titelbild
 │   ├── logo-optimized/            → retired seal logo set (2026-08), historical
-│   ├── fonts/                     → Playfair Display (English hero headline) + OFL licence
+│   ├── fonts/                     → Manrope (hero headlines) + OFL licence; Playfair Display unused
 │   └── logo-original-scan.pdf     → historical source scan of the business card
 ├── video-source/                  → storyboard, script and compositions for the intro film
 ├── handout/
@@ -194,7 +194,7 @@ npx eslint src  # lint
 
 Logo, title-image crops, icons and the two Open Graph cards are generated,
 not hand-edited. They are checked in, so rebuilding is only needed when
-`Logo2.png` or `Titelbild Homepage.png` changes:
+`Logo2.png`, `Titelbild_Homepage_final.png` or `Titelbild Handy.png` changes:
 
 ```bash
 uv run --with pillow --with numpy --with opencv-python-headless \

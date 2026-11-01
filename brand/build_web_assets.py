@@ -25,8 +25,7 @@ Outputs:
     website/public/og-image-{de,en}.jpg                 Open Graph cards
 
 Run from the repo root (OpenCV is only needed for the English hero; its
-headline fonts are brand/fonts/HankenGrotesk[wght].ttf for the title image and
-brand/fonts/PlayfairDisplay[wght].ttf for the phone picture, both SIL OFL):
+headline font is brand/fonts/Manrope[wght].ttf, SIL OFL):
     uv run --with pillow --with numpy --with opencv-python-headless \
         python brand/build_web_assets.py
 Re-running is idempotent.
@@ -80,54 +79,46 @@ def build_logo(logo: Image.Image) -> None:
         print(f"  {path.relative_to(ROOT)} {out.size} {path.stat().st_size // 1024} KB")
 
 
-# The headline painted on the wall of "Titelbild_Homepage_final.png"
-# (2026-11-01), measured on the source image: two lines of bold capitals,
-# cap height 41 px, cap tops at y = 297 / 358, each line centred on its own
-# axis, colour #44483C (median of the stroke cores). The picture is
-# AI-generated, so no real face fits exactly; of 22 OFL sans faces Hanken
-# Grotesk ExtraBold comes closest in shape (G, R, M) and, at -0.5 px
-# tracking, re-sets the German lines at 453/449 px against 450/452.
+# Every headline on the title pictures is painted by this script in the CI
+# headline face, Manrope Bold (style guide, "TYPOGRAFIE"; the website text
+# uses the same family), so German and English, desktop and phone look the
+# same. The client's lettering underneath is removed first.
+HEADLINE_DE = ("SCHÖNE RÄUME.", "KLARER ALLTAG.")
 HEADLINE_EN = ("BEAUTIFUL SPACES.", "A CLEARER DAY.")
-HERO_HEADLINE = dict(
-    box=(280, 408, 690, 1190),
-    font=ROOT / "brand/fonts/HankenGrotesk[wght].ttf",
-    weight=800,
-    cap=41,
-    tops=(297, 358),
-    axes=(936.5, 940.5),
-    color=(68, 72, 60),
-    track=-0.5,
+HEADLINE_STYLE = dict(
+    font=ROOT / "brand/fonts/Manrope[wght].ttf",
+    weight=700,
+    color=(68, 72, 60),  # #44483C, median of the strokes in Titelbild_Homepage_final.png
+    track=-0.5,  # px at cap 41, scaled with the cap height
 )
 
+# "Titelbild_Homepage_final.png" (2026-11-01): the client's bold lettering
+# has cap height 41 px, cap tops at y = 297 / 358, line centres x = 936.5 /
+# 940.5; umlaut dots reach up to y = 287. Manrope Bold at -0.5 px tracking
+# sets the German lines 452/440 px wide against 450/452.
+HERO_HEADLINE = dict(box=(280, 408, 690, 1190), cap=41, tops=(297, 358), axes=(936.5, 940.5))
 
 # The phone version (slide 2, "Handy") is a separate picture composed by the
 # client — living room, slogan, wardrobe stacked — not a crop of the title
 # image. The source has a light 4 px strip on its left edge and a 1 px line
-# on top; PHONE_CROP cuts both. Its headline is still the earlier serif one:
-# Playfair Display Medium (of 20 OFL serifs the only fit, identified on the
-# previous title image), cap height 30 px, cap tops at y = 491 / 541,
-# centred on x = 320 (measured on the cropped picture), colour #3B4538.
+# on top; PHONE_CROP cuts both. Its own lettering is the earlier serif
+# (lines at y = 491-522 / 540-571, dots from 483, centred on x = 320, measured
+# on the cropped picture); the new lines keep its top and bottom edges, with
+# a cap height of 32 px for the heavier face.
 PHONE_CROP = (4, 1, 637, 1063)
-PHONE_HEADLINE = dict(
-    box=(475, 579, 116, 526),
-    font=ROOT / "brand/fonts/PlayfairDisplay[wght].ttf",
-    weight=500,
-    cap=30,
-    tops=(491, 541),
-    axes=(320, 320),
-    color=(59, 69, 56),
-    track=0.4 * 30 / 36,
-)
+PHONE_HEADLINE = dict(box=(475, 579, 116, 526), cap=32, tops=(491, 539), axes=(320, 320))
 
 
-def english_headline(hero: Image.Image, box, font, weight, cap, tops, axes, color, track) -> Image.Image:
-    """The German headline, replaced by the English one in the same face.
+def set_headline(
+    hero: Image.Image, lines, box, cap, tops, axes, font, weight, color, track
+) -> Image.Image:
+    """The client's headline, replaced by `lines` in the CI headline face.
 
     Only the two headline lines are removed (glyph strokes against a
     morphological-closing background estimate, then inpainted — a box mask
     leaves blotches on the light gradient). The blush rule and the line
-    "INTERIOR DESIGN • PROFESSIONAL ORGANIZING" are already English and stay
-    as original pixels. `box` (y0, y1, x0, x1) bounds the German lines.
+    "INTERIOR DESIGN • PROFESSIONAL ORGANIZING" stay as original pixels.
+    `box` (y0, y1, x0, x1) bounds the original lines.
     """
     import cv2
     from PIL import ImageDraw, ImageFont
@@ -145,6 +136,7 @@ def english_headline(hero: Image.Image, box, font, weight, cap, tops, axes, colo
 
     ss = 4  # supersampling for clean antialiasing
     font_path = font
+    track = track * cap / 41
     size = 20.0
     while True:
         font = ImageFont.truetype(str(font_path), int(size * ss))
@@ -154,7 +146,7 @@ def english_headline(hero: Image.Image, box, font, weight, cap, tops, axes, colo
             break
         size += 0.25
 
-    for text, top, axis in zip(HEADLINE_EN, tops, axes):
+    for text, top, axis in zip(lines, tops, axes):
         width = int(font.getlength(text) + track * ss * len(text)) + 40 * ss
         layer = Image.new("L", (width, cap * 3 * ss))
         draw = ImageDraw.Draw(layer)
@@ -320,15 +312,17 @@ def main() -> None:
     hero = Image.open(ROOT / "Titelbild_Homepage_final.png").convert("RGB")
     phone = Image.open(ROOT / "Titelbild Handy.png").convert("RGB").crop(PHONE_CROP)
     build_logo(logo)
-    build_hero(hero, phone)
-    hero_en = english_headline(hero, **HERO_HEADLINE)
-    build_hero(hero_en, english_headline(phone, **PHONE_HEADLINE), prefix="hero-en")
+    heroes = {}
+    for lang, lines in (("de", HEADLINE_DE), ("en", HEADLINE_EN)):
+        heroes[lang] = set_headline(hero, lines, **HERO_HEADLINE, **HEADLINE_STYLE)
+        phone_lang = set_headline(phone, lines, **PHONE_HEADLINE, **HEADLINE_STYLE)
+        build_hero(heroes[lang], phone_lang, prefix="hero" if lang == "de" else "hero-en")
     build_ai_badge(Image.open(ROOT / "KI-generiertes Bild – Minimalistisches Siegel.png").convert("RGBA"))
     build_ai_badge(Image.open(ROOT / "KI-generiertes Video-Siegel.png").convert("RGB"), "ai-video-badge")
     build_portrait(Image.open(ROOT / "Foto Homepage über mich.png").convert("RGB"))
     build_projects(Image.open(ROOT / "Bild Projekte.png").convert("RGB"))
     build_icons(logo)
-    build_og(logo, {"de": hero, "en": hero_en})
+    build_og(logo, heroes)
 
 
 if __name__ == "__main__":
