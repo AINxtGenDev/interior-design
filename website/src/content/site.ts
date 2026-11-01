@@ -318,13 +318,13 @@ const de: Content = {
         id: "re-design",
         price: `${dePackages[1].name} ${dePackages[1].price}`,
         title: "Re-Design",
-        lead: "Manchmal braucht es keine neuen Möbel, sondern einen neuen Blick auf das Vorhandene. Durch gezieltes Umstellen, Kombinieren und Ergänzen entsteht ein frisches Raumgefühl — ohne alles neu kaufen zu müssen.",
+        lead: "Manchmal braucht es keine neuen Möbel, sondern einen neuen Blick auf das Vorhandene. Durch gezieltes Umstellen, Kombinieren und Ergänzen entsteht ein frisches Raumgefühl — ohne die gesamte Einrichtung erneuern zu müssen.",
         points: [
           "Analyse der vorhandenen Einrichtung",
           "Planung für das Umstellen und Neuarrangieren vorhandener Möbel",
           "Gezielte Farb-, Textil- und Materialakzente",
-          "Einkaufsliste nur für das, was wirklich fehlt",
-          "Styling für Verkauf oder Vermietung",
+          "Einkaufsliste nur für jene Dinge, die wirklich fehlen",
+          "Styling Ihrer Immobilie für Verkauf oder Vermietung",
         ],
       },
       {
@@ -586,13 +586,13 @@ const en: Content = {
         id: "re-design",
         price: `${enPackages[1].name} ${enPackages[1].price}`,
         title: "Re-design",
-        lead: "Sometimes it takes not new furniture but a fresh look at what is already there. Thoughtful rearranging, combining and adding creates a new feel for the room — without buying everything new.",
+        lead: "Sometimes it takes not new furniture but a fresh look at what is already there. Thoughtful rearranging, combining and adding creates a new feel for the room — without having to replace all your furnishings.",
         points: [
           "Analysis of the existing furnishings",
           "Planning how to move and rearrange the furniture you already have",
           "Targeted colour, textile and material accents",
           "A shopping list only for what is really missing",
-          "Styling for sale or rental",
+          "Styling your property for sale or rental",
         ],
       },
       {
