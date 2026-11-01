@@ -41,7 +41,7 @@
   Danach im bestehenden Gmail-basierten Workspace-Konto die Custom-Email-Einrichtung fortsetzen; bei erneutem Fehler Supportfall **76454656** eskalieren.
   **Ab 27.10.2026 kostenpflichtig:** Starter Flexibel, 1 Nutzer, 8,10 €/Monat zzgl. anwendbarer Steuern. Vorher Status prüfen.
 
-## Preisschreibweise „EUR 480,-“ (2026-11-01, Nutzerauftrag)
+## Preisschreibweise „EUR 480,-“ (2026-11-01, Nutzerauftrag) — **LIVE** (`f9253f0`, Deploy `41302238634` success; live `/`, `/en/`, `/agb/` geprüft)
 
 - `website/src/content/site.ts`: alle 10 Paketpreise (DE „ab EUR …,-“, EN „from EUR …,-“); `src/app/(de)/agb/page.tsx`: „EUR&nbsp;600,-“.
 - JSON-LD unverändert korrekt (`minPrice` 480/800/960, `priceRange` „EUR 480–960“), da `minPriceOf` nur die erste Ziffernfolge liest.
