@@ -41,7 +41,7 @@
   Danach im bestehenden Gmail-basierten Workspace-Konto die Custom-Email-Einrichtung fortsetzen; bei erneutem Fehler Supportfall **76454656** eskalieren.
   **Ab 27.10.2026 kostenpflichtig:** Starter Flexibel, 1 Nutzer, 8,10 €/Monat zzgl. anwendbarer Steuern. Vorher Status prüfen.
 
-## Video-Poster: Headline in Manrope Bold + Version 2.5 (2026-11-01, Nutzerauftrag per Handy-Screenshot 14-37-19 „the textstyle beginning with the first image is wrong“) — committet, Live-Prüfung folgt
+## Video-Poster: Headline in Manrope Bold + Version 2.5 (2026-11-01, Nutzerauftrag per Handy-Screenshot 14-37-19 „the textstyle beginning with the first image is wrong“) — **LIVE** (`e636e25`, Deploy `41312285472` success; live `/` + `/en/` Version 2.5, Poster SHA-256 `6adfceab…` = lokal)
 
 - Das Standbild vor dem Abspielen (`website/public/video/vorstellung-poster.jpg`) hatte noch die alte Serifen-Headline.
 - Mit `set_headline()` + `HEADLINE_STYLE` aus `brand/build_web_assets.py` neu gesetzt (Skript nur im Scratchpad `poster.py`):
