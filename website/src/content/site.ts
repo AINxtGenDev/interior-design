@@ -309,7 +309,7 @@ const de: Content = {
         points: [
           "Analyse von Raum, Einrichtung und Ordnungsbedarf",
           "Gemeinsames Aussortieren und Neuorganisieren",
-          "Entwicklung passender Aufbewahrungs- und Gestaltungslösungen",
+          "Präsentation passender Aufbewahrungs- und Gestaltungslösungen",
           "Harmonische Verbindung von Funktion und Ästhetik",
           "Begleitung bei der Umsetzung und auf Wunsch Nachbetreuung",
         ],
@@ -577,7 +577,7 @@ const en: Content = {
         points: [
           "Analysis of room, furnishings and organising needs",
           "Sorting out and reorganising together",
-          "Developing suitable storage and design solutions",
+          "Presenting suitable storage and design solutions",
           "A harmonious balance of function and aesthetics",
           "Support during implementation and follow-up on request",
         ],
