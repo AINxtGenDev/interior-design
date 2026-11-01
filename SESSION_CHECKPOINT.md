@@ -41,7 +41,17 @@
   Danach im bestehenden Gmail-basierten Workspace-Konto die Custom-Email-Einrichtung fortsetzen; bei erneutem Fehler Supportfall **76454656** eskalieren.
   **Ab 27.10.2026 kostenpflichtig:** Starter Flexibel, 1 Nutzer, 8,10 €/Monat zzgl. anwendbarer Steuern. Vorher Status prüfen.
 
-## Über mich, Absatz 3 (2026-11-01, Nutzerauftrag per Screenshot 13-03-36)
+## Sitzung 2026-11-01 — Zusammenfassung
+
+- **Ziel:** Textkorrekturen per Screenshot-Aufträgen auf der Website (und im Handout) umsetzen.
+- **Erledigt, alles LIVE** (Footer **Version 1.9 01.11.2026**): Preise „EUR 480,-“ (DE+EN, AGB 600,-) · Karte 03 Punkt 3 „Präsentation passender …“ · Karte 04 Re-Design (Lead-Schluss, Punkte 4/5) · Preis-Hinweis „aufgrund der Kleinunternehmerregelung Endpreise …“ · Schritt 01 „Ich nehme mir Zeit“ · Schritt 04 „Anpassungen erforderlich“ · Über mich Absatz 1 „Interessant an dieser Arbeit …“ und Absatz 3 „In meinen Workshops lernen Sie …“. Einzelheiten in den Abschnitten unten.
+- **Handout** (`handout/claudia-plessl-uebersicht.html`, nur lokal) auf aktuellen Website-Stand gebracht (Preise, Angebot, Preistext, Ablauf) und bei jeder Textänderung mitgezogen.
+- **Annahmen:** EN-Texte jeweils sinngemäß mitgeändert, wo die DE-Änderung inhaltlich war; reine Stilumstellungen ohne EN-Effekt (Preis-Hinweis, Über mich Absatz 1) EN unverändert. „,-“ auch im EN verwendet (Nutzer nicht widersprochen). Version nicht pro Änderung hochgezählt (bleibt 1.9 für den Tag).
+- **Hinweis:** Ein `npm run build` scheiterte einmal transient an `next/font/google`; Wiederholung sauber.
+- **Branches:** `seo` und `main` deckungsgleich; jede Änderung per Fast-Forward nach `main` → Deploy.
+- **Nächste Schritte:** weitere Textaufträge des Nutzers; offene Punkte unter „Offen — mit Claudia klären“ (Meta) unverändert offen; EN-Formulierungen ggf. von Claudia gegenlesen lassen.
+
+## Über mich, Absatz 3 (2026-11-01, Nutzerauftrag per Screenshot 13-03-36) — **LIVE** (`7063bb6`, Deploy `41304856945` success; live alter Text 0×)
 
 - `site.ts` about DE: ganzer Absatz („Und weil die besten Lösungen … lieber selbst können möchten.“) ersetzt durch **„In meinen Workshops lernen Sie, wie Sie selbst Ordnung schaffen, passende Systeme entwickeln und dauerhaft mehr Leichtigkeit in Ihren Alltag bringen.“** (Nutzerentscheidung: ganzen Absatz ersetzen).
 - EN analog: „In my workshops you learn how to create order yourself, develop systems that suit you and bring lasting ease into your everyday life.“ Handout enthält den Absatz nicht.
