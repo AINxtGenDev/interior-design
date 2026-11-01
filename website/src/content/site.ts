@@ -211,19 +211,19 @@ export const LANG_ALTERNATES: Record<string, string> = {
  * them — a price typed twice is a price that will one day disagree with itself.
  */
 const dePackages: Package[] = [
-  { name: "Ordnungspaket", scope: "Ein klar abgegrenzter Bereich, z. B. Küche, Schlafzimmer oder Homeoffice", audience: "Privat", price: "ab EUR 480" },
-  { name: "Re-Design-Beratung", scope: "Neue Wirkung mit vorhandenen Möbeln, Textilien und Accessoires", audience: "Privat", price: "ab EUR 480" },
-  { name: "Gestaltungsberatung", scope: "Farb-, Material- und Einrichtungsberatung für einen Raum", audience: "Privat", price: "ab EUR 480" },
-  { name: "Ordnung & Stil", scope: "Decluttering und anschließende Gestaltung eines Raums", audience: "Privat", price: "ab EUR 800" },
-  { name: "B2B-Kompakt", scope: "Analyse, Bürogestaltung und Teamworkshop im Paket", audience: "Betrieb", price: "ab EUR 960" },
+  { name: "Ordnungspaket", scope: "Ein klar abgegrenzter Bereich, z. B. Küche, Schlafzimmer oder Homeoffice", audience: "Privat", price: "ab EUR 480,-" },
+  { name: "Re-Design-Beratung", scope: "Neue Wirkung mit vorhandenen Möbeln, Textilien und Accessoires", audience: "Privat", price: "ab EUR 480,-" },
+  { name: "Gestaltungsberatung", scope: "Farb-, Material- und Einrichtungsberatung für einen Raum", audience: "Privat", price: "ab EUR 480,-" },
+  { name: "Ordnung & Stil", scope: "Decluttering und anschließende Gestaltung eines Raums", audience: "Privat", price: "ab EUR 800,-" },
+  { name: "B2B-Kompakt", scope: "Analyse, Bürogestaltung und Teamworkshop im Paket", audience: "Betrieb", price: "ab EUR 960,-" },
 ];
 
 const enPackages: Package[] = [
-  { name: "Organizing package", scope: "One clearly defined area, e.g. kitchen, bedroom or home office", audience: "Private", price: "from EUR 480" },
-  { name: "Re-design consultation", scope: "A new look with your existing furniture, textiles and accessories", audience: "Private", price: "from EUR 480" },
-  { name: "Design consultation", scope: "Colour, material and furnishing advice for one room", audience: "Private", price: "from EUR 480" },
-  { name: "Order & style", scope: "Decluttering followed by the design of one room", audience: "Private", price: "from EUR 800" },
-  { name: "Business compact", scope: "Assessment, office design and team workshop bundled", audience: "Business", price: "from EUR 960" },
+  { name: "Organizing package", scope: "One clearly defined area, e.g. kitchen, bedroom or home office", audience: "Private", price: "from EUR 480,-" },
+  { name: "Re-design consultation", scope: "A new look with your existing furniture, textiles and accessories", audience: "Private", price: "from EUR 480,-" },
+  { name: "Design consultation", scope: "Colour, material and furnishing advice for one room", audience: "Private", price: "from EUR 480,-" },
+  { name: "Order & style", scope: "Decluttering followed by the design of one room", audience: "Private", price: "from EUR 800,-" },
+  { name: "Business compact", scope: "Assessment, office design and team workshop bundled", audience: "Business", price: "from EUR 960,-" },
 ];
 
 const de: Content = {
