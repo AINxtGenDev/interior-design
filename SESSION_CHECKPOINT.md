@@ -41,7 +41,7 @@
   Danach im bestehenden Gmail-basierten Workspace-Konto die Custom-Email-Einrichtung fortsetzen; bei erneutem Fehler Supportfall **76454656** eskalieren.
   **Ab 27.10.2026 kostenpflichtig:** Starter Flexibel, 1 Nutzer, 8,10 €/Monat zzgl. anwendbarer Steuern. Vorher Status prüfen.
 
-## Video: nur Style-Guide-Schriftschnitte + Version 2.4 (2026-11-01, Nutzerauftrag „within the video use only the textstyle from STYLE GUIDE.pdf“) — committet, Live-Prüfung folgt
+## Video: nur Style-Guide-Schriftschnitte + Version 2.4 (2026-11-01, Nutzerauftrag „within the video use only the textstyle from STYLE GUIDE.pdf“) — **LIVE** (`83cd5ec`, Deploy `41311537316` success; live Version 2.4, `vorstellung.mp4` MD5 `d3cef9a1…` = lokal, `video::cue`-Regel im Live-CSS)
 
 - Style Guide „TYPOGRAFIE“: Manrope Bold (Headlines), Manrope Regular (Fließtext & Untertitel), Montserrat Regular (Akzente & Zitate).
 - Abweichung gefunden: **Manrope Medium (500)** in Frame 1 (3 Zeilen), Frame 2 (Echo dieser Zeilen), Frame 5 (Schritt-Beschreibungen)
