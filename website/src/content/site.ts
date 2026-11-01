@@ -396,7 +396,7 @@ const de: Content = {
     principles: [
       "Diskretion — was ich in Ihrer Wohnung sehe, bleibt dort.",
       "Kein Urteil — es wird sortiert, nicht bewertet.",
-      "Ihre Kriterien — ich entscheide nichts über Ihren Besitz.",
+      "Ihre Kriterien — ich entscheide nicht über Ihren Besitz.",
       "Nachhaltig — ein System, das Sie ohne mich halten können.",
     ],
     credentials: {
@@ -451,7 +451,7 @@ const de: Content = {
       },
       {
         q: "Muss ich mich von vielen Dingen trennen?",
-        a: "Nein. Sie entscheiden, was bleibt — es wird sortiert, nicht bewertet, und ich entscheide nichts über Ihren Besitz.",
+        a: "Nein. Sie entscheiden, was bleibt — es wird sortiert, nicht bewertet, und ich entscheide nicht über Ihren Besitz.",
       },
       {
         q: "Muss ich neue Möbel kaufen?",
