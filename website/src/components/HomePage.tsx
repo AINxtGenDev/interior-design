@@ -235,8 +235,9 @@ export default function HomePage({ locale }: { locale: Locale }) {
             </div>
 
             {/* The "Anwendungsbeispiele" grid of the style-guide slide. German
-                shows the client's collage ("Bild Projekte.png"), whose tiles
-                are baked in; English rebuilds it with live-text tiles. */}
+                shows the client's collage ("projekte_homepage_final.png"), whose
+                tiles are baked in; English rebuilds it with live-text tiles in
+                the same style (Manrope Bold, sage-dark / sage-soft). */}
             {c.projects.collageAlt ? (
               <div className="relative">
                 {/* eslint-disable-next-line @next/next/no-img-element -- srcset; see BrandLogo */}
@@ -256,7 +257,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
             ) : (
               <div className="relative">
                 <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                  <p className="flex aspect-square items-end bg-sage-dark p-4 font-[family-name:var(--font-accent)] text-[clamp(1rem,0.85rem+0.8vw,1.5rem)] leading-snug text-white sm:p-6">
+                  <p className="flex aspect-square items-end bg-sage-dark p-4 text-[clamp(1rem,0.85rem+0.8vw,1.5rem)] leading-snug font-bold text-white sm:p-6">
                     {c.projects.tiles[0]}
                   </p>
                   <Image
@@ -271,9 +272,9 @@ export default function HomePage({ locale }: { locale: Locale }) {
                     sizes="(min-width: 1024px) 300px, 50vw"
                     className="aspect-square h-full w-full object-cover"
                   />
-                  {/* Slide 5 sets this tile in tracked capitals; below 640 px a
+                  {/* The collage sets this tile in bold capitals; below 640 px a
                       tile is ~110 px wide and "ORGANISATION" would not fit. */}
-                  <p className="flex aspect-square flex-col items-center justify-center bg-blush-soft p-4 text-center font-[family-name:var(--font-accent)] text-[clamp(1rem,0.85rem+0.6vw,1.25rem)] leading-snug text-anthrazit-dark sm:p-6 sm:tracking-[0.12em] sm:uppercase">
+                  <p className="flex aspect-square flex-col items-center justify-center bg-sage-soft p-4 text-center text-[clamp(1rem,0.85rem+0.6vw,1.25rem)] leading-snug font-bold text-anthrazit-dark sm:p-6 sm:tracking-[0.02em] sm:uppercase">
                     {c.projects.tiles[1]}
                     <span aria-hidden="true" className="rule mt-3 w-10 bg-anthrazit-dark" />
                   </p>

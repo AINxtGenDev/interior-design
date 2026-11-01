@@ -5,7 +5,8 @@ Inputs (repo root, supplied by the client):
     Titelbild_Homepage_final.png
                             1947x808 RGB, homepage title image (2026-11-01)
     Titelbild Handy.png     637x1063, phone version of it (change deck 8.10.26, slide 2)
-    Bild Projekte.png       1254x1254, Projekte collage with the German tiles (2026-10-09)
+    projekte_homepage_final.png
+                            1254x1254, Projekte collage with the German tiles (2026-11-01)
     KI-generiertes Bild – Minimalistisches Siegel.png
                             1285x1224 RGBA, "KI-generiert" seal (change deck 16.10.26)
     KI-generiertes Video-Siegel.png
@@ -320,7 +321,7 @@ def main() -> None:
     build_ai_badge(Image.open(ROOT / "KI-generiertes Bild – Minimalistisches Siegel.png").convert("RGBA"))
     build_ai_badge(Image.open(ROOT / "KI-generiertes Video-Siegel.png").convert("RGB"), "ai-video-badge")
     build_portrait(Image.open(ROOT / "Foto Homepage über mich.png").convert("RGB"))
-    build_projects(Image.open(ROOT / "Bild Projekte.png").convert("RGB"))
+    build_projects(Image.open(ROOT / "projekte_homepage_final.png").convert("RGB"))
     build_icons(logo)
     build_og(logo, heroes)
 
