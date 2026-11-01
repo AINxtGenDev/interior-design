@@ -41,7 +41,7 @@
   Danach im bestehenden Gmail-basierten Workspace-Konto die Custom-Email-Einrichtung fortsetzen; bei erneutem Fehler Supportfall **76454656** eskalieren.
   **Ab 27.10.2026 kostenpflichtig:** Starter Flexibel, 1 Nutzer, 8,10 €/Monat zzgl. anwendbarer Steuern. Vorher Status prüfen.
 
-## Titelbild-Headlines in Manrope Bold + Version 2.1 (2026-11-01, Nutzerauftrag: „same textstyle as the German one“, Style-Guide-Screenshot „Manrope Bold – Headlines“, „auch am Handy/Tablet“) — committet, Live-Prüfung folgt
+## Titelbild-Headlines in Manrope Bold + Version 2.1 (2026-11-01, Nutzerauftrag: „same textstyle as the German one“, Style-Guide-Screenshot „Manrope Bold – Headlines“, „auch am Handy/Tablet“) — **LIVE** (`3b82e70`, Deploy `41309328494` success; live `/` + `/en/`: Version 2.1, alle 12 Hero-WebPs 200 = lokaler Build)
 
 - Alle vier Headlines (Titelbild DE+EN, Handybild DE+EN) werden jetzt vom Build entfernt (Inpaint) und in **Manrope Bold (700)**
   neu gesetzt — gleiche Schrift wie Website-Überschriften. Vorher: EN in Hanken Grotesk (wirkte dünner als DE), Handy noch Serifen.
