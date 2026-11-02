@@ -41,7 +41,7 @@
   Danach im bestehenden Gmail-basierten Workspace-Konto die Custom-Email-Einrichtung fortsetzen; bei erneutem Fehler Supportfall **76454656** eskalieren.
   **Ab 27.10.2026 kostenpflichtig:** Starter Flexibel, 1 Nutzer, 8,10 €/Monat zzgl. anwendbarer Steuern. Vorher Status prüfen.
 
-## Word-Vorlagen Angebot + Rechnung, DE + EN (2026-11-02, Nutzerauftrag „business proposal and invoicing Microsoft Word templates in German and English … use subagents, one critical“) — committet, nicht Teil der Website
+## Word-Vorlagen Angebot + Rechnung, DE + EN (2026-11-02, Nutzerauftrag „business proposal and invoicing Microsoft Word templates in German and English … use subagents, one critical“) — committet + nach `main` gemerged (`f44cb23`, Deploy `41407970333` success; Live-Website unverändert Version 2.5, `/vorlagen/` = 404 wie gewollt)
 
 - `vorlagen/`: `Angebot_DE.dotx`, `Proposal_EN.dotx`, `Rechnung_DE.dotx`, `Invoice_EN.dotx` (A4, echte .dotx), `LIESMICH.txt` (Bedienung), `fonts/` (Manrope Regular/Bold, Montserrat Regular statisch + OFL), `vorschau/` (PDF + PNG), `build/build_vorlagen.py` (ein Skript für alle vier, schreibt OOXML direkt) + `build/render_vorschau.sh`.
 - Neu bauen: `uv run --with fonttools --with brotli --with pillow python vorlagen/build/build_vorlagen.py`; Vorschau: `vorlagen/build/render_vorschau.sh` (LibreOffice aus Docker-Image `stirlingtools/stirling-pdf`, kein lokales LibreOffice).
@@ -51,7 +51,8 @@
 - Geprüft: validate.py alle 4 PASSED; Content-Type `template.main+xml`; pdffonts nur Manrope/Montserrat (Angebote zusätzlich DejaVu nur für ☐ im LibreOffice-Render, Word nimmt MS Gothic); Seiten 2/2/1/1; Stresstest Rechnung 6 Positionen = 1 Seite (DE+EN), Angebot 5 Positionen = 2 Seiten. Rebuild reproduzierbar (nur core.xml-Zeitstempel + Font-Obfuskierung ändern sich).
 - **Nicht getestet in echtem Microsoft Word** (nur LibreOffice). Offene Word-Risiken: keepNext letzte Positionszeile → Summen (LibreOffice ignoriert es, bei 9+ Positionen stehen Summen dort allein auf Seite 2); Checkbox-Schrift am Mac; customXml-Bindung geht bei „Dokumentprüfung → Benutzerdefinierte XML-Daten entfernen“ verloren.
 - **Mit Claudia klären:** Bei Verträgen außerhalb der Geschäftsräume (bei Kund:innen zu Hause) müssen Widerrufsbelehrung + Muster-Widerrufsformular vermutlich vorab auf Papier/dauerhaftem Datenträger übergeben werden (FAGG; nicht verifiziert). Vorlage hat nur Platzhalterzeile „[Widerrufsbelehrung und Muster-Widerrufsformular liegen bei.]“.
-- Nächste Schritte: Vorlagen in Word (Windows/Mac) öffnen und Probe-Angebot/-Rechnung erstellen; IBAN eintragen; FAGG-Punkt klären.
+- **Einsatzbereitschaft (Stand 2026-11-02):** Angebote verwendbar; Rechnungen erst nach Eintragen der IBAN/BIC/Bank. Keine der vier Vorlagen in echtem Word geprüft. An Kund:innen immer als PDF senden (eingebettete Schriften nur in Desktop-Word).
+- Nächste Schritte: (1) IBAN vom Nutzer erhalten → Skript-Konstanten setzen, neu bauen, Vorschau prüfen, committen. (2) Probe-Angebot/-Rechnung in Word (Windows + Mac): Platzhalter, Folgeseiten-Kopf mit Nr./Kunde, Checkbox, Tab = neue Zeile, Layout vs. PDF-Vorschau. (3) FAGG-Punkt (Widerrufsbelehrung + Muster-Formular) mit Claudia klären.
 
 ## Video-Poster: Headline in Manrope Bold + Version 2.5 (2026-11-01, Nutzerauftrag per Handy-Screenshot 14-37-19 „the textstyle beginning with the first image is wrong“) — **LIVE** (`e636e25`, Deploy `41312285472` success; live `/` + `/en/` Version 2.5, Poster SHA-256 `6adfceab…` = lokal)
 
