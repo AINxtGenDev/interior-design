@@ -1,0 +1,52 @@
+Vorlagen – Mag. Claudia Plessl
+==============================
+
+Inhalt
+  Angebot_DE.dotx, Proposal_EN.dotx   Angebot / Proposal
+  Rechnung_DE.dotx, Invoice_EN.dotx   Rechnung / Invoice
+  vorschau/                           PDF-Vorschau jeder Vorlage
+  fonts/                              Schriften Manrope und Montserrat (SIL Open Font License 1.1)
+  build/                              Erzeugungsskript (nur für Änderungen an Layout oder Bankdaten)
+
+Öffnen
+  - Doppelklick auf eine .dotx öffnet ein NEUES Dokument auf Basis der Vorlage.
+    So für jedes Angebot und jede Rechnung arbeiten; die Vorlage bleibt unverändert.
+  - Rechtsklick → Öffnen öffnet die Vorlage SELBST zum Bearbeiten (z. B. für die Bankdaten).
+  - Am Mac: in Word über Datei → Öffnen die .dotx wählen, um die Vorlage selbst zu bearbeiten.
+
+Versand
+  An Kundinnen und Kunden immer als PDF senden (Datei → Speichern unter → PDF).
+  Word im Web, iPad, Pages und Google Docs ersetzen die Schriften.
+
+Schriften
+  Manrope und Montserrat sind in den Vorlagen eingebettet, die Dokumente sehen also auch
+  auf Rechnern ohne diese Schriften richtig aus. Optional die Dateien in fonts/ per
+  Doppelklick → Installieren einrichten.
+
+Bankverbindung (IBAN, BIC, Bank) – einmalig eintragen
+  Variante A: In build/build_vorlagen.py ganz oben BANK_IBAN, BANK_BIC und BANK_NAME
+              eintragen und das Skript erneut ausführen (Befehl im Kopf des Skripts).
+              Alle Rechnungsvorlagen enthalten dann die Daten.
+  Variante B: Rechnung_DE.dotx und Invoice_EN.dotx je einmal mit Rechtsklick → Öffnen
+              öffnen, die Felder „[IBAN eintragen]“ usw. ausfüllen und speichern.
+              Ein späterer Lauf des Skripts überschreibt das – dann Variante A nutzen.
+
+Ausfüllen
+  - Graue Texte in eckigen Klammern sind Eingabefelder: anklicken und überschreiben.
+    Datumsfelder öffnen einen Kalender, das Kästchen in der Auftragsbestätigung per Klick.
+  - Verknüpfte Felder werden nur einmal eingegeben und erscheinen automatisch an den
+    anderen Stellen: Angebots- bzw. Rechnungsnummer, Kundenname (erste Adresszeile),
+    „Gültig bis“, „Fällig am“ und der Gesamtbetrag (Kopfzeile ab Seite 2,
+    Konditionen, Zahlungshinweis, Auftragsbestätigung).
+    Achtung: Datei → Informationen → Auf Probleme überprüfen → Dokument prüfen →
+    „Benutzerdefinierte XML-Daten“ entfernen löst diese Verknüpfung.
+  - Neue Position: in der letzten Zelle der Positionstabelle die Tabulatortaste drücken;
+    die Positionsnummer zählt automatisch weiter.
+  - Beträge und Summen werden von Hand eingetragen (keine automatische Berechnung).
+  - Nicht benötigte optionale Zeilen löschen, damit nichts Graues gedruckt wird:
+      Rechnung: Kundennummer, Zu Angebot Nr., Ihre UID-Nr. (nur bei Unternehmen mit
+                Rechnungsbetrag über EUR 10.000,-), Projekt, Zeile „Abzüglich Anzahlung“
+      Angebot:  Projektort, Hinweis auf nicht enthaltene Leistungen, Anzahlung,
+                Fahrtkosten, Hinweis auf beiliegende Widerrufsbelehrung
+    Zeilen im Info-Block oben rechts sind einfache Absätze; Tabellenzeilen über
+    Rechtsklick → Löschen → Zeilen löschen entfernen.
